@@ -434,7 +434,7 @@ class Module:
 
     def function_bounds(self):
         starts = sorted(o for o in set(self.kind) | set(self.names)
-                        if o in self.insns and self.name_of(o) and not self.name_of(o).startswith("loc_"))
+                        if o in self.insns and self.name_of(o) and not self.name_of(o).startswith("loc_") and "." not in self.name_of(o))
         return list(zip(starts, starts[1:] + [self.size]))
 
     def rom_word(self, off):
@@ -903,7 +903,7 @@ class Module:
         best = None
         for o in set(self.kind) | set(self.names):
             k = self.kind.get(o)
-            if o <= off and (k in ("sub", "ret") or o in self.names) and (best is None or o > best):
+            if o <= off and (k in ("sub", "ret") or (o in self.names and "." not in self.names[o])) and (best is None or o > best):
                 best = o
         return self.name_of(best) if best is not None else "?"
 
