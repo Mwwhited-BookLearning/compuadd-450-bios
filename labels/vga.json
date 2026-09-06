@@ -1,0 +1,1781 @@
+{
+ "entries": [
+  "0003",
+  "0C61",
+  "0CE9",
+  "0CFA",
+  "0D34",
+  "0FAB",
+  "14EF",
+  "1CC1",
+  "1D84",
+  "2228",
+  "23A2",
+  "2665",
+  "2BFF",
+  "2C02",
+  "2C44",
+  "47DD",
+  "47F2",
+  "4807",
+  "481C",
+  "4831",
+  "4846",
+  "4958",
+  "49D9"
+ ],
+ "labels": {
+  "0000": {
+   "name": "rom_header",
+   "comment": "55AA option ROM signature, size 40h*512 = 32 KB"
+  },
+  "0003": {
+   "name": "vga_init_entry",
+   "comment": "Option-ROM init entry (called far by system BIOS during POST)"
+  },
+  "2C44": {
+   "name": "int10_handler",
+   "comment": "INT 10h video services entry installed by init (also INT 6Dh, the VGA private copy of INT 10h)."
+  },
+  "267D": {
+   "name": "vga_init_main",
+   "comment": "Option ROM init body: unlock C&T extension regs (3D6h idx 6Fh), INT 15h AX=5F34h platform hook, detect warm boot (40:72=1234h), set BDA video fields, install vectors, set default mode."
+  },
+  "297C": {
+   "name": "install_far_vector",
+   "comment": "ES:DI -> IVT slot; stores AX (offset) then BX (segment)."
+  },
+  "2677": {
+   "name": "segment_words_2677",
+   "comment": "0000 (BDA via DS=0 style) and A000h."
+  },
+  "2679": {
+   "name": "seg_word_2",
+   "comment": "Segment word used for the second vector group (see 2968)."
+  },
+  "019E": {
+   "name": "video_save_ptr_table",
+   "comment": "EGA/VGA SAVE_PTR table, address stored at 40:A8 (points to parameter tables, palette, font override)."
+  },
+  "017D": {
+   "name": "config_flags_17D",
+   "comment": "Feature/configuration flag bytes tested by init (bit 6 at 17D, bit 4 at 17F)."
+  },
+  "0AF3": {
+   "name": "mode_entry_table_0AF3",
+   "comment": "4-byte records per mode (flags byte, panel byte, pointer to the 64-byte parameter block in mode_parameter_tables); pairs of records exist for modes that have a flat-panel variant (panel_mode_check_advance_di). Followed at 0B4B by (register, value) lists for the C&T extension registers."
+  },
+  "44C0": {
+   "name": "int10_11_font_dispatch",
+   "comment": "INT 10h AH=11h (character generator) dispatch: 25 near pointers indexed by AL low nibble | (AL bits 4-5 >> 1): 00-04 load fonts, 10-14 load and reprogram the CRTC for the new height, 20-24 set the INT 1Fh/43h pointers, 30 get font information."
+  },
+  "2C08": {
+   "name": "int10_dispatch_table",
+   "comment": "29 near pointers for INT 10h AH=00h..1Ch. AH>=1Dh goes to the C&T extension handler (sub_206A) or chains to INT 42h (system BIOS video)."
+  },
+  "206A": {
+   "name": "int10_5F_dispatch",
+   "comment": "C&T extended functions: AH must be 5Fh; AL=10h is aliased to 03h; maps AL to ct5F_function_table. For indexes < 20 the call is bracketed by a mode save/restore (40:49, sequencer index)."
+  },
+  "5654": {
+   "name": "font_8x8_lo",
+   "comment": "8x8 font, chars 00h-7Fh (INT 43h default at init)."
+  },
+  "5A54": {
+   "name": "font_8x8_hi",
+   "comment": "8x8 font, chars 80h-FFh (installed as INT 1Fh)."
+  },
+  "5E54": {
+   "name": "font_8x14",
+   "comment": "8x14 font, 256 chars (3584 bytes)."
+  },
+  "6C54": {
+   "name": "font_9x14_supplement",
+   "comment": "9-dot alternate glyphs for the 8x14 font (char code + 14 bytes each, 0-terminated)."
+  },
+  "6D64": {
+   "name": "font_8x16",
+   "comment": "8x16 font, 256 chars (4096 bytes)."
+  },
+  "7D64": {
+   "name": "font_9x16_supplement",
+   "comment": "9-dot alternate glyphs for the 8x16 font (char code + 16 bytes each, 0-terminated)."
+  },
+  "2932": {
+   "name": "install_int42_save_sysvideo",
+   "comment": "INT 42h := F000:F065 (system BIOS INT 10h saved for chaining)."
+  },
+  "426A": {
+   "name": "int10_10_dac_dispatch",
+   "comment": "28 near pointers for INT 10h AH=10h AL=00h..1Bh (palette/DAC/overscan functions)."
+  },
+  "471A": {
+   "name": "int10_12_bl30_dispatch",
+   "comment": "7 near pointers for INT 10h AH=12h BL=30h..36h (scan lines, palette load, video enable, gray sum, cursor emulation, display switch, refresh)."
+  },
+  "4753": {
+   "name": "int10_12_bl10_get_ega_info",
+   "comment": "INT 10h AH=12h BL=10h: returns BH = mono/colour (40:487 bit 1), BL = memory size code 3 (256 KB), CH = feature bits, CL = switch settings (40:488)."
+  },
+  "477F": {
+   "name": "int10_12_bl20_alt_prtsc",
+   "comment": "INT 10h AH=12h BL=20h: selects the alternate print-screen routine (IVT 05h := int05_print_screen, which handles more than 25 rows)."
+  },
+  "4CFC": {
+   "name": "int10_1C_state_dispatch",
+   "comment": "3 near pointers for INT 10h AH=1Ch AL=0/1/2 (state buffer size / save / restore)."
+  },
+  "203C": {
+   "name": "ct5F_function_table",
+   "comment": "22 near pointers: AH=5Fh AL=00h..04h at [0..4], AL=50h..5Fh at [4..19], AL=A0h..A2h at [20..22]. Index 4 is shared by AL=04h and AL=50h."
+  },
+  "0F6B": {
+   "name": "ct5F5C_subfn_table",
+   "comment": "18 near pointers for ct5F5C_panel_adjust, indexed by BL."
+  },
+  "112D": {
+   "name": "ct5F5F_subfn_table",
+   "comment": "9 near pointers for ct5F5F_color_mapping."
+  },
+  "202C": {
+   "name": "ct_ext_read",
+   "comment": "AL = C&T extension register index (port 3D6h) -> AH = value; DX left at 3D6h."
+  },
+  "2033": {
+   "name": "ct_ext_read_0F",
+   "comment": "Read C&T extension register 0Fh (panel/CRT status) -> AH."
+  },
+  "23E6": {
+   "name": "ct_ext44_read_panel_type",
+   "comment": "Read extension register 44h; DL = bits 0-1 (panel type), ZF set if 0."
+  },
+  "23F7": {
+   "name": "ct_ext44_write",
+   "comment": "Write AL to extension register 44h."
+  },
+  "508A": {
+   "name": "idx_reg_read_next",
+   "comment": "DX = index port, AL = index: out index, read data from DX+1 -> AH; AL = index+1 (for sequential reads)."
+  },
+  "509E": {
+   "name": "idx_reg_read_word",
+   "comment": "DX = index port, AL = index: out AL, in AX -> AH = value, AL = index."
+  },
+  "50A3": {
+   "name": "ct_ext_read_keep_dx",
+   "comment": "ct_ext_read preserving DX."
+  },
+  "50A9": {
+   "name": "ct_ext_write",
+   "comment": "AL = extension register index, AH = value -> 3D6h/3D7h."
+  },
+  "50D0": {
+   "name": "speaker_beep",
+   "comment": "AL = port 61h gate bits; programs PIT ch2 (43h=B6h) and beeps - used for the init error codes (sub_2A2C) and BEL in teletype."
+  },
+  "52B7": {
+   "name": "screen_off",
+   "comment": "Sequencer clocking-mode register bit 5 := 1 (blank display during reprogramming)."
+  },
+  "52BF": {
+   "name": "screen_on",
+   "comment": "Sequencer clocking-mode register bit 5 := 0."
+  },
+  "52C7": {
+   "name": "seq_clocking_screen_bit",
+   "comment": "CL = bit-5 value for sequencer register 01h (screen off/on)."
+  },
+  "441C": {
+   "name": "attr_reg_read",
+   "comment": "Wait for vertical retrace, then read attribute-controller register BL -> BH (restores index flip-flop)."
+  },
+  "3F6F": {
+   "name": "attr_reg_write",
+   "comment": "Wait for vertical retrace, write attribute-controller register BL := BH, re-enable palette (20h)."
+  },
+  "3F51": {
+   "name": "save_ptr_palette_store",
+   "comment": "If SAVE_PTR (40:A8) has a dynamic palette save area, store BH at offset BL in it."
+  },
+  "4474": {
+   "name": "dac_write_rgb",
+   "comment": "Write one DAC entry: index in AL? (via 3C8h), R/G/B from AH/CH/CL."
+  },
+  "527F": {
+   "name": "dac_read_rgb",
+   "comment": "Read one DAC entry via 3C7h/3C9h -> AH, CH, CL."
+  },
+  "1518": {
+   "name": "get_current_mode",
+   "comment": "AH = 40:49 & 7Fh (current mode without the no-clear bit)."
+  },
+  "1F3F": {
+   "name": "mode_class_flags",
+   "comment": "AH = mode number -> BL class flags for C&T extended modes (14h-5Fh: 45h; 66h+: bit0 graphics, 71h+: bit6 packed, 78h+: bit2); CF/ZF used by callers to pick text/planar/packed code paths."
+  },
+  "17E2": {
+   "name": "find_mode_record",
+   "comment": "AL = mode -> search mode_list (count at 0ADC, bytes at 0ADD); ZF=1 if found, DI = index*4 into mode_records (0AF3)."
+  },
+  "181B": {
+   "name": "get_mode_param_ptr",
+   "comment": "SI = pointer to the mode's parameter table (word at mode_records+2)."
+  },
+  "180E": {
+   "name": "get_mode_flag_byte",
+   "comment": "AL = first byte of the mode record (memory model/flags)."
+  },
+  "0ADC": {
+   "name": "mode_number_list",
+   "comment": "Count byte then the mode numbers handled by find_mode_record (standard and C&T extended modes); index -> 4-byte record in mode_entry_table_0AF3."
+  },
+  "0C46": {
+   "name": "panel_active_check",
+   "comment": "ZF from extension register 51h bit 2 (flat panel enabled)."
+  },
+  "0C5D": {
+   "name": "crt_panel_present_check",
+   "comment": "Reads extension register 06h (when config 17F bit 5) to determine CRT/panel presence; returns comparison flags."
+  },
+  "2E8C": {
+   "name": "call_int15_5F_hook",
+   "comment": "AX = 5F33h/5F34h/5F38h: platform hook into the system BIOS INT 15h AH=5Fh handler (mode change notifications for the panel controller)."
+  },
+  "2D54": {
+   "name": "set_mode_body",
+   "comment": "Mode set implementation: loads the mode parameter table (CRTC, sequencer, graphics, attribute), fonts and BDA fields."
+  },
+  "5635": {
+   "name": "check_mode_load_es",
+   "comment": "Validates the current mode for the calling service and loads ES from the caller frame; ZF=1 means 'not applicable' (used by 10h/11h/13h/1Bh/1Ch)."
+  },
+  "4B19": {
+   "name": "get_display_combination",
+   "comment": "CL/CH = active/alternate display combination codes for INT 10h 1Ah."
+  },
+  "4D6C": {
+   "name": "state_buffer_size",
+   "comment": "CX = requested state components (bits 0-2) -> AX = buffer size in 64-byte blocks (INT 10h 1Ch AL=0, 5FA0h)."
+  },
+  "4D82": {
+   "name": "save_video_state",
+   "comment": "INT 10h 1Ch AL=1 for CX=2 (BIOS data area only)."
+  },
+  "4EFC": {
+   "name": "restore_video_state",
+   "comment": "INT 10h 1Ch AL=2 for CX=2."
+  },
+  "215E": {
+   "name": "save_hardware_state",
+   "comment": "INT 10h 1Ch save of video hardware registers (+ DAC when CX bit 2)."
+  },
+  "224E": {
+   "name": "restore_hardware_state",
+   "comment": "INT 10h 1Ch restore of video hardware registers."
+  },
+  "4124": {
+   "name": "cga_pixel_address",
+   "comment": "CGA modes 4-6: ES=B800h, DI = 40h*(DY/2) + (DX/2 or /4) + 2000h for odd rows; AH = pixel mask, CL = shift (2 bpp or 1 bpp)."
+  },
+  "3B9A": {
+   "name": "text_cell_address",
+   "comment": "BH = page, DX = row/col -> ES:DI address of the character cell in text memory."
+  },
+  "394A": {
+   "name": "read_char_attr_body",
+   "comment": "AH=08h implementation: text modes read the word directly; CGA modes reverse-match the glyph rows against the font (sub_3B5F); planar via 1D43; mode 13h via 3ADD."
+  },
+  "34C8": {
+   "name": "scroll_text",
+   "comment": "Text-mode scroll: row-by-row `rep movsw` then `rep stosw` of blank cells with attribute BH; waits for CGA retrace on real CGA (40:87 bit 2). DF set for scroll-down."
+  },
+  "35D2": {
+   "name": "scroll_cga",
+   "comment": "Graphics scroll for CGA modes 4-6: moves both 2000h-interleaved banks with movsw/movsb, 140h bytes per row, 4 or 8 scan lines per text row."
+  },
+  "374E": {
+   "name": "scroll_planar",
+   "comment": "Graphics scroll for planar modes (0Dh-12h and extended): write mode 1 (GC 05h=01h) copies latches with `rep movsb` through all planes at once, then fills the vacated rows via set/reset (GC 00h/01h) with `rep stosb`."
+  },
+  "3856": {
+   "name": "scroll_mode13_down",
+   "comment": "Mode 13h scroll-down entry (DF set, start at last row)."
+  },
+  "3884": {
+   "name": "scroll_mode13",
+   "comment": "Mode 13h (256-colour packed) scroll: 8 bytes per character column, `rep movsw` per text row, fill with attribute byte in AL and AH."
+  },
+  "3CDA": {
+   "name": "write_char_cga",
+   "comment": "CGA graphics modes: glyph from INT 43h (or INT 1Fh for chars 80h-FFh), 8 rows split across the two interleaved banks; XOR when BL bit 7 (3D3E), colour expansion via planar_char_row_write for 2 bpp (3D5B)."
+  },
+  "3D81": {
+   "name": "write_char_planar",
+   "comment": "Planar modes: address = page base + row*bytes_per_char_row + col; GC 00h set/reset = colour, GC 01h enable set/reset = ~colour bits, optional XOR via GC 03h=18h; sequencer map mask 0Fh; then one `movsb` per glyph row with DI += bytes/row (loops at 3DE6/3E0F)."
+  },
+  "3E25": {
+   "name": "write_char_mode13",
+   "comment": "Mode 13h: expands each glyph row bit by bit into 8 bytes (BL foreground, BH background), 138h skip to the next scan line."
+  },
+  "3E7F": {
+   "name": "planar_char_row_write",
+   "comment": "Expands one 8-pixel glyph row into a 16-bit 2-bpp pattern with colour BH and stores (or XORs when BL bit 7) it at ES:DI."
+  },
+  "3E04": {
+   "name": "write_char_planar_xor",
+   "comment": "XOR variant of the planar glyph loop (GC data-rotate function = XOR)."
+  },
+  "4008": {
+   "name": "write_pixel_planar",
+   "comment": "Planar modes: DI = y*bytes_per_row + x/8 (+ page*44Ch), GC 00h set/reset = colour, 01h enable = 0Fh, 08h bitmask = 80h>>(x&7); read-modify-write `or [bx],al` latches the plane data; XOR mode via GC 03h = 18h. Restores GC 00h/01h/08h afterwards."
+  },
+  "4058": {
+   "name": "write_pixel_page_offset",
+   "comment": "Adds BH pages of 40:4C page size before the planar pixel write."
+  },
+  "4078": {
+   "name": "read_pixel_mode13",
+   "comment": "Mode 13h: AL = byte at A000:(y*140h + x)."
+  },
+  "4098": {
+   "name": "read_pixel_cga",
+   "comment": "CGA modes 4-6: cga_pixel_address, mask and shift the pixel bits."
+  },
+  "40D4": {
+   "name": "read_pixel_planar",
+   "comment": "Planar modes: GC 04h read-map-select 3..0, read the byte for each plane, collect the pixel bit into CL."
+  },
+  "3F94": {
+   "name": "write_pixel_mode13",
+   "comment": "Mode 13h: byte store at A000:(y*140h + x) (also handles XOR when AL bit 7)."
+  },
+  "3FB8": {
+   "name": "write_pixel_cga",
+   "comment": "CGA modes 4-6: cga_pixel_address, then mask/shift/OR or XOR the pixel bits."
+  },
+  "20C3": {
+   "name": "ct5F_unsupported",
+   "comment": "AL := FFh (function not supported)."
+  },
+  "20C6": {
+   "name": "ct5F00_get_controller_info",
+   "comment": "Returns AL=5Fh, BL = extension register 00h (chip/version ID), BH = ext 04h & 3 (video memory size code), CX = 0114h (BIOS version 1.14), DX = 0, AH = 1."
+  },
+  "20F2": {
+   "name": "ct5F02_set_display_type",
+   "comment": "BH = FFh: sub_12E1 (auto/default); BH = 2..7: sub_16B3 (select panel/CRT combination)."
+  },
+  "0D51": {
+   "name": "ct5F03_get_display_config",
+   "comment": "Returns BX/CX/DX/SI/DI describing the current display configuration (sub_0D6B: panel size class from ext 0Fh, CRTC 01h width, row height), AX = 015Fh."
+  },
+  "0DB3": {
+   "name": "ct5F04_get_panel_info",
+   "comment": "Returns BX = panel width (cs:01D6), CX = panel height (cs:01D8), DL flags: bit0 panel type, bit1 CRT present, bit2 ext 61h/63h bit7, bit3 ...; DH flags from ext 0Fh/57h. Also serves AL=50h."
+  },
+  "0E28": {
+   "name": "ct5F51_select_display_device",
+   "comment": "BL = 0 CRT / 1 LCD / 2 both: rewrites extension register 1Fh bits 0-1 and reprograms the current mode (screen off, CRTC/panel timing reload, gray-scale mapping) then screen on. Skipped if 1Fh bit 3 (locked)."
+  },
+  "0F27": {
+   "name": "ct5F53_nop",
+   "comment": "Returns success only."
+  },
+  "0F2D": {
+   "name": "ct5F54_nop",
+   "comment": "Returns success only."
+  },
+  "0F33": {
+   "name": "ct5F5A_set_ext61_bit7",
+   "comment": "Sets bit 7 of extension register 61h (or 63h depending on sequencer 04h memory mode) from BL bit 0 - panel-related enable (best guess: backlight/panel power)."
+  },
+  "0F62": {
+   "name": "ct5F5B_nop",
+   "comment": "Returns AL=5Fh, AH=0."
+  },
+  "0F8F": {
+   "name": "ct5F5C_panel_adjust",
+   "comment": "BL = 0..11h selects a panel geometry adjustment through ct5F5C_subfn_table (text/graphics stretching, vertical compensation, horizontal centering via extension registers 51h/57h/58h/59h/5Ah/24h)."
+  },
+  "11AC": {
+   "name": "ct5F5D_nop",
+   "comment": "Returns success only."
+  },
+  "11B1": {
+   "name": "ct5F5E_set_video_polarity",
+   "comment": "BL=0/1: normal/reverse video (ext 59h bit 7, 0Fh bit 7, 57h bit 2); BL=2/3: ext 57h bit 1; BL=4/5: sub_141A/sub_140C. Matches SETUP 'Normal / Reverse'."
+  },
+  "113F": {
+   "name": "ct5F5F_color_mapping",
+   "comment": "BL = 0..7 (0Fh -> 8) via ct5F5F_subfn_table: gray-scale / colour mapping controls in extension registers 55h/56h (SETUP 'MaxContrast / SmartMap')."
+  },
+  "2126": {
+   "name": "ct5FA0_get_state_size",
+   "comment": "CX = components -> AX = save buffer size (same as INT 10h 1Ch AL=0)."
+  },
+  "213E": {
+   "name": "ct5FA1_save_restore_state",
+   "comment": "Extended save/restore entry (continues into the 1Ch code)."
+  },
+  "0FFE": {
+   "name": "panel_adjust_text_stretch",
+   "comment": "BL 0..3: extension register 57h bits 0-1 (text mode vertical stretching), then 51h bit 6."
+  },
+  "1032": {
+   "name": "panel_adjust_center",
+   "comment": "BL 4..5: horizontal/vertical centering offsets in ext 59h/58h."
+  },
+  "1075": {
+   "name": "panel_adjust_ext24_5A",
+   "comment": "BL 6/0Ah: extension registers 24h or 5Ah low nibble := DL."
+  },
+  "1093": {
+   "name": "panel_adjust_ext57_bits",
+   "comment": "BL 0Ch/0Eh: clear ext 57h bit 2 or 5 and read 0Fh."
+  },
+  "10ED": {
+   "name": "panel_adjust_mode_bits",
+   "comment": "Common tail: ext 57h masked (9Eh/E2h) | BH, then ext 51h bit 6 := CH."
+  },
+  "1107": {
+   "name": "panel_adjust_enable_panel",
+   "comment": "ext 44h bit 4 := 1, then INT 10h AX=5F5Eh BL=0 (normal video)."
+  },
+  "111A": {
+   "name": "panel_adjust_disable_panel",
+   "comment": "ext 44h bit 4 := 0, then INT 10h AX=5F5Eh BL=1."
+  },
+  "12E1": {
+   "name": "set_default_display",
+   "comment": "Best guess: restore the display device selection to the CMOS/default choice."
+  },
+  "16B3": {
+   "name": "set_display_device_bh",
+   "comment": "Best guess: select panel/CRT combination given in BH/BL."
+  },
+  "2A2C": {
+   "name": "init_error_beep_code",
+   "comment": "AL = error code (3 = DAC test failed, 4 = video memory test failed): beeps the code with speaker_beep."
+  },
+  "0C8C": {
+   "name": "video_memory_test",
+   "comment": "Init-time video RAM test."
+  },
+  "2E12": {
+   "name": "set_mode_internal",
+   "comment": "Mode set used by init (AL = mode, AH = 40:88 value)."
+  },
+  "4501": {
+   "name": "int10_11_packed_dispatch",
+   "comment": "INT 10h AH=11h: packs AL (low nibble | bits 4-5 >> 1) and jumps through int10_11_font_dispatch (25 entries)."
+  },
+  "5099": {
+   "name": "idx_reg_read_byte",
+   "comment": "DX = index port, AL = index -> AL = data (from DX+1)."
+  },
+  "0005": {
+   "name": "rom_header_text",
+   "comment": "'7400000000...' header/version text after the option ROM signature."
+  },
+  "0047": {
+   "name": "mode_parameter_tables",
+   "comment": "Video mode parameter blocks (64 bytes each: columns, rows, character height, page size, sequencer 1-4, misc output, CRTC 0-18h, attribute 0-13h, graphics 0-8) for the standard and C&T extended modes; 0047-08BE."
+  },
+  "08BE": {
+   "name": "dac_palette_tables",
+   "comment": "Default DAC palettes (FF 00 3F 3F ... 64-entry blocks)."
+  },
+  "1758": {
+   "name": "crtc_table_1758",
+   "comment": "Register table (39 45 2C 16 13 13 2C 45 58 16 3F 62 ...)."
+  },
+  "46C0": {
+   "name": "font_pointer_table",
+   "comment": "Near pointers to the fonts: 5E54, 5654, 5A54, 6C54, 6D64, 7D64."
+  },
+  "4794": {
+   "name": "int10_12_ext_dispatch",
+   "comment": "12 near pointers (47E2 47DD 47D8 47F2 480C 4807 4821 481C 4836 4831 484B 4846) for the extended INT 10h 12h sub-functions."
+  },
+  "48AB": {
+   "name": "int10_12_bl3x_dispatch",
+   "comment": "4 near pointers for AL = 0..3: 48CE, 48CD (ret), 48C6, 490A."
+  },
+  "48C6": {
+   "name": "int10_12_sub_2",
+   "comment": "test 40:89 bit 6 ..."
+  },
+  "4B48": {
+   "name": "table_4B48",
+   "comment": "Word table 0010 x4, 0004 x2, 0002 ... (plane/colour masks, best guess)."
+  },
+  "5116": {
+   "name": "supported_mode_list",
+   "comment": "Mode numbers 00-0E, 11, 12, 1A, 1B, 1C ... supported by this ROM."
+  },
+  "0CE9": {
+   "name": "mode_set_flags_fragment",
+   "comment": "test bl,10h / bl,08h -> 40:89 |= 06h (mode-set flag handling)."
+  },
+  "14EF": {
+   "name": "ct_xr15_read_check",
+   "comment": "C&T XR15 read, compares AH with 18h."
+  },
+  "2228": {
+   "name": "int10_5F_fragment_2228",
+   "comment": "[bp+10] := 5Fh; CX & 8007h ... (extended function return path)."
+  },
+  "2665": {
+   "name": "ct_xr10_xr11_write",
+   "comment": "C&T extension registers XR10 := BL, XR11 := BH (3D6h/3D7h)."
+  },
+  "0C93": {
+   "name": "mode_set_xr0F_bits",
+   "comment": "40:489 &= F9h, then XR0F bits 2-3 cleared (panel/CRT mode bits) as part of the mode set."
+  },
+  "0D3A": {
+   "name": "display_device_set_both",
+   "comment": "Sets the CRT output (BH=3, from CH) and the panel output (BH=2, from CL) through display_device_query_hook / set_display_device_bh."
+  },
+  "0D6B": {
+   "name": "ct5F03_config_build",
+   "comment": "Builds the INT 10h 5F03h reply: XR0F bits 0-1 select the entry size (8/16) in the configuration table at 0196h."
+  },
+  "0EE6": {
+   "name": "crtc_load_from_table",
+   "comment": "CRTC 11h := 0 (unlock), then CX CRTC registers from ES:[SI+AX] in index order."
+  },
+  "0EFC": {
+   "name": "gc06_graphics_bit_test",
+   "comment": "ZF = !(GC 06h bit 0) - text vs graphics memory map."
+  },
+  "0F0B": {
+   "name": "xr6C_xr04_adjust",
+   "comment": "XR6C bit 1 -> XR04 bit 5 (clock / interlace select, best guess)."
+  },
+  "0FAB": {
+   "name": "mono_text_mode_fixup",
+   "comment": "ROM flag 0194h bit 6 and mode 3 or 7: text_mode_panel_adjust."
+  },
+  "0FC8": {
+   "name": "text_mode_panel_adjust",
+   "comment": "Panel-specific CRTC/XR adjustments for the text modes (uses the current mode number)."
+  },
+  "102B": {
+   "name": "panel_adjust_mode_bits_3D6",
+   "comment": "CH := 0, DX := 3D6h, joins panel_adjust_mode_bits at 101F."
+  },
+  "10AD": {
+   "name": "panel_mode_bits_05",
+   "comment": "panel_adjust_mode_bits with BH=05h."
+  },
+  "10B1": {
+   "name": "panel_mode_bits_0D",
+   "comment": "BH=0Dh."
+  },
+  "10B5": {
+   "name": "panel_mode_15_or_ext8",
+   "comment": "Graphics memory map + XR0F bit 7 -> extended mode 8 (ext_mode_set_8_or_9), else panel_adjust_mode_bits BH=15h."
+  },
+  "10CE": {
+   "name": "panel_mode_1D_or_ext9",
+   "comment": "Same with extended mode 9 / BH=1Dh."
+  },
+  "10E7": {
+   "name": "panel_mode_bits_21",
+   "comment": "BH=21h."
+  },
+  "10EB": {
+   "name": "panel_mode_bits_61",
+   "comment": "BH=61h."
+  },
+  "115E": {
+   "name": "xr55_clear_bits_by_bl",
+   "comment": "XR55 &= FEh / FBh / DFh depending on BL (panel line-count class)."
+  },
+  "1179": {
+   "name": "xr56_write_dl",
+   "comment": "XR56 := DL."
+  },
+  "1183": {
+   "name": "xr55_set_by_class",
+   "comment": "XR55 |= 03h/05h/21h/01h by BL class."
+  },
+  "1234": {
+   "name": "xr0F_bit7_test",
+   "comment": "ZF clear when XR0F bit 7 is set (extended-mode flag)."
+  },
+  "1241": {
+   "name": "panel_lines_class",
+   "comment": "BH := 0 for panels up to 480 lines (ROM word 01D8h), 1 up to 768, else 3."
+  },
+  "1258": {
+   "name": "xr24_xr57_panel_program",
+   "comment": "XR24 := 14h/12h/1Dh/1Fh by panel class, then panel_adjust_mode_bits (BH=15h for extended mode 8, else 1Dh)."
+  },
+  "1292": {
+   "name": "gc06_graphics_test",
+   "comment": "ZF = !(GC 06h bit 0)."
+  },
+  "129D": {
+   "name": "xr57_set_22_xr59_xr5A",
+   "comment": "XR57 |= 22h; for non-480 panels XR59 |= 80h; XR5A := 01h/04h."
+  },
+  "12C3": {
+   "name": "xr57_clear_20_xr5A_0",
+   "comment": "XR57 &= DFh; XR5A := 0."
+  },
+  "1302": {
+   "name": "mode_set_panel_regs",
+   "comment": "Panel register programming for the new mode (xr28 bits, centering, expansion)."
+  },
+  "13D9": {
+   "name": "mode_set_256color_fix",
+   "comment": "For 256-colour modes (mode flag 20h): GC 05h := 40h, CRTC 13h halved, CRTC 0Ch/0Dh := FFh, ATC 13h := 07h."
+  },
+  "140C": {
+   "name": "xr57_set_bit5",
+   "comment": "XR57 |= 20h (panel expansion / centering bit, best guess)."
+  },
+  "141A": {
+   "name": "xr57_clear_bit5",
+   "comment": "XR57 &= DFh."
+  },
+  "1428": {
+   "name": "xr57_clear_bit2",
+   "comment": "XR57 &= FBh."
+  },
+  "1432": {
+   "name": "mode_60_61_check",
+   "comment": "Special handling for modes 60h/61h."
+  },
+  "1462": {
+   "name": "mode_set_panel_type_check",
+   "comment": "xr06_program_by_mode, then when the panel is active and XR44 bit 7 is clear display_device_set_both."
+  },
+  "1475": {
+   "name": "xr06_program_by_mode",
+   "comment": "XR06 bits 2-3 by mode (40h/41h/...)."
+  },
+  "14FC": {
+   "name": "xr0B_program_by_mode",
+   "comment": "XR0B bit 4 by mode range (20h-5Fh)."
+  },
+  "1526": {
+   "name": "panel_regs_from_table",
+   "comment": "ROM flag 0194h bit 5 and panel active: loads the panel register list selected by panel_regs_table_by_type."
+  },
+  "1573": {
+   "name": "panel_type_class_from_xr28",
+   "comment": "AL := 2 (XR28 bit 4), 4 (mode >= 6Ah), 1 (mode 0Dh) ... panel timing class."
+  },
+  "15B9": {
+   "name": "xr2D_program_panel",
+   "comment": "ROM flag 0194h bit 4: XR2D := 51h/55h/53h by class and CRT presence."
+  },
+  "15DA": {
+   "name": "display_device_query_hook",
+   "comment": "INT 15h AX=5F39h hook with the current mode, then table 0188h lookup - asks the system BIOS which display is wanted."
+  },
+  "1652": {
+   "name": "mode_set_int15_5F39_hook",
+   "comment": "Calls INT 15h 5F39h for the new mode and picks the ROM default (0182h/0184h) when the hook does not answer."
+  },
+  "170C": {
+   "name": "xr33_program",
+   "comment": "XR33 bit 5 set when CH = 3."
+  },
+  "1858": {
+   "name": "nop_push_pop_1858",
+   "comment": "push ax; xor ax,ax; pop ax; ret (hook placeholder)."
+  },
+  "185D": {
+   "name": "bank_regs_save_set",
+   "comment": "Saves XR10/XR11 (bank) and XR0B into [bp+1..3] and sets XR0B bit 2 from BL bit 2 (linear/bank addressing)."
+  },
+  "188B": {
+   "name": "bank_regs_restore",
+   "comment": "XR0B/XR10/XR11 := [bp+1..3]."
+  },
+  "1D8E": {
+   "name": "linear_addr_from_cursor",
+   "comment": "Row AH x columns x bytes-per-char-row (40:485) + column AL -> bank BL / offset SI for the extended modes (CL = bytes/pixel shift)."
+  },
+  "1DE3": {
+   "name": "page_linear_addr",
+   "comment": "ES := A000h; cursor of page BH -> linear_addr_from_cursor."
+  },
+  "1DF8": {
+   "name": "pixel_addr_8bpp",
+   "comment": "Row DX x columns x 8 + CX -> bank (xr10_write_bl) and offset BX."
+  },
+  "1E2A": {
+   "name": "pixel_addr_1bpp",
+   "comment": "BX>>3 + row DX x columns -> bank/offset for monochrome extended modes."
+  },
+  "1E64": {
+   "name": "xr10_write_bl",
+   "comment": "Bank register XR10 := BL."
+  },
+  "1E71": {
+   "name": "xr10_xr11_write",
+   "comment": "XR10 := BL, XR11 := BH."
+  },
+  "1F6F": {
+   "name": "xr28_read_clear_bit5",
+   "comment": "BH := XR28 & DFh, CH := 1."
+  },
+  "1F7E": {
+   "name": "xr28_write_mode_bits",
+   "comment": "XR28 := BH with bit 4 set for modes 30h-5Fh and >77h; XR19 := CH when the panel is active."
+  },
+  "1FA7": {
+   "name": "xr28_bit5_cond",
+   "comment": "CH := 4Ch, BH |= 20h when CF was set."
+  },
+  "1FAF": {
+   "name": "panel_mode_check_advance_di",
+   "comment": "mode_needs_panel_check; when true skips 4 table bytes (DI += 4) and returns CF."
+  },
+  "1FC3": {
+   "name": "mode_needs_panel_check",
+   "comment": "CF=1 when XR0F bit 6 is clear, the mode is in mode_in_panel_list and the panel is active."
+  },
+  "1FE1": {
+   "name": "mode_in_panel_list",
+   "comment": "ZF for modes 24h, 34h, 72h, 75h, 74h, 7Eh."
+  },
+  "1FF8": {
+   "name": "xr06_set_by_bl",
+   "comment": "XR06 low bits := 0/6/4 by BL."
+  },
+  "22F6": {
+   "name": "xr05_program_from_bx",
+   "comment": "XR05 bits 3-4 := (BX>>4) & 0Fh shifted, bit 5 cleared (clock select)."
+  },
+  "232C": {
+   "name": "panel_regs_table_1DB_and_beep",
+   "comment": "Loads the register list at 01DBh (ct_regs_load_list) and beeps 50 ticks."
+  },
+  "23A5": {
+   "name": "panel_config_table_select",
+   "comment": "XR6C bit 9 and XR0F bits 0-1 select the panel configuration list at 01E7h."
+  },
+  "2404": {
+   "name": "xr6C_bit9_test",
+   "comment": "ZF = !(XR6C bit 9) - panel/CRT configuration bit."
+  },
+  "2411": {
+   "name": "mode_40_41_50_check",
+   "comment": "ZF for the extended modes 40h/41h/50h."
+  },
+  "2426": {
+   "name": "mode_table_select_wrap",
+   "comment": "BX preserved wrapper of mode_table_select_1E1_1ED."
+  },
+  "242C": {
+   "name": "mode_table_select_1E1_1ED",
+   "comment": "Register list at 01E1h (AL & 7 == 0) or 01EDh (AL == 0), else index AL x 6."
+  },
+  "2458": {
+   "name": "panel_regs_table_by_type",
+   "comment": "XR44 panel type -> list 020Bh (CRT) / 0205h (panel) with a per-type offset from word 0211h; no panel -> 01F3h/01F9h."
+  },
+  "2492": {
+   "name": "ct_regs_load_list",
+   "comment": "Screen off, CX (index, value) words from CS:SI written to 3D6h, screen on."
+  },
+  "24A5": {
+   "name": "init_set_default_mode",
+   "comment": "ROM byte 019Bh bit 7: sets the default mode (bits 0-6) with INT 10h AH=0 unless already active."
+  },
+  "24CE": {
+   "name": "init_option_flags_check",
+   "comment": "ROM byte 017Eh bit 7 -> reads port 85h bit 1 (jumper via DMA page register 85h); byte 017Bh bit 4 ..."
+  },
+  "253B": {
+   "name": "print_string_cs_si_teletype",
+   "comment": "INT 10h AH=0Eh BL=7 for each byte at CS:SI until NUL."
+  },
+  "254B": {
+   "name": "vram_test_setup",
+   "comment": "Frame with bank_regs_save_set; GC 02h := FFh, XR0B := 01h ... prepares the video-memory test."
+  },
+  "25EF": {
+   "name": "vram_bank_test_scan",
+   "comment": "Writes 0..15 through bank BL (xr10_write_bl_b) and verifies (also through bank BH)."
+  },
+  "2610": {
+   "name": "bank_regs_save_set_b",
+   "comment": "Same as bank_regs_save_set (second copy)."
+  },
+  "263E": {
+   "name": "bank_regs_restore_b",
+   "comment": "XR0B/XR10/XR11 := [bp+1..3] (second copy of bank_regs_restore)."
+  },
+  "2658": {
+   "name": "xr10_write_bl_b",
+   "comment": "XR10 := BL (second copy)."
+  },
+  "28DB": {
+   "name": "vram_test_prepare",
+   "comment": "mode_param_ptr_for_al, mode_regs_program_all, ES := A000h, GC 05h := 08h, GC 02h/SEQ 02h := 0Fh, DAC mask := 0, SI := 1000h."
+  },
+  "2902": {
+   "name": "vga_enable_46E8_3C3",
+   "comment": "Unless XR70 == 80h: enables the adapter through 46E8h/3C3h (setup mode) with interrupts off."
+  },
+  "2981": {
+   "name": "detect_crt_mono_color",
+   "comment": "ROM flag 017Fh bit 4 or CRTC probes at 3B4h/3D4h (crtc_reg_probe): sets misc output 23h/A6h, 40:463, 40:410 bits 4-5, 40:487 bit 1, 40:489 bit 0."
+  },
+  "29E4": {
+   "name": "crtc_reg_probe",
+   "comment": "Writes/reads CRTC 0Eh with several values at DX to detect a CRTC."
+  },
+  "2A11": {
+   "name": "mode_control_3D8_3B8_disable",
+   "comment": "Screen off, then CGA/MDA mode control 3D8h := 0 / 3B8h := 1 (legacy adapters off)."
+  },
+  "2A29": {
+   "name": "ret_al_0",
+   "comment": "AL := 0; ret."
+  },
+  "2A55": {
+   "name": "vram_test_pattern_fill",
+   "comment": "GC setup and FFh/00h fill pattern at ES:DI for the memory test."
+  },
+  "2A78": {
+   "name": "vram_plane_test",
+   "comment": "For each plane (GC 02h map mask, all planes when ROM 017Fh bit 3): fills SI bytes twice with FFh/00h and verifies; ZF on success."
+  },
+  "2AB1": {
+   "name": "wait_display_enable_toggle",
+   "comment": "Waits for 3xAh bit 0 to go 1 then 0 (FFh in AL on timeout)."
+  },
+  "2AC7": {
+   "name": "wait_vsync_toggle",
+   "comment": "Waits for 3xAh bit 3 to go 1 then 0 with retries."
+  },
+  "2AEA": {
+   "name": "mono_mode_flag_check",
+   "comment": "40:489 bit 0 (mono) handling before the mode set."
+  },
+  "2BBB": {
+   "name": "mode_index_by_adapter_type",
+   "comment": "40:487 bit 1 and 40:489 bit 0 -> table 2BB7h (initial mode number by adapter type)."
+  },
+  "2C02": {
+   "name": "nop_push_pop_2C02",
+   "comment": "push ax; xor ax,ax; pop ax; ret (hook placeholder)."
+  },
+  "2EAC": {
+   "name": "ext_mode_set_8_or_9",
+   "comment": "Extended mode handling for [bp+10] = 8/9 through the mode list (save_area_ptr_lookup_mode_list) and font selection."
+  },
+  "2EDD": {
+   "name": "int10_00_mode_check_same",
+   "comment": "Compares the requested mode with 40:449 and the adapter flags before re-programming."
+  },
+  "3003": {
+   "name": "save_area_pointer_init",
+   "comment": "Sets the INT 1Fh/43h font pointers (0:10C := 5654h 8x8 font) and the save-area pointer 40:A8."
+  },
+  "303D": {
+   "name": "save_area_ptr_setup",
+   "comment": "Writes the video parameter / save-area pointer table entries (font 5654h for modes > 13h)."
+  },
+  "30E5": {
+   "name": "save_area_copy_entry4",
+   "comment": "Copies 17 bytes of the entry at save-area pointer 4 into ES:BX (alternate table)."
+  },
+  "3102": {
+   "name": "save_area_ptr_lookup_mode_list",
+   "comment": "save_area_ptr_get, then mode_in_list_es_bx for the current mode; AL := FFh when not listed."
+  },
+  "310A": {
+   "name": "mode_in_list_es_bx",
+   "comment": "Searches the FFh-terminated mode list at ES:[BX+AX] for the current mode 40:449."
+  },
+  "3123": {
+   "name": "alpha_font_override_load",
+   "comment": "Loads the user alphanumeric font described by the save-area entry (count, start, pointer, segment, height) via attr_packed_dispatch AL=10h and sets 40:484 rows."
+  },
+  "3152": {
+   "name": "user_font_check_height",
+   "comment": "Compares the entry's height with 40:485 before loading."
+  },
+  "319E": {
+   "name": "default_font_select_by_height",
+   "comment": "AL := 1 (8x14) when 40:485 == 14, 2 (8x8) when 8, else 8x16."
+  },
+  "31C7": {
+   "name": "font_height_from_table",
+   "comment": "40:484 := rows-1 from the table entry."
+  },
+  "31EE": {
+   "name": "save_area_ptr_4_user_palette",
+   "comment": "Follows save-area pointer 10h (user palette profile) if present."
+  },
+  "3285": {
+   "name": "vram_clear_size",
+   "comment": "CX := 4000h words (or per mode) for clearing video memory."
+  },
+  "32DA": {
+   "name": "save_area_ptr_get",
+   "comment": "LES DI, 40:A8 (video save pointer table); LES BX, [DI+BX]; ZF when the entry is null."
+  },
+  "32F8": {
+   "name": "int10_01_cursor_shape_body",
+   "comment": "Cursor shape with the 40:487 bit 3 emulation handling."
+  },
+  "3B5F": {
+   "name": "expand_byte_to_pixels",
+   "comment": "Doubles/expands a font byte into pixel words for the 8x8 graphics character writer."
+  },
+  "3B74": {
+   "name": "find_glyph_in_font",
+   "comment": "Compares the 8-byte glyph at SI with DX glyphs at ES:DI; DI := glyph index on match."
+  },
+  "423F": {
+   "name": "beep_3_short",
+   "comment": "Three short beeps (speaker_beep AL=3)."
+  },
+  "445D": {
+   "name": "wait_vsync_then_5281",
+   "comment": "Waits for vertical retrace (3xAh bit 3) then continues at 5281."
+  },
+  "447B": {
+   "name": "dac_rgb_gray_scale",
+   "comment": "Gray-scale summing: R x 30% + G x 59% + B x 11% (weights at 446Eh/4470h)."
+  },
+  "4710": {
+   "name": "es_cs_dx0_cx100",
+   "comment": "ES := CS, DX := 0, CX := 256 (palette block preparation)."
+  },
+  "47DD": {
+   "name": "scanline_sel_0_flag",
+   "comment": "INT 10h AH=12h BL=30h scan-line selection variant: 40:489 |= 80h then scanline_sel_0"
+  },
+  "47E2": {
+   "name": "scanline_sel_0",
+   "comment": "INT 10h AH=12h BL=30h scan-line selection variant: 40:489 &= EFh; 40:488 low nibble := 8 (200 lines)"
+  },
+  "47F2": {
+   "name": "scanline_sel_1",
+   "comment": "INT 10h AH=12h BL=30h scan-line selection variant: 40:489 |= 80h, &= EFh; 40:488 nibble := 0Bh"
+  },
+  "4807": {
+   "name": "scanline_sel_2_flag",
+   "comment": "INT 10h AH=12h BL=30h scan-line selection variant: 40:489 &= 7Fh then scanline_sel_2"
+  },
+  "480C": {
+   "name": "scanline_sel_2",
+   "comment": "INT 10h AH=12h BL=30h scan-line selection variant: 40:489 &= EFh; 40:488 nibble := 9 (350 lines)"
+  },
+  "481C": {
+   "name": "scanline_sel_3_flag",
+   "comment": "INT 10h AH=12h BL=30h scan-line selection variant: "
+  },
+  "4821": {
+   "name": "scanline_sel_3",
+   "comment": "INT 10h AH=12h BL=30h scan-line selection variant: 40:488 nibble := 0Bh"
+  },
+  "4831": {
+   "name": "scanline_sel_4_flag",
+   "comment": "INT 10h AH=12h BL=30h scan-line selection variant: "
+  },
+  "4836": {
+   "name": "scanline_sel_4",
+   "comment": "INT 10h AH=12h BL=30h scan-line selection variant: 40:489 |= 10h (400 lines); 40:488 nibble := 9"
+  },
+  "4846": {
+   "name": "scanline_sel_5_flag",
+   "comment": "INT 10h AH=12h BL=30h scan-line selection variant: "
+  },
+  "484B": {
+   "name": "scanline_sel_5",
+   "comment": "INT 10h AH=12h BL=30h scan-line selection variant: 40:489 |= 10h; 40:488 nibble := 0Bh"
+  },
+  "4958": {
+   "name": "int05_print_screen",
+   "comment": "INT 05h handler: 40:500 status byte (1 = busy, FFh = error), reads every character with INT 10h AH=08h and prints it through print_screen_char_int17, CR/LF per row."
+  },
+  "49D9": {
+   "name": "print_screen_char_int17",
+   "comment": "INT 17h AH=0 LPT1; CL := FFh on error status (25h mask)."
+  },
+  "4DD0": {
+   "name": "save_video_state_regs",
+   "comment": "INT 10h AH=1Ch: sequencer, misc output, CRTC, ATC, GC and DAC registers to ES:DI."
+  },
+  "4ECA": {
+   "name": "save_video_bda_state",
+   "comment": "40:410 & 30h, 40:449-466 (15 words), 40:484-48A (7 bytes) to ES:DI."
+  },
+  "4F68": {
+   "name": "font_plane2_access_open",
+   "comment": "SEQ 04h := 06h, GC 05h := 0, 06h := 05h, 08h := FFh - map plane 2 for font access."
+  },
+  "5025": {
+   "name": "restore_video_bda_state",
+   "comment": "Reverse of save_video_bda_state (40:410 bits 4-5 merged)."
+  },
+  "50B0": {
+   "name": "atc_enable_video",
+   "comment": "ATC := 20h (video on)."
+  },
+  "50B6": {
+   "name": "atc_index_0_screen_off",
+   "comment": "ATC := 00h (palette access, video off)."
+  },
+  "50BC": {
+   "name": "atc_write_al_after_3xA",
+   "comment": "Reads 3xAh to reset the ATC flip-flop, writes AL to 3C0h, reads 3xAh again."
+  },
+  "5152": {
+   "name": "mode_table_group_select",
+   "comment": "CX := 0/1/2 (VGA 400-line / EGA 350 / CGA 200 tables) from 40:489 bit 4 and 40:488 low nibble."
+  },
+  "5176": {
+   "name": "mode_param_ptr_current",
+   "comment": "mode_param_ptr_for_al with AL := 40:449."
+  },
+  "5179": {
+   "name": "mode_param_ptr_for_al",
+   "comment": "ES:SI := 64-byte mode parameter block for mode AL: from the ROM lists at 5116h (three 14h-byte lists chosen by mode_table_group_select, index = 40h x entry) plus the user override from save-area pointer 0, or from get_mode_param_ptr for modes > 13h."
+  },
+  "51B2": {
+   "name": "mode_regs_program_all",
+   "comment": "Screen off, mode_regs_program_seq_misc_crtc, xr57_clear_bit2, mode_set_256color_fix, screen on."
+  },
+  "51C6": {
+   "name": "mode_regs_program_seq_misc_crtc",
+   "comment": "Writes SEQ 01h-04h, misc output 3C2h (sets 40:463 to 3B4h/3D4h), CRTC 00h-18h, ATC 00h-13h and GC 00h-08h from the parameter block at ES:SI."
+  },
+  "529C": {
+   "name": "dac_write_entry",
+   "comment": "DAC index BL (3C8h), R := AH, G := CH, B := CL (3C9h)."
+  },
+  "52E1": {
+   "name": "dac_clear_all",
+   "comment": "256 DAC entries := 0 with the screen off."
+  },
+  "52F7": {
+   "name": "dac_default_load",
+   "comment": "Loads the default palette unless 40:489 bit 3 (palette loading disabled)."
+  },
+  "5431": {
+   "name": "dac_load_run_list",
+   "comment": "Table-driven default DAC palette: (count/flags, values) runs; DL bit 3/4 select the 16-colour / 64-colour parts."
+  },
+  "5451": {
+   "name": "dac_load_run",
+   "comment": "One run of the palette table through dac_write_entry."
+  },
+  "547C": {
+   "name": "dac_load_gray_runs",
+   "comment": "Gray ramp: R=G=B from the table."
+  },
+  "5491": {
+   "name": "dac_ega_color_map",
+   "comment": "EGA 6-bit colour (rgbRGB) -> DAC R/G/B through the table at CS:SI."
+  },
+  "54DB": {
+   "name": "font_load_to_plane2",
+   "comment": "INT 10h AH=11h font load: screen off, SEQ 02h := 04h, SEQ 04h := 07h, GC for plane 2, copies the glyphs (font_copy_rows), restores."
+  },
+  "558A": {
+   "name": "font_copy_rows",
+   "comment": "For CX glyphs: BH bytes from DS:SI to ES:DI, DI += DX (32-byte glyph slots)."
+  },
+  "5597": {
+   "name": "font_9dot_patch_load",
+   "comment": "For 9-dot text (BL bits 6-7, XR55 bit 2 clear): overwrites the glyphs listed at 6C54h (8x14) or 7D64h (8x16) - characters whose 9th column must repeat the 8th (box-drawing set)."
+  },
+  "55E5": {
+   "name": "font_block_addr",
+   "comment": "DI := A000 offset of font block BL (0-7, 8 KB blocks interleaved) + DX x 32."
+  },
+  "5610": {
+   "name": "font_plane2_access_close",
+   "comment": "SEQ 02h := 03h, SEQ 04h := 03h, GC 04h := 0, 05h := 10h, 06h := 0Eh - back to text-mode plane mapping."
+  },
+  "47D8": {
+   "name": "scanline_sel_0_pre",
+   "comment": "Entry 2 of int10_12_ext_dispatch: falls into scanline_sel_0_flag."
+  },
+  "48CD": {
+   "name": "ret_48CD",
+   "comment": "ret (dispatch placeholder)."
+  },
+  "48CE": {
+   "name": "int10_12_3x_sub_0",
+   "comment": "Sub-function 0 of the int10_12_bl3x_dispatch group: 40:489 bit 6 handling."
+  },
+  "490A": {
+   "name": "int10_12_3x_sub_3",
+   "comment": "Sub-function 3 of the int10_12_bl3x_dispatch group."
+  },
+  "0C61": {
+   "name": "mode_set_frag_0C61",
+   "comment": "push ax/dx; call; jz - fragment of the mode-set path."
+  },
+  "0D34": {
+   "name": "mode_set_frag_0D34",
+   "comment": "call 2028h; push bx; jmp - fragment inside the 5Fh display-configuration path."
+  },
+  "1CC1": {
+   "name": "frame_call_tail_1CC1",
+   "comment": "mov bp,sp; call ...; add sp,4; pop bp; ret (tail of a frame-using pixel routine)."
+  },
+  "1D84": {
+   "name": "frame_call_tail_1D84",
+   "comment": "mov bp,sp; call; add sp,4; pop bp; ret - tail of a frame-using pixel routine (second copy)."
+  },
+  "211E": {
+   "name": "table_211E",
+   "comment": "02 04 04 05 0F 10 10 11."
+  },
+  "2CB6": {
+   "name": "table_2CB6",
+   "comment": "2C 28 2D 29 2A 2E 1E 29 - INT 10h dispatch helper bytes."
+  },
+  "446E": {
+   "name": "dac_gray_weights",
+   "comment": "2666h, 4B85h, 0E14h = 0.30 / 0.59 / 0.11 x 8000h for gray-scale summing."
+  },
+  "4D64": {
+   "name": "table_4D64",
+   "comment": "00 02 02 03 0D 0E 0E 0F - mode to font/scan-line class."
+  },
+  "0B4B": {
+   "name": "ct_ext_reg_lists",
+   "comment": "(XR index, value) byte pairs terminated by 00 00: per-mode/panel extension-register settings (e.g. 44h 10h, 45h 00h, 4Fh 04h, 58h 00h, 59h 84h...)."
+  },
+  "0C2A": {
+   "name": "str_evaluation_use_only",
+   "comment": "'For Evaluation Use Only.\\r\\n' - the C&T BIOS build is marked as an evaluation release."
+  },
+  "0CFA": {
+   "name": "mode_set_frag_0CFA",
+   "comment": "test bl,08h; jne - unreached remnant of the mode-set flag handling."
+  },
+  "23A2": {
+   "name": "push_pop_si_ret",
+   "comment": "push si; pop si; ret (hook placeholder)."
+  },
+  "2BFF": {
+   "name": "xor_al_ret_stub",
+   "comment": "xor al,al; ret."
+  },
+  "2BB7": {
+   "name": "initial_mode_table",
+   "comment": "0Ch 0Bh 0Eh 0Dh - initial mode number by adapter type (mode_index_by_adapter_type)."
+  },
+  "2068": {
+   "name": "word_2068",
+   "comment": "2228h - pointer constant (int10_5F fragment)."
+  },
+  "468A": {
+   "name": "table_468A",
+   "comment": "0Dh 18h 2Ah - character heights / offsets used by the palette code."
+  },
+  "7FFF": {
+   "name": "rom_checksum_byte",
+   "comment": "D7h - makes the 32 KB video ROM sum to zero (8-bit)."
+  }
+ },
+ "data": [
+  [
+   "0000",
+   "0003",
+   "option ROM header"
+  ],
+  [
+   "5654",
+   "5A54",
+   "8x8 font lo"
+  ],
+  [
+   "5A54",
+   "5E54",
+   "8x8 font hi"
+  ],
+  [
+   "5E54",
+   "6C54",
+   "8x14 font"
+  ],
+  [
+   "6C54",
+   "6D64",
+   "9x14 supplement"
+  ],
+  [
+   "6D64",
+   "7D64",
+   "8x16 font"
+  ],
+  [
+   "7D64",
+   "7FFF",
+   "9x16 supplement / padding"
+  ],
+  [
+   "0ADC",
+   "0AF3",
+   "mode list"
+  ],
+  [
+   "08BE",
+   "0ADC",
+   "dac_palette_tables"
+  ],
+  [
+   "1758",
+   "17E2",
+   "crtc_table_1758"
+  ],
+  [
+   "46C0",
+   "46CC",
+   "font_pointer_table"
+  ],
+  [
+   "4B48",
+   "4B84",
+   "table_4B48"
+  ],
+  [
+   "5116",
+   "5152",
+   "supported_mode_list"
+  ],
+  [
+   "0047",
+   "08BE",
+   "mode_parameter_tables (64-byte blocks)"
+  ],
+  [
+   "211E",
+   "2126",
+   "table_211E"
+  ],
+  [
+   "2677",
+   "267D",
+   "segment_words_2677"
+  ],
+  [
+   "2CB6",
+   "2CBE",
+   "table_2CB6"
+  ],
+  [
+   "446E",
+   "4474",
+   "dac_gray_weights"
+  ],
+  [
+   "4D64",
+   "4D6C",
+   "table_4D64"
+  ],
+  [
+   "0ADC",
+   "0AF3",
+   "mode_number_list"
+  ],
+  [
+   "0AF3",
+   "0B4B",
+   "mode_entry_table_0AF3"
+  ],
+  [
+   "0B4B",
+   "0C2A",
+   "ct_ext_reg_lists"
+  ],
+  [
+   "12DF",
+   "12E1",
+   "pad + ret"
+  ],
+  [
+   "2068",
+   "206A",
+   "word_2068"
+  ],
+  [
+   "2893",
+   "2895",
+   "dead mov al,6"
+  ],
+  [
+   "2BB7",
+   "2BBB",
+   "initial_mode_table"
+  ],
+  [
+   "468A",
+   "468D",
+   "table_468A"
+  ],
+  [
+   "55E4",
+   "55E5",
+   "ret pad"
+  ],
+  [
+   "7FFF",
+   "8000",
+   "rom_checksum_byte"
+  ],
+  [
+   "0219",
+   "021C",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "0229",
+   "022A",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "0269",
+   "026A",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "0329",
+   "032A",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "0369",
+   "036A",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "0569",
+   "056A",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "061F",
+   "0620",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "06E9",
+   "06EA",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "0729",
+   "072A",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "07E9",
+   "07EA",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "2C42",
+   "2C44",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "2C81",
+   "2C84",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "2C87",
+   "2C88",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "2C8B",
+   "2C8C",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "32F7",
+   "32F8",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "3396",
+   "3398",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "33CB",
+   "33CC",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "33FD",
+   "3400",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "348F",
+   "3492",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "350C",
+   "350E",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "35D1",
+   "35D2",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "3683",
+   "3686",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "3718",
+   "371A",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "374C",
+   "374E",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "3853",
+   "3856",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "3949",
+   "394A",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "395D",
+   "395E",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "3961",
+   "3962",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "3BC0",
+   "3BC2",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "3BE3",
+   "3BE6",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "3BE9",
+   "3BEA",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "3C6C",
+   "3C6E",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "3FB5",
+   "3FB8",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "3FF3",
+   "3FF4",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "4062",
+   "4064",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "4075",
+   "4078",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "4095",
+   "4098",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "40BF",
+   "40C0",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "4116",
+   "4118",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "4122",
+   "4124",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "415A",
+   "415C",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "4175",
+   "4178",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "4182",
+   "4184",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "4235",
+   "4238",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "49EB",
+   "49EE",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "509D",
+   "509E",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "51B0",
+   "51B2",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "5587",
+   "558A",
+   "alignment pad (nop / xchg bx,bx)"
+  ]
+ ],
+ "strings": [
+  [
+   "0005",
+   "0044"
+  ],
+  [
+   "0C2A",
+   "0C44"
+  ]
+ ],
+ "tables": [
+  {
+   "at": "44C0",
+   "count": 25,
+   "kind": "near_ptr",
+   "name": "int10_11_font_dispatch",
+   "func": true,
+   "items": [
+    "int10_11_00_load_user_font",
+    "int10_11_01_load_8x14",
+    "int10_11_02_load_8x8",
+    "int10_11_03_set_block_specifier",
+    "int10_11_04_load_8x16",
+    "int10_11_unsupported_ret",
+    "int10_11_unsupported_ret",
+    "int10_11_unsupported_ret",
+    "int10_11_10_load_user_font_reprogram",
+    "int10_11_11_load_8x14_reprogram",
+    "int10_11_12_load_8x8_reprogram",
+    "int10_11_unsupported_ret",
+    "int10_11_14_load_8x16_reprogram",
+    "int10_11_unsupported_ret",
+    "int10_11_unsupported_ret",
+    "int10_11_unsupported_ret",
+    "int10_11_20_set_int1F_user_8x8",
+    "int10_11_21_set_int43_user_font",
+    "int10_11_22_set_int43_8x14",
+    "int10_11_23_set_int43_8x8",
+    "int10_11_24_set_int43_8x16",
+    "int10_11_unsupported_ret",
+    "int10_11_unsupported_ret",
+    "int10_11_unsupported_ret",
+    "int10_11_30_get_font_info"
+   ]
+  },
+  {
+   "at": "2C08",
+   "count": 29,
+   "kind": "near_ptr",
+   "name": "int10_dispatch_table",
+   "items": [
+    "int10_00_set_mode",
+    "int10_01_set_cursor_type",
+    "int10_02_set_cursor_pos",
+    "int10_03_get_cursor_pos",
+    "int10_04_read_light_pen",
+    "int10_05_select_page",
+    "int10_06_scroll_up",
+    "int10_07_scroll_down",
+    "int10_08_read_char_attr",
+    "int10_09_write_char_attr",
+    "int10_0A_write_char",
+    "int10_0B_set_palette",
+    "int10_0C_write_pixel",
+    "int10_0D_read_pixel",
+    "int10_0E_teletype",
+    "int10_0F_get_mode",
+    "int10_10_palette_dac",
+    "int10_11_font_services",
+    "int10_12_alt_select",
+    "int10_13_write_string",
+    "int10_14_lcd_loadfont",
+    "int10_15_get_display_info",
+    "int10_16_unsup",
+    "int10_17_unsup",
+    "int10_18_unsup",
+    "int10_19_unsup",
+    "int10_1A_display_combination",
+    "int10_1B_functionality_state",
+    "int10_1C_save_restore_state"
+   ]
+  },
+  {
+   "at": "426A",
+   "count": 28,
+   "kind": "near_ptr",
+   "name": "int10_10_dac_dispatch",
+   "func": true,
+   "items": [
+    "int10_10_00_set_palette_reg",
+    "int10_10_01_set_overscan",
+    "int10_10_02_set_all_palette",
+    "int10_10_03_toggle_blink",
+    "int10_10_unsupported_ret",
+    "int10_10_unsupported_ret",
+    "int10_10_unsupported_ret",
+    "int10_10_07_read_palette_reg",
+    "int10_10_08_read_overscan",
+    "int10_10_09_read_all_palette",
+    "int10_10_unsupported_ret",
+    "int10_10_unsupported_ret",
+    "int10_10_unsupported_ret",
+    "int10_10_unsupported_ret",
+    "int10_10_unsupported_ret",
+    "int10_10_unsupported_ret",
+    "int10_10_10_set_dac_reg",
+    "int10_10_unsupported_ret",
+    "int10_10_12_set_dac_block",
+    "int10_10_13_set_pel_page_mode",
+    "int10_10_unsupported_ret",
+    "int10_10_15_read_dac_reg",
+    "int10_10_unsupported_ret",
+    "int10_10_17_read_dac_block",
+    "int10_10_18_set_pel_mask",
+    "int10_10_19_read_pel_mask",
+    "int10_10_1A_read_pel_page",
+    "int10_10_1B_gray_scale_sum"
+   ]
+  },
+  {
+   "at": "471A",
+   "count": 7,
+   "kind": "near_ptr",
+   "name": "int10_12_bl30_dispatch",
+   "func": true,
+   "items": [
+    "int10_12_30_select_scan_lines",
+    "int10_12_31_default_palette_loading",
+    "int10_12_32_video_enable",
+    "int10_12_33_gray_scale_summing",
+    "int10_12_34_cursor_emulation",
+    "int10_12_35_display_switch",
+    "int10_12_36_screen_refresh"
+   ]
+  },
+  {
+   "at": "4CFC",
+   "count": 3,
+   "kind": "near_ptr",
+   "name": "int10_1C_state_dispatch",
+   "func": true,
+   "items": [
+    "int10_1C_00_state_buffer_size",
+    "int10_1C_01_save_video_state",
+    "int10_1C_02_restore_video_state"
+   ]
+  },
+  {
+   "at": "203C",
+   "count": 22,
+   "kind": "near_ptr",
+   "name": "ct5F_function_table",
+   "items": [
+    "ct5F00_get_controller_info",
+    "ct5F01_unsupported",
+    "ct5F02_set_display_type",
+    "ct5F03_get_display_config",
+    "ct5F04_get_panel_info",
+    "ct5F51_select_display_device",
+    "ct5F52_unsupported",
+    "ct5F53_nop",
+    "ct5F54_nop",
+    "ct5F55_unsup",
+    "ct5F56_unsup",
+    "ct5F57_unsup",
+    "ct5F58_unsup",
+    "ct5F59_unsup",
+    "ct5F5A_set_ext61_bit7",
+    "ct5F5B_nop",
+    "ct5F5C_panel_adjust",
+    "ct5F5D_nop",
+    "ct5F5E_set_video_polarity",
+    "ct5F5F_color_mapping",
+    "ct5FA0_get_state_size",
+    "ct5FA1_save_restore_state"
+   ]
+  },
+  {
+   "at": "0F6B",
+   "count": 18,
+   "kind": "near_ptr",
+   "name": "ct5F5C_subfn_table"
+  },
+  {
+   "at": "112D",
+   "count": 9,
+   "kind": "near_ptr",
+   "name": "ct5F5F_subfn_table"
+  },
+  {
+   "at": "4794",
+   "count": 12,
+   "kind": "near_ptr",
+   "name": "int10_12_ext_dispatch",
+   "func": true
+  },
+  {
+   "at": "48AB",
+   "count": 4,
+   "kind": "near_ptr",
+   "name": "int10_12_bl3x_dispatch",
+   "func": true
+  }
+ ],
+ "linear": []
+}

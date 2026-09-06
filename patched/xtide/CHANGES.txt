@@ -1,0 +1,24 @@
+XTIDE Universal BIOS source in this folder
+==========================================
+
+src/ is the XTIDE Universal BIOS trunk at Subversion revision 638 (the r638 release),
+fetched from https://www.xtideuniversalbios.org/svn/xtideuniversalbios/trunk/ on 2026-09-06:
+the XTIDE_Universal_BIOS and Assembly_Library directories, license.txt (GPL v2) and Copyrights.txt.
+Only these two directories are needed to build the BIOS image; the configurator, serial server
+and tools are not included.
+
+Modifications made for the Compuadd 486 Color Scan 450 build (GPL section 2a notice):
+
+  2026-09-06  XTIDE_Universal_BIOS/Src/Main.asm
+              ROMVARS.bIdeCnt can be set from the command line with -DIDE_CONTROLLER_COUNT=n.
+              The default (2, or 4 for PS/2 builds) is unchanged when the define is absent.
+              The Compuadd build uses 1: the notebook has a single IDE channel at 1F0h/IRQ 14
+              and IRQ 15 belongs to PhoenixMISER, so the 170h controller must not be probed.
+
+Build: tools/build_patched.sh assembles Src/Main.asm with the include directories and the
+DEFINES_386 module set from XTIDE_Universal_BIOS/makefile (the "386" small target), then
+tools/mkxub.py pads the result to 8 KB and writes the option-ROM checksum byte (what the
+project's Tools/checksum.pl does).  Built with NASM 2.16.03 the output differs from the
+published ide_386.bin only in the build date inside the version string and in 36 reg,reg
+instruction encodings where the release's NASM chose the other direction bit; the code is
+functionally identical.

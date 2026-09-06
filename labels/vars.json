@@ -1,0 +1,1273 @@
+{
+ "_doc": [
+  "Named RAM variables and structures used by all three modules. tools/romdis.py resolves every memory operand",
+  "to one of these: it tracks DS/ES per instruction (segment loads inside the function, incoming values agreed by",
+  "all callers, constant segment words read from ROM), converts seg:off to a linear address and looks it up in",
+  "the regions below. Structures are applied to base-register operands ([bp+n], [bx+n]) inside the listed code.",
+  "Names print in the listing comment column as region.name (a trailing ? means the segment was assumed, not",
+  "proven) and become equ symbols in the NASM sources.",
+  "regions: linear start/end (hex), optional 'auto' naming for unnamed offsets ('ivt' = int NNh vector off/seg),",
+  "vars keyed by offset relative to the region start: name, optional size (bytes) and comment."
+ ],
+ "regions": {
+  "ivt": {
+   "start": "00000",
+   "end": "00400",
+   "auto": "ivt",
+   "comment": "interrupt vector table 0000:0000"
+  },
+  "bda": {
+   "start": "00400",
+   "end": "00500",
+   "comment": "BIOS data area 0040:0000 (IBM layout plus Phoenix bytes B5-BF, C0-DF)",
+   "vars": {
+    "00": {
+     "name": "com1_base",
+     "size": 2
+    },
+    "02": {
+     "name": "com2_base",
+     "size": 2
+    },
+    "04": {
+     "name": "com3_base",
+     "size": 2
+    },
+    "06": {
+     "name": "com4_base",
+     "size": 2
+    },
+    "08": {
+     "name": "lpt1_base",
+     "size": 2
+    },
+    "0A": {
+     "name": "lpt2_base",
+     "size": 2
+    },
+    "0C": {
+     "name": "lpt3_base",
+     "size": 2
+    },
+    "0E": {
+     "name": "lpt4_base",
+     "size": 2,
+     "comment": "LPT4 base (EBDA segment on PS/2 machines; this BIOS keeps it as LPT4)"
+    },
+    "10": {
+     "name": "equipment",
+     "size": 2,
+     "comment": "INT 11h equipment word"
+    },
+    "12": {
+     "name": "post_status",
+     "size": 1,
+     "comment": "Phoenix POST status / manufacturing-test byte"
+    },
+    "13": {
+     "name": "memory_size_kb",
+     "size": 2,
+     "comment": "INT 12h base memory in KB"
+    },
+    "15": {
+     "name": "post_error_codes",
+     "size": 2,
+     "comment": "Phoenix: POST error / preset word (ROM option AF46 bit 1)"
+    },
+    "17": {
+     "name": "kbd_flags1",
+     "size": 1,
+     "comment": "shift/ctrl/alt/locks/insert states"
+    },
+    "18": {
+     "name": "kbd_flags2",
+     "size": 1,
+     "comment": "left ctrl/alt, sysreq, pause, scroll/num/caps pressed"
+    },
+    "19": {
+     "name": "alt_numpad_acc",
+     "size": 1
+    },
+    "1A": {
+     "name": "kbd_buf_head",
+     "size": 2
+    },
+    "1C": {
+     "name": "kbd_buf_tail",
+     "size": 2
+    },
+    "1E": {
+     "name": "kbd_buffer",
+     "size": 32,
+     "comment": "16-entry type-ahead buffer (default position)"
+    },
+    "3E": {
+     "name": "floppy_recal_status",
+     "size": 1
+    },
+    "3F": {
+     "name": "floppy_motor_status",
+     "size": 1
+    },
+    "40": {
+     "name": "floppy_motor_timeout",
+     "size": 1
+    },
+    "41": {
+     "name": "floppy_last_status",
+     "size": 1
+    },
+    "42": {
+     "name": "fdc_status_bytes",
+     "size": 7,
+     "comment": "7 result bytes of the last FDC command (shared with the hard-disk status area)"
+    },
+    "49": {
+     "name": "video_mode",
+     "size": 1
+    },
+    "4A": {
+     "name": "video_columns",
+     "size": 2
+    },
+    "4C": {
+     "name": "video_page_size",
+     "size": 2
+    },
+    "4E": {
+     "name": "video_page_offset",
+     "size": 2
+    },
+    "50": {
+     "name": "cursor_pos",
+     "size": 16,
+     "comment": "cursor row/column for the 8 pages"
+    },
+    "60": {
+     "name": "cursor_shape",
+     "size": 2
+    },
+    "62": {
+     "name": "video_page",
+     "size": 1
+    },
+    "63": {
+     "name": "crtc_port",
+     "size": 2,
+     "comment": "3B4h mono / 3D4h colour"
+    },
+    "65": {
+     "name": "video_mode_ctrl",
+     "size": 1,
+     "comment": "3x8h mode control register copy"
+    },
+    "66": {
+     "name": "cga_palette",
+     "size": 1
+    },
+    "67": {
+     "name": "reset_restart_ptr",
+     "size": 4,
+     "comment": "far pointer used after a shutdown-byte reset; also the option-ROM init far call target during the scan"
+    },
+    "6B": {
+     "name": "last_irq_mask",
+     "size": 1
+    },
+    "6C": {
+     "name": "timer_ticks",
+     "size": 4,
+     "comment": "INT 08h tick counter"
+    },
+    "70": {
+     "name": "timer_overflow",
+     "size": 1,
+     "comment": "24-hour rollover flag"
+    },
+    "71": {
+     "name": "ctrl_break_flag",
+     "size": 1
+    },
+    "72": {
+     "name": "reset_flag",
+     "size": 2,
+     "comment": "1234h = warm boot (skip memory test), 4321h = preserve memory, 5678h/9ABCh = suspend/resume paths"
+    },
+    "74": {
+     "name": "hd_last_status",
+     "size": 1
+    },
+    "75": {
+     "name": "hd_count",
+     "size": 1
+    },
+    "76": {
+     "name": "hd_control_byte",
+     "size": 1
+    },
+    "77": {
+     "name": "hd_port_offset",
+     "size": 1
+    },
+    "78": {
+     "name": "lpt_timeouts",
+     "size": 4
+    },
+    "7C": {
+     "name": "com_timeouts",
+     "size": 4
+    },
+    "80": {
+     "name": "kbd_buf_start",
+     "size": 2
+    },
+    "82": {
+     "name": "kbd_buf_end",
+     "size": 2
+    },
+    "84": {
+     "name": "video_rows_minus1",
+     "size": 1
+    },
+    "85": {
+     "name": "char_height",
+     "size": 2
+    },
+    "87": {
+     "name": "video_ctrl_info",
+     "size": 1,
+     "comment": "EGA/VGA: memory size, cursor emulation, active adapter"
+    },
+    "88": {
+     "name": "video_switches",
+     "size": 1
+    },
+    "89": {
+     "name": "video_flags_89",
+     "size": 1,
+     "comment": "VGA: scan lines, default palette loading, grey scale, monochrome"
+    },
+    "8A": {
+     "name": "video_dcc_index",
+     "size": 1
+    },
+    "8B": {
+     "name": "floppy_media_ctrl",
+     "size": 1,
+     "comment": "last data rate / step rate"
+    },
+    "8C": {
+     "name": "hd_status_copy",
+     "size": 1
+    },
+    "8D": {
+     "name": "hd_error_copy",
+     "size": 1
+    },
+    "8E": {
+     "name": "hd_irq_flag",
+     "size": 1,
+     "comment": "FFh when the IRQ 14 handler has run"
+    },
+    "8F": {
+     "name": "floppy_info",
+     "size": 1,
+     "comment": "controller info: drive types determined, 80-track capable"
+    },
+    "90": {
+     "name": "floppy0_media_state",
+     "size": 1
+    },
+    "91": {
+     "name": "floppy1_media_state",
+     "size": 1
+    },
+    "92": {
+     "name": "floppy0_op_state",
+     "size": 1
+    },
+    "93": {
+     "name": "floppy1_op_state",
+     "size": 1
+    },
+    "94": {
+     "name": "floppy0_cylinder",
+     "size": 1
+    },
+    "95": {
+     "name": "floppy1_cylinder",
+     "size": 1
+    },
+    "96": {
+     "name": "kbd_flags3",
+     "size": 1,
+     "comment": "E0/E1 prefix seen, 101-key keyboard, Pause sequence"
+    },
+    "97": {
+     "name": "kbd_led_flags",
+     "size": 1
+    },
+    "98": {
+     "name": "wait_flag_ptr",
+     "size": 4,
+     "comment": "INT 15h 83h/86h user wait flag pointer"
+    },
+    "9C": {
+     "name": "wait_count_us",
+     "size": 4
+    },
+    "A0": {
+     "name": "wait_active_flag",
+     "size": 1
+    },
+    "A1": {
+     "name": "reserved_a1",
+     "size": 7
+    },
+    "A8": {
+     "name": "video_save_ptr",
+     "size": 4,
+     "comment": "EGA/VGA save pointer table"
+    },
+    "AC": {
+     "name": "reserved_ac",
+     "size": 9
+    },
+    "B5": {
+     "name": "phoenix_state",
+     "size": 1,
+     "comment": "bit 0 SETUP active, bit 2 alternate CPU speed active, bits 3-4 cache-control selector, bit 7 cache enabled"
+    },
+    "B6": {
+     "name": "phoenix_flags2",
+     "size": 1,
+     "comment": "bit 0 Quick Boot / resume from suspend, bit 1 SETUP entered as MISER pop-up (hot key), bit 2 power-meter display permitted, bit 6 SETUP saved (MISER re-reads its records), bit 7"
+    },
+    "B7": {
+     "name": "phoenix_b7",
+     "size": 1
+    },
+    "B8": {
+     "name": "phoenix_b8",
+     "size": 1
+    },
+    "B9": {
+     "name": "phoenix_b9",
+     "size": 1,
+     "comment": "read by PhoenixMISER (state byte)"
+    },
+    "BA": {
+     "name": "phoenix_ba",
+     "size": 2
+    },
+    "BC": {
+     "name": "post_scratch",
+     "size": 2,
+     "comment": "POST scratch preserved across the warm reset used to leave protected mode"
+    },
+    "BE": {
+     "name": "poll_counter",
+     "size": 2,
+     "comment": "x 65536 poll loop counter"
+    },
+    "C0": {
+     "name": "user_hd0_params",
+     "size": 16,
+     "comment": "user-defined drive 0 parameter table (type 30h) filled from CMOS 20h-2Fh"
+    },
+    "D0": {
+     "name": "user_hd1_params",
+     "size": 16,
+     "comment": "user-defined drive 1 parameter table (type 31h) filled from CMOS 35h-3Fh"
+    },
+    "E0": {
+     "name": "phoenix_e0",
+     "size": 32
+    }
+   }
+  },
+  "boot_sector": {
+   "start": "07C00",
+   "end": "07E00",
+   "comment": "boot sector load area 0000:7C00",
+   "vars": {
+    "1FE": {
+     "name": "boot_signature",
+     "size": 2
+    }
+   }
+  },
+  "smram_initial": {
+   "start": "30000",
+   "end": "40000",
+   "comment": "SMRAM at the power-up SMBASE 30000h (also visible at 6000:xxxx while chipset reg 103h bit 0 is clear)",
+   "vars": {
+    "8000": {
+     "name": "smi_entry_jmp",
+     "size": 5,
+     "comment": "SMBASE+8000h SMI entry: far jmp to smi_handler_first written by smm_setup"
+    },
+    "FEF8": {
+     "name": "smm_state_save",
+     "size": 264,
+     "comment": "CPU state save map (SMBASE+FE00h..FFFFh) as seen from the initial base"
+    }
+   }
+  },
+  "smram": {
+   "start": "60000",
+   "end": "70000",
+   "comment": "SMRAM at the relocated SMBASE 60000h (6000:xxxx)",
+   "vars": {
+    "8000": {
+     "name": "smi_entry_jmp",
+     "size": 5,
+     "comment": "SMI entry after relocation"
+    },
+    "9000": {
+     "name": "smm_state_template",
+     "size": 512,
+     "comment": "state-save template copied to FE00h by std_rsm_cpu_reset; 91F0h = EIP slot"
+    },
+    "91AC": {
+     "name": "smm_template_91AC",
+     "size": 2
+    },
+    "9600": {
+     "name": "smm_save_9600",
+     "size": 8,
+     "comment": "saved register words used by the SMI handler (best guess)"
+    },
+    "FE00": {
+     "name": "smm_state_save",
+     "size": 512,
+     "comment": "CPU state save map, RSM reloads it"
+    },
+    "01F0": {
+     "name": "smm_template_eip_slot_rel",
+     "size": 2,
+     "comment": "+1F0h inside the 512-byte state template (91F0h = EIP slot), addressed as [si+1F0h]"
+    }
+   }
+  },
+  "popup_scratch": {
+   "start": "C8000",
+   "end": "CD000",
+   "comment": "hidden RAM at C800:0000 used by the MISER pop-up SETUP and the power meter",
+   "vars": {
+    "0000": {
+     "name": "saved_text_top",
+     "size": 800,
+     "comment": "POWER METER: first 800 bytes of text page 0"
+    },
+    "0800": {
+     "name": "video_state_save",
+     "comment": "INT 10h 1C01h save buffer"
+    },
+    "0F00": {
+     "name": "saved_text_page",
+     "size": 4000,
+     "comment": "80x25 text page saved around the pop-up"
+    },
+    "1EA0": {
+     "name": "saved_font_plane2",
+     "comment": "plane 2 glyph rows parked here"
+    }
+   }
+  },
+  "miser_ram": {
+   "start": "DC000",
+   "end": "DF800",
+   "comment": "PhoenixMISER private RAM (DC00:0000..) - the 'private RAM window' opened with chipset regs 200h/207h",
+   "vars": {
+    "0000": {
+     "name": "signature",
+     "size": 2,
+     "comment": "AA55h written by miser_ram_init"
+    },
+    "0002": {
+     "name": "signature2",
+     "size": 1,
+     "comment": "20h"
+    },
+    "000C": {
+     "name": "pm_flags",
+     "size": 2,
+     "comment": "bit 7 PM enabled (APM 08h); bits 8-15 APM event bits (standby/suspend request, resume, battery low)"
+    },
+    "000E": {
+     "name": "pm_flags_0E",
+     "size": 1
+    },
+    "0010": {
+     "name": "saved_int09_vector",
+     "size": 4,
+     "comment": "original IVT entries saved by save_hooked_vectors (activity hooks chain to these)"
+    },
+    "001C": {
+     "name": "saved_int16_vector",
+     "size": 4
+    },
+    "0020": {
+     "name": "saved_int21_vector",
+     "size": 4
+    },
+    "0024": {
+     "name": "saved_int33_vector",
+     "size": 4
+    },
+    "0028": {
+     "name": "chain_int09_vector",
+     "size": 4
+    },
+    "002C": {
+     "name": "chain_int16_vector",
+     "size": 4
+    },
+    "0030": {
+     "name": "chain_int10_vector",
+     "size": 4
+    },
+    "0034": {
+     "name": "chain_int15_vector",
+     "size": 4
+    },
+    "0038": {
+     "name": "chain_int21_vector",
+     "size": 4
+    },
+    "003C": {
+     "name": "chain_int33_vector",
+     "size": 4
+    },
+    "0040": {
+     "name": "api_word_40",
+     "size": 2
+    },
+    "0048": {
+     "name": "disk_table_copy",
+     "size": 64,
+     "comment": "copy of the patched hd_param_table spare entries (F000:E6B1-E6F0), restored after the pop-up"
+    },
+    "0088": {
+     "name": "disk_table_copy_ffec",
+     "size": 4,
+     "comment": "copy of F000:FFEC-FFEF (checksum adjust area)"
+    },
+    "008D": {
+     "name": "pm_state",
+     "size": 1,
+     "comment": "34h once the module is initialised (query_state_34)"
+    },
+    "008E": {
+     "name": "device_records",
+     "size": 120,
+     "comment": "per-device 8-byte records indexed by AL in pm_subfn_dispatch"
+    },
+    "0106": {
+     "name": "activity_counters",
+     "size": 5,
+     "comment": "from config_records (CMOS 43h/44h/46h)"
+    },
+    "010B": {
+     "name": "timeout_fields_0D",
+     "size": 4,
+     "comment": "chipset reg 0Dh timeout fields: System Sleep, Suspend, LCD Dim, ..."
+    },
+    "010F": {
+     "name": "pm_level",
+     "size": 1,
+     "comment": "Power Management setting (CMOS 42h bits 0-1)"
+    },
+    "0110": {
+     "name": "pm_state_flags",
+     "size": 1,
+     "comment": "bit 3 tested by the state dispatcher"
+    },
+    "0111": {
+     "name": "pm_state_flag_111",
+     "size": 1
+    },
+    "0118": {
+     "name": "suspend_saved_ss",
+     "size": 2,
+     "comment": "SS:SP of the caller saved by enter_suspend, restored on resume/abort"
+    },
+    "011A": {
+     "name": "suspend_saved_sp",
+     "size": 2
+    },
+    "011C": {
+     "name": "suspend_entry_byte",
+     "size": 1
+    },
+    "011D": {
+     "name": "suspend_saved_bx",
+     "size": 2
+    },
+    "011F": {
+     "name": "suspend_saved_eax",
+     "size": 4
+    },
+    "0123": {
+     "name": "saved_pic1_mask",
+     "size": 1
+    },
+    "0124": {
+     "name": "saved_pic2_mask",
+     "size": 1
+    },
+    "0125": {
+     "name": "suspend_saved_bl",
+     "size": 1
+    },
+    "028C": {
+     "name": "saved_ivt_2k",
+     "size": 512,
+     "comment": "IVT save area (256 words) used by the suspend path"
+    },
+    "048C": {
+     "name": "saved_48C",
+     "size": 8
+    },
+    "0494": {
+     "name": "std_in_progress",
+     "size": 1,
+     "comment": "set while the save-to-disk / resume sequence runs"
+    },
+    "0495": {
+     "name": "saved_pic1_mask_std",
+     "size": 1
+    },
+    "0496": {
+     "name": "saved_pic2_mask_std",
+     "size": 1
+    },
+    "0497": {
+     "name": "floppy_present",
+     "size": 1,
+     "comment": "equipment word bit 0"
+    },
+    "0498": {
+     "name": "state_498",
+     "size": 1
+    },
+    "04A8": {
+     "name": "floppy_dor_shadow",
+     "size": 2,
+     "comment": "chipset reg 81h (last DOR write)"
+    },
+    "04AA": {
+     "name": "floppy_ccr_shadow",
+     "size": 2,
+     "comment": "chipset reg 82h (last CCR write)"
+    },
+    "04AC": {
+     "name": "hd_count_copy",
+     "size": 1,
+     "comment": "40:75 at suspend"
+    },
+    "04AD": {
+     "name": "hd_idle_count",
+     "size": 1
+    },
+    "04AE": {
+     "name": "fdpt_sector_copy",
+     "size": 2
+    },
+    "04B0": {
+     "name": "keyboard_pmsr_name",
+     "size": 16,
+     "comment": "'KeyboardPMSR' NUL-terminated"
+    },
+    "04C0": {
+     "name": "kbc_flags",
+     "size": 7,
+     "comment": "keyboard-controller save flags (04C1 bit 5 = extended save)"
+    },
+    "04C7": {
+     "name": "kbc_output_port",
+     "size": 1
+    },
+    "04C8": {
+     "name": "kbc_command_byte",
+     "size": 1
+    },
+    "04C9": {
+     "name": "kbc_ram_bytes",
+     "size": 16,
+     "comment": "MultiKey controller RAM bytes read with commands 20h+n"
+    },
+    "04DC": {
+     "name": "kbc_mouse_status",
+     "size": 3
+    },
+    "04E1": {
+     "name": "kbc_save_4E1",
+     "size": 7
+    },
+    "04E8": {
+     "name": "kbc_save_4E8",
+     "size": 23
+    },
+    "04FF": {
+     "name": "kbc_password_area",
+     "size": 128,
+     "comment": "saved with 04C1 bit 5"
+    },
+    "057F": {
+     "name": "kbc_trace_words",
+     "size": 12,
+     "comment": "six progress-trace words written bit by bit during kbc save/restore"
+    },
+    "058E": {
+     "name": "saved_int6d_vector",
+     "size": 4,
+     "comment": "video BIOS INT 10h entry (chain_prev_vector_058E)"
+    },
+    "05C2": {
+     "name": "com_bases",
+     "size": 8
+    },
+    "05CA": {
+     "name": "uart_saved_regs",
+     "size": 16,
+     "comment": "LCR/IER/divisor/MCR per UART (4 bytes each)"
+    },
+    "05EA": {
+     "name": "lpt_bases",
+     "size": 6
+    },
+    "05F0": {
+     "name": "lpt_control_copies",
+     "size": 6
+    },
+    "05F7": {
+     "name": "rtc_alarm_armed",
+     "size": 1
+    },
+    "05F8": {
+     "name": "day_rollover_flag",
+     "size": 1
+    },
+    "05F9": {
+     "name": "alarm_tick_count",
+     "size": 4
+    },
+    "05FD": {
+     "name": "alarm_date_day",
+     "size": 2
+    },
+    "05FF": {
+     "name": "alarm_date_month",
+     "size": 2
+    },
+    "0601": {
+     "name": "alarm_date_year",
+     "size": 2
+    },
+    "0603": {
+     "name": "date_snapshot",
+     "size": 6
+    },
+    "0609": {
+     "name": "vesa_save_state",
+     "size": 2
+    },
+    "0C09": {
+     "name": "std_state_C09",
+     "size": 1,
+     "comment": "save-to-disk progress byte (std_save_to_disk)"
+    },
+    "0C0A": {
+     "name": "std_state_C0A",
+     "size": 1
+    },
+    "0C24": {
+     "name": "std_enabled",
+     "size": 1,
+     "comment": "1 when save-to-disk is available (copy of CMOS 4Ch bit 4 / PHDISK partition found)"
+    },
+    "0C25": {
+     "name": "ivt_bda_copy",
+     "size": 2048,
+     "comment": "2 KB copy of 0000:0000 (IVT + first half of the BDA) for save-to-disk"
+    },
+    "1425": {
+     "name": "std_stack_save",
+     "size": 4,
+     "comment": "SS:SP saved before the private save-to-disk stack (lss sp)"
+    },
+    "1429": {
+     "name": "std_1429",
+     "size": 2
+    },
+    "1447": {
+     "name": "dma_page_regs_save",
+     "size": 16
+    },
+    "1457": {
+     "name": "pic_probe_byte",
+     "size": 1
+    },
+    "1459": {
+     "name": "pic_vector_base_found",
+     "size": 1
+    },
+    "145A": {
+     "name": "pic1_vector_base",
+     "size": 1
+    },
+    "145B": {
+     "name": "pic2_vector_base",
+     "size": 1
+    },
+    "1492": {
+     "name": "fpu_present_flags",
+     "size": 2,
+     "comment": "equipment word copy, bit 1 = FPU present"
+    },
+    "1494": {
+     "name": "fpu_save_area",
+     "size": 120,
+     "comment": "FNSAVE image (3Ch words)"
+    },
+    "150C": {
+     "name": "std_saved_150C",
+     "size": 1
+    },
+    "150D": {
+     "name": "std_saved_150D",
+     "size": 1
+    },
+    "0014": {
+     "name": "saved_int10_vector",
+     "size": 4
+    },
+    "0018": {
+     "name": "saved_int15_vector",
+     "size": 4
+    },
+    "0044": {
+     "name": "api_byte_44",
+     "size": 1
+    },
+    "0045": {
+     "name": "api_byte_45",
+     "size": 1
+    },
+    "0046": {
+     "name": "state_byte_46",
+     "size": 1
+    },
+    "0112": {
+     "name": "pm_init_flag",
+     "size": 1,
+     "comment": "set by miser_post_hook"
+    },
+    "0113": {
+     "name": "video_index_regs_save",
+     "size": 5,
+     "comment": "video_index_regs_snapshot / restore"
+    },
+    "0126": {
+     "name": "suspend_saved_ah",
+     "size": 1
+    },
+    "0127": {
+     "name": "standby_state",
+     "size": 1,
+     "comment": "standby_enter / suspend_abort_restore"
+    },
+    "028A": {
+     "name": "standby_28A",
+     "size": 2
+    },
+    "1458": {
+     "name": "pic_probe_done",
+     "size": 1,
+     "comment": "1 once std_detect_pic_vector_bases has run"
+    },
+    "145C": {
+     "name": "pic_probe_145C",
+     "size": 1
+    },
+    "145D": {
+     "name": "pic_probe_145D",
+     "size": 1
+    }
+   }
+  },
+  "miser_stack": {
+   "start": "DF800",
+   "end": "E0000",
+   "comment": "PhoenixMISER private stack segment DF80 (2 KB) - skipped by the save-to-disk image",
+   "vars": {
+    "0000": {
+     "name": "std_stack_base",
+     "size": 2
+    },
+    "0030": {
+     "name": "resumed_from_disk_flag",
+     "size": 1
+    },
+    "07FF": {
+     "name": "std_stack_top",
+     "size": 1
+    }
+   }
+  },
+  "miser_ram_df00": {
+   "start": "DF000",
+   "end": "DF800",
+   "comment": "segment DF00 returned by get_miser_ram_segment (the SETUP work frame when MISER is present)",
+   "vars": {}
+  }
+ },
+ "structs": {
+  "setup_frame": {
+   "comment": "SETUP work frame (4 KB, SS:BP) - see docs/05 Implementation notes",
+   "fields": {
+    "00": {
+     "name": "text_buf",
+     "size": 16,
+     "comment": "scratch text for value formatting"
+    },
+    "10": {
+     "name": "field_kind_ctx",
+     "size": 1
+    },
+    "15": {
+     "name": "crtc_port",
+     "size": 2
+    },
+    "17": {
+     "name": "attr_normal",
+     "size": 1
+    },
+    "18": {
+     "name": "attr_1",
+     "size": 1
+    },
+    "19": {
+     "name": "attr_2",
+     "size": 1
+    },
+    "1A": {
+     "name": "attr_3",
+     "size": 1
+    },
+    "1B": {
+     "name": "attr_4",
+     "size": 1
+    },
+    "1C": {
+     "name": "attr_5",
+     "size": 1
+    },
+    "1D": {
+     "name": "attr_6",
+     "size": 1
+    },
+    "1E": {
+     "name": "attr_7",
+     "size": 1
+    },
+    "1F": {
+     "name": "attr_8",
+     "size": 1
+    },
+    "20": {
+     "name": "attr_9",
+     "size": 1
+    },
+    "21": {
+     "name": "attr_10",
+     "size": 1
+    },
+    "22": {
+     "name": "attr_11",
+     "size": 1
+    },
+    "23": {
+     "name": "print_page",
+     "size": 1,
+     "comment": "video page for INT 10h 13h (BH)"
+    },
+    "25": {
+     "name": "page",
+     "size": 1,
+     "comment": "0 Basic, 1 Power & Video (2 XTIDE in the patched variant)"
+    },
+    "26": {
+     "name": "record_array",
+     "size": 2
+    },
+    "28": {
+     "name": "field_count",
+     "size": 1,
+     "comment": "last field index of the page"
+    },
+    "29": {
+     "name": "page_descriptor",
+     "size": 2
+    },
+    "2B": {
+     "name": "field_index",
+     "size": 1
+    },
+    "2C": {
+     "name": "value_array",
+     "size": 2
+    },
+    "2E": {
+     "name": "flags",
+     "size": 1,
+     "comment": "bit 0 something changed, bit 1 reloading"
+    },
+    "2F": {
+     "name": "correction_flags",
+     "size": 2
+    },
+    "31": {
+     "name": "legend_ptrs",
+     "size": 28
+    },
+    "4D": {
+     "name": "key_map_ascii",
+     "size": 16
+    },
+    "5D": {
+     "name": "key_map_ext",
+     "size": 8
+    },
+    "65": {
+     "name": "cmos_shadow",
+     "size": 114,
+     "comment": "CMOS 0Eh-7Fh; index i lives at 65h + i - 0Eh (so 40h -> 97h)"
+    },
+    "E5": {
+     "name": "page1_values",
+     "size": 20
+    },
+    "F9": {
+     "name": "page2_values",
+     "size": 6
+    },
+    "FF": {
+     "name": "frame_ff",
+     "size": 1
+    },
+    "100": {
+     "name": "page3_values",
+     "size": 8,
+     "comment": "patched xtide-setup variant"
+    },
+    "24": {
+     "name": "saved_video_page",
+     "size": 1,
+     "comment": "video page active when SETUP started (INT 10h 0Fh BH)"
+    }
+   }
+  },
+  "setup_field_rec": {
+   "comment": "32-byte SETUP field record (BX) - docs/05 Field records",
+   "fields": {
+    "00": {
+     "name": "row",
+     "size": 1
+    },
+    "01": {
+     "name": "col",
+     "size": 1
+    },
+    "02": {
+     "name": "value_strings",
+     "size": 2
+    },
+    "04": {
+     "name": "next_handler",
+     "size": 2
+    },
+    "06": {
+     "name": "load_handler",
+     "size": 2,
+     "comment": "loads the field from the CMOS shadow"
+    },
+    "08": {
+     "name": "alt_handler",
+     "size": 2
+    },
+    "0A": {
+     "name": "common_handler",
+     "size": 2
+    },
+    "0C": {
+     "name": "prev_handler",
+     "size": 2
+    },
+    "0E": {
+     "name": "enter_handler",
+     "size": 2
+    },
+    "10": {
+     "name": "store_handler",
+     "size": 2,
+     "comment": "writes the value into the CMOS shadow"
+    },
+    "12": {
+     "name": "post_store_handler",
+     "size": 2,
+     "comment": "checksum update"
+    },
+    "14": {
+     "name": "cmos_index",
+     "size": 1
+    },
+    "15": {
+     "name": "cmos_mask",
+     "size": 1
+    },
+    "16": {
+     "name": "max_value",
+     "size": 2
+    },
+    "18": {
+     "name": "shift",
+     "size": 1
+    },
+    "19": {
+     "name": "default_value",
+     "size": 1
+    },
+    "1A": {
+     "name": "secondary_handler",
+     "size": 2
+    },
+    "1C": {
+     "name": "label_handler",
+     "size": 2
+    },
+    "1E": {
+     "name": "value_type",
+     "size": 1,
+     "comment": "11h/12h = text in the frame"
+    },
+    "1F": {
+     "name": "kind",
+     "size": 1,
+     "comment": "66h option list, 22h disk type, 33h/44h/77h/78h user-geometry rows, 55h field with secondary label"
+    }
+   }
+  },
+  "miser_device_rec": {
+   "comment": "8-byte per-device power-management record (DC00:008E + 8*AL), pointed to by SI in the record accessors",
+   "fields": {
+    "00": {
+     "name": "flags",
+     "size": 1
+    },
+    "01": {
+     "name": "timeout",
+     "size": 1
+    },
+    "02": {
+     "name": "counter",
+     "size": 2
+    },
+    "04": {
+     "name": "state",
+     "size": 2
+    },
+    "06": {
+     "name": "spare",
+     "size": 2
+    }
+   }
+  }
+ },
+ "struct_use": {
+  "sys": [
+   {
+    "reg": "bp",
+    "struct": "setup_frame",
+    "range": [
+     "0100",
+     "3FBC"
+    ]
+   },
+   {
+    "reg": "bx",
+    "struct": "setup_field_rec",
+    "range": [
+     "0100",
+     "3FBC"
+    ],
+    "calls": "setup_field_record"
+   }
+  ],
+  "miser": [
+   {
+    "reg": "si",
+    "struct": "miser_device_rec",
+    "functions": [
+     "pm_record_service",
+     "pm_record_get_flags",
+     "pm_record_set_flags",
+     "pm_record_get_timeout",
+     "pm_record_set_timeout",
+     "pm_record_reset"
+    ]
+   }
+  ]
+ },
+ "assume": {
+  "_doc": "how to resolve a direct memory operand when DS/ES could not be proven: module -> rules tried in order; each rule is [min_disp, max_disp, segment]. sys/vga: 4xx = BDA via DS=0, small = BDA via DS=40, 1xx-3xx = IVT; miser: 100h-15FFh = private RAM, 4xx = BDA",
+  "sys": [
+   [
+    "0400",
+    "0500",
+    "0000"
+   ],
+   [
+    "0000",
+    "0100",
+    "0040"
+   ],
+   [
+    "0100",
+    "0400",
+    "0000"
+   ]
+  ],
+  "vga": [
+   [
+    "0400",
+    "0500",
+    "0000"
+   ],
+   [
+    "0000",
+    "0100",
+    "0040"
+   ],
+   [
+    "0100",
+    "0400",
+    "0000"
+   ]
+  ],
+  "miser": [
+   [
+    "0100",
+    "1600",
+    "DC00"
+   ],
+   [
+    "0400",
+    "0500",
+    "0000"
+   ]
+  ]
+ }
+}

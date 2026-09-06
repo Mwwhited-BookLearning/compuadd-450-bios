@@ -1,0 +1,5374 @@
+{
+ "entries": [
+  "0100",
+  "160D",
+  "1627",
+  "163E",
+  "1644",
+  "1655",
+  "16A3",
+  "16AA",
+  "16BD",
+  "1720",
+  "1741",
+  "175B",
+  "194D",
+  "1B33",
+  "1BA3",
+  "1BE8",
+  "1C29",
+  "1D17",
+  "1F1D",
+  "1FBF",
+  "1FF9",
+  "216F",
+  "2212",
+  "2301",
+  "234B",
+  "2355",
+  "23A5",
+  "2407",
+  "242B",
+  "244D",
+  "246E",
+  "24A6",
+  "25E8",
+  "25EF",
+  "2668",
+  "2681",
+  "269A",
+  "2730",
+  "2767",
+  "28F5",
+  "292E",
+  "293D",
+  "29BF",
+  "29F9",
+  "2A0A",
+  "2BAD",
+  "2BCD",
+  "2C94",
+  "2CAC",
+  "2CC4",
+  "2D29",
+  "2E39",
+  "2E7B",
+  "2E9F",
+  "2EE6",
+  "2F14",
+  "2F39",
+  "2F65",
+  "2F77",
+  "2F97",
+  "30D5",
+  "311D",
+  "31BE",
+  "3215",
+  "3267",
+  "34D2",
+  "3715",
+  "37C8",
+  "37E6",
+  "382F",
+  "3842",
+  "3901",
+  "3AE5",
+  "3AFA",
+  "3F18",
+  "3F50",
+  "3F7C",
+  "58A6",
+  "5D47",
+  "63A7",
+  "6DBA",
+  "6E1A",
+  "71D6",
+  "728E",
+  "786C",
+  "78BB",
+  "7B05",
+  "7B49",
+  "7DDE",
+  "7DFE",
+  "7E39",
+  "82CF",
+  "84ED",
+  "8503",
+  "93D6",
+  "95F4",
+  "97C2",
+  "97D9",
+  "9905",
+  "99A6",
+  "9E29",
+  "9E36",
+  "9E46",
+  "9E63",
+  "9F5F",
+  "9FDF",
+  "A1D2",
+  "A9FE",
+  "AA14",
+  "AA4F",
+  "B79F",
+  "B808",
+  "B91A",
+  "C01F",
+  "C185",
+  "C200",
+  "C39B",
+  "C39D",
+  "C4A7",
+  "C4F4",
+  "C53F",
+  "C548",
+  "C54B",
+  "C554",
+  "C557",
+  "C560",
+  "C563",
+  "C56C",
+  "C56F",
+  "C587",
+  "C597",
+  "C5AC",
+  "C5B5",
+  "C5B8",
+  "C5C8",
+  "C5CB",
+  "C5DB",
+  "C5DE",
+  "C5EE",
+  "C5F1",
+  "C601",
+  "C62C",
+  "C645",
+  "CC4F",
+  "CCB9",
+  "CD1E",
+  "CEC5",
+  "CF62",
+  "D1D8",
+  "D21B",
+  "D4C2",
+  "D4FE",
+  "D56F",
+  "D7F3",
+  "DA2A",
+  "DA36",
+  "E05B",
+  "E2C3",
+  "E3FE",
+  "E6F2",
+  "E739",
+  "E743",
+  "E753",
+  "E82E",
+  "E987",
+  "EC59",
+  "EF57",
+  "EF5A",
+  "EFD2",
+  "F065",
+  "F841",
+  "F84D",
+  "F859",
+  "FE6E",
+  "FEA5",
+  "FF33",
+  "FF43",
+  "FF53",
+  "FF54",
+  "FF5A",
+  "FF60",
+  "FF68",
+  "FF78",
+  "FF7C",
+  "FF82",
+  "FFF0"
+ ],
+ "labels": {
+  "FFF0": {
+   "name": "reset_vector",
+   "comment": "CPU reset lands here (F000:FFF0). Far jump to POST entry."
+  },
+  "FFF5": {
+   "name": "bios_date",
+   "comment": "ASCII release date 'MM/DD/YY' (Phoenix placeholder 04/19/90)."
+  },
+  "FFFE": {
+   "name": "model_byte",
+   "comment": "FCh = IBM AT class"
+  },
+  "E05B": {
+   "name": "post_entry",
+   "comment": "POST entry point (classic IBM/Phoenix location F000:E05B)."
+  },
+  "E00E": {
+   "name": "ibm_signature",
+   "comment": "'IBM' at F000:E00E - compatibility marker checked by old software."
+  },
+  "0000": {
+   "name": "phoenix_copyright_1",
+   "comment": "Copyright banner padding to 0x0100"
+  },
+  "E2C3": {
+   "name": "int02_nmi_entry",
+   "comment": "Classic IBM INT 02h (NMI) entry - jmp to handler."
+  },
+  "E401": {
+   "name": "hd_param_table",
+   "comment": "INT 41h/46h fixed-disk parameter table: 47 types x 16 bytes (E401..E6F0)."
+  },
+  "E6F2": {
+   "name": "int19_boot_entry",
+   "comment": "Classic IBM INT 19h (bootstrap) entry."
+  },
+  "E739": {
+   "name": "int14_serial_entry",
+   "comment": "Classic IBM INT 14h (serial) entry point F000:E739: jmp to the INT 14h handler."
+  },
+  "E82E": {
+   "name": "int16_keyboard_entry",
+   "comment": "Classic IBM INT 16h (keyboard services) entry."
+  },
+  "E987": {
+   "name": "int09_kbd_irq_entry",
+   "comment": "Classic IBM INT 09h (keyboard IRQ1) entry."
+  },
+  "EC59": {
+   "name": "int13_disk_entry",
+   "comment": "Classic IBM INT 13h (disk services) entry."
+  },
+  "EF57": {
+   "name": "int0E_floppy_irq_entry",
+   "comment": "Classic IBM INT 0Eh (diskette IRQ6) entry."
+  },
+  "EFC7": {
+   "name": "diskette_param_table",
+   "comment": "INT 1Eh diskette parameter table (11 bytes)."
+  },
+  "EFD2": {
+   "name": "int17_printer_entry",
+   "comment": "Classic IBM INT 17h (parallel printer) entry."
+  },
+  "F065": {
+   "name": "int10_video_entry",
+   "comment": "Classic IBM INT 10h (video) entry - the C&T VGA ROM normally hooks INT 10h ahead of this."
+  },
+  "F0A4": {
+   "name": "video_param_table",
+   "comment": "INT 1Dh video parameter table (CRTC register sets for MDA/CGA modes)."
+  },
+  "F841": {
+   "name": "int12_memsize_entry",
+   "comment": "Classic IBM INT 12h (memory size) entry."
+  },
+  "F84D": {
+   "name": "int11_equipment_entry",
+   "comment": "Classic IBM INT 11h (equipment list) entry."
+  },
+  "F859": {
+   "name": "int15_system_entry",
+   "comment": "Classic IBM INT 15h (system services) entry."
+  },
+  "FA6E": {
+   "name": "font_8x8",
+   "comment": "INT 1Fh 8x8 character font, chars 00h-7Fh (1024 bytes, FA6E..FE6D)."
+  },
+  "FE6E": {
+   "name": "int1A_time_entry",
+   "comment": "Classic IBM INT 1Ah (time of day) entry."
+  },
+  "FEA5": {
+   "name": "int08_timer_irq_entry",
+   "comment": "Classic IBM INT 08h (timer IRQ0) entry."
+  },
+  "FEF3": {
+   "name": "ivt_init_08_1F",
+   "comment": "Table of 24 near offsets used to initialise INT 08h..1Fh vectors (segment F000)."
+  },
+  "FF23": {
+   "name": "ivt_init_70_77",
+   "comment": "Table of 8 near offsets used to initialise INT 70h..77h (slave PIC) vectors."
+  },
+  "FF33": {
+   "name": "int_default_irq_handler",
+   "comment": "Default handler for unused IRQs: sends EOI to both PICs, IRET."
+  },
+  "FF43": {
+   "name": "int_default_irq_handler_2",
+   "comment": "Second default IRQ handler variant."
+  },
+  "FF53": {
+   "name": "int_dummy_iret",
+   "comment": "Classic IBM FF53: IRET stub for INT 1Bh/1Ch etc."
+  },
+  "FF54": {
+   "name": "int05_print_screen_entry",
+   "comment": "Classic IBM INT 05h (print screen) entry."
+  },
+  "58DA": {
+   "name": "post_start",
+   "comment": "First real POST code. SS := F000 (read from the reset vector), SP points at a ROM word = return address (Phoenix ROM-stack idiom)."
+  },
+  "5A15": {
+   "name": "shutdown_dispatch",
+   "comment": "Jump table indexed by CMOS shutdown status byte (0Fh): index = code-4, so entries cover shutdown codes 04h..0Ch; codes 0-3 take the normal cold-boot path (sub_5A92)."
+  },
+  "D309": {
+   "name": "print_inline_msg",
+   "comment": "Prints the NUL-terminated message that follows the CALL instruction, then returns past it."
+  },
+  "D7F6": {
+   "name": "wait_refresh_cycles",
+   "comment": "Delay BX:CX refresh toggles (port 61h bit 4); every 64 ticks calls DX (callback returns ZF=1 to abort). Uses PIT ch1."
+  },
+  "D49F": {
+   "name": "zero_segment_words",
+   "comment": "0000, 7C00:0000 boot far pointer, 0040 BDA segment."
+  },
+  "D4A1": {
+   "name": "bootsector_farptr",
+   "comment": "Far pointer 0000:7C00 - INT 19h jumps through it into the loaded boot sector (F000:792F)."
+  },
+  "D4A5": {
+   "name": "bda_segment_word",
+   "comment": "Word constant 0040h: BIOS data area segment."
+  },
+  "D847": {
+   "name": "cmos_read",
+   "comment": "AL=index -> read CMOS byte via 70h/71h (with 0EDh I/O delay). Returns AL."
+  },
+  "6D94": {
+   "name": "probe_port_table",
+   "comment": "Walk up to 4 word entries at CS:SI; call DI for each non-zero port; set bit in BL per detected port (serial/parallel detection)."
+  },
+  "C00E": {
+   "name": "enter_protected_mode",
+   "comment": "CR0.PE := 1, then far jump through selector 0038h (code segment aliasing F0000)."
+  },
+  "7236": {
+   "name": "setup_gdt_idt_low_ram",
+   "comment": "Builds a 256-entry IDT at 0000:D0A0 (all -> 71D6 in seg 40h?), copies GDT/IDT image from 714E to 0000:D8A0, lgdt/lidt, lmsw, far jump via selector 0040h."
+  },
+  "9B73": {
+   "name": "copy_rom_to_ram",
+   "comment": "Copies this ROM segment into RAM at DX:0000 (used before shadow-RAM enable: continues execution from 1000:99A6)."
+  },
+  "DB69": {
+   "name": "boot_call_bootsector_a",
+   "comment": "Far call 07C0:0000 - jumps into the loaded boot sector."
+  },
+  "7977": {
+   "name": "boot_fail_message",
+   "comment": "SI -> message. Unless suppressed by option flag (cs:[AF46] bit 5), prints it, waits for F1/F2 (F2 -> SETUP), then INT 18h and retries boot."
+  },
+  "B86B": {
+   "name": "print_string_cs_si",
+   "comment": "Prints NUL-terminated string at CS:SI via INT 10h teletype."
+  },
+  "D236": {
+   "name": "dispatch_clamp_ah",
+   "comment": "DI = limit (2*N). Sets DI = AH*2 if AH < N else leaves DI = limit (default entry). Also DS := 0."
+  },
+  "8A53": {
+   "name": "int16_handler",
+   "comment": "INT 16h keyboard services body (E82E jumps here). 18 functions + default via jump table at 8A63."
+  },
+  "D4B1": {
+   "name": "str_h_crlf",
+   "comment": "h + CR LF: hex-suffix terminator printed after a hex number."
+  },
+  "D2FA": {
+   "name": "print_hex_value_h_crlf",
+   "comment": "Print string at SI, then value as hex, then h CR LF."
+  },
+  "8C5C": {
+   "name": "kbd_special_scancodes",
+   "comment": "28 scancodes with special handling in INT 09h (shift/ctrl/alt make+break, locks, insert, E0/E1 prefixes, ack/resend/overrun, PrtScr)."
+  },
+  "8C78": {
+   "name": "kbd_shift_flag_masks",
+   "comment": "16 bit-masks for 40:17/40:18 keyboard flag bytes, parallel to the first 16 special scancodes."
+  },
+  "8C88": {
+   "name": "kbd_special_dispatch",
+   "comment": "Jump table parallel to kbd_special_scancodes (INT 09h)."
+  },
+  "A6E0": {
+   "name": "wait_f1_f2_key",
+   "comment": "Waits for F1 (continue) / F2 (run SETUP) after a boot or POST error."
+  },
+  "792C": {
+   "name": "boot_jump_to_sector",
+   "comment": "Boot sector signature valid: fix SP and far-jump via bootsector_farptr to 0000:7C00."
+  },
+  "7EB1": {
+   "name": "int13h_status_epilogue_entry",
+   "comment": "Common exit of the hard-disk INT 13h handler: AH = status; for AH < 16h jump through int13h_status_epilogue_table to fix AL/CF per function, then pop and RETF 2."
+  },
+  "0100": {
+   "name": "setup_far_entry",
+   "comment": "Far-callable SETUP utility entry (jmp 1934). Called by PhoenixMISER (E800:061D lcall F000:0100) and by the INT 09h Ctrl+Alt+S hotkey path."
+  },
+  "E6F5": {
+   "name": "system_config_table",
+   "comment": "INT 15h AH=C0h system configuration table: length 0008h, model FCh, submodel 01h, BIOS revision 00h, feature byte 74h (2nd PIC, RTC, INT 15h 4Fh keyboard intercept, wait for external event), 4 reserved bytes; followed by vendor tags 0F 00 01 03 'PTL' 80 00 01 'ESS' 82 FF 00 F0 (ESS = the audio codec vendor, best guess)."
+  },
+  "1CD0": {
+   "name": "setup_cmos_correction_table",
+   "comment": "8 records x 8 bytes: +0 message ptr, +2 flag mask tested against [bp+2F] correction flags, +4 mask to clear, +6 handler ptr. Drives the \"SETUP has attempted to correct the following errors\" screen."
+  },
+  "1934": {
+   "name": "setup_main",
+   "comment": "SETUP utility body: sets 40:B5 bit0 (SETUP active), saves video mode/page/cursor, then runs the page loop. Returns via RETF from setup_far_entry."
+  },
+  "1B18": {
+   "name": "setup_key_dispatch_loop",
+   "comment": "Scan 3-byte (key, handler) records on the stack frame ([bp+4D] ASCII keys / [bp+5D] extended keys) and call the handler for the pressed key."
+  },
+  "582E": {
+   "name": "post_fatal_error",
+   "comment": "AL = POST code. Writes it to port 80h; depending on ROM option flags at AF45 either halts (bit1), restarts POST (bit0), or sounds the beep code (5873) and halts."
+  },
+  "5873": {
+   "name": "beep_code_and_halt",
+   "comment": "Sounds the failing POST code on the speaker: PIT ch2 tone (43h=B6h, 42h=04A8h), number of beeps derived from the code (BH), then HLT. Uses ROM-stack returns at 58A5/58BA/58CD."
+  },
+  "5848": {
+   "name": "beep_delay_pit2",
+   "comment": "Delay loop by watching PIT channel 2 count down (CX iterations)."
+  },
+  "AF45": {
+   "name": "rom_option_flags",
+   "comment": "Build-time option bytes: AF45=0Eh (bit1 halt on fatal, bit2, bit3 128 KB granularity), AF46=0Bh (bit0 CPU speed from CMOS, bit1 40:15 preset, bit3 display/CMOS 1Fh gating), AF47=E0h (bit7 alternate A20 method, bits 5-6), AF55=25h (bit0 speed-change click, bit2, bit5), AF56/AF57/AF58 = 48h/50h/50h hot-key scancodes (Up/Down arrows with Ctrl+Alt) for the CPU speed keys, AF59=02h floppy speed byte, AF5A=64h, AF5D/AF5E/AF5F = 02h/01h/00h the three CPU speed values written to chipset reg 300h."
+  },
+  "5945": {
+   "name": "post_cold_entry",
+   "comment": "Cold/warm POST: NMI off, read chipset reg 1 (ports 24h/26h) bit 8 -> resume vector at 0040:0072; else read KBC status bit2 to pick CMOS 0Fh shutdown code."
+  },
+  "59B5": {
+   "name": "init_pics_and_fpu",
+   "comment": "Reset FPU (port F1h); program PIC2 (ICW1=15h, ICW2=70h, ICW3=02h, ICW4=01h, mask FFh) and PIC1 (ICW1=15h, ICW2=08h, ICW3=04h, ICW4=01h, mask FBh)."
+  },
+  "59EF": {
+   "name": "post_shutdown_select",
+   "comment": "Temporary stack 0030:0080, DS=0. Shutdown code < 4 or > 0Ch -> normal boot path (5A92); else dispatch through shutdown_dispatch."
+  },
+  "5A92": {
+   "name": "post_normal_path",
+   "comment": "Normal cold/warm boot continues here: clear 40:72 unless code FCh, touch MSW, ROM-stack call sub_C388, then set CMOS 34h bit7, program refresh timer (PIT ch1 mode 2 count 12h), POST 91h, chipset reg 3 := 05E4h, call MISER API 24h (stub) via ROM-stack far return to 5B0A."
+  },
+  "5B0A": {
+   "name": "post_after_miser_24",
+   "comment": "Return point after MISER API 24h; jumps to 95C4."
+  },
+  "5B33": {
+   "name": "post_01_cpu_reg_test",
+   "comment": "POST 01h: register/segment-register data path test with 55AAh/AA55h patterns; HLT on failure."
+  },
+  "5B5C": {
+   "name": "post_rtc_init",
+   "comment": "CMOS status B := 02h (24h mode), status A := 26h (32 kHz, 976 us), clear C/D; disable MDA/CGA video (3B8h/3D8h := 11h)."
+  },
+  "5BBC": {
+   "name": "post_02_cmos_shutdown_byte_test",
+   "comment": "POST 02h: walking-bit read/write test of CMOS shutdown byte 0Fh; failure -> fatal 02h."
+  },
+  "5BE5": {
+   "name": "post_03_chipset_init",
+   "comment": "POST 03h: chipset regs 6:=CFFFh, 200h:=0, 207h:=0 then ROM-stack call D1F4 with CX=[ACE0]."
+  },
+  "5C81": {
+   "name": "post_04_timer_init",
+   "comment": "POST 04h: PIT ch0 mode 3 count 0 (18.2 Hz tick), ch2 mode 3 count 0533h (speaker tone)."
+  },
+  "5CB0": {
+   "name": "post_05_dma_test",
+   "comment": "POST 05h: master-clear both 8237s, walking pattern through DMA1 (00h-0Fh) and DMA2 (C0h-DEh) address/count regs; failure -> fatal 05h. Then program DMA modes 40h-43h and cascade C0h."
+  },
+  "5D1F": {
+   "name": "post_06_dma_page_test",
+   "comment": "POST 06h: write/verify FFh then 00h in DMA page registers 87,83,81,82,8B,89,8A (table at 5D25); failure -> fatal 06h."
+  },
+  "5D67": {
+   "name": "post_08_refresh_test",
+   "comment": "POST 08h: verify port 61h bit 4 toggles (DRAM refresh running); failure -> fatal 08h."
+  },
+  "5D92": {
+   "name": "post_09_memory_prepare",
+   "comment": "POST 09h: speaker/parity off, ROM-stack call sub_D8F6 (memory controller setup), clear parity, zero first 64 KB, check CMOS 34h/58h suspend flags -> 40:B6, else skip test if warm (40:72=1234h)."
+  },
+  "5D25": {
+   "name": "dma_page_reg_list",
+   "comment": "7 DMA page register port numbers tested by POST 06h."
+  },
+  "D8F1": {
+   "name": "post_stub_shl_edx",
+   "comment": "Tail of another routine used as the very first ROM-stack call: EDX <<= 16 then RET (keeps a value handed over from the resume path)."
+  },
+  "D8F6": {
+   "name": "warm_restore_scratch_edx",
+   "comment": "If KBC system flag (warm reset) is set, load EDX high word from 40:BC (POST scratch preserved across the reset)."
+  },
+  "D90A": {
+   "name": "warm_check_scratch",
+   "comment": "Examines the value restored by warm_restore_scratch_edx (0410h/0420h markers) and dispatches."
+  },
+  "C388": {
+   "name": "post_early_pm_init",
+   "comment": "Clears 40:B5 bits 3/4/7 and ROM-stack calls C4B7 (power-management/chipset early init), then returns."
+  },
+  "9BAD": {
+   "name": "chipset_cfg_200_update",
+   "comment": "Reads chipset register 200h (ports 24h/26h); if bit 12 set, reprograms related registers."
+  },
+  "7C40": {
+   "name": "hd_init",
+   "comment": "POST: read CMOS 0Eh/12h; resolve drive 0/1 types via hd_type_to_param_ptr; save old INT 13h as INT 40h, install int13_hd_handler (INT 13h), int76_hd_irq (INT 76h), INT 41h/46h parameter pointers; 40:74-77; then per drive: AH=10h ready (with tick timeout), 09h init params, 11h recalibrate, 08h params, 04h verify; errors -> 'Fixed disk failure'; update CMOS 0Eh bit 3."
+  },
+  "DB2D": {
+   "name": "pit_ch0_init_mode2",
+   "comment": "PIT channel 0 mode 2, count 0 (18.2 Hz system tick)."
+  },
+  "DBCD": {
+   "name": "chipset_speed_table_program",
+   "comment": "Walk (threshold,value) byte pairs at DC09 to pick a value for chipset register 300h from AL."
+  },
+  "DC09": {
+   "name": "cursor_shape_table",
+   "comment": "Seven word pairs 2C07h 2407h 2006h 1604h 1203h 0E02h 0002h - cursor start/end per character height (best guess)."
+  },
+  "9435": {
+   "name": "gate_a20_enable",
+   "comment": "Enable A20 gate (via KBC output port, or alternate chipset method sub_991D when ROM option AF47 bit7)."
+  },
+  "944C": {
+   "name": "gate_a20_disable",
+   "comment": "Disable A20 gate (KBC or alternate sub_992E)."
+  },
+  "D4B5": {
+   "name": "set_post_error_flag",
+   "comment": "40:72 bit 0 := 1 (a POST error message was displayed; boot will pause for F1)."
+  },
+  "D17A": {
+   "name": "beep_hi",
+   "comment": "Short beep, PIT ch2 count 04A8h (~1 kHz)."
+  },
+  "D180": {
+   "name": "beep_lo",
+   "comment": "Short beep, PIT ch2 count 0951h (~500 Hz)."
+  },
+  "7A98": {
+   "name": "prompt_f1_continue",
+   "comment": "Prints ' Press the F1 key to continue[, F2 to run the setup utility]' (option AF65) then waits."
+  },
+  "7B05": {
+   "name": "wait_key_f1_f2",
+   "comment": "Waits for F1 (continue) / F2 (enter SETUP via E800:0034 hook) after an error prompt."
+  },
+  "8598": {
+   "name": "set_cpu_speed",
+   "comment": "Selects CPU/clock speed from ROM option bytes AF5D-AF5F (POST codes B0-B3 in sub_9B82)."
+  },
+  "932A": {
+   "name": "kbd_update_leds",
+   "comment": "Send LED state (40:17 lock bits) to the keyboard (ED command), guarded by 40:97 bit 6."
+  },
+  "AB8E": {
+   "name": "floppy_detect_drives",
+   "comment": "Detects diskette drives / media types; sets 40:90/91 media state used for 40:10 equipment bits."
+  },
+  "98AB": {
+   "name": "post_54_stub",
+   "comment": "POST checkpoint 54h only."
+  },
+  "98B2": {
+   "name": "post_55_cmos_33_check",
+   "comment": "POST 55h: compares CMOS 33h low bits with expected byte at 957D."
+  },
+  "957D": {
+   "name": "cmos_33_expected",
+   "comment": "Expected value for CMOS 33h low 3 bits."
+  },
+  "98DF": {
+   "name": "post_57_stub",
+   "comment": "POST checkpoint 57h only."
+  },
+  "98E6": {
+   "name": "post_57_call_miser",
+   "comment": "POST 57h: if CMOS 34h bit5 call sub_C451, then far call PhoenixMISER API 10h (E800:0010)."
+  },
+  "C3C3": {
+   "name": "cmos_diag_status_check",
+   "comment": "Reads CMOS 0Eh via sub_C499 and reacts to bits 6/7 (battery / checksum)."
+  },
+  "CCD3": {
+   "name": "platform_cfg_from_cmos_3F",
+   "comment": "Copies CMOS 3Fh to I/O port 1FFh and programs chipset registers 9.. from CMOS settings."
+  },
+  "D282": {
+   "name": "print_banner",
+   "comment": "Prints 'PhoenixBIOS(TM) A486 Version 1.03', the copyright line at E020 and the OEM line at B006."
+  },
+  "D2E6": {
+   "name": "str_version",
+   "comment": "'A486 Version 1.03'"
+  },
+  "DA02": {
+   "name": "print_cpu_type",
+   "comment": "INT 15h AH=C9h (Phoenix: get CPU type) then '<name> processor detected'."
+  },
+  "DA4E": {
+   "name": "print_cpu_speed",
+   "comment": "Prints ' operating at NN MHz' unless 40:72 is 123xh (warm)."
+  },
+  "B868": {
+   "name": "print_crlf",
+   "comment": "SI := D4B2 (CR LF) then print_string_cs_si."
+  },
+  "D4B2": {
+   "name": "str_crlf",
+   "comment": "CR LF NUL"
+  },
+  "D1C6": {
+   "name": "delay_100_refresh",
+   "comment": "Wait 100 DRAM refresh cycles (~1.5 ms)."
+  },
+  "D855": {
+   "name": "cmos_write",
+   "comment": "AH=index, AL=value -> CMOS via 70h/71h."
+  },
+  "D46F": {
+   "name": "speaker_toggle",
+   "comment": "Toggle port 61h bits 2-3 (speaker gate / parity enable) - used as click during memory test."
+  },
+  "D44E": {
+   "name": "parity_check_port61",
+   "comment": "Sample port 61h bits 6-7 (I/O channel check / RAM parity error)."
+  },
+  "774E": {
+   "name": "memtest_64k_block",
+   "comment": "Walking-one 32-bit data-line test at ES:0000, then fill/verify BP words with FFFFh, then address-line test; CF=1 on failure (AX=bad value)."
+  },
+  "7722": {
+   "name": "memtest_block_entry",
+   "comment": "Quick 55AAh/AA55h probe of ES:0000 then memtest_64k_block; SI<0 selects verify mode."
+  },
+  "77D1": {
+   "name": "memtest_verify_block",
+   "comment": "Verify block previously filled by memtest_64k_block (address pattern), then clear."
+  },
+  "781D": {
+   "name": "print_memory_failure",
+   "comment": "'Memory failure at SSSS:OOOO, read XXXX expecting YYYY'."
+  },
+  "788B": {
+   "name": "print_decimal",
+   "comment": "Print AX as decimal using divisor table 78B1 (5 digits for extended, 3 for base)."
+  },
+  "78B1": {
+   "name": "decimal_divisors",
+   "comment": "1, 10, 100, 1000, 10000"
+  },
+  "7470": {
+   "name": "memtest_with_display",
+   "comment": "POST 38h: displays '064K Base Memory, 00000K Extended', runs memtest_run_blocks over base and extended memory, SPACEBAR aborts, updates 40:13 and CMOS 30/31 on failures."
+  },
+  "7609": {
+   "name": "memtest_run_blocks",
+   "comment": "Tests 64 KB blocks BX..CX-1 in protected mode (selector 48h window), updating the on-screen counter."
+  },
+  "7296": {
+   "name": "pmode_exit_via_reset",
+   "comment": "Save SS:SP in 40:67/69, CMOS 0Fh := 08h, jump to 94B0 which resets the CPU (return to real mode on 286-style path)."
+  },
+  "7325": {
+   "name": "size_extended_memory",
+   "comment": "Enter protected mode, probe base memory (CMOS 15/16) and extended memory in 64 KB steps up to 64 MB; store 40:13 and CMOS 30/31 (via B0/B1)."
+  },
+  "73E4": {
+   "name": "memtest_pmode_scan_blocks",
+   "comment": "Probe each 64 KB block BX..CX-1 through GDT descriptor 48h (55AAh test) and fill it."
+  },
+  "71EB": {
+   "name": "a20_enable_and_enter_pmode",
+   "comment": "POST 00h: enable A20 (checks it), build IDT/GDT in low RAM and switch to protected mode; 'Gate A20 failure' on error."
+  },
+  "714C": {
+   "name": "pmode_gdt_template_714C",
+   "comment": "GDT template (descriptors with base 0/A0000h-D8000h, type 93h) used by the protected-mode memory routines."
+  },
+  "71D6": {
+   "name": "pmode_unexpected_int",
+   "comment": "Handler for every IDT entry in protected mode: POST code 90h, IRET (detected by shutdown_08 path)."
+  },
+  "8A09": {
+   "name": "serial_port_init",
+   "comment": "Init UART at DX (LCR 3xFBh): 8N1, then detect via scratch/loopback."
+  },
+  "D47E": {
+   "name": "parallel_port_detect",
+   "comment": "Write 0Bh to data port DX, verify readback (printer port presence)."
+  },
+  "D31C": {
+   "name": "print_hex_word",
+   "comment": "Print AX as 4 hex digits."
+  },
+  "D323": {
+   "name": "print_hex_byte",
+   "comment": "Print AL as 2 hex digits."
+  },
+  "6EBE": {
+   "name": "scan_option_roms",
+   "comment": "Scan SI..CX (segments) in 2 KB steps for 55AAh; check size/checksum (sub_D1FB); far call init at +3 through 40:67; 'BIOS ROM bad checksum = XXXXh' on error. DL bit0 => print_crlf afterwards."
+  },
+  "6EAA": {
+   "name": "str_rom_bad_checksum",
+   "comment": "'ROM bad checksum = '"
+  },
+  "D1FB": {
+   "name": "rom_checksum",
+   "comment": "Sum CX bytes at DS:0; ZF=1 if 8-bit sum is zero."
+  },
+  "6F4F": {
+   "name": "pic_mask_reg_test",
+   "comment": "Walking-bit write/read test of the PIC mask register at DX."
+  },
+  "6F73": {
+   "name": "dma_regs_walking_test",
+   "comment": "Walking-bit test of DMA address/count registers starting at DX (CX regs, step SI)."
+  },
+  "6FD1": {
+   "name": "video_vsync_check",
+   "comment": "Wait for vertical-retrace bit toggle on CRTC status port (40:63 + 6)."
+  },
+  "7013": {
+   "name": "video_ram_test_and_mode",
+   "comment": "POST 2Bh: test video RAM at B000h/B800h (memtest_64k_block), POST 2Ch set mode, POST 2Dh vsync check; final POST 30h+adapter type."
+  },
+  "6D3A": {
+   "name": "detect_equipment",
+   "comment": "Probe serial ports (table 6D24), parallel ports, game port 201h and hard-disk controller; fill 40:10 equipment word."
+  },
+  "6D24": {
+   "name": "port_probe_table",
+   "comment": "3F8,2F8,3E8,2E8 (serial) then 3BC,378,278,0 (parallel)."
+  },
+  "6DBA": {
+   "name": "probe_serial_port",
+   "comment": "Write scratch register (DX+7) pattern 55h/AAh and read back; ZF=1 if UART present."
+  },
+  "6E1A": {
+   "name": "probe_parallel_port",
+   "comment": "Write 5Ah to data port and read back."
+  },
+  "6DF7": {
+   "name": "probe_game_port",
+   "comment": "Trigger 201h and time the monostable bits."
+  },
+  "6E2C": {
+   "name": "probe_hd_controller",
+   "comment": "Reset via 3F6h bit2, then read 1F7h status: FFh means no controller."
+  },
+  "6E59": {
+   "name": "superio_init_26E",
+   "comment": "Program Super I/O configuration at index/data 26Eh/26Fh (reg 00:=4F?, 01:=10, 03:=00) then continue at 5B16."
+  },
+  "5B0D": {
+   "name": "post_after_memsize",
+   "comment": "Shutdown code 1 / warm re-entry: port 61h:=0Ch then Super I/O init, then POST 01h."
+  },
+  "5E65": {
+   "name": "post_0D_ram_stack",
+   "comment": "Real stack now at 0000:8000. POST 0Dh parity check, warm flag restore, BDA keyboard buffer init, equipment detection, serial/parallel init. 40:B6 bit0 (quick boot) skips the slow tests."
+  },
+  "5F58": {
+   "name": "post_20_dma1_regs_test",
+   "comment": "POST 20h"
+  },
+  "5F71": {
+   "name": "post_21_dma2_regs_test",
+   "comment": "POST 21h"
+  },
+  "5F8A": {
+   "name": "post_22_pic1_mask_test",
+   "comment": "POST 22h"
+  },
+  "5F9D": {
+   "name": "post_23_pic2_mask_test",
+   "comment": "POST 23h"
+  },
+  "5FB0": {
+   "name": "post_25_init_ivt",
+   "comment": "POST 25h: all 256 vectors -> int_default_handler (offset stepped by -10h per vector when ROM option AF45 bit5), INT 60-67 zeroed, then tables ivt_init_08_1F / ivt_init_70_77, INT 02h and INT 05h; PIC1 mask FAh."
+  },
+  "603F": {
+   "name": "post_27_kbc_selftest",
+   "comment": "POST 27h: KBC self test (AAh->55h) with 5 retries, command byte 7Ch, read input port -> 40:12."
+  },
+  "60A2": {
+   "name": "post_28_cmos_checksum",
+   "comment": "POST 28h: CMOS 0Dh/0Eh status, checksum 10h-2Dh vs 2Eh/2Fh; update CMOS 0Eh."
+  },
+  "610E": {
+   "name": "post_29_video_config",
+   "comment": "POST 29h: reconcile CMOS 14h display bits with 40:10 equipment word and ROM options (LCD/CRT)."
+  },
+  "61BD": {
+   "name": "post_2C_video_init",
+   "comment": "POST 2Ch: INT 10h mode 0 (mono) then mode 3, video RAM test; 'Display adapter failed; using alternate'."
+  },
+  "6285": {
+   "name": "post_2E_option_rom_c000",
+   "comment": "POST 2Eh: sub_9835 (POST 53h), option ROM scan C000-C800 (or direct far call E000:0003 for the on-board VGA ROM), CCD3, banner, CPU type/speed."
+  },
+  "6305": {
+   "name": "post_34_timer_tick_test",
+   "comment": "POST 34h: hook INT 08h, wait for a tick; 'No timer tick interrupt'."
+  },
+  "636D": {
+   "name": "post_35_shutdown_test",
+   "comment": "POST 35h: A20 float test at 0:500 / FFFF:510, then KBC pulse-reset (FEh) with CMOS 0Fh=0Ah; 'Shutdown failure' if the timer fires instead."
+  },
+  "6478": {
+   "name": "post_after_shutdown_test",
+   "comment": "Manufacturing mode (40:12 bit5) forces base memory 100h/200h KB else size_extended_memory."
+  },
+  "64A9": {
+   "name": "post_3A_timer2_test",
+   "comment": "Set CR0.ET from CMOS 33h bit4; POST 3Ah: PIT ch2 counting test; 'Timer 2 failure'."
+  },
+  "6527": {
+   "name": "post_keyboard_test",
+   "comment": "Clear 40:17-19/71/96/97; KBC/keyboard reset sequence with error strings 'Keyboard controller/clock line/data line/stuck key failure', 'Pointer device failure'; CMOS 59h bit5 -> mouse present (40:10 bit2)."
+  },
+  "6859": {
+   "name": "post_38_memory_test",
+   "comment": "POST 38h: memtest_with_display, then keyboard ID (F2h), enhanced-keyboard detection."
+  },
+  "6912": {
+   "name": "post_3B_rtc_test",
+   "comment": "POST 3Bh: wait for CMOS 0Ch update-ended flag (UIP via 0Ah); 'Real time clock failure' sets CMOS 0Eh bit2."
+  },
+  "69AC": {
+   "name": "fpu_detect",
+   "comment": "FNINIT / FNSTCW=03FFh / FNSTSW=0 => 40:10 bit1, unmask IRQ13."
+  },
+  "6A0E": {
+   "name": "post_56_cmos_memsize_check",
+   "comment": "POST 56h: CMOS 15/16 base and 17/18 vs 30/31 extended sizes against 40:13; mismatch -> POST 59h, CMOS 0Eh bit4."
+  },
+  "6AA4": {
+   "name": "ebda_setup",
+   "comment": "Reserve 1 KB EBDA at top of base memory: 40:13 -= 1, 40:0E = seg, EBDA[0]=1. Then KBC output port tweaks (DDh)."
+  },
+  "6AEF": {
+   "name": "floppy_hd_reset_detect",
+   "comment": "Reset HD controller (3F6h bit2), floppy_detect_drives, set 40:10 floppy bits."
+  },
+  "6B33": {
+   "name": "post_57_option_rom_c800",
+   "comment": "chipset_cfg_200_update, cmos_hd_type_check, CMOS diag check, POST 57h MISER call, option ROM scan C800-E000, 'Time-of-day not set - run SETUP program'."
+  },
+  "6B96": {
+   "name": "keyboard_lock_check",
+   "comment": "KBC command byte 65h; status bit4 => 'Keyboard is locked - unlock'."
+  },
+  "6C03": {
+   "name": "config_error_check",
+   "comment": "40:72 bit0 => 'Invalid configuration information - please run SETUP program' + F1/F2 prompt, else beep."
+  },
+  "6C56": {
+   "name": "post_prepare_boot",
+   "comment": "40:72:=0, print 'Press [Ctrl]+[Alt]+[S] to enter SETUP', optional INT 10h mode set, clear IDT area, re-enable NMI, stack 0030:0100, fall into boot_start."
+  },
+  "AD51": {
+   "name": "msg_press_ctrl_alt_s",
+   "comment": "'Press [Ctrl]+[Alt]+[S] to enter SETUP.'"
+  },
+  "6CF9": {
+   "name": "apply_cpu_speed_from_cmos",
+   "comment": "CMOS 34h bits 0-1 select one of three speed bytes AF5D/5E/5F -> set_cpu_speed."
+  },
+  "D56F": {
+   "name": "int_default_handler",
+   "comment": "Default handler installed in every IVT slot by POST 25h ('Unexpected interrupt' reporting)."
+  },
+  "D4A3": {
+   "name": "zero_seg_word_2",
+   "comment": "0000h"
+  },
+  "94E9": {
+   "name": "chipset_init_table_94E9",
+   "comment": "(index, value) word pairs for the PicoPower chipset written at POST."
+  },
+  "95C4": {
+   "name": "post_50_chipset_table",
+   "comment": "POST 50h: warm (40:72=1234h) -> post_after_memsize; else program chipset from chipset_init_table."
+  },
+  "9688": {
+   "name": "post_52_a20_and_pmode_memsize",
+   "comment": "POST 52h: flush KBC, set output-port bit1 (A20), refresh timer, LGDT gdt_memsize, CR0.PE, far jump 0010:97C2 (32-bit DRAM sizing)."
+  },
+  "96EE": {
+   "name": "pmode_descriptor_96EE",
+   "comment": "Descriptor image (limit 0028h, base 96EEh, type 93h)."
+  },
+  "97C2": {
+   "name": "pmode_dram_sizing",
+   "comment": "Runs with CS selector 0010h: writes 55555555h patterns through a flat data selector to find installed DRAM bank sizes, then returns to real mode at 97F4."
+  },
+  "97F4": {
+   "name": "dram_bank_program",
+   "comment": "Real mode again: program chipset DRAM bank registers (table 9831) from the sizes found, then jump post_after_memsize."
+  },
+  "9831": {
+   "name": "dram_bank_table",
+   "comment": "01,02,04,10 - bank size codes."
+  },
+  "ACD3": {
+   "name": "rom_checksum_params",
+   "comment": "ACD3: E020 (copyright start), ACD7: 02A3 (length), ACD9: E840 (extra byte); ACE0: F580 (segment), ACE2: A800 (length) => POST 03h ROM checksum covers F000:5800-FFFF (sum is 00)."
+  },
+  "AF5D": {
+   "name": "rom_option_cpu_speeds",
+   "comment": "Three speed values (fast/medium/slow) for set_cpu_speed."
+  },
+  "AF65": {
+   "name": "setup_hotkey_scancode",
+   "comment": "1Fh = make code of 'S': SETUP hot key is Ctrl+Alt+S. Zero would disable the hot key and the F2 prompt text."
+  },
+  "AF66": {
+   "name": "rom_option_extra_lpt",
+   "comment": "Extra parallel port base or 0."
+  },
+  "AF68": {
+   "name": "rom_option_extra_com",
+   "comment": "Two extra serial port bases (AF68, AF6A) or 0."
+  },
+  "70B4": {
+   "name": "time_constants",
+   "comment": "0Ah, 3Ch, 00DCh, 1234h - BCD/time conversion constants used by INT 1Ah time validation (70BB)."
+  },
+  "70BB": {
+   "name": "validate_rtc_time",
+   "comment": "INT 1Ah AH=2 and range-check hours/minutes/seconds; convert to ticks into 40:6C/6E; CF=1 if valid."
+  },
+  "5B16": {
+   "name": "post_kbc_sysflag_cmos_b3",
+   "comment": "If KBC system flag clear, record CR0 bit0 into CMOS 33h bit4; then POST 01h."
+  },
+  "78DF": {
+   "name": "int19_boot",
+   "comment": "INT 19h body: INT 1Eh := diskette_param_table, INT 13h reset, up to 3 floppy reads of sector 1 to 0000:7C00, else hard disk (if 40:75 drives and CMOS 0Eh bit3 clear); validate boot sector then jump."
+  },
+  "79AC": {
+   "name": "msg_boot_failures",
+   "comment": "Boot failure messages: diskette read failure / not a boot diskette / no boot device / hard disk read failure / no boot sector."
+  },
+  "7A36": {
+   "name": "int18_boot_fail",
+   "comment": "INT 18h: prints ' press F1 to retry boot[, F2 for setup utility]' and waits (wait_key_f1_f2)."
+  },
+  "BC63": {
+   "name": "int15_handler",
+   "comment": "INT 15h body (F859 jumps here). Compare chain: 87h move block, 53h -> MISER APM (E800:0028), BCh, 91h, C0h sysconfig, C2h pointing device (table C766), C1h EBDA segment, 4Fh keyboard intercept, 5Fh platform video (AL=31h/33h/35h), C9h CPU type, then table int15_80_91_dispatch."
+  },
+  "BCD6": {
+   "name": "int15_5F_platform_video",
+   "comment": "Phoenix/C&T platform hooks: AL=35h (read CMOS display settings -> chipset), 31h, 33h (BL=30h/32h). The VGA ROM calls AX=5F34h which falls through as unsupported."
+  },
+  "C1F5": {
+   "name": "int15_C0_get_sysconfig",
+   "comment": "Returns ES:BX -> sysconfig_table_int15_C0 (E6F5)."
+  },
+  "C030": {
+   "name": "int15_4F_kbd_intercept",
+   "comment": "INT 15h AH=4Fh keyboard intercept (called by INT 09h for every scancode in AL). First hotkey_dispatch (Ctrl+Alt+F3/F4/F8 and Fn codes 65h/66h/6Ah), then with Ctrl+Alt held (40:17 bits 2,3) and AL not a Ctrl/Alt make/break code, int15_4F_setup_hotkey_check. CF=1 means 'pass the key on'."
+  },
+  "D93E": {
+   "name": "int15_C9_get_cpu_type",
+   "comment": "Phoenix extension: CPU type/name index (names at D94F)."
+  },
+  "D94F": {
+   "name": "cpu_name_table",
+   "comment": "'486 DX','486 SX','486 DX2','486 DX4','386 DX','386 SX','386 SL','Cyrix 486 DX','Cyrix 486 SX' NUL-separated."
+  },
+  "BDB0": {
+   "name": "int15_87_move_block_body",
+   "comment": "INT 15h AH=87h: enable A20, save SS:SP in 40:67/69, build GDT entries in the caller's descriptor table (ES:SI): BIOS code 24h (base F0000, 9Bh), stack 2Ch (SS, 93h), load GDT, IDT from C209, CR0.PE, far jump 0020h; copy CX words with movsd (aligned, 486-friendly) from selector 10h to 18h; check port 61h parity bits; CR0.PE off, far jump back, reload real-mode GDT copy at BEE0; restore and return AH=0 (or 02h parity / 03h A20 error)."
+  },
+  "9835": {
+   "name": "post_53_platform_init",
+   "comment": "POST 53h: CMOS 34h/3Fh derived platform setup (port 1FFh, shadow options) before option ROM scan (best guess)."
+  },
+  "CE19": {
+   "name": "fm_synth_all_notes_off",
+   "comment": "Writes 0 to OPL2/AdLib registers B0h-B8h through 388h/389h (key-off for all 9 FM channels) - silences the on-board FM sound chip during POST. Called before option ROM scan and from platform_cfg_from_cmos_3F."
+  },
+  "CDF6": {
+   "name": "superio_read_reg",
+   "comment": "AL=index -> port 26Eh, returns AL from 26Fh (Super I/O configuration read)."
+  },
+  "CE07": {
+   "name": "superio_write_reg",
+   "comment": "AL=index, AH=value -> Super I/O configuration ports 26Eh/26Fh."
+  },
+  "CD2C": {
+   "name": "superio_configure_from_cmos",
+   "comment": "Programs the Super I/O (COM/LPT/VersaPort mode, floppy) from CMOS 10h/59h settings using superio_read_reg/superio_write_reg."
+  },
+  "7ED5": {
+   "name": "int13h_status_epilogue_table",
+   "comment": "22 near pointers indexed by AH (function) used by the exit path to adjust AL/CF conventions (e.g. reset returns AL=50h on error)."
+  },
+  "7E72": {
+   "name": "int13h_dispatch",
+   "comment": "22 near pointers indexed by AH (00h-15h): the real hard-disk INT 13h function table (installed handler int13_hd_handler)."
+  },
+  "7DFE": {
+   "name": "int13_hd_handler",
+   "comment": "INT 13h vector after hd_init: DL < 80h -> INT 40h (floppy, original vector); AH=0 with DL >= 82h -> ok; AH=1 -> AL = 40:74 status; else int13_hd_body."
+  },
+  "7E39": {
+   "name": "int13_hd_body",
+   "comment": "pusha/es/flags, DL -= 80h, DS=0, 40:74 := 0, AH >= 16h -> unsupported; unmask IRQ14/IRQ2, BP = AH*2, drive check against 40:75, jmp int13h_dispatch[AH]."
+  },
+  "7DDE": {
+   "name": "int76_hd_irq",
+   "comment": "IRQ14 handler installed by hd_init: 40:8E := FFh (operation complete), EOI both PICs, INT 15h AX=9100h (interrupt complete), IRET."
+  },
+  "7B5E": {
+   "name": "hd_type_to_param_ptr",
+   "comment": "AL = CMOS 12h nibble, AH = CMOS index (99h/9Ah) of the extended type byte. 0 -> none; 1-2Fh -> ES:SI = hd_param_table + (type-1)*16; 30h/31h -> user-defined table copied from CMOS into 40:C0 / 40:D0 (hd_user_params_from_cmos); else 'Fixed disk configuration error'."
+  },
+  "7BDA": {
+   "name": "hd_user_params_from_cmos",
+   "comment": "Build a 16-byte drive parameter block at 40:C0 (type 30h, CMOS 20h-2Fh) or 40:D0 (type 31h, CMOS 35h-..) from CMOS bytes: cyl, heads, wpcomp, control (8 if heads > 8), landing zone, sectors."
+  },
+  "7C37": {
+   "name": "cmos_read_bl_stosb",
+   "comment": "AL = CMOS[BL++] -> store at ES:DI."
+  },
+  "7D9E": {
+   "name": "print_fixed_disk_failure",
+   "comment": "'Fixed disk failure' (same text for drive 0 and 1)."
+  },
+  "9C03": {
+   "name": "hd_autodetect_patch_table",
+   "comment": "Runs from the shadow-RAM copy: if the 4 spare entries (types 44-47, E6B1-E6F0) are still zero, fill them from CMOS types 19h/1Ah via hd_autodetect_fill_entry and adjust the ROM checksum byte at F000:FFEF by the bytes written."
+  },
+  "9C4D": {
+   "name": "hd_autodetect_fill_entry",
+   "comment": "AL = CMOS extended type: <= 2Dh (44/45 = Auto Detected / AUTO 2) -> ata_identify_to_table; 2Eh/2Fh (User Defined / USER 2) -> copy CMOS A0h../B5h.. parameters into table entries 46/47 (E6D1/E6E1)."
+  },
+  "9CBC": {
+   "name": "cmos_read_bl_stosb_sum",
+   "comment": "AL = CMOS[BL++|80h] -> ES:DI, CL += AL (checksum accumulation)."
+  },
+  "9CCF": {
+   "name": "cmos_read_ext_type",
+   "comment": "Read CMOS byte AL; returns it in AL (2Ch-2Fh = auto/user types)."
+  },
+  "9CE9": {
+   "name": "ata_identify_to_table",
+   "comment": "ATA IDENTIFY DEVICE: wait DRDY (1F7h bit 6) and !BSY, 3F6h := 02h (nIEN), zero 1F1h-1F5h, 1F6h := drive<<4 (no LBA bit), 1F7h := ECh, read 256 words into a 512-byte stack buffer, then write cylinders (word 1), heads (word 3), sectors (word 6) into hd_param_table entry (AL-1), landing zone = cylinders, control byte = 8 if heads > 8; returns CL = byte sum for the checksum fix."
+  },
+  "9D9F": {
+   "name": "hd_spare_entries_zero_check",
+   "comment": "ZF=1 if the 64 bytes at E6B1 (table entries 44-47) are zero."
+  },
+  "9DAB": {
+   "name": "ata_wait_drdy",
+   "comment": "Poll 1F7h bit 6 (DRDY) up to 3*65535*100 refresh cycles; CF=1 AL=50h on timeout."
+  },
+  "9DD5": {
+   "name": "ata_wait_not_busy",
+   "comment": "Poll 1F7h bit 7 (BSY) clear; CF=1 AL=51h on timeout."
+  },
+  "9DFF": {
+   "name": "ata_wait_drq",
+   "comment": "Poll 1F7h bit 3 (DRQ); CF=1 AL=52h on timeout."
+  },
+  "9E29": {
+   "name": "chipset_reg_read_ax",
+   "comment": "AX = index -> AX = chipset register (ports 24h/26h)."
+  },
+  "9E36": {
+   "name": "chipset_reg_write",
+   "comment": "AX = index, DX = value -> chipset register."
+  },
+  "E6B1": {
+   "name": "hd_param_table_spare_44_47",
+   "comment": "Table entries for types 44-47 (Auto Detected, AUTO 2, User Defined, USER 2); zero in ROM, filled at run time in the shadow copy."
+  },
+  "FFEF": {
+   "name": "rom_checksum_adjust_byte",
+   "comment": "Byte adjusted by hd_autodetect_patch_table so that the shadow copy of F000 keeps its 8-bit checksum after the disk table is patched."
+  },
+  "8255": {
+   "name": "hd_get_param_ptr",
+   "comment": "DL = drive 0/1 -> ES:SI = drive parameter table through the INT 41h (0:0104) / INT 46h (0:0118) vectors (DL*14h + 104h)."
+  },
+  "8266": {
+   "name": "hd_normalize_buffer",
+   "comment": "Normalise ES:BX to ES:DI (DI < 16); check that AL sectors x 512 (516 for read/write long, BP bit 4) do not cross a 64 KB boundary, else AH = 09h."
+  },
+  "831B": {
+   "name": "hd_build_task_file",
+   "comment": "Fill the task-file image at 40:41-48 from INT 13h registers: 442 precomp (table wpcomp/4), 443 sector count (AL), 444 sector (CL & 3Fh), 445/446 cylinder (CH + CL bits 6-7, plus DH bits 5-7 as cylinder bits 10-12 - Phoenix large-disk extension), 447 drive/head (A0h | DL<<4 | head & 7/0Fh), 448 command (AH); 40:76 = control byte; AH=1/CF if DL >= 40:75."
+  },
+  "8383": {
+   "name": "hd_issue_command",
+   "comment": "40:8E := 0, 3F6h := control byte, wait !BSY (hd_wait_not_busy_long), write 1F1h-1F6h from 40:442-447, write command 448 to 1F7h if non-zero, then hd_wait_drdy_alt."
+  },
+  "8298": {
+   "name": "hd_wait_irq",
+   "comment": "Wait for int76_hd_irq to set 40:8E = FFh: INT 15h AX=9000h (device busy) then a 40:BE x 65536 poll; on timeout 3F6h := 04h (soft reset) and AH = 80h (CF from INT 15h)."
+  },
+  "82CF": {
+   "name": "hd_wait_irq_altstatus",
+   "comment": "Variant of hd_wait_irq that also polls the alternate status register 3F6h for DRQ (unreferenced by static analysis)."
+  },
+  "8458": {
+   "name": "hd_check_status",
+   "comment": "Read 1F7h status (40:8C) and 1F1h error (40:8D); map to INT 13h codes: 0Ah bad block, 04h sector not found, 02h address mark, 10h ECC, 05h reset, BBh undefined, CCh write fault, AAh not ready, 40h seek, 11h corrected ECC."
+  },
+  "83B4": {
+   "name": "hd_next_sector_check",
+   "comment": "Multi-sector loop: BH = sectors remaining; re-read status when the command stalls; AH=20h controller error."
+  },
+  "83E9": {
+   "name": "hd_wait_not_busy_long",
+   "comment": "Poll 1F7h BSY clear up to 60000 x 100 refresh cycles; AH=20h/CF on timeout."
+  },
+  "8404": {
+   "name": "hd_wait_drq",
+   "comment": "Poll 1F7h DRQ (bit 3) up to 1500h loops, then hd_check_status; AH=20h/CF."
+  },
+  "842A": {
+   "name": "hd_wait_drq_read",
+   "comment": "Like hd_wait_drq but on error drains one sector from 1F0h into ES:DI."
+  },
+  "8571": {
+   "name": "hd_wait_drdy_alt",
+   "comment": "Poll alternate status 3F6h until (BSY,DRDY) = (0,1); 3 x 30000 loops; CF on timeout."
+  },
+  "84F8": {
+   "name": "hd_wait_ready_60s",
+   "comment": "POST: up to 60 x 1 s waiting for 1F7h (BSY,DRDY) = (0,1) using wait_refresh_cycles with callback 84ED."
+  },
+  "84ED": {
+   "name": "hd_ready_check",
+   "comment": "push dx; 1F7h status & C0h == 40h (DRDY without BSY); pop dx."
+  },
+  "8503": {
+   "name": "hd_idle_immediate_pm",
+   "comment": "Power-management path: wait DRDY, chipset register 0 manipulation (24h/26h), 1F7h := E1h (IDLE IMMEDIATE), wait for DRDY on 3F6h, restore chipset register (unreferenced statically; best guess called by MISER)."
+  },
+  "856E": {
+   "name": "io_delay",
+   "comment": "out 0EDh (one dummy I/O cycle)."
+  },
+  "7E9E": {
+   "name": "hd_unsupported",
+   "comment": "AH = 01h (invalid function) then common exit."
+  },
+  "7EA0": {
+   "name": "hd_exit",
+   "comment": "Common INT 13h HD exit: STI, 40:74 := AH (if not already set), pop flags/ES/regs, then int13h_status_epilogue_entry."
+  },
+  "7F63": {
+   "name": "hd_15_get_type",
+   "comment": "AH=15h: AH=03h (fixed disk), CX:DX = (cylinders-1) x heads x sectors."
+  },
+  "7F9A": {
+   "name": "hd_00_reset",
+   "comment": "AH=00h: INT 40h reset floppy first, then 3F6h := 04h/00h pulse, and for each drive AH=09h init + AH=11h recalibrate through int13_hd_handler."
+  },
+  "7FEC": {
+   "name": "hd_02_read_sectors",
+   "comment": "AH=02h: command 20h (0Ah: 22h read long). hd_normalize_buffer, hd_build_task_file, hd_issue_command, then per sector: hd_wait_irq, hd_wait_drq_read, `rep insw` 256 words (+4/+3 ECC bytes for read long), hd_next_sector_check."
+  },
+  "8067": {
+   "name": "hd_03_write_sectors",
+   "comment": "AH=03h: command 30h (0Bh: 32h write long); waits DRQ then `rep outsw` 256 words per sector, ECC bytes for long, hd_wait_irq, hd_check_status."
+  },
+  "80ED": {
+   "name": "hd_04_verify_sectors",
+   "comment": "AH=04h: command 40h."
+  },
+  "8119": {
+   "name": "hd_05_format_track",
+   "comment": "AH=05h: command 50h with sector count = spt, writes the 512-byte interleave table from ES:BX."
+  },
+  "815B": {
+   "name": "hd_08_get_params",
+   "comment": "AH=08h: DH = heads-1, DL = 40:75 drive count, CH/CL = (cylinders-2) packed with spt; DL >= 2 -> AH=07h."
+  },
+  "81A4": {
+   "name": "hd_09_init_params",
+   "comment": "AH=09h: INITIALIZE DEVICE PARAMETERS (91h) with heads-1 and spt from the table."
+  },
+  "81D7": {
+   "name": "hd_11_recalibrate",
+   "comment": "AH=11h: command 10h."
+  },
+  "81DB": {
+   "name": "hd_0C_seek",
+   "comment": "AH=0Ch: command 70h."
+  },
+  "81FD": {
+   "name": "hd_10_test_ready",
+   "comment": "AH=10h: command 00h (NOP style ready check via task file only)."
+  },
+  "8212": {
+   "name": "hd_14_diagnostics",
+   "comment": "AH=14h: EXECUTE DEVICE DIAGNOSTIC (90h); error register 1F1h == 01h means pass."
+  },
+  "7F9F": {
+   "name": "hd_0D_reset_alt",
+   "comment": "AH=0Dh: same as reset without the floppy part."
+  },
+  "5C30": {
+   "name": "post_copyright_integrity_check",
+   "comment": "After POST 03h checksum (result ignored by `jz $+4`): sums 2A3h bytes of the copyright text at E020 (params ACD3/ACD7) mixed with the byte at E840 (ACD9); if the result is not zero the code spins in an obfuscated loop (5C6B) forever. Anti-tamper - do not modify E020-E2C2 or E840 when patching."
+  },
+  "E840": {
+   "name": "copyright_check_extra_byte",
+   "comment": "Extra byte included in the anti-tamper copyright checksum (see 5C30)."
+  },
+  "D1F4": {
+   "name": "rom_checksum_core",
+   "comment": "DS := [ACE0] = F580h, CX := [ACE2] = A800h, then rom_checksum: 8-bit sum of F000:5800-FFFF must be zero."
+  },
+  "8695": {
+   "name": "int15_4F_setup_hotkey_check",
+   "comment": "If setup_hotkey_scancode (AF65) is non-zero, AL equals it (1Fh = 'S', so Ctrl+Alt+S) and SETUP is not active (40:B5 bit0): sub_931D (EOI), clear 40:96 bit1, far call MISER API 34h (F000:86D1 -> E800:0034) which launches SETUP; returns CF=0 (key consumed)."
+  },
+  "86D1": {
+   "name": "miser_api34_farptr",
+   "comment": "Far pointer E800:0034 used by the hot-key path."
+  },
+  "CAD5": {
+   "name": "hotkey_dispatch",
+   "comment": "Notebook hot keys inside the INT 15h 4Fh intercept: raw scancodes 65h/66h/6Ah (Fn-key combinations from the keyboard controller) or, with Ctrl+Alt held, F3 (3Dh) / F4 (3Eh) / F8 (42h): -> hotkey_setup / hotkey_display_toggle / hotkey_power_meter. Other keys return to the caller."
+  },
+  "CB2C": {
+   "name": "hotkey_setup",
+   "comment": "Ctrl+Alt+F3 / Fn code 65h: if MISER present and SETUP not active, set 40:B6 bit1, flush keyboard buffer, clear Ctrl/Alt state, far call MISER API 34h (SETUP), then clear the flag."
+  },
+  "CB84": {
+   "name": "hotkey_display_toggle",
+   "comment": "Ctrl+Alt+F4 / Fn code 66h: chipset reg 9 bit 9 := 0, INT 10h AX=5F50h (panel info), choose next device (DL bit3 -> CRT=0, DL bit1 -> both=2, else LCD=1), INT 10h AX=5F51h BL=device, delay, chipset reg 9 bit 9 := 1."
+  },
+  "CBE3": {
+   "name": "hotkey_power_meter",
+   "comment": "Ctrl+Alt+F8 / Fn code 6Ah: if MISER present and 40:B6 bit2 allows, unmask IRQ1, enable keyboard (AEh), EOI, pre hook, far call MISER API 30h (show_power_meter), post hook."
+  },
+  "CB18": {
+   "name": "hotkey_exit_consumed",
+   "comment": "Unmask IRQ1 and return CF=0 (key consumed) from the intercept."
+  },
+  "CC19": {
+   "name": "setup_hotkey_flag_set",
+   "comment": "40:B6 bit1 := 1 (SETUP entered via hot key)."
+  },
+  "CC26": {
+   "name": "setup_hotkey_flag_clear",
+   "comment": "40:B6 bit1 := 0."
+  },
+  "CC33": {
+   "name": "miser_present_check",
+   "comment": "If SETUP is not active, far call MISER API 38h; ZF result used by the hot-key handlers."
+  },
+  "CC40": {
+   "name": "setup_active_check",
+   "comment": "ZF from 40:B5 bit0 (SETUP running)."
+  },
+  "CC5E": {
+   "name": "power_meter_allowed_check",
+   "comment": "Tests 40:B6 bit 2 (best guess: power-meter display permitted / battery system present)."
+  },
+  "CCA3": {
+   "name": "chipset_reg_read_bx",
+   "comment": "AX = index -> BX = chipset register value (ports 24h/26h)."
+  },
+  "CCAE": {
+   "name": "chipset_reg_write_bx",
+   "comment": "AX = index, BX = value -> chipset register."
+  },
+  "CC7B": {
+   "name": "pre_power_meter_hook",
+   "comment": "Called before MISER API 30h (POWER METER)."
+  },
+  "CC8F": {
+   "name": "post_power_meter_hook",
+   "comment": "Called after MISER API 30h returns."
+  },
+  "03CC": {
+   "name": "setup_page_field_counts",
+   "comment": "Per page: index of the last field record (13h = 20 fields on page 1, 05h = 6 fields on page 2)."
+  },
+  "03CE": {
+   "name": "setup_page_word_table_a",
+   "comment": "Per page word ([bp+2C]): 00E5h / 00F9h (stack-frame offsets, best guess: key/handler list)."
+  },
+  "03D2": {
+   "name": "setup_page_field_records",
+   "comment": "Per page pointer to the 32-byte field record array ([bp+26]): page 1 -> 014Ch, page 2 -> 1874h."
+  },
+  "03D6": {
+   "name": "setup_page_descriptors",
+   "comment": "Two 14-byte page descriptors: title (row/col, string), label block (count, string, row/col), second block; selected by setup_select_page."
+  },
+  "014C": {
+   "name": "setup_fields_page1",
+   "comment": "20 x 32-byte field records for Basic Setup: +0 row, +1 col, +2 value string, +4/+6/+8/+C/+E/+10/+12 handlers (draw, edit, key, validate, CMOS read/write), +A common handler, +14 CMOS index (low) and bit mask (high), +16 range/option count, +18 option width/format, +1A/+1C/+1D secondary label handler and position, +1E value type (11h/12h = string lives in the stack frame), +1F field kind (66h = option list, 22h = disk type list, 00 = numeric)."
+  },
+  "1874": {
+   "name": "setup_fields_page2",
+   "comment": "6 x 32-byte field records for Power & Video Setup (same layout as setup_fields_page1)."
+  },
+  "21A8": {
+   "name": "setup_print_at",
+   "comment": "ES:SI = NUL-terminated string, DX = row/col, BL = attribute ([bp+17]): INT 10h 13h; returns CX = length."
+  },
+  "243D": {
+   "name": "setup_field_record",
+   "comment": "BX = [bp+26] + [bp+2B]*32 (current field record)."
+  },
+  "233F": {
+   "name": "setup_field_pos_and_value",
+   "comment": "DH/DL = record row/col, SI = record value-string pointer."
+  },
+  "2621": {
+   "name": "setup_select_page",
+   "comment": "Loads the per-page tables for page [bp+25]: count (03CC), word (03CE), record array (03D2), descriptor (03D6)."
+  },
+  "292E": {
+   "name": "setup_draw_title",
+   "comment": "Print the page title from the page descriptor."
+  },
+  "293D": {
+   "name": "setup_draw_labels",
+   "comment": "Print the left and right string blocks of the page descriptor, one line per string; page 1 adds the 'Cylinders/Heads/Sectors' footer at 0A47."
+  },
+  "28F5": {
+   "name": "setup_draw_page_number",
+   "comment": "'Page   of  ' with current page+1 and total 2."
+  },
+  "28CE": {
+   "name": "setup_draw_page",
+   "comment": "Clear, title, labels, then all field values (setup_draw_fields)."
+  },
+  "298D": {
+   "name": "setup_draw_fields",
+   "comment": "For every field record: value via handler +6 (or list formatter 2301 for kind 66h), secondary label via +1A."
+  },
+  "2223": {
+   "name": "setup_draw_field",
+   "comment": "Draw one field record (index [bp+2B]); memory-size rows on page 1 use setup_draw_memory (3B4D)."
+  },
+  "3B4D": {
+   "name": "setup_draw_time_date",
+   "comment": "Page 0 rows 0-5: prints hh:mm:ss (rtc_read_time) and the date as month name (3-letter table 0C32h), day and 4-digit year (rtc_read_date) with the current field highlighted (field_pos_attr_for_index)."
+  },
+  "38B0": {
+   "name": "setup_ext_checksum_to_shadow",
+   "comment": "Recomputes the Phoenix extended checksum over 40h-7Dh into shadow 7Eh/7Fh."
+  },
+  "3894": {
+   "name": "setup_cmos_write_field",
+   "comment": "Recomputes the standard CMOS checksum over 10h-2Dh (cmos_std_checksum_calc) into shadow 2Eh/2Fh."
+  },
+  "2363": {
+   "name": "setup_key_default",
+   "comment": "Default key handler placeholder for field records."
+  },
+  "1FBE": {
+   "name": "setup_field_common",
+   "comment": "Common per-field handler referenced by every record at +0Ah."
+  },
+  "2A8F": {
+   "name": "setup_nop_handler",
+   "comment": "Empty handler (RET) used to fill unused record slots."
+  },
+  "2AAC": {
+   "name": "list_field_load_from_cmos",
+   "comment": "Edit handler for option-list fields (kind 66h): cycles the CMOS bits through the option strings."
+  },
+  "2ADC": {
+   "name": "list_field_next_value",
+   "comment": "Draw handler for option-list fields."
+  },
+  "A10B": {
+   "name": "int13_floppy_entry",
+   "comment": "INT 13h diskette body (EC59 jumps here; INT 40h after hd_init). Saves registers with BP frame ([bp+2] = current diskette parameter table pointer), optional CPU speed switch (ROM option AF46 bit0/AF55 bit1: run the FDC at the speed byte AF59), AH >= 21h or DL >= 2 -> unsupported, then int13_floppy_dispatch[AH]."
+  },
+  "A0BA": {
+   "name": "floppy_speed_switch_needed",
+   "comment": "ZF from ROM options AF46 bit0 and AF55 bit1: whether diskette I/O must run at a fixed CPU speed (set_cpu_speed with AF59)."
+  },
+  "9F1A": {
+   "name": "get_diskette_param_table",
+   "comment": "ES:SI = INT 1Eh vector (0000:0078) - the active diskette parameter table."
+  },
+  "9F25": {
+   "name": "zero_seg_word_3",
+   "comment": "0000h"
+  },
+  "9E9A": {
+   "name": "diskette_param_tables",
+   "comment": "Built-in diskette parameter tables, 8 tables of 14 bytes (standard 11-byte DPT + max track, data rate, type): 9E9A 360K, 9EA8 360K in 1.2M drive, 9EB6 1.2M, 9EC4/9ED2 720K, 9EE0 1.44M, 9EEE 720K in 2.88M drive, 9EFC 1.44M in 2.88M drive; [bp+2] points at the one in use; A7D5/A8DE index them as (ptr-9E9Ah)/14."
+  },
+  "A7D5": {
+   "name": "floppy_select_media_params",
+   "comment": "Pick the parameter table / data-rate for the drive from 40:90/91 media-state bits (tables at A7AF and A7B7), store the pointer in [bp+2]."
+  },
+  "9F68": {
+   "name": "floppy_motor_on",
+   "comment": "Turn the drive motor on via the digital output register (3F2h), track motor state in 40:3F/40:40 with the spin-up delay from the parameter table."
+  },
+  "AB17": {
+   "name": "floppy_media_check",
+   "comment": "Check the change line (3F7h bit 7) and media state; CF = media changed / not ready."
+  },
+  "A02F": {
+   "name": "floppy_dma_setup",
+   "comment": "Program DMA channel 2: mode 46h read / 4Ah write / 42h verify (mode reg 0Bh), address/page (04h/05h/81h) from ES:BX, count from sectors x sector size; AH=09h if the transfer would cross a 64 KB boundary."
+  },
+  "A811": {
+   "name": "floppy_seek",
+   "comment": "Seek to the requested cylinder (recalibrate first when the media state says the drive is uncalibrated); updates 40:94/95 current cylinder."
+  },
+  "A52A": {
+   "name": "floppy_wait_head_settle",
+   "comment": "Head settle delay from the parameter table (doubled for the 9EA8 table)."
+  },
+  "A253": {
+   "name": "fdc_write_byte",
+   "comment": "Write AL to the FDC data register 3F5h after waiting for RQM with DIO=0 (sub_A19F); on protocol error reads back results, 40:441 := 20h (controller failure), CF=1."
+  },
+  "A251": {
+   "name": "fdc_write_byte_cf",
+   "comment": "Entry into fdc_write_byte that first tests CF from the previous write."
+  },
+  "A27F": {
+   "name": "fdc_write_head_drive",
+   "comment": "Write the head/drive byte (head<<2 | drive) to the FDC."
+  },
+  "AA57": {
+   "name": "floppy_wait_irq",
+   "comment": "Unmask IRQ6, INT 15h AX=9001h (device busy), wait for 40:3E bit 7 (set by the IRQ6 handler) with a 15 x 1M refresh-cycle timeout (callback AA4F); CF = timeout."
+  },
+  "A223": {
+   "name": "fdc_read_results_check",
+   "comment": "Read the 7 result bytes into 40:42-48 (sub_A1DD) and translate ST0/ST1 into the INT 13h status (40:441): 20h controller, 08h DMA overrun, 04h sector not found, 03h write protect, 02h address mark, 10h CRC."
+  },
+  "A1DD": {
+   "name": "fdc_read_result_bytes",
+   "comment": "Read result phase bytes from 3F5h into 40:42.. until the FDC drops RQM/DIO."
+  },
+  "A19F": {
+   "name": "fdc_wait_rqm",
+   "comment": "Wait for the main status register 3F4h to show RQM; AL = MSR; CF on timeout."
+  },
+  "A351": {
+   "name": "floppy_reset_controller",
+   "comment": "AH=00h: clear 40:3E/41, DOR reset pulse (3F2h), wait IRQ, 4 x sense-interrupt (sub_A28A), then Specify from the parameter table."
+  },
+  "A3A3": {
+   "name": "floppy_last_sector",
+   "comment": "AL = sectors per track: max of the INT 1Eh table byte +4 and the internal table byte +4."
+  },
+  "A67C": {
+   "name": "floppy_media_state_update",
+   "comment": "After a successful read, set 40:90/91 media-state bits (data rate, established) for the drive."
+  },
+  "A8DE": {
+   "name": "floppy_set_media_state_from_table",
+   "comment": "40:90/91 := media state code for the parameter table selected in [bp+2] (table A8D4)."
+  },
+  "A661": {
+   "name": "floppy_drive_type_known",
+   "comment": "ZF from 40:90/91 for drive BL: media type already established."
+  },
+  "A627": {
+   "name": "floppy_get_drive_type",
+   "comment": "AL = CMOS 10h drive type nibble for the drive."
+  },
+  "A3B8": {
+   "name": "int13f_02_03_04_read_write_verify",
+   "comment": "AH=02h/03h/04h: select params, motor on, media check, DMA setup, seek, head settle, then FDC command 66h (read data MFM+skip) / 45h (write data MFM) / 66h verify with C/H/R/N/EOT/GPL/DTL from the parameter table; wait IRQ, read results; on media-change or data-rate mismatch (40:441 = 02/04/10 with media state bit 4 clear) retry with the next data rate (sub_9FC6). Returns AL = sectors transferred."
+  },
+  "8CC0": {
+   "name": "int09_kbd_irq_body",
+   "comment": "INT 09h body (E987 jumps here): disable keyboard (ADh), read scancode from 60h, STI, INT 15h AH=4Fh intercept (CF=0 means the key was consumed - hot keys, MISER), then look the scancode up in kbd_special_scancodes and dispatch through kbd_special_dispatch with CL = shift mask, CH = 40:96 flags; normal keys go to kbd_normal_key."
+  },
+  "8D1F": {
+   "name": "kbd_normal_key",
+   "comment": "Ordinary make code: ignore break codes (bit 7), handle Ctrl+Alt+Del (scancode 53h with Ctrl+Alt: 40:72 := 1234h, A20 on, KBC pulse reset FEh, HLT), numeric keypad 47h-53h with Alt (Alt-numpad accumulator 40:19 via table 92B8), Num Lock / Shift keypad tables (9310, 9260, 9208, 91B0), otherwise translate through the base tables and store in the buffer."
+  },
+  "8D40": {
+   "name": "kbd_ctrl_alt_del",
+   "comment": "Ctrl+Alt+Del: warm-boot flag 40:72 := 1234h, enable A20 if protected mode is on (SMSW bit 0), KBC command FEh (pulse reset line), HLT."
+  },
+  "9387": {
+   "name": "kbd_translate_lookup",
+   "comment": "Look up scancode AL in the translation table at CS:DI (scancode, ASCII pairs); returns AL = character, CF/ZF for not found."
+  },
+  "8EB7": {
+   "name": "kbd_store_key",
+   "comment": "Store AX (scan/ASCII) into the keyboard buffer 40:1A/1C with wraparound and overflow beep."
+  },
+  "8F19": {
+   "name": "int09_exit",
+   "comment": "Re-enable keyboard (AEh), EOI, pop registers, IRET."
+  },
+  "D356": {
+   "name": "int02_nmi_handler",
+   "comment": "NMI: bump the POST code on port 80h, read port 61h (bit 7 RAM parity, bit 6 I/O channel check), disable both checks (61h |= 0Ch). With ROM option AF45 bit5 also check PIC2 ISR (0Bh) for an unexpected IRQ. Prints 'Memory parity' / 'I/O card parity' / 'Unexpected type 02' + ' interrupt at CS:IP', then 'Type (S)hut off NMI, (R)eboot': R -> post_entry, S -> leave the checks disabled and IRET."
+  },
+  "D404": {
+   "name": "msg_io_card_parity",
+   "comment": "'\\r\\nI/O card parity' (NMI message)."
+  },
+  "D416": {
+   "name": "msg_memory_parity",
+   "comment": "'\\r\\nMemory parity'."
+  },
+  "D426": {
+   "name": "msg_unexpected_type02",
+   "comment": "'\\r\\nUnexpected type 02'."
+  },
+  "D340": {
+   "name": "wait_key_from_list",
+   "comment": "Wait for a key whose uppercase letter is in the list at CS:SI (D7D1 = 'RS'); AL = letter."
+  },
+  "BF40": {
+   "name": "int15_89_enter_pmode_body",
+   "comment": "INT 15h AH=89h: program the KBC output port (D1h) with DFh (A20 on) or DDh, wait for input-buffer empty at each step, pulse FFh (NOP); then load the caller's GDT/IDT (ES:SI), set CR0.PE and far jump to the caller's code selector with BH/BL interrupt bases programmed into the PICs."
+  },
+  "C209": {
+   "name": "pmode_idt_gdt_C209",
+   "comment": "IDT pseudo-descriptor (limit 0100h, base C211h) followed by the GDT used by the INT 15h block-move / memory sizing code (descriptors with type 93h/87h)."
+  },
+  "BEE0": {
+   "name": "gdt_realmode_pseudo_descriptor",
+   "comment": "Pseudo-descriptor (limit FFFF, base 0) reloaded after leaving protected mode."
+  },
+  "C4F4": {
+   "name": "cpu_tlb_test",
+   "comment": "486 TLB test through test registers TR6/TR7 (mov tr6/tr7 are shown as data bytes 0F 26 xx): writes linear/physical patterns 01234567h/89ABCDEFh/00112233h/44556677h and reads them back; code islands at E740/E750 are part of it."
+  },
+  "1C67": {
+   "name": "setup_load_cmos_flags",
+   "comment": "AL=0Eh: read CMOS diagnostic byte and derive the correction flags in [bp+2F]."
+  },
+  "E3FE": {
+   "name": "int13_fixed_entry",
+   "comment": "Classic IBM entry point F000:E3FE: jmp int13_hd_handler. PhoenixMISER's std_disk_setup points INT 13h here directly."
+  },
+  "EF5A": {
+   "name": "int0E_fixed_entry_miser",
+   "comment": "Classic IBM INT 0Eh (diskette IRQ) entry area F000:EF57..: here a far jump to MISER API 2Ch (pm_record_service)."
+  },
+  "FF5A": {
+   "name": "fixed_entry_FF5A",
+   "comment": "call sub_D1C6; retf (Phoenix far-callable stub)."
+  },
+  "FF60": {
+   "name": "fixed_entry_FF60",
+   "comment": "call sub_8695; retf."
+  },
+  "FF64": {
+   "name": "rom_option_table_far_ptr",
+   "comment": "Far pointer F000:ACFB -> rom_option_far_ptr_table."
+  },
+  "FF68": {
+   "name": "ret_FF68",
+   "comment": "ret."
+  },
+  "FF7C": {
+   "name": "fixed_entry_FF7C",
+   "comment": "call sub_8619; retf."
+  },
+  "FF82": {
+   "name": "fixed_entry_FF82",
+   "comment": "call sub_CE49; retf."
+  },
+  "3F50": {
+   "name": "byte_to_hex_ascii",
+   "comment": "AL -> two hex digits (AL low nibble in AL, high in AH) as ASCII. No caller found."
+  },
+  "3F6F": {
+   "name": "msg_rebooting",
+   "comment": "'Rebooting...'"
+  },
+  "3F7C": {
+   "name": "setup_reboot",
+   "comment": "Clears the screen (INT 10h scroll, 25x80), prints msg_rebooting, KBC D1h DFh (A20), FEh (pulse reset), HLT. Reached from setup_save_and_reboot (pop-up F4)."
+  },
+  "3F18": {
+   "name": "byte_to_2digit_ascii",
+   "comment": "AL (0-99) -> two ASCII digits in AX."
+  },
+  "0103": {
+   "name": "setup_key_maps",
+   "comment": "Four NUL-terminated (scancode, handler) lists used by the SETUP key dispatcher: 2Bh/20h/4Dh/4Eh/39h -> setup_key_next_value (269A), 2Dh/4Bh/4Ah -> setup_key_prev_value (2730), 1Bh/01h Esc -> setup_key_escape (1FF9), 50h Down -> 25E8, 48h Up -> 25EF, 51h PgDn -> 2668, 49h PgUp -> 2681, 42h F8 -> 3AFA, 0Eh Backspace -> 2767, 08h -> 2355."
+  },
+  "269A": {
+   "name": "setup_key_next_value",
+   "comment": "Right / + / Space: advance the current field to the next option."
+  },
+  "2730": {
+   "name": "setup_key_prev_value",
+   "comment": "Left / -: previous option."
+  },
+  "1FF9": {
+   "name": "setup_key_escape",
+   "comment": "Esc: leaves the current menu (picks 287A or 2896 depending on the page)."
+  },
+  "25E8": {
+   "name": "setup_key_down",
+   "comment": "Down: redraw the current field unhighlighted, setup_field_next."
+  },
+  "25EF": {
+   "name": "setup_key_up",
+   "comment": "Up: redraw, setup_field_prev."
+  },
+  "2668": {
+   "name": "setup_key_pgdn",
+   "comment": "PgDn: page := (page+1) mod 2, field 0, setup_draw_page."
+  },
+  "2681": {
+   "name": "setup_key_pgup",
+   "comment": "PgUp: page := (page-1) mod 2, field 0, setup_draw_page."
+  },
+  "2767": {
+   "name": "setup_key_backspace",
+   "comment": "Backspace on a non-numeric field: beep (setup_key_default)."
+  },
+  "3AFA": {
+   "name": "cmos_shadow_flush",
+   "comment": "Writes the 72h shadow bytes back to CMOS 0Eh-7Fh (cmos_hw_write). Called on F4 save."
+  },
+  "15E9": {
+   "name": "setup_extended_scancodes",
+   "comment": "Scancode list H K M P ; < ? @ E R S > I Q (cursor keys, F1-F6, Ins/Del, PgUp/PgDn) + 01 39 4E 4A 0C 0D - the keys the SETUP key handler recognises."
+  },
+  "1691": {
+   "name": "setup_word_table_1691",
+   "comment": "Words 0Ch, 0..5 (field index table, best guess) followed by a 4-byte stub."
+  },
+  "1FCF": {
+   "name": "setup_page_string_ptrs",
+   "comment": "21 near pointers into the SETUP string area (0948h, 095Ch, 0952h, 0966h, 0970h, 097Ah...): title/legend strings per page."
+  },
+  "27D9": {
+   "name": "setup_frame_char_table",
+   "comment": "12 records (row, col, char, count word): box corners and horizontal rules (C9h, CDh, BBh, C7h, C4h, B6h, C8h, BCh) of the SETUP frame."
+  },
+  "285E": {
+   "name": "setup_string_ptrs_285E",
+   "comment": "56 near pointers into the 06xxh SETUP strings (option names for the fields)."
+  },
+  "91B0": {
+   "name": "kbd_translate_tables",
+   "comment": "Keyboard translation tables: 91B0 base (scancode -> ASCII: Esc 1..0 -= BS Tab qwerty...), 9208 shift, 9260 ctrl, 92B8 alt/numpad, 9310 num-lock keypad (see int09_kbd_irq_body)."
+  },
+  "9498": {
+   "name": "pmode_descriptor_9498",
+   "comment": "Descriptor image (limit 0018h, base 9498h, type 93h)."
+  },
+  "9E98": {
+   "name": "table_9E98",
+   "comment": "Byte records (09 00 DF 02 25 02 09 2A FF 50 F6 0F 06 27 80 01 ...) - keyboard-controller / speed table, format not decoded."
+  },
+  "A0FB": {
+   "name": "floppy_dispatch_tail",
+   "comment": "Continuation of the pointer table at A0C9 (A166 x 7, A9FE)."
+  },
+  "A667": {
+   "name": "floppy_gap_table",
+   "comment": "Bytes 04 04 04 04 04 06 06 02 02 02 04 04 06 06 04 01 04 03 04 06 - diskette format/gap parameters per drive/media type."
+  },
+  "A7AF": {
+   "name": "floppy_media_table",
+   "comment": "Bytes 00 00 01 02 03 03 04 04 02 02 05 05 07 07 09 09... - media/data-rate selection table."
+  },
+  "A9FB": {
+   "name": "floppy_bytes_A9FB",
+   "comment": "03 04 06."
+  },
+  "AC2F": {
+   "name": "rom_option_strings",
+   "comment": "'Default configuration...' and other ROM option strings."
+  },
+  "ACFB": {
+   "name": "rom_option_far_ptr_table",
+   "comment": "Far pointers (F000:...) to configuration tables: 9E98, 94E9, E6F5 (system configuration table), AF43, AF63, AF53, AD4F, AFA3, AFB1, AFBF; 0000:0000 ends it. Reached through the far pointer at F000:FF64."
+  },
+  "D59D": {
+   "name": "pmode_descriptor_D59D",
+   "comment": "Descriptor image: limit 0020h base 0 type 93h... used by the protected-mode memory routines."
+  },
+  "D99C": {
+   "name": "cpu_type_table",
+   "comment": "(mask, value, pointer) records for the CPU identification: 04 00 -> D94F, 04 10 -> D94F, 04 20 -> D956, 04 30 -> D95D, 04 80 -> D965 ... (name strings '486 DX', '486 SX'...)."
+  },
+  "58A6": {
+   "name": "post_kbc_reset_continue",
+   "comment": "Fragment after a POST step: speaker off (61h &= FDh), CX=200, ROM stack at 58BA, jump on."
+  },
+  "95F4": {
+   "name": "cmos_ext_checksum_calc",
+   "comment": "Sums CMOS 40h-7Dh (index written with NMI disabled bit 80h, port EDh delays) -> BX; compares/stores at 7Eh/7Fh (Phoenix extended checksum, same algorithm as MISER's cmos_ext_checksum_update)."
+  },
+  "9905": {
+   "name": "miser_record_service_call",
+   "comment": "DS := BDA, BL := AL, AX=0301h, lcall E800:002C (MISER pm_record_service) - the system BIOS side of the SETUP/PM record interface."
+  },
+  "C4A7": {
+   "name": "cmos_write_al_ah",
+   "comment": "pushf/cli, index AH -> 70h, value AL -> 71h with port EDh delays."
+  },
+  "CC4F": {
+   "name": "bda_B6_bit2_test",
+   "comment": "ZF = !(40:B6 bit 2)."
+  },
+  "CCB9": {
+   "name": "chipset_reg9_reg3_write",
+   "comment": "shl eax,16; chipset reg 9 (24h/26h) then reg 3 written."
+  },
+  "CD1E": {
+   "name": "chipset_reg9_write_021F",
+   "comment": "Chipset reg 9 := 021Fh via the write helper."
+  },
+  "CF62": {
+   "name": "int_handler_tail_CF62",
+   "comment": "call ...; AH := 0; STI; pop di/ds; RETF 2 (end of an INT service)."
+  },
+  "D21B": {
+   "name": "clear_memory_pages",
+   "comment": "ES := BP; zero 512 words; BP += 40h (1 KB steps) until BP == SI - clears a memory range in 1 KB blocks."
+  },
+  "D4C2": {
+   "name": "set_ds_from_D4A5_and_jump",
+   "comment": "DS := cs:[D4A5]; [001C] := SI; DS := cs:[D49F]; STI; call/jmp continuation."
+  },
+  "D4FE": {
+   "name": "toupper_if_letter",
+   "comment": "If BL bit 6 and not bits 0-1: converts 'a'-'z' in AL to upper case (keyboard shift/caps handling)."
+  },
+  "DA2A": {
+   "name": "cpu_speed_loop_retf",
+   "comment": "xor ax,ax; xor dx,dx; loop; PIT ch2 := 0; RETF - the timed loop used by the CPU speed display (called far so it can run from RAM/ROM alike); followed by a div-loop variant."
+  },
+  "786C": {
+   "name": "print_addr_and_dash",
+   "comment": "Prints BX as hex (two calls) followed by '0000-' - used by the memory-test failure address display."
+  },
+  "78BB": {
+   "name": "video_mode3_if_needed",
+   "comment": "INT 10h AX=0003h BH=0 then checks DH < 18h."
+  },
+  "7B49": {
+   "name": "cmos_0E_diag_test",
+   "comment": "AL := CMOS 0Eh; test AL & FCh (any diagnostic error bit)."
+  },
+  "7B53": {
+   "name": "setup_far_ptr_7B53",
+   "comment": "Far pointer F000:0100 (SETUP entry) and constants used by the hot-key path."
+  },
+  "A9FE": {
+   "name": "floppy_motor_check",
+   "comment": "call ...; AH := 30h ... diskette status/motor handling fragment (floppy driver internals)."
+  },
+  "B79F": {
+   "name": "video_page_from_bda",
+   "comment": "BL := 40:62 (active page) unless mode < 4, BH := BL."
+  },
+  "B91A": {
+   "name": "move_words_with_offsets",
+   "comment": "SI += DX, DI += DX, copy CX bytes (movsb + rep movsw) - screen scroll helper."
+  },
+  "97D9": {
+   "name": "pmode_table_walk_tail",
+   "comment": "Continuation of a protected-mode loop: DI += 10h per descriptor, then CR0.PE off, far jump to 97F4, reload DS/ES/SS."
+  },
+  "175B": {
+   "name": "setup_cmos_4E_bit0",
+   "comment": "AL := CMOS 4Eh; bit 0 -> AL (SETUP helper)."
+  },
+  "194D": {
+   "name": "setup_after_cmos_write",
+   "comment": "Continuation after the call at 194A (SETUP screen refresh: INT 10h AH=0Fh/05h/03h/02h)."
+  },
+  "1B33": {
+   "name": "setup_save_and_reboot",
+   "comment": "Pop-up F4: if VersaPort is not 'external floppy' clears the external floppy type in CMOS 10h, then cmos_shadow_flush and setup_reboot."
+  },
+  "2A0A": {
+   "name": "setup_attributes_init",
+   "comment": "Initialises the colour attribute set in the SETUP work area ([bp+17]..[bp+1B] := 07h/70h/0Fh/70h/70h ...)."
+  },
+  "2BAD": {
+   "name": "setup_floppy_type_read",
+   "comment": "CMOS 10h >> 4 / & 0Fh -> drive A/B type (values 0-6)."
+  },
+  "2CC4": {
+   "name": "setup_hd_type_read",
+   "comment": "CMOS 12h low nibble; 0Fh -> extended type from CMOS 1Ah (types 16-47)."
+  },
+  "2F14": {
+   "name": "display_field_read",
+   "comment": "CMOS 1Fh bit 1 set -> value 4, else CMOS 14h bits 4-5 (initial video mode)."
+  },
+  "3715": {
+   "name": "setup_draw_field_box",
+   "comment": "Fills a 6-character field box with spaces then draws the value from record [bx+1C]."
+  },
+  "E831": {
+   "name": "fill_E831",
+   "comment": "FFh fill between the option-ROM area and int16 fixed entry (E82E)."
+  },
+  "FF80": {
+   "name": "bytes_FF80",
+   "comment": "2 bytes before fixed_entry_FF82."
+  },
+  "FF78": {
+   "name": "fixed_entry_FF77",
+   "comment": "call sub_8656; retf."
+  },
+  "3AE5": {
+   "name": "cmos_shadow_load",
+   "comment": "Copies CMOS 0Eh-7Fh (72h bytes, cmos_hw_read) into the SETUP stack frame at [bp+65+index] - SETUP edits this shadow and writes it back only on save."
+  },
+  "3B0F": {
+   "name": "cmos_hw_read",
+   "comment": "CLI; index AL -> 70h; AL := 71h; STI."
+  },
+  "3B1E": {
+   "name": "cmos_hw_write",
+   "comment": "CLI; index AL -> 70h; 71h := BH; STI."
+  },
+  "3B2F": {
+   "name": "cmos_shadow_read",
+   "comment": "AL := shadow byte for CMOS index AL ([bp+si+73h], si = index-0Eh)."
+  },
+  "3B3E": {
+   "name": "cmos_shadow_write",
+   "comment": "Shadow byte for CMOS index AL := BH."
+  },
+  "15FE": {
+   "name": "setup_in_popup",
+   "comment": "ZF clear when 40:B6 bit 1 is set - SETUP was started as PhoenixMISER's pop-up (bda_popup_mark_set); keyboard then comes straight from the KBC (popup_read_key) instead of INT 16h."
+  },
+  "1539": {
+   "name": "popup_read_key",
+   "comment": "Pop-up keyboard reader: polls 64h/60h directly (redrawing the clock while idle), treats E0h as a prefix (40:B6 bit 7), maps extended scancodes (setup_extended_scancodes) to AL=0/AH=scancode, digit keys 02h-0Bh to '1'..'0', Backspace to 08h; unknown keys beep (setup_key_default)."
+  },
+  "160D": {
+   "name": "setup_shadow_cmos48_update",
+   "comment": "Derives a bit mask from CX (video ROM size in 32 KB units, video_rom_size_32k_units) and updates CMOS 48h in the shadow (shadow-RAM configuration, best guess), then redraws the following fields."
+  },
+  "1627": {
+   "name": "setup_shadow_cmos48_tail",
+   "comment": "Continuation: BH bit 0 selects set/clear, writes CMOS 48h, setup_redraw_following_fields, setup_ext_checksum_to_shadow."
+  },
+  "163E": {
+   "name": "video_rom_size_32k_units",
+   "comment": "ES := C000h then option_rom_size_at_es."
+  },
+  "1644": {
+   "name": "option_rom_size_at_es",
+   "comment": "CX := 0 when ES:0000 is not 55AAh, else rom_size_from_header."
+  },
+  "1655": {
+   "name": "rom_size_from_header",
+   "comment": "CX := ES:[2] (512-byte units) / 64 rounded up = size in 32 KB blocks."
+  },
+  "166F": {
+   "name": "setup_redraw_following_fields",
+   "comment": "Unless [bp+2E] bit 1: redraws the next CX-1 field records (handler +6 and setup_draw_field)."
+  },
+  "16A3": {
+   "name": "setup_draw_gauge_test",
+   "comment": "Draws the gauge with the test value C3h (76 %) - debugging leftover."
+  },
+  "16AA": {
+   "name": "setup_draw_gauge",
+   "comment": "AL (0-255) -> percentage (scale_to_percent), printed at row 10h col 47h-49h with attribute 70h (draw_percent_at_col_47), then draw_gauge_bar_cmos13. Best guess: battery level display of the Power page."
+  },
+  "16BD": {
+   "name": "scale_to_percent",
+   "comment": "AL := round(AL*100/255)."
+  },
+  "16D4": {
+   "name": "draw_percent_at_col_47",
+   "comment": "Prints the 1-3 digit percentage at cursor row DH, columns 47h-49h."
+  },
+  "1720": {
+   "name": "draw_gauge_bar_cmos13",
+   "comment": "Shadow CMOS 13h -> 0/1/2.. -> prints that many 08h characters at col 13h (bar)."
+  },
+  "1741": {
+   "name": "int10_set_cursor_dx",
+   "comment": "INT 10h AH=02h page 0, DX = row/col."
+  },
+  "174E": {
+   "name": "int10_write_char_attr",
+   "comment": "INT 10h AH=09h (AL char, BL attribute, CX count)."
+  },
+  "176B": {
+   "name": "versaport_next_option",
+   "comment": "VersaPort field +: option index 0-4 external floppy types, 5/6 parallel standard/bidirectional, 7/8 EPP 1.7/1.9 (skips gaps), then versaport_apply_option."
+  },
+  "1797": {
+   "name": "versaport_prev_option",
+   "comment": "VersaPort field -: previous option (wraps 0 -> 4, skips the gaps), then versaport_apply_option."
+  },
+  "17BF": {
+   "name": "versaport_apply_option",
+   "comment": "Option 0-4 -> CMOS 10h low nibble (external floppy type); 5/6 -> CMOS 59h bit 2 (bidirectional); 7/8 -> CMOS 59h bit 3 (EPP 1.9); updates the shadow checksum fields."
+  },
+  "181C": {
+   "name": "versaport_read_option",
+   "comment": "CMOS 59h bits 0-1: 1 = external floppy -> option = CMOS 10h low nibble (0-6); 0 = parallel -> 5 + bit 2; 2 = EPP -> 7 + bit 3. Stores the option in the field value array."
+  },
+  "1BA3": {
+   "name": "setup_attributes_color",
+   "comment": "Colour attribute set for the SETUP frame: [bp+17..21] := 70h,1Fh,1Fh,3Eh,20h,1Fh,4Fh,70h,70h,10h,70h (mono set is setup_attributes_init), then setup_load_key_maps and the field init."
+  },
+  "1BE8": {
+   "name": "setup_load_key_maps",
+   "comment": "Copies the (scancode, handler) key maps into the frame: ASCII map 0103h (pop-up) or 0129h (normal) -> [bp+4D]; extended map 0113h or 0139h -> [bp+5D]."
+  },
+  "1C29": {
+   "name": "setup_ptl_table_key_patch",
+   "comment": "If the OEM 'PTL' configuration record 14h (sysconfig_ptl_lookup) has bit 5 clear: replaces the '=' key handler in the extended map with setup_key_default and fixes strings 6E7h at [bp+3D]/[bp+3F]."
+  },
+  "1D10": {
+   "name": "setup_cmos_corrections",
+   "comment": "If the correction flags [bp+2F] are non-zero: setup_correction_screen."
+  },
+  "1D17": {
+   "name": "setup_correction_screen",
+   "comment": "Draws the 'CMOS corrected' page: for each set bit of [bp+2F] prints the message of setup_cmos_correction_table and calls its handler (fix_*), then waits for a key and clears CMOS 0Eh."
+  },
+  "1E6A": {
+   "name": "cmos_set_base_memory",
+   "comment": "INT 15h AH=BBh (Phoenix, returns base size in DX when supported) else 40:13; rounded up to 32 KB, clamped to 640/1024 KB -> CMOS 15h/16h."
+  },
+  "1EAB": {
+   "name": "cmos_set_ext_memory",
+   "comment": "INT 15h AH=BBh or CMOS 30h/31h -> CMOS 17h/18h (extended memory size)."
+  },
+  "1EDC": {
+   "name": "cmos_set_equipment_14",
+   "comment": "40:10 equipment byte (bits 4-5 cleared) -> CMOS 14h."
+  },
+  "1EF8": {
+   "name": "cmos_copy_hd_types_to_shadow",
+   "comment": "Hardware CMOS 12h, 19h, 1Ah -> shadow."
+  },
+  "1F1D": {
+   "name": "shadow_clear_range",
+   "comment": "Shadow bytes for CMOS indexes AL..AH := 0."
+  },
+  "1F36": {
+   "name": "setup_init_all_fields",
+   "comment": "Loads page 0 fields 6.. and page 1 fields 0-5 from CMOS (setup_init_fields_range / setup_init_page1_fields)."
+  },
+  "1F50": {
+   "name": "setup_init_page1_fields",
+   "comment": "Loads the six page-2 (Power & Video) fields from CMOS, then re-selects page 0 field 0."
+  },
+  "1F6D": {
+   "name": "setup_init_fields_range",
+   "comment": "For CX records: when DH=0 only records with CMOS index <= 3Fh, when DH=1 those with 40h-7Fh, call setup_field_load_from_cmos."
+  },
+  "1FA5": {
+   "name": "setup_field_load_from_cmos",
+   "comment": "Field kinds 1-5 are skipped; otherwise handler +10h (CMOS read) with AL = default (+19h)."
+  },
+  "1FBF": {
+   "name": "setup_print_and_wait_key",
+   "comment": "print_string_crlf_at then wait for INT 16h."
+  },
+  "216F": {
+   "name": "setup_confirm_box",
+   "comment": "Draws the confirmation box (strings 0400h/0410h at rows 5/12) and waits for a key."
+  },
+  "21D4": {
+   "name": "print_string_crlf_at",
+   "comment": "Prints the NUL-terminated string at SI with INT 10h AH=0Eh, handling CR (back to column CL) and LF (next row)."
+  },
+  "2212": {
+   "name": "setup_clear_screen",
+   "comment": "INT 10h AH=06h full-screen scroll with attribute [bp+19]."
+  },
+  "2301": {
+   "name": "setup_option_string_select",
+   "comment": "Skips AL NUL-terminated option strings (max 50h chars each) in the list at ES:DI -> SI. Page-1 fields 1-4 show option 0 when Power Management (CMOS 42h bits 0-1) is off."
+  },
+  "2355": {
+   "name": "setup_field_handler_E",
+   "comment": "Calls handler +0Eh of the current record."
+  },
+  "235C": {
+   "name": "setup_field_handler_6",
+   "comment": "Calls handler +06h (draw) of the current record."
+  },
+  "2381": {
+   "name": "setup_draw_all_field_values",
+   "comment": "Handler +6 for every record of the page."
+  },
+  "23A5": {
+   "name": "sysconfig_ptl_lookup",
+   "comment": "INT 15h AH=C0h; if the configuration table carries the 'PTL' tag (E6F5+0Eh), follows the far pointer at F000:FF64 to rom_option_far_ptr_table and loads DS:SI with entry BX; CF=1 when absent."
+  },
+  "23EF": {
+   "name": "setup_cursor_hide",
+   "comment": "INT 10h AH=01h CX=0F00h then CRTC 0Ah (port [bp+15]) := 2Fh (cursor off)."
+  },
+  "2407": {
+   "name": "kbd_buffer_push",
+   "comment": "Stores AX at the keyboard buffer tail 40:1C (wrap at 40:82/80)."
+  },
+  "242B": {
+   "name": "kbd_buffer_flush",
+   "comment": "40:1C := 40:1A."
+  },
+  "244D": {
+   "name": "setup_frame_segment",
+   "comment": "Chooses the 4 KB RAM area for the SETUP stack frame: with CMOS 0Eh diagnostics clean and PhoenixMISER initialised (E800:0040 query_state_34, E800:0038 presence) ES := DF00h (MISER's spare segment), else setup_find_free_top_memory."
+  },
+  "246E": {
+   "name": "setup_find_free_top_memory",
+   "comment": "Scans down from top-of-memory minus 36 KB in 4 KB steps for an all-zero 4 KB block; ES = segment, DL = 1 when a non-zero block had to be used (must be cleared)."
+  },
+  "24A6": {
+   "name": "clear_4k_at_es",
+   "comment": "Zeroes 800h words at ES:0000 (the 4 KB SETUP frame)."
+  },
+  "24B3": {
+   "name": "setup_field_next",
+   "comment": "Cursor down: skips the extra rows of list/disk-type kinds (22h/33h/77h) and the page-1 hidden rows."
+  },
+  "252F": {
+   "name": "setup_field_prev",
+   "comment": "Cursor up (mirror of setup_field_next)."
+  },
+  "25F6": {
+   "name": "setup_init_pages_draw",
+   "comment": "Runs setup_draw_all_field_values for both pages, then selects page 0 (page 1 in the pop-up) field 0."
+  },
+  "2A90": {
+   "name": "field_value_get",
+   "comment": "AL := value byte of the current field ([bp+2C] + [bp+2B])."
+  },
+  "2A9E": {
+   "name": "field_value_set",
+   "comment": "Value byte of the current field := AL."
+  },
+  "2AF1": {
+   "name": "list_field_prev_value",
+   "comment": "Value-1 (wraps to +16h max), then handler +10h."
+  },
+  "2B06": {
+   "name": "list_field_write_cmos",
+   "comment": "Value << +18h merged into CMOS +14h under mask +15h (shadow), then handler +12h."
+  },
+  "2B28": {
+   "name": "floppy_field_next",
+   "comment": "Skips value 5 (2.88 MB only when supported)."
+  },
+  "2B3A": {
+   "name": "floppy_field_prev",
+   "comment": "Floppy field -: skips value 5 (2.88 MB) downwards, then list_field_prev_value."
+  },
+  "2B4C": {
+   "name": "floppy_A_read_cmos10",
+   "comment": "CMOS 10h bits 4-7 -> value (0-6, else 4)."
+  },
+  "2B6F": {
+   "name": "floppy_A_write_cmos10",
+   "comment": "Value -> CMOS 10h bits 4-7; CMOS 1Fh bit 2 := (no floppy)."
+  },
+  "2BCD": {
+   "name": "hd_type_string_ptr",
+   "comment": "SI := 0CB7h + value * 14 (14-character type names)."
+  },
+  "2BE7": {
+   "name": "hd_field_next",
+   "comment": "0 -> 2Ch (Auto Detected) -> 2Eh (User Defined) -> 0."
+  },
+  "2C05": {
+   "name": "hd_field_prev",
+   "comment": "Drive 1 type -: 0 <- 2Ch (Auto) <- 2Eh (User) cycle backwards, hd_write_cmos12_19."
+  },
+  "2C23": {
+   "name": "hd_read_cmos12",
+   "comment": "Pop-up only: CMOS 12h high nibble (0Fh -> CMOS 19h) -> value (<= 2Fh, else 6)."
+  },
+  "2C55": {
+   "name": "hd_write_cmos12_19",
+   "comment": "Value < 0Fh -> CMOS 12h high nibble, else 0Fh there and the type in CMOS 19h."
+  },
+  "2C94": {
+   "name": "hd2_field_next",
+   "comment": "Second drive type 0-2Fh, skipping 0Fh."
+  },
+  "2CAC": {
+   "name": "hd2_field_prev",
+   "comment": "Drive 2 type -: 2Fh..0 skipping 0Fh, hd2_write_cmos12_1A."
+  },
+  "2CED": {
+   "name": "hd2_write_cmos12_1A",
+   "comment": "Second drive: CMOS 12h low nibble / CMOS 1Ah."
+  },
+  "2E1F": {
+   "name": "kb_value_to_string",
+   "comment": "AX KB -> 'nnnnn KB' text at SS:DI ('' string 0C62h for 0)."
+  },
+  "2E39": {
+   "name": "decimal_kb_format",
+   "comment": "Right-aligns the decimal digits of AX (1-5 digits) and appends ' KB' (append_KB_suffix)."
+  },
+  "2E7B": {
+   "name": "append_KB_suffix",
+   "comment": "Appends ' KB' and a NUL after the BX-digit number at SS:DI (itoa_right_aligned)."
+  },
+  "2E9F": {
+   "name": "ext_memory_field_read",
+   "comment": "CMOS 17h/18h -> 'nnnn KB'."
+  },
+  "2EB8": {
+   "name": "ext_memory_field_refresh",
+   "comment": "Recomputes CMOS 17h/18h from the hardware (cmos_set_ext_memory) when they read FFFFh."
+  },
+  "2ED2": {
+   "name": "ext_memory_field_write",
+   "comment": "AX -> CMOS 17h/18h."
+  },
+  "2EE6": {
+   "name": "total_memory_field_read",
+   "comment": "CMOS 15h/16h + 17h/18h + 384 KB -> text."
+  },
+  "2F39": {
+   "name": "display_field_write",
+   "comment": "Value -> CMOS 14h bits 4-5 (value 4 clears CMOS 1Fh bit 1, else sets it)."
+  },
+  "2F65": {
+   "name": "cmos1F_bit1_set",
+   "comment": "CMOS 1Fh |= 02h (initial video mode override flag) and checksum update."
+  },
+  "2F77": {
+   "name": "cmos4E_bit0_field_read",
+   "comment": "Value := CMOS 4Eh bit 0 (max 1) into the field array."
+  },
+  "2F97": {
+   "name": "hd_type_list_screen",
+   "comment": "Hard-disk type chooser: uses the OEM 'PTL' table entry 4 or the ROM table F000:E401; draws the type list (14-char names, cylinders/heads/sectors) in pages and reads keys until a type is picked."
+  },
+  "30D5": {
+   "name": "hd_type_detail_draw",
+   "comment": "Prints Cylinders / Heads / Sectors / Size for type AX at rows 10h-13h col 2Dh: 0 -> the 'Not installed' strings, 2Eh/2Dh -> user-defined values from CMOS, 2Fh -> geometry from IDENTIFY DEVICE (ide_identify_geometry), others from the ROM table."
+  },
+  "311D": {
+   "name": "hd_type_detail_none",
+   "comment": "Prints the four 'not installed' detail strings (1083h..) for hard-disk type 0."
+  },
+  "31BE": {
+   "name": "hd_detail_print_values",
+   "comment": "CX cylinders, AH heads, AL sectors -> the four value fields."
+  },
+  "3215": {
+   "name": "ide_identify_geometry",
+   "comment": "ATA ECh IDENTIFY DEVICE on 1F7h, waits for DRQ; CX := cylinders (word 1), BL := heads (word 3), BH := sectors (word 6); CF=1 on timeout."
+  },
+  "325C": {
+   "name": "user_type_detail_from_cmos",
+   "comment": "CL := CMOS base 20h (type 2Eh, user 1) or 35h (type 2Fh, user 2): the user-defined geometry lives in CMOS 20h-2Fh / 35h-3Fh."
+  },
+  "3267": {
+   "name": "user_type_detail_print",
+   "comment": "Prints cylinders (+0/+1), heads (+2), write-precomp (+3/+4), landing zone (+5/+6), sectors (+7) and size from the CMOS block."
+  },
+  "332C": {
+   "name": "user_type_size_print",
+   "comment": "Reads cylinders (+0/+1), heads (+2) and sectors (+7) of the user-geometry CMOS block CL and prints the size in MB (print_size_mb)."
+  },
+  "3364": {
+   "name": "print_cyl_field",
+   "comment": "AX -> 4 digits (or '-1') at SS:BP, then print_field_string_ss."
+  },
+  "33A3": {
+   "name": "print_2digit_field",
+   "comment": "AL (0-99) -> 2 right-aligned digits at SS:BP+1, print_field_string_ss at DX."
+  },
+  "33CA": {
+   "name": "print_4digit_or_minus1",
+   "comment": "AX -> 4 digits, or ' -1' when negative, at SS:BP."
+  },
+  "3419": {
+   "name": "print_4digit_or_minus1_b",
+   "comment": "Same as print_4digit_or_minus1 (landing-zone column)."
+  },
+  "3458": {
+   "name": "print_2digit_field_b",
+   "comment": "Same as print_2digit_field (sectors column)."
+  },
+  "347F": {
+   "name": "print_size_mb",
+   "comment": "cylinders (CX) x heads (AH) x sectors (AL) / 2048 -> MB, 3 digits."
+  },
+  "34C5": {
+   "name": "print_field_string_ss",
+   "comment": "setup_print_at with ES=SS and attribute [bp+22]."
+  },
+  "34D2": {
+   "name": "user_geom_field_draw",
+   "comment": "Draws one user-geometry field (word or byte from CMOS base + record +14h/+1Dh)."
+  },
+  "350F": {
+   "name": "user_geom_cmos_base",
+   "comment": "CH := 20h / 35h (user type 1 / 2) or 0 depending on the disk-type value of the owning field."
+  },
+  "3533": {
+   "name": "user_geom_clamp_write",
+   "comment": "Clamps the CMOS field at 20h+/35h+ (+14h) to the record maximum (+16h)."
+  },
+  "356A": {
+   "name": "user_geom_key_edit",
+   "comment": "Digit entry for the user geometry: '-' sets -1, Backspace deletes (user_geom_backspace), digits append with range check (+16h), then handler +10h and a redraw of the size field."
+  },
+  "3623": {
+   "name": "user_geom_hd_pair_refresh",
+   "comment": "When CMOS 19h == 1Ah (both drives user-defined) and CMOS 12h == FFh: redraws the partner field 6 records away."
+  },
+  "368B": {
+   "name": "user_geom_backspace",
+   "comment": "Divides the current value by 10 and redraws."
+  },
+  "36EA": {
+   "name": "user_geom_cmos_write",
+   "comment": "AX -> CMOS base+14h (and +1Dh high byte), then handler +12h."
+  },
+  "374F": {
+   "name": "user_geom_validate_both",
+   "comment": "Clamps the user-1 (20h+) and user-2 (35h+) fields to the record maximum."
+  },
+  "37C8": {
+   "name": "rtc_to_dos_time_date",
+   "comment": "If INT 21h is installed: rtc_time_to_ticks_40_6C and rtc_date_to_dos_int21_2B (keeps DOS in step after the clock was edited)."
+  },
+  "37E6": {
+   "name": "rtc_time_to_ticks_40_6C",
+   "comment": "CMOS hours/minutes/seconds (BCD) -> tick count -> 40:6C."
+  },
+  "382F": {
+   "name": "store_ticks_40_6C",
+   "comment": "DX:AX (ticks) -> 40:6C/6E."
+  },
+  "3842": {
+   "name": "rtc_date_to_dos_int21_2B",
+   "comment": "CMOS century/year/month/day -> INT 21h AH=2Bh (set DOS date)."
+  },
+  "38A7": {
+   "name": "cmos_std_checksum_calc",
+   "comment": "Indexes 10h-2Dh -> BH/SI (cmos_sum_range)."
+  },
+  "38C3": {
+   "name": "cmos_ext_checksum_calc",
+   "comment": "Indexes 40h-7Dh (3Eh bytes) -> BH/SI for the Phoenix extended checksum (7Eh/7Fh)."
+  },
+  "38CC": {
+   "name": "cmos_sum_range",
+   "comment": "Sums CX shadow bytes from index BL nibble-wise -> BH (low byte) / SI (high byte)."
+  },
+  "3901": {
+   "name": "rtc_validate_or_reset",
+   "comment": "Range-checks the BCD time/date (hours < 24, minutes/seconds < 60, century 19/20, year, month 1-12, day within the month); invalid -> rtc_reset_defaults."
+  },
+  "3984": {
+   "name": "rtc_reset_defaults",
+   "comment": "Time 00:00:00, alarm 0, date 01/01/1990 (century 19h)."
+  },
+  "39CE": {
+   "name": "rtc_status_regs_fix",
+   "comment": "If CMOS 0Eh bits 7/2 (power lost / time invalid): status A := 26h, status B := 02h, read C/D; else make sure status B bit 1 (24 h mode) is set."
+  },
+  "3A04": {
+   "name": "rtc_wait_uip_snapshot_sec",
+   "comment": "Waits for UIP clear and remembers the seconds byte at [bp-1]."
+  },
+  "3A17": {
+   "name": "rtc_seconds_changed",
+   "comment": "ZF = seconds unchanged since rtc_wait_uip_snapshot_sec (read is consistent)."
+  },
+  "3A21": {
+   "name": "rtc_read_time",
+   "comment": "CH hours, CL minutes, DH seconds (BCD), re-read until consistent."
+  },
+  "3A49": {
+   "name": "rtc_read_date",
+   "comment": "CH century (fixed to 20h when 19xx has rolled over), CL year, DH month, DL day (BCD)."
+  },
+  "3A90": {
+   "name": "rtc_write_time",
+   "comment": "CMOS 04h := CH hours, 02h := CL minutes, 00h := DH seconds (BCD), retried until the seconds do not tick during the write."
+  },
+  "3AB6": {
+   "name": "rtc_write_date",
+   "comment": "CMOS 32h := CH century, 09h := CL year, 08h := DH month, 07h := DL day (BCD)."
+  },
+  "3C46": {
+   "name": "int10_put_char_at",
+   "comment": "Cursor to DX then INT 10h AH=09h."
+  },
+  "3C55": {
+   "name": "field_pos_attr_for_index",
+   "comment": "DX := row/col of record CH, SI := SS:BP text, BL := attribute (highlight when CH is the current field)."
+  },
+  "3C77": {
+   "name": "time_hours_inc",
+   "comment": "Hours field +: BCD increment, wraps 23 -> 0, rtc_write_time."
+  },
+  "3CA4": {
+   "name": "time_hours_dec",
+   "comment": "Hours field -: wraps 0 -> 23."
+  },
+  "3CD3": {
+   "name": "time_minutes_inc",
+   "comment": "Minutes +: wraps 59 -> 0."
+  },
+  "3D00": {
+   "name": "time_minutes_dec",
+   "comment": "Minutes -: wraps 0 -> 59."
+  },
+  "3D2F": {
+   "name": "time_seconds_zero",
+   "comment": "Seconds field: any key resets the seconds to 0 and writes the time."
+  },
+  "3D44": {
+   "name": "time_seconds_zero_b",
+   "comment": "Second copy of time_seconds_zero (used by the other key)."
+  },
+  "3D59": {
+   "name": "date_month_inc",
+   "comment": "Month +: 12 -> 1, clamps the day to the month length (days_in_month_lookup), rtc_write_date."
+  },
+  "3D91": {
+   "name": "date_month_dec",
+   "comment": "Month -: 1 -> 12, clamps the day."
+  },
+  "3DD2": {
+   "name": "date_day_inc",
+   "comment": "Day +: wraps at the month length (leap years honoured)."
+  },
+  "3E05": {
+   "name": "date_day_dec",
+   "comment": "Day -: 1 -> month length."
+  },
+  "3E3B": {
+   "name": "date_year_inc",
+   "comment": "Year 99 rolls over to century 20h."
+  },
+  "3E8B": {
+   "name": "date_year_dec",
+   "comment": "Year -: 00 of century 20h -> 99 of 19h; 1980-style floor at 80 of 19h; February 29 clamped."
+  },
+  "3EE2": {
+   "name": "days_in_month_lookup",
+   "comment": "BL := days of month DH (table 0C56h, +1 for February in a leap year CL)."
+  },
+  "3F0A": {
+   "name": "bcd_to_ascii_pair",
+   "comment": "BCD AL -> two ASCII digits in AL/AH."
+  },
+  "3F24": {
+   "name": "itoa_right_aligned",
+   "comment": "AX -> up to BX decimal digits written right-to-left at SS:DI."
+  },
+  "1B5A": {
+   "name": "setup_exit",
+   "comment": "Clears the screen, POST 44h-47h, restores the caller's stack, flushes the keyboard buffer (pop-up: pushes 1C0Dh Enter), clears 40:B5 bit 0, RETF."
+  },
+  "2285": {
+   "name": "setup_redraw_current_field",
+   "comment": "Redraws the current field highlighted (attribute [bp+18]): time/date rows via setup_draw_time_date, option lists via setup_option_string_select, kind 55h fields also call their secondary handler (+1Ah) and label position (+1Ch/+1Dh); then setup_draw_field_hint."
+  },
+  "22E4": {
+   "name": "setup_draw_field_hint",
+   "comment": "Prints the field hint string (0679h for value-type 11h fields, 0663h otherwise) at row 16h col 39h with attribute [bp+1F]."
+  },
+  "276A": {
+   "name": "setup_draw_frame_border",
+   "comment": "INT 10h clear, vertical bars (BAh) in columns 0 and 4Fh of rows 1-23, then the corner/edge characters from setup_frame_char_table."
+  },
+  "2815": {
+   "name": "setup_draw_title_bar",
+   "comment": "Clears rows 1-2 and prints the title strings 05B4h / 05F1h."
+  },
+  "2836": {
+   "name": "setup_draw_key_legend",
+   "comment": "Prints 7 (key, description) string pairs from the pointer list at [di] on rows 16h/17h, 0Bh columns apart (bottom legend)."
+  },
+  "28EC": {
+   "name": "setup_scroll_window",
+   "comment": "INT 10h AH=07h: clears the window CX..DX with attribute BH."
+  },
+  "29BF": {
+   "name": "setup_draw_shadow",
+   "comment": "Draws the box shadow: DBh down the right edge and DFh along the bottom of the window CX..DX."
+  },
+  "29F9": {
+   "name": "setup_attributes_from_table",
+   "comment": "Copies CX attribute bytes from [si] into [bp+17..]."
+  },
+  "2A37": {
+   "name": "setup_init_legend_strings",
+   "comment": "Fills the legend pointer slots [bp+31..4B] with the string offsets 0637h, 0642h, 06E7h..., 064Dh, 0658h, 0663h, 066Eh and 0684h/068Fh (or 06E7h when the extra keys are disabled)."
+  },
+  "2D29": {
+   "name": "base_memory_field_read",
+   "comment": "CMOS 15h/16h -> 'nnn KB'."
+  },
+  "2D42": {
+   "name": "base_memory_field_refresh",
+   "comment": "Recomputes CMOS 15h/16h from the hardware when the value exceeds 1024."
+  },
+  "2D5D": {
+   "name": "base_memory_field_write",
+   "comment": "AX -> CMOS 15h/16h (base memory KB) in the shadow, checksum update."
+  },
+  "2D71": {
+   "name": "numeric_field_key_edit",
+   "comment": "Generic numeric editor: Backspace -> numeric_field_backspace; digits are appended (value*10+digit, clamped to +16h) to the CMOS word at +14h/+1Dh, then handler +10h and a redraw. First digit after entering the field replaces the value ([bp+1A offset] flag byte)."
+  },
+  "2DE8": {
+   "name": "numeric_field_backspace",
+   "comment": "Value / 10, handler +10h, redraw."
+  },
+  "3F40": {
+   "name": "bcd_to_binary",
+   "comment": "AL BCD -> binary."
+  },
+  "3FB3": {
+   "name": "kbc_wait_input_empty_setup",
+   "comment": "Spin until 64h bit 1 clears (used by setup_reboot)."
+  },
+  "675E": {
+   "name": "kbc_drain_output_buffer",
+   "comment": "Reads up to 4 pending bytes from 60h (each waiting up to 800 x 100 refresh ticks for 64h bit 0)."
+  },
+  "6D44": {
+   "name": "detect_serial_parallel_ports",
+   "comment": "probe_port_table over the serial table 6D24 (probe_serial_port) and the parallel table (probe_parallel_port); BL := serial count, AL << 4 := parallel count for the equipment word."
+  },
+  "6DE2": {
+   "name": "uart_set_divisor",
+   "comment": "LCR (DX) := 80h (DLAB), divisor low := BL, high := BH (port EDh delays)."
+  },
+  "6E97": {
+   "name": "equipment_word_default",
+   "comment": "BX := 0300h (default equipment word bits)."
+  },
+  "6E9D": {
+   "name": "superio_and_fm_init",
+   "comment": "superio_configure_from_cmos then fm_synth_all_notes_off."
+  },
+  "6FA6": {
+   "name": "beep_hi_pair",
+   "comment": "Two high beeps separated by a wait_refresh_cycles delay (POST beep-code element)."
+  },
+  "7083": {
+   "name": "kbc_wait_output_50",
+   "comment": "Up to 50 x 100 refresh ticks for 64h bit 0 (output buffer full)."
+  },
+  "7092": {
+   "name": "kbc_wait_output_dx",
+   "comment": "Up to DX x 100 refresh ticks for 64h bit 0."
+  },
+  "70A1": {
+   "name": "kbc_short_delay",
+   "comment": "wait_refresh_cycles based delay used between keyboard-controller commands."
+  },
+  "713C": {
+   "name": "bcd_to_binary_core",
+   "comment": "AL BCD -> binary (multiplier byte at 70B4)."
+  },
+  "71DD": {
+   "name": "clear_low_idt_gdt",
+   "comment": "Zeroes 444h words at 0000:D0A0 (IDT at D0A0, GDT at D8A0 used by the protected-mode POST code)."
+  },
+  "728E": {
+   "name": "pmode_ret_ss58",
+   "comment": "SS := selector 58h, popa, CLC, ret (protected-mode stack switch helper)."
+  },
+  "7316": {
+   "name": "descriptor_base_to_segment",
+   "comment": "AX := (base bits 4-19 of the descriptor at DS:SI) as a real-mode segment."
+  },
+  "84DA": {
+   "name": "hd_short_delay",
+   "comment": "wait_refresh_cycles with BX=0Fh (about 1 ms) used between IDE register accesses."
+  },
+  "8619": {
+   "name": "cpu_speed_set_level",
+   "comment": "AH = level 0/1/2 -> speed value from ROM options AF5Dh/AF5Fh/AF5Eh; when ROM option AF46h bit 0 allows it, set_cpu_speed; then cpu_speed_get_level."
+  },
+  "8654": {
+   "name": "nop_push_pop",
+   "comment": "push ax; pop ax; ret (hook placeholder)."
+  },
+  "8657": {
+   "name": "cpu_speed_get_level",
+   "comment": "AH := 0/1/2 by comparing the current speed value (cpu_speed_current_value) with the ROM option values; AL := 3."
+  },
+  "8673": {
+   "name": "cpu_speed_current_value",
+   "comment": "AL := ROM option AF5Dh unless 40:B5 bit 2 says the alternate speed is active."
+  },
+  "8771": {
+   "name": "hotkey_cpu_speed_select",
+   "comment": "Keyboard hot keys from ROM options AF56h/AF57h/AF58h select CPU speed level 0/1/2 (cpu_speed_set_level), with speed_change_click when AF55h bit 0."
+  },
+  "87A1": {
+   "name": "hotkey_cpu_speed_toggle_pair",
+   "comment": "Two hot keys toggle between low/high and mid/high speed."
+  },
+  "87D9": {
+   "name": "hotkey_cpu_speed_toggle",
+   "comment": "One hot key toggles between high and low speed."
+  },
+  "880C": {
+   "name": "speed_change_click",
+   "comment": "If 40:B5 bit 2: a speaker click (sub_D174) with a wait_refresh_cycles delay - audible feedback for the speed hot keys."
+  },
+  "89F2": {
+   "name": "uart_program_divisor",
+   "comment": "LCR := 80h, divisor := BX (low/high), DX preserved (port EDh delays)."
+  },
+  "8C43": {
+   "name": "kbd_e0_prefix_translate",
+   "comment": "E02Fh -> 352Fh (keypad /), E00Dh -> 1C0Dh (keypad Enter), E00Ah -> 1C0Ah."
+  },
+  "9172": {
+   "name": "kbd_shift_flags_set",
+   "comment": "Sets the shift-state bit CL in 40:17 (BL), 40:18 (BH, rotated) or 40:96 (CH) depending on CH bit 1 (E0 prefix)."
+  },
+  "9188": {
+   "name": "kbd_shift_flags_clear",
+   "comment": "Clears the same bits; when neither the left nor the right key is still down clears the combined flag in BL."
+  },
+  "931D": {
+   "name": "kbd_eoi_and_enable",
+   "comment": "EOI to PIC1 then kbc_enable_keyboard_AE."
+  },
+  "9396": {
+   "name": "kbd_buffer_tail_ptr",
+   "comment": "DI := 40:1C (buffer tail), then kbd_buffer_advance."
+  },
+  "93A2": {
+   "name": "kbd_buffer_advance",
+   "comment": "DI += 2 with wrap at 40:82 -> 40:80; ZF when DI == 40:1A (buffer full)."
+  },
+  "93BD": {
+   "name": "kbc_wait_input_empty_cli",
+   "comment": "CLI then kbc_wait_input_empty_timeout."
+  },
+  "93BE": {
+   "name": "kbc_wait_input_empty_timeout",
+   "comment": "wait_refresh_cycles-timed wait for 64h bit 1 clear; ZF = ready."
+  },
+  "93DB": {
+   "name": "kbd_send_byte_retry3",
+   "comment": "Sends AH to the keyboard (60h) up to 3 times until FAh (ACK) or FEh (resend) comes back; CF=1 on failure; clears 40:97 bits 4-5 first."
+  },
+  "9412": {
+   "name": "kbc_enable_keyboard_AE",
+   "comment": "Waits for the input buffer, then KBC command AEh (enable keyboard interface)."
+  },
+  "941C": {
+   "name": "kbc_disable_keyboard_AD",
+   "comment": "Waits for the input buffer, then KBC command ADh (disable keyboard interface); STI."
+  },
+  "945E": {
+   "name": "gate_a20_kbc_path",
+   "comment": "Shared body of gate_a20_enable/disable through the keyboard controller: D1h then AH (DFh on / DDh off) to the output port."
+  },
+  "9904": {
+   "name": "speed_hook_stub",
+   "comment": "ret - placeholder called by the speed_low/mid/high routines."
+  },
+  "991D": {
+   "name": "gate_a20_enable_alt",
+   "comment": "KBC D1h DFh without the timeout waits (ROM option AF47h bit 7 path)."
+  },
+  "992E": {
+   "name": "gate_a20_disable_alt",
+   "comment": "INVD, KBC D1h DDh."
+  },
+  "9941": {
+   "name": "kbc_wait_input_empty_simple",
+   "comment": "Spin until 64h bit 1 clears."
+  },
+  "994A": {
+   "name": "shadow_ram_setup",
+   "comment": "POST shadow-RAM enable: with AH bit 4 set runs shadow_enable_from_ram (the ROM copies itself to 1000:0000 and continues there while the F000 shadow is switched on)."
+  },
+  "9994": {
+   "name": "shadow_enable_copy_and_jump",
+   "comment": "copy_rom_to_ram F000 -> 1000 (32 KB), ljmp 1000:99A6."
+  },
+  "99A6": {
+   "name": "shadow_enable_from_ram",
+   "comment": "Runs in the RAM copy: chipset reg 200h |= 1000h (F000 shadow enable) via 24h/26h, then copies the ROM into the shadow and jumps back."
+  },
+  "9A65": {
+   "name": "shadow_reg200_set_bits_from_ram",
+   "comment": "Same trick for arbitrary reg 200h bits in BX (copies 8 KB to 1000:0000 first)."
+  },
+  "9B56": {
+   "name": "memory_present_test",
+   "comment": "Fills CX x 512 bytes at segment AX with 55AAh and verifies; CF=1 when the RAM is missing or bad."
+  },
+  "9B82": {
+   "name": "cpu_speed_low_post_B0",
+   "comment": "POST B0h/B1h: speed level 2 via speed_hook_stub (ROM-stack return)."
+  },
+  "9B93": {
+   "name": "cpu_speed_mid_post_B2",
+   "comment": "POST B2h: level 1."
+  },
+  "9BA0": {
+   "name": "cpu_speed_high_post_B3",
+   "comment": "POST B3h: level 0."
+  },
+  "9E46": {
+   "name": "chipset_200_207_bits23_set",
+   "comment": "Chipset regs 200h/207h |= 0Ch (shadow-RAM write enable bits, best guess)."
+  },
+  "9E63": {
+   "name": "chipset_200_207_bits23_clear",
+   "comment": "Chipset regs 200h/207h &= F3h."
+  },
+  "9E80": {
+   "name": "floppy_flags_clear_bit0_set_bit9",
+   "comment": "[bp+1A] &= FEh, [bp+1B] |= 2 (request flags in the INT 13h frame)."
+  },
+  "9E89": {
+   "name": "floppy_flags_set_bit0",
+   "comment": "[bp+1A] |= 1 (diskette request flag)."
+  },
+  "9E8E": {
+   "name": "floppy_drive_bit_mask",
+   "comment": "AL := 1 << drive ([bp+0C])."
+  },
+  "9F27": {
+   "name": "floppy_reset_and_probe_fdc",
+   "comment": "floppy_reset_controller, fdc_dumpreg_probe; 40:3F bit 7 := enhanced controller (82077-class) when the probe returned 2."
+  },
+  "9F3C": {
+   "name": "floppy_dor_reset_pulse",
+   "comment": "DOR (3F2h) := motor bits from 40:3F | 08h (IRQ/DMA on, reset asserted), 5-tick delay, then | 04h (reset released)."
+  },
+  "9F5F": {
+   "name": "floppy_dor_04",
+   "comment": "DOR := 04h."
+  },
+  "9FAD": {
+   "name": "floppy_motor_spinup_wait",
+   "comment": "If the motor-off counter 40:40 is FEh/FFh (motor just started) waits 4000 refresh ticks."
+  },
+  "9FC6": {
+   "name": "floppy_motor_timeout_check",
+   "comment": "Compares 40:40 with 255 - (DPT motor-off delay [si+0A] x 2.25); CF when the motor has run long enough."
+  },
+  "9FDF": {
+   "name": "floppy_motor_delta_check",
+   "comment": "AL := 40:47 - 40:40; SF = still counting."
+  },
+  "9FE9": {
+   "name": "floppy_motor_start_wait",
+   "comment": "If the motor is not up to speed: INT 15h AX=90FDh (device-busy hook: diskette motor start - PhoenixMISER listens here), then a 1 s wait_refresh_cycles delay unless the hook returned CF."
+  },
+  "A015": {
+   "name": "floppy_motor_count_set",
+   "comment": "40:40 := DPT motor-off delay (+2) adjusted when the counter was already above EDh."
+  },
+  "A1E0": {
+   "name": "fdc_read_result_bytes_cx",
+   "comment": "Reads up to CX result bytes from 3F5h (RQM and DIO set) into 40:42..; on a premature RQM without DIO sets status 20h."
+  },
+  "A205": {
+   "name": "fdc_read_2_results",
+   "comment": "Two result bytes -> AX (AH = ST0, AL = second byte), 40:42/43 preserved."
+  },
+  "A21B": {
+   "name": "fdc_st1_error_codes",
+   "comment": "INT 13h status for ST1 bits 7..0: 04h (sector not found), 20h, 10h (CRC), 08h (DMA overrun), 20h, 04h, 03h (write protect), 02h (address mark)."
+  },
+  "A272": {
+   "name": "fdc_write_bytes_cs_bx",
+   "comment": "Writes CX command bytes from CS:BX to the FDC (fdc_write_byte_cf)."
+  },
+  "A28A": {
+   "name": "fdc_sense_interrupt_cmd",
+   "comment": "Command 08h then fdc_read_2_results."
+  },
+  "A298": {
+   "name": "fdc_dumpreg_probe",
+   "comment": "Command 0Eh (DUMPREG): AL = 0 (no response), 1 (8272 answers 80h invalid), 2 (enhanced controller returned the 10 register bytes)."
+  },
+  "A2B7": {
+   "name": "floppy_select_data_rate",
+   "comment": "40:8B |= FEh; CCR 3F7h := data rate from DPT+0Ch merged with 40:8B bit 0 and the drive."
+  },
+  "A329": {
+   "name": "fdc_sense_drive_status",
+   "comment": "10000-tick delay, command 04h + head/drive; ZF from ST3 bit 4 (track 0)."
+  },
+  "A34D": {
+   "name": "floppy_words_A34D",
+   "comment": "0013h, 0007h."
+  },
+  "A536": {
+   "name": "floppy_seek_if_needed",
+   "comment": "Recalibrate first when 40:3E says the drive is uncalibrated (floppy_recalibrate); seek only when the cached track 40:494+drive differs from CH."
+  },
+  "A552": {
+   "name": "fdc_seek",
+   "comment": "Command 0Fh, head/drive, cylinder CH; updates the track cache 40:494+drive; then fdc_wait_seek_complete."
+  },
+  "A56D": {
+   "name": "fdc_wait_seek_complete",
+   "comment": "Waits for the FDC IRQ (floppy_wait_irq, reset on timeout), 100-tick delay, sense interrupt, checks the drive number in ST0, then head-settle delay from DPT+9 (default 15 ms)."
+  },
+  "A5CA": {
+   "name": "fdc_recalibrate_cmd",
+   "comment": "Command 07h + head/drive, fdc_wait_seek_complete, 15000-tick delay."
+  },
+  "A5EB": {
+   "name": "floppy_recalibrate",
+   "comment": "fdc_recalibrate_cmd; a 'seek end + equipment check' (ST0 & D0h == 50h) is accepted as track 0 after 80 steps."
+  },
+  "A64C": {
+   "name": "floppy_drive_count_from_48F",
+   "comment": "DL := number of drives with a type in 40:8F (low/high nibble)."
+  },
+  "A6C2": {
+   "name": "floppy_disabled_check",
+   "comment": "CF=1 when ROM option AF46h bit 5 is clear, or bit 3 set and CMOS 1Fh bit 2 (no floppy) set."
+  },
+  "A8F9": {
+   "name": "floppy_media_state_step",
+   "comment": "Advances the media-state byte 40:490+drive to the next data-rate trial (table floppy_media_state_table)."
+  },
+  "A91D": {
+   "name": "floppy_media_state_table",
+   "comment": "00 00 02 03 05 08 08."
+  },
+  "AAB8": {
+   "name": "floppy_disk_change_check",
+   "comment": "DIR 3F7h bit 7 (disk change): when set, floppy_media_state_step and returns AL=80h with SF."
+  },
+  "AAC8": {
+   "name": "floppy_disk_change_reset",
+   "comment": "Clears the change line by seeking to track 4 (fdc_seek) and recalibrating; AH := 06h (change line active) or 80h/CF when it stays set."
+  },
+  "AB0C": {
+   "name": "floppy_change_check_with_motor",
+   "comment": "floppy_motor_on then floppy_disk_change_reset for known drive types."
+  },
+  "AB3A": {
+   "name": "post_floppy_seek_test",
+   "comment": "POST diskette test: skipped (AL=3) when 40:B6 bit 0 (Quick Boot); else motor on, two recalibrations, head settle and a seek check."
+  },
+  "AC0C": {
+   "name": "fdc_msr_busy_check",
+   "comment": "Counts the drive-busy bits in the MSR (3F4h bits 0-3); CF=1 when more than one is set or bit 0-3 patterns are inconsistent."
+  },
+  "B315": {
+   "name": "int10_write_char_wait_retrace",
+   "comment": "For CGA modes 2/3 waits for horizontal retrace on 3DAh before touching video memory (snow avoidance)."
+  },
+  "B653": {
+   "name": "find_char_in_font",
+   "comment": "Compares the 8-byte glyph at SS:BP with CX glyphs at ES:DI; AL := matching character (CF=1 when none) - read character in graphics modes."
+  },
+  "B6E5": {
+   "name": "teletype_control_chars",
+   "comment": "AH=0Eh helpers: 07h bell (beep_hi), 0Dh CR, 08h backspace, 0Ah LF (scroll at the bottom)."
+  },
+  "B782": {
+   "name": "cga_char_row_addr",
+   "comment": "DI := row x 2 x bytes-per-row + col (x2 in 320-pixel modes) - graphics character position."
+  },
+  "B7B1": {
+   "name": "set_cursor_pos_store",
+   "comment": "40:450+page*2 := DX; when the page is active also program the CRTC cursor (cursor_to_crtc_value)."
+  },
+  "B7D3": {
+   "name": "cursor_to_crtc_value",
+   "comment": "CX := row x columns + col + page offset/2; BX := 0E0Fh (CRTC cursor high/low registers)."
+  },
+  "B7EA": {
+   "name": "crtc_write_pair",
+   "comment": "Writes CH/CL to CRTC registers BH/BL at 40:63."
+  },
+  "B808": {
+   "name": "int10_05_select_page_body",
+   "comment": "AL < 4 and CX: computes the page start (40:44E), programs CRTC 0Ch/0Dh and the cursor for the new page."
+  },
+  "B85F": {
+   "name": "print_char_al_int10",
+   "comment": "INT 10h AH=0Eh BL=7 (teletype) for AL."
+  },
+  "B871": {
+   "name": "video_page_offset_active",
+   "comment": "BL := active page (40:62) -> video_page_cursor_pos tail."
+  },
+  "B877": {
+   "name": "video_page_cursor_pos",
+   "comment": "DX := cursor position of page BH (40:450+page*2); ES := video segment (B3DE), AL := 40:10 | CFh."
+  },
+  "B96B": {
+   "name": "scroll_text_body",
+   "comment": "Scroll window (AH lines) up/down in text modes: computes source/destination rows and moves them with the attribute BH fill."
+  },
+  "BA0D": {
+   "name": "scroll_fill_text",
+   "comment": "Fills the vacated rows with (BH attribute, space); waits for retrace in CGA modes."
+  },
+  "BA89": {
+   "name": "stosw_fill_sti",
+   "comment": "rep stosw then STI."
+  },
+  "BAE3": {
+   "name": "stosb_step2_fill",
+   "comment": "Stores AL every other byte (attribute or character column) CX times."
+  },
+  "BBCB": {
+   "name": "cursor_pos_of_page_bl",
+   "comment": "DX := 40:450 + BL*2."
+  },
+  "BBD6": {
+   "name": "is_graphics_mode",
+   "comment": "CF=1 for modes 4-6 (graphics), 0 for text modes and mode 7."
+  },
+  "BBE4": {
+   "name": "cga_pixel_address",
+   "comment": "ES := B800h (B3E0); for modes 4-6: byte offset of pixel (CX, DX) with the 2000h odd-line interleave; 80 or 40 bytes per row."
+  },
+  "C01F": {
+   "name": "pmode_load_flat_selectors_retf",
+   "comment": "DS := 18h, ES := 20h, SS := 28h, CLC, RETF (protected-mode data selectors for the block move / memory test)."
+  },
+  "C200": {
+   "name": "post_code_02_restart",
+   "comment": "POST 02h then jump to 94B0 (CPU reset path)."
+  },
+  "C311": {
+   "name": "gdt_build_code_descriptor",
+   "comment": "Writes a code descriptor at ES:DI: limit FFFFh, base CS<<4 + BP, type 9Bh."
+  },
+  "C344": {
+   "name": "pic_init_icw",
+   "comment": "ICW1 11h, ICW2 BH, ICW3 AH, ICW4 01h to the PIC at DX/DX+1 (port EDh delays)."
+  },
+  "C35A": {
+   "name": "pit_ch0_latch_read",
+   "comment": "Latches PIT channel 0 (43h := 00h) and reads the count into BX."
+  },
+  "C370": {
+   "name": "cache_flags_from_4B5",
+   "comment": "AL := 40:B5 >> 3 (cache-control bits), AH := raw byte (bit 7 = cache currently enabled)."
+  },
+  "C3A0": {
+   "name": "cache_apply_if_enabled",
+   "comment": "If 40:B5 bit 7: runs the cache flush/enable stubs selected by the flag bits."
+  },
+  "C451": {
+   "name": "cache_enable",
+   "comment": "Flush stub then 40:B5 |= 80h."
+  },
+  "C472": {
+   "name": "cache_disable",
+   "comment": "Flush stub then 40:B5 &= 7Fh."
+  },
+  "C499": {
+   "name": "cmos_read_ah_index",
+   "comment": "Index AH -> 70h, AL := 71h (port EDh delays)."
+  },
+  "C4BA": {
+   "name": "cache_stub_C4CA_a",
+   "comment": "jmp C4CA (cache control stub, shared code)."
+  },
+  "C4BD": {
+   "name": "cache_flush_stub",
+   "comment": "jmp C4CA."
+  },
+  "C4C0": {
+   "name": "cache_stub_C4D7",
+   "comment": "jmp C4D7."
+  },
+  "C4C3": {
+   "name": "cache_wbinvd_stub",
+   "comment": "jmp cache_wbinvd."
+  },
+  "C4C6": {
+   "name": "cache_stub_C4C9",
+   "comment": "jmp C4C9 (cache control stub)."
+  },
+  "C4F0": {
+   "name": "cache_wbinvd",
+   "comment": "WBINVD; ret."
+  },
+  "C56C": {
+   "name": "cpu_tlb_test_jmp_E740",
+   "comment": "Jumps to the code island at E740 (part of cpu_tlb_test, moved there by the linker)."
+  },
+  "C587": {
+   "name": "cpu_tlb_test_next_set",
+   "comment": "ESI := (ESI+4) & 0Fh, ECX := 80h, back into the fill loop."
+  },
+  "C62C": {
+   "name": "cpu_tlb_test_next_way",
+   "comment": "EDI := (EDI+4) & 0Fh, ECX := 80h, back into the verify loop."
+  },
+  "C645": {
+   "name": "cpu_tlb_test_fail",
+   "comment": "INVD, POPFD, CF=1."
+  },
+  "C53F": {
+   "name": "cpu_tlb_test_tr5_4",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C548": {
+   "name": "cpu_tlb_test_tr3_ebx",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C54B": {
+   "name": "cpu_tlb_test_tr5_8",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C554": {
+   "name": "cpu_tlb_test_tr3_ebp",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C557": {
+   "name": "cpu_tlb_test_tr5_C",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C560": {
+   "name": "cpu_tlb_test_tr3_edx",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C563": {
+   "name": "cpu_tlb_test_tr4_addr",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C5B5": {
+   "name": "cpu_tlb_test_read_tr3_a",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C5B8": {
+   "name": "cpu_tlb_test_verify_a",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C5C8": {
+   "name": "cpu_tlb_test_read_tr3_b",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C5CB": {
+   "name": "cpu_tlb_test_verify_b",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C5DB": {
+   "name": "cpu_tlb_test_read_tr3_c",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C5DE": {
+   "name": "cpu_tlb_test_verify_c",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C5EE": {
+   "name": "cpu_tlb_test_read_tr3_d",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C5F1": {
+   "name": "cpu_tlb_test_verify_d",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "C601": {
+   "name": "cpu_tlb_test_verify_tr4",
+   "comment": "Fragment of cpu_tlb_test between test-register instructions (mov tr3/tr4/tr5/tr6/tr7 shown as data bytes)."
+  },
+  "E743": {
+   "name": "cpu_tlb_test_island_E740",
+   "comment": "Code island of cpu_tlb_test (after a mov tr instruction at E740)."
+  },
+  "E753": {
+   "name": "cpu_tlb_test_island_E750",
+   "comment": "mov tr7,edi at E750 then jmp back to C5AC."
+  },
+  "C776": {
+   "name": "int15_C2_pointing_dispatch",
+   "comment": "INT 15h AH=C2h: AL 0-7 -> jump table at C766 (int15_C2 sub-functions), else AH=01h invalid function."
+  },
+  "C9E2": {
+   "name": "kbc_wait_input_empty_cx",
+   "comment": "Up to CX x 100 refresh ticks for 64h bit 1 clear."
+  },
+  "C9F4": {
+   "name": "kbc_write_command_byte_ah",
+   "comment": "Command 60h then the byte AH (flushing a pending aux byte); CF=1 on timeout."
+  },
+  "CA27": {
+   "name": "kbc_send_aux_byte",
+   "comment": "D4h then the byte to the auxiliary device, with wait_refresh_cycles delays; used by the INT 15h C2h services."
+  },
+  "CAB5": {
+   "name": "kbc_read_aux_byte",
+   "comment": "Waits (CX=61A8h polls) for 64h bits 5 and 0 (aux data available) -> AL; AH=03h CF=1 on timeout."
+  },
+  "CCFC": {
+   "name": "post_display_device_select",
+   "comment": "CMOS 5Eh bits 6-7 (SETUP Display Device) -> INT 10h AX=5F51h BL=0/1/2 BH=1 (or BX=0101h) - the POST-time twin of MISER's display_device_apply."
+  },
+  "CE71": {
+   "name": "a20_state_test",
+   "comment": "Compares 0000:0000 with FFFF:0010 while toggling the byte: tells whether address line A20 is enabled (wrap-around present or not)."
+  },
+  "D140": {
+   "name": "rtc_reset_if_uip_stuck",
+   "comment": "If the RTC update-in-progress bit never clears: status A := 26h, status B := 82h, read C and D."
+  },
+  "D15D": {
+   "name": "rtc_wait_uip_clear",
+   "comment": "Polls CMOS 0Ah bit 7 up to 65536 times; CF=1 when it never clears."
+  },
+  "D174": {
+   "name": "speaker_click",
+   "comment": "Short speaker pulse (PIT channel 2 count 254h) - used for key clicks and the memory-test tick."
+  },
+  "D1B4": {
+   "name": "delay_50_refresh",
+   "comment": "wait_refresh_cycles, 50 ticks."
+  },
+  "D1DB": {
+   "name": "cmos_read_shutdown_byte",
+   "comment": "Reads CMOS 0Fh (shutdown code) with the NMI-disable bit set or clear according to ROM option AF45h bit 6."
+  },
+  "D1E7": {
+   "name": "cmos_read_shutdown_nmi_off",
+   "comment": "Reads CMOS 8Fh (index 0Fh, NMI disabled)."
+  },
+  "D207": {
+   "name": "int_service_prologue",
+   "comment": "Common INT service entry: saves CX/DX/SI/DI/BP/DS/ES, stores BX in the frame, BP := caller's frame pointer."
+  },
+  "D330": {
+   "name": "print_hex_nibble",
+   "comment": "AL low nibble -> hex digit via print_char_al_int10."
+  },
+  "D343": {
+   "name": "wait_key_upper",
+   "comment": "INT 16h AH=0, returns the key upper-cased in AL."
+  },
+  "D43B": {
+   "name": "print_string_cs_si_body",
+   "comment": "Prints the NUL-terminated string at CS:SI (max 65535 chars) with print_char_al_int10."
+  },
+  "D4D7": {
+   "name": "memory_test_click",
+   "comment": "Speaker pulse whose length is 40:15 (the POST memory-test click when enabled)."
+  },
+  "D522": {
+   "name": "wait_vsync_3xA",
+   "comment": "Waits for the vertical-retrace start on the status port 40:63+6, then a 19-tick delay."
+  },
+  "D8D8": {
+   "name": "printer_crlf_int17",
+   "comment": "CR then LF through printer_char_int17."
+  },
+  "D8E1": {
+   "name": "printer_char_int17",
+   "comment": "INT 17h AH=0 (LPT1); BL := FFh on error/time-out status."
+  },
+  "D9C8": {
+   "name": "cpu_type_lookup",
+   "comment": "CH/CL (CPU signature family/model) -> cpu_type_table_search; BX := name string, AH=86h CF=1 when unknown."
+  },
+  "D9E2": {
+   "name": "cpu_type_table_search",
+   "comment": "Scans cpu_type_table (D99C-D9C8, 4-byte records) for CH/CL & F0h."
+  },
+  "5D47": {
+   "name": "post_reg_test_verify",
+   "comment": "Verify half of the POST register write/read test loop at 5D3D (DI alternates between the write stub 5D42 and this verify stub): IN from DX must equal BL, else post_fatal_error code 06h."
+  },
+  "63A7": {
+   "name": "a20_wrap_test_dword",
+   "comment": "ES:[0500] := 0, FS:[0510] (FFFF:0510 = 10500h) := 1, then compares the bytes: decides whether A20 is open (protected-mode memory test prologue)."
+  },
+  "66E7": {
+   "name": "post_keyboard_failure_msg",
+   "comment": "Prints 'Keyboard <controller|clock line|data line|stuck key> failure' (string from SI) unless ROM option AF46h bit 4 is clear or bit 3 with CMOS 0Eh bits 6-7 / CMOS 1Fh bit 0 suppress it."
+  },
+  "CE49": {
+   "name": "int15_24_a20_gate_service",
+   "comment": "INT 15h AH=24h (A20 gate support): AL=0 disable (gate_a20_disable), AL=1 enable, AL=2 query status (SMSW/wrap test), AL=3 report support (BX = 3: KBC and port 92h-style methods); AH=86h otherwise."
+  },
+  "234B": {
+   "name": "setup_field_handler_8",
+   "comment": "setup_field_record; DI := [bx+0Ah]; calls handler +08h."
+  },
+  "5800": {
+   "name": "core_copyright_string",
+   "comment": "'Copyright 1985-1992  Phoenix Technologies Ltd.' at the start of the core segment (checksummed by the anti-tamper check)."
+  },
+  "58BA": {
+   "name": "post_kbc_reset_rom_stack",
+   "comment": "ROM-stack return words / continuation used by post_kbc_reset_continue."
+  },
+  "5E52": {
+   "name": "rom_stack_words_5E52",
+   "comment": "Return-address words 5E2Ch, 5E56h for the ROM-stack idiom."
+  },
+  "86CD": {
+   "name": "setup_far_ptr_86CD",
+   "comment": "Far pointer F000:0100 (SETUP) + constants used by the hot-key path."
+  },
+  "A1D2": {
+   "name": "fdc_rqm_not_ready_test",
+   "comment": "MSR 3F4h inverted; SF from bit 7 (RQM clear)."
+  },
+  "A809": {
+   "name": "floppy_table_A809",
+   "comment": "C0 FF 60 FF 60 FF 80 - per-drive-type bytes (data-rate / step, best guess)."
+  },
+  "A8D4": {
+   "name": "floppy_rate_table_A8D4",
+   "comment": "93 74 15 97 97 17 97 17 D7 54 - media/data-rate parameters."
+  },
+  "AA14": {
+   "name": "floppy_drive_type_resolve",
+   "comment": "Continuation of floppy_motor_check: DIR bits 6-7 -> table A9FBh index -> drive type in [bp+14]."
+  },
+  "AA4F": {
+   "name": "floppy_recal_flag_test",
+   "comment": "AL := ~40:3E; SF = drive needs recalibration."
+  },
+  "B2E6": {
+   "name": "cga_box_chars_B2E6",
+   "comment": "DB B3 DB B3 DB B3 08 B8 - graphics character helpers."
+  },
+  "B33A": {
+   "name": "video_mode_pages_table",
+   "comment": "03 03 05 05 03 03 03 04 - page-count/shift per mode."
+  },
+  "B3DE": {
+   "name": "video_segment_words",
+   "comment": "B000h, B800h - video buffer segments for the fallback INT 10h."
+  },
+  "C185": {
+   "name": "bda_4A0_bit7_test",
+   "comment": "AL := 40:A0 & 80h; ZF when clear (wait flag byte, INT 15h 83h/86h)."
+  },
+  "C56F": {
+   "name": "cpu_tlb_test_fill_loop",
+   "comment": "Fill-loop island of cpu_tlb_test (ESI += 10h, loop)."
+  },
+  "C597": {
+   "name": "cpu_tlb_test_verify_init",
+   "comment": "ECX := 80h, EDI := 2 before the verify loop."
+  },
+  "C830": {
+   "name": "mouse_sample_rate_table",
+   "comment": "10, 20, 40, 60, 80, 100, 200 - INT 15h C2h AH=02h sample rates."
+  },
+  "DA36": {
+   "name": "cpu_speed_div_loop_retf",
+   "comment": "Divide-loop timing variant (xor ax,ax; 4 x div bx; loop) ending in PIT ch2 := 0 and RETF."
+  },
+  "93D6": {
+   "name": "kbc_input_full_test_cb",
+   "comment": "in al,64h; test al,2; ret - condition callback passed in DX to wait_refresh_cycles (keyboard-controller input buffer still full)."
+  },
+  "C39B": {
+   "name": "popf_ret_stub",
+   "comment": "popf; ret."
+  },
+  "C39D": {
+   "name": "mov_sp_bp_ret_stub",
+   "comment": "mov sp,bp; ret (frame unwind stub)."
+  },
+  "C5AC": {
+   "name": "cpu_tlb_test_esi0",
+   "comment": "ESI := 0 then mov tr5,esi - fragment of cpu_tlb_test reached from the E750 island."
+  },
+  "CEC5": {
+   "name": "int15_24_return_04",
+   "comment": "AL := 04h alternate return of int15_24_a20_gate_service."
+  },
+  "D1D8": {
+   "name": "call_stub_D1D8",
+   "comment": "call D46F (unreached stub)."
+  },
+  "8972": {
+   "name": "kbd_table_offsets_8972",
+   "comment": "00 08 18 28 38 - offsets into the keyboard translation tables per shift state."
+  },
+  "8887": {
+   "name": "word_8887",
+   "comment": "0006h constant."
+  },
+  "B781": {
+   "name": "cga_bytes_per_row_x2",
+   "comment": "A0h (160): bytes per character row in the 80-column CGA graphics modes (used by cga_char_row_addr)."
+  },
+  "BF3C": {
+   "name": "const_BF3C",
+   "comment": "30 00 01 00 - selector/offset constants used by the protected-mode entry (int15_89)."
+  },
+  "BF09": {
+   "name": "dead_bytes_BF09",
+   "comment": "mov al,0 (unreached)."
+  },
+  "8F4D": {
+   "name": "dead_bytes_8F4D",
+   "comment": "out EDh,al (unreached delay)."
+  },
+  "20B7": {
+   "name": "dead_bytes_20B7",
+   "comment": "nop; cmp al,1Bh; jne (unreached remnant in the SETUP exit-menu key loop)."
+  },
+  "E05E": {
+   "name": "fill_E05E",
+   "comment": "FFh fill between post_entry and the copyright-check area (classic IBM layout gaps between the fixed entry points)."
+  },
+  "D7F3": {
+   "name": "wait_cb_never",
+   "comment": "or al,1; ret - default condition callback for wait_refresh_cycles (never satisfied, so the full tick count elapses)."
+  },
+  "9021": {
+   "name": "kbd_ctrl_make",
+   "comment": "Scancode 1Dh: set the Ctrl bit (40:17 bit 2, 40:18 left/right via E0 prefix) with kbd_shift_flags_set."
+  },
+  "902F": {
+   "name": "kbd_shift_make",
+   "comment": "2Ah/36h: left/right Shift make -> 40:17 bits 1/0."
+  },
+  "9017": {
+   "name": "kbd_alt_make",
+   "comment": "38h: Alt make -> 40:17 bit 3 (40:18 for the right Alt)."
+  },
+  "8F45": {
+   "name": "kbd_sysreq_make",
+   "comment": "54h (SysReq / Alt+PrtScr): INT 15h AH=85h AL=0."
+  },
+  "9063": {
+   "name": "kbd_capslock_make",
+   "comment": "3Ah: toggles 40:17 bit 6 unless already held (40:18 bit 6), updates the LEDs."
+  },
+  "908C": {
+   "name": "kbd_numlock_make",
+   "comment": "45h: toggles Num Lock (40:17 bit 5); with Ctrl held it is Pause (40:18 bit 3 loop until a key)."
+  },
+  "90CE": {
+   "name": "kbd_scrolllock_make",
+   "comment": "46h: toggles Scroll Lock (40:17 bit 4); with Ctrl held it is Break (INT 1Bh, buffer flushed)."
+  },
+  "904B": {
+   "name": "kbd_ctrl_break",
+   "comment": "9Dh: clear the Ctrl bits."
+  },
+  "9059": {
+   "name": "kbd_shift_break",
+   "comment": "AAh/B6h: clear the Shift bit."
+  },
+  "9039": {
+   "name": "kbd_alt_break",
+   "comment": "B8h: clear Alt; if an Alt+numpad code was accumulated (40:19) store it as a character."
+  },
+  "8F72": {
+   "name": "kbd_sysreq_break",
+   "comment": "D4h: INT 15h AH=85h AL=1."
+  },
+  "9087": {
+   "name": "kbd_lock_key_break",
+   "comment": "BAh/C5h/C6h: clear the 'held' bits of Caps/Num/Scroll Lock in 40:18."
+  },
+  "8D0E": {
+   "name": "kbd_insert_make",
+   "comment": "52h: Insert - toggles 40:17 bit 7 when no shift is active, else stores the key."
+  },
+  "916C": {
+   "name": "kbd_insert_break",
+   "comment": "D2h: clear the Insert-held bit."
+  },
+  "8F31": {
+   "name": "kbd_overrun_FF",
+   "comment": "FFh: keyboard overrun - beep and ignore."
+  },
+  "8F37": {
+   "name": "kbd_resend_FE",
+   "comment": "FEh: resend request - sets 40:97 bit 5."
+  },
+  "8F3E": {
+   "name": "kbd_ack_FA",
+   "comment": "FAh: acknowledge - sets 40:97 bit 4."
+  },
+  "900B": {
+   "name": "kbd_prefix_E0",
+   "comment": "E0h: set 40:96 bit 1 (extended key follows)."
+  },
+  "9011": {
+   "name": "kbd_prefix_E1",
+   "comment": "E1h: set 40:96 bit 0 (Pause sequence follows)."
+  },
+  "8FE0": {
+   "name": "kbd_platform_key_AB",
+   "comment": "ABh: notebook-specific break code (Fn key release, best guess) - clears the platform flag."
+  },
+  "8FF3": {
+   "name": "kbd_platform_key_41_85",
+   "comment": "41h (F7) / 85h: notebook hot-key path - INT 15h AH=4Fh style dispatch to the platform handler (Fn+F7 / Fn function keys, best guess)."
+  },
+  "8F84": {
+   "name": "kbd_prtscr_make",
+   "comment": "37h: PrtScr make - INT 05h (print screen) unless Alt is held (then SysReq path); Ctrl+PrtScr toggles printer echo."
+  }
+ },
+ "data": [
+  [
+   "0000",
+   "0100",
+   "Phoenix copyright banner (space padded)"
+  ],
+  [
+   "E00E",
+   "E012",
+   "IBM compatibility signature"
+  ],
+  [
+   "E020",
+   "E053",
+   "Phoenix copyright string"
+  ],
+  [
+   "E401",
+   "E6F1",
+   "fixed disk parameter table (INT 41h) 47 x 16 bytes"
+  ],
+  [
+   "EFC7",
+   "EFD2",
+   "diskette parameter table (INT 1Eh)"
+  ],
+  [
+   "F0A4",
+   "F0FC",
+   "video parameter table (INT 1Dh)"
+  ],
+  [
+   "FA6E",
+   "FE6E",
+   "8x8 font (INT 1Fh)"
+  ],
+  [
+   "FFF5",
+   "FFFD",
+   "release date"
+  ],
+  [
+   "FFFD",
+   "10000",
+   "unused byte, model byte FCh, checksum byte"
+  ],
+  [
+   "8C5C",
+   "8C78",
+   "kbd_special_scancodes (28 bytes)"
+  ],
+  [
+   "8C78",
+   "8C88",
+   "kbd_shift_flag_masks (16 bytes)"
+  ],
+  [
+   "D4B1",
+   "D4B5",
+   "string h CR LF"
+  ],
+  [
+   "5D25",
+   "5D2C",
+   "DMA page register list"
+  ],
+  [
+   "6D24",
+   "6D34",
+   "port probe table"
+  ],
+  [
+   "78B1",
+   "78BB",
+   "decimal divisors"
+  ],
+  [
+   "9831",
+   "9835",
+   "dram bank table"
+  ],
+  [
+   "70B4",
+   "70BB",
+   "time constants"
+  ],
+  [
+   "D4B2",
+   "D4B5",
+   "CR LF"
+  ],
+  [
+   "D94F",
+   "D99C",
+   "cpu name table"
+  ],
+  [
+   "03CC",
+   "03CE",
+   "setup page field counts"
+  ],
+  [
+   "03CE",
+   "03D2",
+   "setup page word table"
+  ],
+  [
+   "03D2",
+   "03D6",
+   "setup page record pointers"
+  ],
+  [
+   "9E9A",
+   "9F0A",
+   "diskette parameter tables (8 x 14 bytes)"
+  ],
+  [
+   "C539",
+   "C53C",
+   "486 test register: mov tr5, edi (not decodable by capstone)"
+  ],
+  [
+   "C53C",
+   "C53F",
+   "486 test register: mov tr3, eax (not decodable by capstone)"
+  ],
+  [
+   "C545",
+   "C548",
+   "486 test register: mov tr5, edi (not decodable by capstone)"
+  ],
+  [
+   "C548",
+   "C54B",
+   "486 test register: mov tr3, ebx (not decodable by capstone)"
+  ],
+  [
+   "C551",
+   "C554",
+   "486 test register: mov tr5, edi (not decodable by capstone)"
+  ],
+  [
+   "C554",
+   "C557",
+   "486 test register: mov tr3, ebp (not decodable by capstone)"
+  ],
+  [
+   "C55D",
+   "C560",
+   "486 test register: mov tr5, edi (not decodable by capstone)"
+  ],
+  [
+   "C560",
+   "C563",
+   "486 test register: mov tr3, edx (not decodable by capstone)"
+  ],
+  [
+   "C569",
+   "C56C",
+   "486 test register: mov tr4, edi (not decodable by capstone)"
+  ],
+  [
+   "C5B2",
+   "C5B5",
+   "486 test register: mov tr5, esi (not decodable by capstone)"
+  ],
+  [
+   "C5B5",
+   "C5B8",
+   "486 test register: mov esi, tr3 (not decodable by capstone)"
+  ],
+  [
+   "C5C5",
+   "C5C8",
+   "486 test register: mov tr5, esi (not decodable by capstone)"
+  ],
+  [
+   "C5C8",
+   "C5CB",
+   "486 test register: mov esi, tr3 (not decodable by capstone)"
+  ],
+  [
+   "C5D8",
+   "C5DB",
+   "486 test register: mov tr5, esi (not decodable by capstone)"
+  ],
+  [
+   "C5DB",
+   "C5DE",
+   "486 test register: mov esi, tr3 (not decodable by capstone)"
+  ],
+  [
+   "C5EB",
+   "C5EE",
+   "486 test register: mov tr5, esi (not decodable by capstone)"
+  ],
+  [
+   "C5EE",
+   "C5F1",
+   "486 test register: mov esi, tr3 (not decodable by capstone)"
+  ],
+  [
+   "C5FE",
+   "C601",
+   "486 test register: mov esi, tr4 (not decodable by capstone)"
+  ],
+  [
+   "0103",
+   "014C",
+   "setup_key_maps"
+  ],
+  [
+   "15E9",
+   "15FE",
+   "setup_extended_scancodes"
+  ],
+  [
+   "1691",
+   "16A3",
+   "setup_word_table_1691"
+  ],
+  [
+   "1FCF",
+   "1FF9",
+   "setup_page_string_ptrs"
+  ],
+  [
+   "27D9",
+   "2815",
+   "setup_table_27D9"
+  ],
+  [
+   "285E",
+   "28CE",
+   "setup_string_ptrs_285E"
+  ],
+  [
+   "3F6F",
+   "3F7C",
+   "msg_rebooting"
+  ],
+  [
+   "714C",
+   "71D6",
+   "pmode_gdt_template_714C"
+  ],
+  [
+   "7B53",
+   "7B5B",
+   "setup_far_ptr_7B53"
+  ],
+  [
+   "91B0",
+   "931D",
+   "kbd_translate_tables"
+  ],
+  [
+   "9498",
+   "94B0",
+   "pmode_descriptor_9498"
+  ],
+  [
+   "94E9",
+   "95C4",
+   "chipset_init_table_94E9"
+  ],
+  [
+   "96EE",
+   "971E",
+   "pmode_descriptor_96EE"
+  ],
+  [
+   "9E98",
+   "9F1A",
+   "table_9E98"
+  ],
+  [
+   "A0C9",
+   "A10B",
+   "floppy pointer table"
+  ],
+  [
+   "A667",
+   "A67C",
+   "floppy_gap_table"
+  ],
+  [
+   "A7AF",
+   "A7D5",
+   "floppy_media_table"
+  ],
+  [
+   "A9FB",
+   "A9FE",
+   "floppy_bytes_A9FB"
+  ],
+  [
+   "AC2F",
+   "ACFB",
+   "rom_option_strings"
+  ],
+  [
+   "AD2F",
+   "B215",
+   "ROM option tables and strings"
+  ],
+  [
+   "C209",
+   "C311",
+   "pmode_idt_gdt_C209"
+  ],
+  [
+   "D59D",
+   "D5BD",
+   "pmode_descriptor_D59D"
+  ],
+  [
+   "D99C",
+   "D9C8",
+   "cpu_type_table"
+  ],
+  [
+   "DC09",
+   "DC17",
+   "cursor_shape_table"
+  ],
+  [
+   "E6F5",
+   "E739",
+   "system_config_table + vendor tags"
+  ],
+  [
+   "E840",
+   "E841",
+   "copyright_check_extra_byte"
+  ],
+  [
+   "FF64",
+   "FF68",
+   "rom_option_table_far_ptr"
+  ],
+  [
+   "FF80",
+   "FF82",
+   "bytes_FF80"
+  ],
+  [
+   "AD23",
+   "AD2F",
+   "far_ptr table terminator + pad"
+  ],
+  [
+   "FF77",
+   "FF78",
+   "fill"
+  ],
+  [
+   "27D9",
+   "2815",
+   "setup_frame_char_table"
+  ],
+  [
+   "A21B",
+   "A223",
+   "fdc_st1_error_codes"
+  ],
+  [
+   "A34D",
+   "A351",
+   "floppy_words_A34D"
+  ],
+  [
+   "A91D",
+   "A924",
+   "floppy_media_state_table"
+  ],
+  [
+   "E740",
+   "E743",
+   "486 test register: mov tr7, edi (not decodable by capstone)"
+  ],
+  [
+   "E750",
+   "E753",
+   "486 test register: mov tr7, edi (not decodable by capstone)"
+  ],
+  [
+   "03D6",
+   "03F2",
+   "setup_page_descriptors"
+  ],
+  [
+   "58BA",
+   "58DA",
+   "post_kbc_reset_rom_stack"
+  ],
+  [
+   "5E52",
+   "5E5A",
+   "rom_stack_words_5E52"
+  ],
+  [
+   "86CD",
+   "86D5",
+   "setup_far_ptr_86CD"
+  ],
+  [
+   "A809",
+   "A810",
+   "floppy_table_A809"
+  ],
+  [
+   "A8D4",
+   "A8DE",
+   "floppy_rate_table_A8D4"
+  ],
+  [
+   "B2E6",
+   "B2EE",
+   "cga_box_chars_B2E6"
+  ],
+  [
+   "B33A",
+   "B342",
+   "video_mode_pages_table"
+  ],
+  [
+   "B3DE",
+   "B3E4",
+   "video_segment_words"
+  ],
+  [
+   "C830",
+   "C837",
+   "mouse_sample_rate_table"
+  ],
+  [
+   "D49F",
+   "D4A7",
+   "zero_segment_words"
+  ],
+  [
+   "DC17",
+   "E00E",
+   "fill"
+  ],
+  [
+   "FF86",
+   "FFEF",
+   "fill"
+  ],
+  [
+   "20B7",
+   "20BC",
+   "dead_bytes_20B7"
+  ],
+  [
+   "2766",
+   "2767",
+   "ret pad"
+  ],
+  [
+   "37C6",
+   "37C8",
+   "ret pads"
+  ],
+  [
+   "58A5",
+   "58A6",
+   "byte before post_kbc_reset_continue"
+  ],
+  [
+   "58E5",
+   "58E7",
+   "ROM-stack return word 58E7"
+  ],
+  [
+   "5AB5",
+   "5AB7",
+   "ROM-stack return word 5AB7"
+  ],
+  [
+   "5B06",
+   "5B0A",
+   "ROM-stack far return 5B0A / F000"
+  ],
+  [
+   "5C2E",
+   "5C30",
+   "ROM-stack return word 5C30"
+  ],
+  [
+   "5DAB",
+   "5DAD",
+   "ROM-stack return word 5DAD"
+  ],
+  [
+   "8887",
+   "8889",
+   "word_8887"
+  ],
+  [
+   "8972",
+   "8977",
+   "kbd_table_offsets_8972"
+  ],
+  [
+   "8F4D",
+   "8F4F",
+   "dead_bytes_8F4D"
+  ],
+  [
+   "B781",
+   "B782",
+   "cga_bytes_per_row_x2"
+  ],
+  [
+   "BF09",
+   "BF0B",
+   "dead_bytes_BF09"
+  ],
+  [
+   "BF3C",
+   "BF40",
+   "const_BF3C"
+  ],
+  [
+   "C64C",
+   "C64D",
+   "ret pad"
+  ],
+  [
+   "3FBC",
+   "5800",
+   "FFh fill (end of the SETUP segment)"
+  ],
+  [
+   "E05E",
+   "E2C3",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "E2C6",
+   "E3FE",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "E841",
+   "E987",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "E98A",
+   "EC59",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "EC5C",
+   "EF57",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "EF5F",
+   "EFC7",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "EFD5",
+   "F065",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "F068",
+   "F0A4",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "F0FC",
+   "F841",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "F85C",
+   "FA6E",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "FE71",
+   "FEA5",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "FEA8",
+   "FEF3",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "E756",
+   "E82E",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "E746",
+   "E750",
+   "FFh fill (gap between fixed entry points)"
+  ],
+  [
+   "17AE",
+   "17AF",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "17B3",
+   "17B4",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "1B03",
+   "1B04",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "20B7",
+   "20B8",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "20EE",
+   "20EF",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "25A7",
+   "25A8",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "2BF6",
+   "2BF7",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "2BFB",
+   "2BFC",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "2C14",
+   "2C15",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "2C19",
+   "2C1A",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "311C",
+   "311D",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "3266",
+   "3267",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "352E",
+   "352F",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "5920",
+   "5921",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "5C6A",
+   "5C6B",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "5E16",
+   "5E17",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "5F57",
+   "5F58",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "6150",
+   "6151",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "6153",
+   "6154",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "6180",
+   "6181",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "618A",
+   "618B",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "6196",
+   "6197",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "621E",
+   "621F",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "6470",
+   "6471",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "64A2",
+   "64A3",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "6622",
+   "6623",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "663F",
+   "6640",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "67CD",
+   "67CE",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "681E",
+   "681F",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "6A48",
+   "6A49",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "6A58",
+   "6A59",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "6C00",
+   "6C01",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "6D0C",
+   "6D0D",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "6D1B",
+   "6D1C",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "774D",
+   "774E",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "78D9",
+   "78DA",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7CED",
+   "7CEE",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7D16",
+   "7D17",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7D24",
+   "7D25",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7DC3",
+   "7DC4",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7F09",
+   "7F0A",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7F0C",
+   "7F0D",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7F15",
+   "7F16",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7F18",
+   "7F19",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7F28",
+   "7F29",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7F2E",
+   "7F2F",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7F3A",
+   "7F3B",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7F40",
+   "7F41",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7F4B",
+   "7F4C",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7F54",
+   "7F55",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7F5D",
+   "7F5E",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "7F9E",
+   "7F9F",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "85BE",
+   "85BF",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "85E2",
+   "85E3",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "85FA",
+   "85FB",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8838",
+   "8839",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "885E",
+   "885F",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "88B4",
+   "88B5",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8992",
+   "8993",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8C89",
+   "8C8A",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8C8B",
+   "8C8C",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8C8D",
+   "8C8E",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8C8F",
+   "8C90",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8C93",
+   "8C94",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8C95",
+   "8C96",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8C97",
+   "8C98",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8C99",
+   "8C9A",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8C9B",
+   "8C9C",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8C9D",
+   "8C9E",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8C9F",
+   "8CA0",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8CA3",
+   "8CA4",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8CA5",
+   "8CA6",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8CA7",
+   "8CA8",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8CB3",
+   "8CB4",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "8CB5",
+   "8CB6",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "92AD",
+   "92AE",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "9409",
+   "940A",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "94E9",
+   "94EA",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "9716",
+   "9717",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "9B0B",
+   "9B0C",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "9B70",
+   "9B71",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "9C5D",
+   "9C5E",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "9D96",
+   "9D97",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "A73E",
+   "A73F",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "A746",
+   "A747",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "B358",
+   "B359",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "BCAA",
+   "BCAB",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "BCF1",
+   "BCF2",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "BD02",
+   "BD03",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "BD24",
+   "BD25",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "BD3C",
+   "BD3D",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "BEC2",
+   "BEC3",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C098",
+   "C099",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C0CB",
+   "C0CC",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C407",
+   "C408",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C426",
+   "C427",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C433",
+   "C434",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C4B9",
+   "C4BA",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C4BC",
+   "C4BD",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C4BF",
+   "C4C0",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C4C2",
+   "C4C3",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C4C5",
+   "C4C6",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C4C8",
+   "C4C9",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C586",
+   "C587",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C617",
+   "C618",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C62B",
+   "C62C",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C712",
+   "C713",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C720",
+   "C721",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C73F",
+   "C740",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C74D",
+   "C74E",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C7C5",
+   "C7C6",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C816",
+   "C817",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C8CF",
+   "C8D0",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C922",
+   "C923",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C9A3",
+   "C9A4",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "C9BD",
+   "C9BE",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "CA6E",
+   "CA6F",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "CAA3",
+   "CAA4",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "CACD",
+   "CACE",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "CBB4",
+   "CBB5",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "CBBA",
+   "CBBB",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "CD90",
+   "CD91",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "CDAA",
+   "CDAB",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "CDBE",
+   "CDBF",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "CF61",
+   "CF62",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "D9C1",
+   "D9C2",
+   "alignment pad (nop / xchg bx,bx)"
+  ],
+  [
+   "DA60",
+   "DA61",
+   "alignment pad (nop / xchg bx,bx)"
+  ]
+ ],
+ "strings": [
+  [
+   "0000",
+   "0100"
+  ],
+  [
+   "E020",
+   "E053"
+  ],
+  [
+   "FFF5",
+   "FFFD"
+  ],
+  [
+   "D4B1",
+   "D4B5"
+  ],
+  [
+   "D4B2",
+   "D4B5"
+  ],
+  [
+   "D94F",
+   "D99C"
+  ],
+  [
+   "03F2",
+   "1539"
+  ],
+  [
+   "6222",
+   "624C"
+  ],
+  [
+   "634C",
+   "6366"
+  ],
+  [
+   "63E1",
+   "641E"
+  ],
+  [
+   "644E",
+   "6461"
+  ],
+  [
+   "650F",
+   "6521"
+  ],
+  [
+   "6734",
+   "675E"
+  ],
+  [
+   "67E0",
+   "67F9"
+  ],
+  [
+   "6956",
+   "6970"
+  ],
+  [
+   "6B69",
+   "6B93"
+  ],
+  [
+   "6BB4",
+   "6BD2"
+  ],
+  [
+   "6C0F",
+   "6C4E"
+  ],
+  [
+   "6EAA",
+   "6EBE"
+  ],
+  [
+   "721E",
+   "7231"
+  ],
+  [
+   "72E7",
+   "7310"
+  ],
+  [
+   "7451",
+   "7470"
+  ],
+  [
+   "748B",
+   "749E"
+  ],
+  [
+   "74A7",
+   "74B9"
+  ],
+  [
+   "74FD",
+   "7547"
+  ],
+  [
+   "7681",
+   "76A8"
+  ],
+  [
+   "782C",
+   "7839"
+  ],
+  [
+   "7857",
+   "7863"
+  ],
+  [
+   "79AC",
+   "7A36"
+  ],
+  [
+   "7A41",
+   "7A73"
+  ],
+  [
+   "7A78",
+   "7A94"
+  ],
+  [
+   "7AA3",
+   "7AC3"
+  ],
+  [
+   "7AC8",
+   "7B05"
+  ],
+  [
+   "7BB3",
+   "7BD4"
+  ],
+  [
+   "7CF1",
+   "7D11"
+  ],
+  [
+   "7DAC",
+   "7DC1"
+  ],
+  [
+   "7DC7",
+   "7DDC"
+  ],
+  [
+   "A750",
+   "A76B"
+  ],
+  [
+   "A770",
+   "A78B"
+  ],
+  [
+   "ABD1",
+   "ABEA"
+  ],
+  [
+   "D24A",
+   "D282"
+  ],
+  [
+   "D28A",
+   "D29B"
+  ],
+  [
+   "D2E6",
+   "D2FA"
+  ],
+  [
+   "D3A0",
+   "D3AF"
+  ],
+  [
+   "D3C3",
+   "D3DC"
+  ],
+  [
+   "D404",
+   "D43B"
+  ],
+  [
+   "D761",
+   "D76F"
+  ],
+  [
+   "D777",
+   "D784"
+  ],
+  [
+   "D7CA",
+   "D7F6"
+  ],
+  [
+   "DA15",
+   "DA29"
+  ],
+  [
+   "DA64",
+   "DA73"
+  ],
+  [
+   "DADE",
+   "DB2D"
+  ],
+  [
+   "5800",
+   "582E"
+  ],
+  [
+   "6718",
+   "6722"
+  ],
+  [
+   "6728",
+   "6733"
+  ],
+  [
+   "7821",
+   "7829"
+  ],
+  [
+   "7847",
+   "784F"
+  ],
+  [
+   "7882",
+   "7889"
+  ],
+  [
+   "6F1D",
+   "6F23"
+  ],
+  [
+   "7874",
+   "787A"
+  ],
+  [
+   "D78C",
+   "D791"
+  ],
+  [
+   "DAD0",
+   "DAD5"
+  ],
+  [
+   "DAD8",
+   "DADD"
+  ],
+  [
+   "D285",
+   "D287"
+  ]
+ ],
+ "tables": [
+  {
+   "at": "FEF3",
+   "count": 24,
+   "kind": "near_ptr",
+   "name": "ivt_init_08_1F",
+   "func": true,
+   "items": [
+    "int08_timer_irq",
+    "int09_kbd_irq",
+    "int0A_irq2_default",
+    "int0B_irq3_default",
+    "int0C_irq4_default",
+    "int0D_irq5_default",
+    "int0E_floppy_irq",
+    "int0F_irq7_default",
+    "int10_video",
+    "int11_equipment",
+    "int12_memsize",
+    "int13_disk",
+    "int14_serial",
+    "int15_system",
+    "int16_keyboard",
+    "int17_printer",
+    "int18_boot_fail",
+    "int19_boot",
+    "int1A_time",
+    "int1B_ctrl_break",
+    "int1C_timer_tick",
+    "int1D_video_params",
+    "int1E_diskette_params",
+    "int1F_font_ptr"
+   ]
+  },
+  {
+   "at": "FF23",
+   "count": 8,
+   "kind": "near_ptr",
+   "name": "ivt_init_70_77",
+   "func": true,
+   "items": [
+    "int70_rtc_irq",
+    "int71_irq9_redirect",
+    "int72_irq10_default",
+    "int73_irq11_default",
+    "int74_irq12_mouse",
+    "int75_fpu_error",
+    "int76_irq14_default",
+    "int77_irq15_default"
+   ]
+  },
+  {
+   "at": "5A15",
+   "count": 9,
+   "kind": "near_ptr",
+   "name": "shutdown_dispatch",
+   "func": true,
+   "items": [
+    "shutdown_04_boot_via_40_67",
+    "shutdown_05_jmp_40_67_eoi",
+    "shutdown_06_memtest_pass",
+    "shutdown_07_memtest_fail",
+    "shutdown_08_memtest_pmode",
+    "shutdown_09_blockmove_return",
+    "shutdown_06_memtest_pass",
+    "post_normal_path",
+    "shutdown_0C_phoenix_ext"
+   ]
+  },
+  {
+   "at": "887B",
+   "count": 6,
+   "kind": "near_ptr",
+   "name": "int14_dispatch",
+   "items": [
+    "int14_00_init_port",
+    "int14_01_send_char",
+    "int14_02_recv_char",
+    "int14_03_get_status",
+    "int14_04_ext_init",
+    "int14_default"
+   ]
+  },
+  {
+   "at": "8A63",
+   "count": 19,
+   "kind": "near_ptr",
+   "name": "int16_dispatch",
+   "items": [
+    "int16_00_read_key",
+    "int16_01_check_key",
+    "int16_02_shift_status",
+    "int16_03_set_typematic",
+    "int16_04_kbd_click",
+    "int16_05_push_key",
+    "int16_unsupported",
+    "int16_unsupported",
+    "int16_unsupported",
+    "int16_unsupported",
+    "int16_unsupported",
+    "int16_unsupported",
+    "int16_unsupported",
+    "int16_unsupported",
+    "int16_unsupported",
+    "int16_unsupported",
+    "int16_10_ext_read_key",
+    "int16_11_ext_check_key",
+    "int16_default_unsupported"
+   ]
+  },
+  {
+   "at": "A0C9",
+   "count": 25,
+   "kind": "near_ptr",
+   "name": "int13_floppy_dispatch",
+   "items": [
+    "int13f_00_reset",
+    "int13f_01_get_status",
+    "int13f_02_03_04_read_write_verify",
+    "int13f_03_write",
+    "int13f_04_verify",
+    "int13f_05_format_track",
+    "int13f_unsupported",
+    "int13f_07_unsup",
+    "int13f_08_get_drive_params",
+    "int13f_09",
+    "int13f_0A",
+    "int13f_0B",
+    "int13f_0C",
+    "int13f_0D",
+    "int13f_0E",
+    "int13f_0F",
+    "int13f_10",
+    "int13f_11",
+    "int13f_12",
+    "int13f_13",
+    "int13f_14",
+    "int13f_15_get_disk_type",
+    "int13f_16_change_line_status",
+    "int13f_17_set_disk_type",
+    "int13f_18_set_media_type"
+   ]
+  },
+  {
+   "at": "B24B",
+   "count": 3,
+   "kind": "near_ptr",
+   "name": "int17_dispatch",
+   "items": [
+    "int17_00_print_char",
+    "int17_01_init_port",
+    "int17_02_get_status_default"
+   ]
+  },
+  {
+   "at": "B2C6",
+   "count": 16,
+   "kind": "near_ptr",
+   "name": "int10_sys_dispatch",
+   "items": [
+    "int10_00_set_mode",
+    "int10_01_set_cursor_type",
+    "int10_02_set_cursor_pos",
+    "int10_03_get_cursor_pos",
+    "int10_04_read_light_pen",
+    "int10_05_select_page",
+    "int10_06_scroll_up",
+    "int10_07_scroll_down",
+    "int10_08_read_char_attr",
+    "int10_09_write_char_attr",
+    "int10_0A_write_char",
+    "int10_0B_set_palette",
+    "int10_0C_write_pixel",
+    "int10_0D_read_pixel",
+    "int10_0E_teletype",
+    "int10_0F_get_mode"
+   ]
+  },
+  {
+   "at": "BD84",
+   "count": 18,
+   "kind": "near_ptr",
+   "name": "int15_80_91_dispatch",
+   "items": [
+    "int15_stub_ok",
+    "int15_81",
+    "int15_82",
+    "int15_83_event_wait",
+    "int15_84_joystick",
+    "int15_85",
+    "int15_86_wait",
+    "int15_87_move_block",
+    "int15_88_ext_mem_size",
+    "int15_89_enter_pmode",
+    "int15_unsupported",
+    "int15_8B",
+    "int15_8C",
+    "int15_8D",
+    "int15_8E",
+    "int15_8F",
+    "int15_90",
+    "int15_91_int_complete"
+   ]
+  },
+  {
+   "at": "C766",
+   "count": 8,
+   "kind": "near_ptr",
+   "name": "int15_C2_mouse_dispatch",
+   "items": [
+    "int15_C2_00_enable_disable",
+    "int15_C2_01_reset",
+    "int15_C2_02_set_sample_rate",
+    "int15_C2_03_set_resolution",
+    "int15_C2_04_get_type",
+    "int15_C2_05_init",
+    "int15_C2_06_ext_cmds",
+    "int15_C2_07_set_handler"
+   ]
+  },
+  {
+   "at": "CF4B",
+   "count": 7,
+   "kind": "near_ptr",
+   "name": "int1A_dispatch",
+   "items": [
+    "int1A_00_get_ticks",
+    "int1A_01_set_ticks",
+    "int1A_02_get_rtc_time",
+    "int1A_03_set_rtc_time",
+    "int1A_04_get_rtc_date",
+    "int1A_05_set_rtc_date",
+    "int1A_06_07_alarm_or_default"
+   ]
+  },
+  {
+   "at": "8C88",
+   "count": 28,
+   "kind": "near_ptr",
+   "name": "kbd_special_dispatch",
+   "func": true,
+   "items": [
+    "kbd_ctrl_make",
+    "kbd_shift_make",
+    "kbd_shift_make",
+    "kbd_alt_make",
+    "kbd_sysreq_make",
+    "kbd_capslock_make",
+    "kbd_numlock_make",
+    "kbd_scrolllock_make",
+    "kbd_ctrl_break",
+    "kbd_shift_break",
+    "kbd_shift_break",
+    "kbd_alt_break",
+    "kbd_sysreq_break",
+    "kbd_lock_key_break",
+    "kbd_lock_key_break",
+    "kbd_lock_key_break",
+    "kbd_insert_make",
+    "kbd_insert_break",
+    "kbd_overrun_FF",
+    "kbd_resend_FE",
+    "kbd_ack_FA",
+    "kbd_prefix_E0",
+    "kbd_prefix_E1",
+    "kbd_platform_key_AB",
+    "kbd_platform_key_41_85",
+    "kbd_platform_key_41_85",
+    "kbd_prtscr_make",
+    "kbd_normal_key"
+   ]
+  },
+  {
+   "at": "7ED5",
+   "count": 22,
+   "kind": "near_ptr",
+   "name": "int13h_status_epilogue_table",
+   "items": [
+    "int13h_epi_00_reset",
+    "int13h_epi_01_status",
+    "int13h_epi_rw_verify",
+    "int13h_epi_rw_verify",
+    "int13h_epi_rw_verify",
+    "int13h_epi_05_format",
+    "int13h_epi_unsup",
+    "int13h_epi_unsup",
+    "int13h_epi_08_09_params",
+    "int13h_epi_08_09_params",
+    "int13h_epi_0A_read_long",
+    "int13h_epi_0B_write_long",
+    "int13h_epi_0C_seek",
+    "int13h_epi_0D_reset_hd",
+    "int13h_epi_unsup",
+    "int13h_epi_unsup",
+    "int13h_epi_10_11_ready",
+    "int13h_epi_10_11_ready",
+    "int13h_epi_unsup",
+    "int13h_epi_unsup",
+    "int13h_epi_unsup",
+    "int13h_epi_unsup"
+   ]
+  },
+  {
+   "at": "1CD0",
+   "count": 8,
+   "kind": "struct",
+   "stride": 8,
+   "name": "setup_cmos_correction_table"
+  },
+  {
+   "at": "1CD6",
+   "count": 8,
+   "kind": "near_ptr",
+   "stride": 8,
+   "name": "setup_cmos_correction_handlers",
+   "items": [
+    "fix_cmos_power_lost",
+    "fix_std_cmos_checksum",
+    "fix_ext_cmos_checksum",
+    "fix_signature_byte",
+    "fix_system_config",
+    "fix_memory_size",
+    "fix_fixed_disk_init",
+    "fix_time_date"
+   ]
+  },
+  {
+   "at": "7E72",
+   "count": 22,
+   "kind": "near_ptr",
+   "name": "int13h_dispatch",
+   "items": [
+    "hd_00_reset",
+    "hd_unsupported",
+    "hd_02_read_sectors",
+    "hd_03_write_sectors",
+    "hd_04_verify_sectors",
+    "hd_05_format_track",
+    "hd_06_unsup",
+    "hd_07_unsup",
+    "hd_08_get_params",
+    "hd_09_init_params",
+    "hd_0A_read_long",
+    "hd_0B_write_long",
+    "hd_0C_seek",
+    "hd_0D_reset_alt",
+    "hd_0E_unsup",
+    "hd_0F_unsup",
+    "hd_10_test_ready",
+    "hd_11_recalibrate",
+    "hd_12_unsup",
+    "hd_13_unsup",
+    "hd_14_diagnostics",
+    "hd_15_get_type"
+   ]
+  },
+  {
+   "at": "03D6",
+   "count": 2,
+   "kind": "struct",
+   "stride": 14,
+   "name": "setup_page_descriptors"
+  },
+  {
+   "at": "014C",
+   "count": 20,
+   "kind": "struct",
+   "stride": 32,
+   "name": "setup_fields_page1"
+  },
+  {
+   "at": "1874",
+   "count": 6,
+   "kind": "struct",
+   "stride": 32,
+   "name": "setup_fields_page2"
+  },
+  {
+   "at": "0150",
+   "count": 20,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p1_h4"
+  },
+  {
+   "at": "0152",
+   "count": 20,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p1_h6"
+  },
+  {
+   "at": "0154",
+   "count": 20,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p1_h8"
+  },
+  {
+   "at": "0156",
+   "count": 20,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p1_hA"
+  },
+  {
+   "at": "0158",
+   "count": 20,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p1_hC"
+  },
+  {
+   "at": "015A",
+   "count": 20,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p1_hE"
+  },
+  {
+   "at": "015C",
+   "count": 20,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p1_h10"
+  },
+  {
+   "at": "015E",
+   "count": 20,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p1_h12"
+  },
+  {
+   "at": "0166",
+   "count": 20,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p1_h1A"
+  },
+  {
+   "at": "1878",
+   "count": 6,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p2_h4"
+  },
+  {
+   "at": "187A",
+   "count": 6,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p2_h6"
+  },
+  {
+   "at": "187C",
+   "count": 6,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p2_h8"
+  },
+  {
+   "at": "187E",
+   "count": 6,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p2_hA"
+  },
+  {
+   "at": "1880",
+   "count": 6,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p2_hC"
+  },
+  {
+   "at": "1882",
+   "count": 6,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p2_hE"
+  },
+  {
+   "at": "1884",
+   "count": 6,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p2_h10"
+  },
+  {
+   "at": "1886",
+   "count": 6,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p2_h12"
+  },
+  {
+   "at": "188E",
+   "count": 6,
+   "kind": "near_ptr",
+   "stride": 32,
+   "name": "setup_p2_h1A"
+  },
+  {
+   "at": "ACFB",
+   "count": 10,
+   "kind": "far_ptr",
+   "name": "rom_option_far_ptr_table"
+  }
+ ],
+ "linear": [],
+ "linkreg": [],
+ "inline_string_calls": [
+  "D309"
+ ],
+ "selectors": [
+  "0008",
+  "0010",
+  "0020",
+  "0038",
+  "0040"
+ ]
+}

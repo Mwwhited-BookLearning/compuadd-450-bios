@@ -1,0 +1,1002 @@
+{
+ "bda.alt_numpad_acc": [
+  "sys:kbd_alt_break",
+  "sys:kbd_alt_make",
+  "sys:kbd_ctrl_alt_del",
+  "sys:post_keyboard_test"
+ ],
+ "bda.cga_palette": [
+  "sys:int10_00_set_mode",
+  "sys:int10_0B_set_palette"
+ ],
+ "bda.com1_base": [
+  "sys:ebda_setup",
+  "sys:int_default_handler",
+  "sys:kbd_buffer_push",
+  "sys:scan_option_roms"
+ ],
+ "bda.com1_base?": [
+  "sys:speed_change_click"
+ ],
+ "bda.com2_base": [
+  "sys:scan_option_roms"
+ ],
+ "bda.com_timeouts": [
+  "sys:post_0D_ram_stack"
+ ],
+ "bda.com_timeouts+2": [
+  "sys:post_0D_ram_stack",
+  "sys:post_25_init_ivt"
+ ],
+ "bda.com_timeouts?": [
+  "sys:speed_change_click"
+ ],
+ "bda.crtc_port": [
+  "sys:crtc_write_pair",
+  "sys:int10_00_set_mode",
+  "sys:int10_04_read_light_pen",
+  "sys:int10_0B_set_palette",
+  "sys:int10_write_char_wait_retrace",
+  "sys:kbd_numlock_make",
+  "sys:scroll_fill_text",
+  "sys:scroll_text_body",
+  "sys:video_vsync_check",
+  "sys:wait_vsync_3xA"
+ ],
+ "bda.ctrl_break_flag": [
+  "sys:kbd_scrolllock_make",
+  "sys:post_keyboard_test"
+ ],
+ "bda.cursor_pos": [
+  "sys:int10_0E_teletype",
+  "sys:set_cursor_pos_store"
+ ],
+ "bda.cursor_pos?": [
+  "sys:int10_05_select_page_body",
+  "sys:video_page_cursor_pos"
+ ],
+ "bda.cursor_shape": [
+  "sys:int10_00_set_mode",
+  "sys:int10_01_set_cursor_type",
+  "sys:int10_03_get_cursor_pos"
+ ],
+ "bda.equipment": [
+  "sys:a20_state_test",
+  "sys:cga_pixel_address",
+  "sys:cmos_set_equipment_14",
+  "sys:floppy_hd_reset_detect",
+  "sys:fpu_detect",
+  "sys:int10_00_set_mode",
+  "sys:int_default_handler",
+  "sys:kbc_drain_output_buffer",
+  "sys:post_29_video_config",
+  "sys:post_2C_video_init",
+  "sys:post_prepare_boot",
+  "sys:shutdown_04_boot_via_40_67",
+  "sys:size_extended_memory",
+  "sys:video_page_cursor_pos",
+  "sys:video_ram_test_and_mode",
+  "sys:wait_f1_f2_key"
+ ],
+ "bda.equipment+1": [
+  "sys:parallel_port_detect",
+  "sys:serial_port_init"
+ ],
+ "bda.fdc_status_bytes": [
+  "sys:fdc_read_result_bytes_cx",
+  "sys:hd_issue_command"
+ ],
+ "bda.fdc_status_bytes+1": [
+  "sys:fdc_read_results_check"
+ ],
+ "bda.fdc_status_bytes+5": [
+  "sys:floppy_motor_delta_check",
+  "sys:floppy_motor_start_wait",
+  "sys:int13f_02_03_04_read_write_verify"
+ ],
+ "bda.fdc_status_bytes+6": [
+  "sys:hd_02_read_sectors",
+  "sys:hd_03_write_sectors",
+  "sys:hd_04_verify_sectors",
+  "sys:int_default_handler"
+ ],
+ "bda.floppy0_cylinder?": [
+  "sys:fdc_seek",
+  "sys:floppy_recalibrate",
+  "sys:floppy_seek_if_needed"
+ ],
+ "bda.floppy0_media_state": [
+  "sys:floppy_hd_reset_detect",
+  "sys:floppy_media_state_update",
+  "sys:floppy_seek",
+  "sys:floppy_set_media_state_from_table",
+  "sys:int13f_02_03_04_read_write_verify"
+ ],
+ "bda.floppy0_media_state?": [
+  "sys:floppy_media_state_step"
+ ],
+ "bda.floppy1_media_state": [
+  "sys:floppy_hd_reset_detect"
+ ],
+ "bda.floppy_info": [
+  "sys:floppy_drive_count_from_48F",
+  "sys:floppy_get_drive_type"
+ ],
+ "bda.floppy_last_status": [
+  "sys:fdc_read_result_bytes_cx",
+  "sys:fdc_read_results_check",
+  "sys:fdc_wait_rqm",
+  "sys:fdc_wait_seek_complete",
+  "sys:fdc_write_byte",
+  "sys:floppy_detect_drives",
+  "sys:floppy_disk_change_reset",
+  "sys:floppy_dma_setup",
+  "sys:floppy_recalibrate",
+  "sys:floppy_reset_controller",
+  "sys:floppy_seek",
+  "sys:floppy_wait_irq",
+  "sys:int13_floppy_entry",
+  "sys:int13f_01_get_status",
+  "sys:int13f_02_03_04_read_write_verify",
+  "sys:int13f_05_format_track",
+  "sys:int13f_17_set_disk_type",
+  "sys:int13f_18_set_media_type",
+  "sys:int13f_unsupported"
+ ],
+ "bda.floppy_media_ctrl": [
+  "sys:floppy_select_data_rate"
+ ],
+ "bda.floppy_motor_status": [
+  "sys:floppy_dma_setup",
+  "sys:floppy_dor_reset_pulse",
+  "sys:floppy_motor_on",
+  "sys:floppy_reset_and_probe_fdc",
+  "sys:floppy_reset_controller",
+  "sys:floppy_seek",
+  "sys:floppy_select_data_rate",
+  "sys:int1A_00_get_ticks"
+ ],
+ "bda.floppy_motor_timeout": [
+  "sys:floppy_motor_count_set",
+  "sys:floppy_motor_delta_check",
+  "sys:floppy_motor_on",
+  "sys:floppy_motor_spinup_wait",
+  "sys:floppy_motor_start_wait",
+  "sys:floppy_motor_timeout_check",
+  "sys:int1A_00_get_ticks"
+ ],
+ "bda.floppy_recal_status": [
+  "sys:floppy_recal_flag_test",
+  "sys:floppy_recalibrate",
+  "sys:floppy_reset_controller",
+  "sys:floppy_seek_if_needed",
+  "sys:floppy_wait_irq",
+  "sys:int13f_02_03_04_read_write_verify",
+  "sys:int13f_unsupported"
+ ],
+ "bda.hd_control_byte": [
+  "sys:hd_build_task_file",
+  "sys:hd_init",
+  "sys:hd_issue_command"
+ ],
+ "bda.hd_count": [
+  "sys:boot_jump_to_sector",
+  "sys:hd_08_get_params",
+  "sys:hd_0D_reset_alt",
+  "sys:hd_build_task_file",
+  "sys:hd_init",
+  "sys:int13_hd_body"
+ ],
+ "bda.hd_error_copy": [
+  "sys:hd_14_diagnostics",
+  "sys:hd_check_status"
+ ],
+ "bda.hd_irq_flag": [
+  "sys:hd_14_diagnostics",
+  "sys:hd_issue_command",
+  "sys:hd_wait_irq",
+  "sys:hd_wait_irq_altstatus",
+  "sys:int76_hd_irq"
+ ],
+ "bda.hd_last_status": [
+  "sys:hd_0D_reset_alt",
+  "sys:hd_exit",
+  "sys:hd_init",
+  "sys:int13_hd_body",
+  "sys:int13_hd_handler",
+  "sys:int13h_status_epilogue_entry"
+ ],
+ "bda.hd_port_offset": [
+  "sys:hd_init"
+ ],
+ "bda.hd_status_copy": [
+  "sys:hd_14_diagnostics",
+  "sys:hd_check_status",
+  "sys:hd_next_sector_check",
+  "sys:hd_wait_drq",
+  "sys:hd_wait_drq_read",
+  "sys:hd_wait_not_busy_long"
+ ],
+ "bda.kbd_buf_end": [
+  "sys:kbd_buffer_advance",
+  "sys:kbd_buffer_push",
+  "sys:post_0D_ram_stack"
+ ],
+ "bda.kbd_buf_head": [
+  "sys:hotkey_setup",
+  "sys:int16_00_read_key",
+  "sys:int16_01_check_key",
+  "sys:int16_10_ext_read_key",
+  "sys:int16_11_ext_check_key",
+  "sys:int_default_handler",
+  "sys:kbd_buffer_advance",
+  "sys:kbd_buffer_flush",
+  "sys:kbd_scrolllock_make",
+  "sys:post_0D_ram_stack"
+ ],
+ "bda.kbd_buf_start": [
+  "sys:kbd_buffer_advance",
+  "sys:kbd_buffer_push",
+  "sys:post_0D_ram_stack"
+ ],
+ "bda.kbd_buf_tail": [
+  "sys:hotkey_setup",
+  "sys:int16_00_read_key",
+  "sys:int16_01_check_key",
+  "sys:int16_05_push_key",
+  "sys:int16_10_ext_read_key",
+  "sys:int16_11_ext_check_key",
+  "sys:int_default_handler",
+  "sys:kbd_buffer_flush",
+  "sys:kbd_buffer_push",
+  "sys:kbd_buffer_tail_ptr",
+  "sys:kbd_scrolllock_make",
+  "sys:kbd_store_key",
+  "sys:post_0D_ram_stack",
+  "sys:set_ds_from_D4A5_and_jump"
+ ],
+ "bda.kbd_buffer+10": [
+  "sys:int74_irq12_mouse"
+ ],
+ "bda.kbd_buffer+11": [
+  "sys:int74_irq12_mouse"
+ ],
+ "bda.kbd_buffer+12": [
+  "sys:int74_irq12_mouse"
+ ],
+ "bda.kbd_buffer+13": [
+  "sys:int74_irq12_mouse"
+ ],
+ "bda.kbd_buffer+14": [
+  "sys:int74_irq12_mouse"
+ ],
+ "bda.kbd_buffer+15": [
+  "sys:int74_irq12_mouse"
+ ],
+ "bda.kbd_buffer+16": [
+  "sys:int74_irq12_mouse"
+ ],
+ "bda.kbd_buffer+2": [
+  "sys:a20_wrap_test_dword"
+ ],
+ "bda.kbd_buffer+28": [
+  "sys:int_default_handler"
+ ],
+ "bda.kbd_buffer+4": [
+  "sys:int15_C2_07_set_handler",
+  "sys:int74_irq12_mouse"
+ ],
+ "bda.kbd_buffer+6": [
+  "sys:int15_C2_07_set_handler"
+ ],
+ "bda.kbd_buffer+8": [
+  "sys:int15_C2_00_enable_disable",
+  "sys:int15_C2_01_reset",
+  "sys:int15_C2_02_set_sample_rate",
+  "sys:int15_C2_03_set_resolution",
+  "sys:int15_C2_06_ext_cmds",
+  "sys:int74_irq12_mouse",
+  "sys:kbc_send_aux_byte"
+ ],
+ "bda.kbd_buffer+9": [
+  "sys:int15_C2_00_enable_disable",
+  "sys:int15_C2_01_reset",
+  "sys:int15_C2_04_get_type",
+  "sys:int15_C2_05_init",
+  "sys:int15_C2_06_ext_cmds",
+  "sys:int15_C2_07_set_handler",
+  "sys:int74_irq12_mouse"
+ ],
+ "bda.kbd_flags1": [
+  "sys:hotkey_dispatch",
+  "sys:hotkey_setup",
+  "sys:int09_kbd_irq_body",
+  "sys:int15_4F_kbd_intercept",
+  "sys:int16_02_shift_status",
+  "sys:int16_default_unsupported",
+  "sys:kbd_store_key",
+  "sys:kbd_sysreq_make",
+  "sys:kbd_update_leds",
+  "sys:popup_read_key",
+  "sys:post_38_memory_test",
+  "sys:post_keyboard_test"
+ ],
+ "bda.kbd_flags2": [
+  "sys:int16_default_unsupported",
+  "sys:int_default_handler",
+  "sys:kbd_store_key",
+  "sys:post_keyboard_test"
+ ],
+ "bda.kbd_flags3": [
+  "sys:int09_kbd_irq_body",
+  "sys:int15_4F_setup_hotkey_check",
+  "sys:int16_default_unsupported",
+  "sys:kbd_prtscr_make",
+  "sys:kbd_store_key",
+  "sys:kbd_sysreq_make",
+  "sys:keyboard_lock_check",
+  "sys:post_38_memory_test",
+  "sys:post_keyboard_test"
+ ],
+ "bda.kbd_led_flags": [
+  "sys:kbd_ack_FA",
+  "sys:kbd_resend_FE",
+  "sys:kbd_send_byte_retry3",
+  "sys:kbd_update_leds",
+  "sys:post_keyboard_test",
+  "sys:shutdown_04_boot_via_40_67"
+ ],
+ "bda.last_irq_mask": [
+  "sys:int_default_handler"
+ ],
+ "bda.lpt1_base": [
+  "sys:post_25_init_ivt"
+ ],
+ "bda.lpt1_base?": [
+  "sys:fdc_msr_busy_check"
+ ],
+ "bda.lpt2_base": [
+  "sys:post_25_init_ivt"
+ ],
+ "bda.lpt4_base": [
+  "sys:ebda_setup",
+  "sys:int15_C2_pointing_dispatch",
+  "sys:int15_handler",
+  "sys:int74_irq12_mouse"
+ ],
+ "bda.lpt_timeouts": [
+  "sys:post_0D_ram_stack"
+ ],
+ "bda.lpt_timeouts+2": [
+  "sys:post_0D_ram_stack"
+ ],
+ "bda.lpt_timeouts?": [
+  "sys:fdc_msr_busy_check"
+ ],
+ "bda.memory_size_kb": [
+  "sys:cga_pixel_address",
+  "sys:cmos_set_base_memory",
+  "sys:ebda_setup",
+  "sys:memtest_with_display",
+  "sys:post_56_cmos_memsize_check",
+  "sys:post_after_shutdown_test",
+  "sys:setup_find_free_top_memory",
+  "sys:size_extended_memory"
+ ],
+ "bda.memory_size_kb+1": [
+  "sys:int_default_handler",
+  "sys:post_25_init_ivt"
+ ],
+ "bda.phoenix_b7": [
+  "sys:post_power_meter_hook",
+  "sys:power_meter_allowed_check",
+  "sys:pre_power_meter_hook"
+ ],
+ "bda.phoenix_flags2": [
+  "sys:bda_B6_bit2_test",
+  "sys:kbc_drain_output_buffer",
+  "sys:popup_read_key",
+  "sys:post_0D_ram_stack",
+  "sys:post_29_video_config",
+  "sys:post_2E_option_rom_c000",
+  "sys:post_floppy_seek_test",
+  "sys:post_keyboard_test",
+  "sys:ret_5DAD",
+  "sys:setup_hotkey_flag_clear",
+  "sys:setup_hotkey_flag_set",
+  "sys:setup_in_popup",
+  "sys:setup_key_escape"
+ ],
+ "bda.phoenix_state": [
+  "sys:cache_apply_if_enabled",
+  "sys:cache_disable",
+  "sys:cache_enable",
+  "sys:cache_flags_from_4B5",
+  "sys:cmos_diag_status_check",
+  "sys:cpu_speed_current_value",
+  "sys:floppy_hd_reset_detect",
+  "sys:int15_4F_setup_hotkey_check",
+  "sys:post_0D_ram_stack",
+  "sys:post_38_memory_test",
+  "sys:post_early_pm_init",
+  "sys:post_power_meter_hook",
+  "sys:pre_power_meter_hook",
+  "sys:set_cpu_speed",
+  "sys:setup_active_check",
+  "sys:speed_change_click"
+ ],
+ "bda.poll_counter": [
+  "sys:hd_wait_irq",
+  "sys:hd_wait_irq_altstatus",
+  "sys:print_cpu_speed"
+ ],
+ "bda.poll_counter+1": [
+  "sys:print_cpu_speed"
+ ],
+ "bda.post_error_codes": [
+  "sys:int15_4F_setup_hotkey_check",
+  "sys:memory_test_click",
+  "sys:post_0D_ram_stack"
+ ],
+ "bda.post_error_codes+1": [
+  "sys:post_25_init_ivt"
+ ],
+ "bda.post_scratch": [
+  "sys:int15_C9_get_cpu_type",
+  "sys:warm_check_scratch",
+  "sys:warm_restore_scratch_edx"
+ ],
+ "bda.post_status": [
+  "sys:a20_enable_and_enter_pmode",
+  "sys:a20_wrap_test_dword",
+  "sys:int_default_handler",
+  "sys:memtest_with_display",
+  "sys:post_27_kbc_selftest",
+  "sys:post_29_video_config",
+  "sys:post_2C_video_init",
+  "sys:post_34_timer_tick_test",
+  "sys:post_38_memory_test",
+  "sys:post_3A_timer2_test",
+  "sys:post_3B_rtc_test",
+  "sys:post_after_shutdown_test",
+  "sys:post_keyboard_test",
+  "sys:shutdown_08_memtest_pmode"
+ ],
+ "bda.reset_flag": [
+  "sys:a20_wrap_test_dword",
+  "sys:config_error_check",
+  "sys:hd_init",
+  "sys:kbc_drain_output_buffer",
+  "sys:kbd_ctrl_alt_del",
+  "sys:post_0D_ram_stack",
+  "sys:post_28_cmos_checksum",
+  "sys:post_2E_option_rom_c000",
+  "sys:post_50_chipset_table",
+  "sys:post_cold_entry",
+  "sys:post_normal_path",
+  "sys:post_prepare_boot",
+  "sys:print_cpu_speed",
+  "sys:ret_5DAD",
+  "sys:set_post_error_flag"
+ ],
+ "bda.reset_restart_ptr": [
+  "sys:int15_87_move_block_body",
+  "sys:pmode_exit_via_reset",
+  "sys:post_35_shutdown_test",
+  "sys:scan_option_roms",
+  "sys:shutdown_06_memtest_pass",
+  "sys:shutdown_07_memtest_fail",
+  "sys:shutdown_08_memtest_pmode",
+  "sys:shutdown_09_blockmove_return",
+  "sys:shutdown_0C_phoenix_ext"
+ ],
+ "bda.reset_restart_ptr+2": [
+  "sys:int15_87_move_block_body",
+  "sys:pmode_exit_via_reset",
+  "sys:post_35_shutdown_test",
+  "sys:scan_option_roms",
+  "sys:shutdown_07_memtest_fail",
+  "sys:shutdown_08_memtest_pmode",
+  "sys:shutdown_09_blockmove_return",
+  "sys:shutdown_0C_phoenix_ext"
+ ],
+ "bda.timer_overflow": [
+  "sys:int1A_00_get_ticks"
+ ],
+ "bda.timer_ticks": [
+  "sys:hd_init",
+  "sys:int1A_00_get_ticks",
+  "sys:validate_rtc_time"
+ ],
+ "bda.timer_ticks+2": [
+  "sys:int1A_00_get_ticks",
+  "sys:validate_rtc_time"
+ ],
+ "bda.user_hd0_params": [
+  "sys:hd_user_params_from_cmos"
+ ],
+ "bda.user_hd1_params": [
+  "sys:hd_user_params_from_cmos"
+ ],
+ "bda.video_columns": [
+  "sys:cursor_to_crtc_value",
+  "sys:int10_00_set_mode",
+  "sys:int10_04_read_light_pen",
+  "sys:int10_06_scroll_up",
+  "sys:int10_0F_get_mode",
+  "sys:int_default_handler",
+  "sys:scroll_text_body",
+  "sys:teletype_control_chars",
+  "sys:video_page_cursor_pos"
+ ],
+ "bda.video_mode": [
+  "sys:cga_char_row_addr",
+  "sys:cga_pixel_address",
+  "sys:int10_00_set_mode",
+  "sys:int10_03_get_cursor_pos",
+  "sys:int10_04_read_light_pen",
+  "sys:int10_05_select_page",
+  "sys:int10_08_read_char_attr",
+  "sys:int10_0B_set_palette",
+  "sys:int10_0E_teletype",
+  "sys:int10_0F_get_mode",
+  "sys:int10_write_char_wait_retrace",
+  "sys:is_graphics_mode",
+  "sys:kbd_numlock_make",
+  "sys:scroll_fill_text",
+  "sys:scroll_text_body",
+  "sys:set_cursor_pos_store",
+  "sys:stosb_step2_fill",
+  "sys:teletype_control_chars",
+  "sys:video_page_cursor_pos",
+  "sys:video_page_from_bda"
+ ],
+ "bda.video_mode_ctrl": [
+  "sys:int10_00_set_mode",
+  "sys:kbd_numlock_make",
+  "sys:scroll_text_body",
+  "sys:wait_vsync_3xA"
+ ],
+ "bda.video_page": [
+  "sys:int10_00_set_mode",
+  "sys:int10_05_select_page",
+  "sys:int10_0E_teletype",
+  "sys:int10_0F_get_mode",
+  "sys:set_cursor_pos_store",
+  "sys:video_page_from_bda",
+  "sys:video_page_offset_active"
+ ],
+ "bda.video_page_offset": [
+  "sys:cursor_to_crtc_value",
+  "sys:int10_00_set_mode",
+  "sys:int10_05_select_page"
+ ],
+ "bda.video_page_size": [
+  "sys:int10_00_set_mode",
+  "sys:int10_05_select_page",
+  "sys:int_default_handler",
+  "sys:video_page_cursor_pos"
+ ],
+ "bda.wait_active_flag": [
+  "sys:bda_4A0_bit7_test",
+  "sys:int15_83_event_wait",
+  "sys:int15_86_wait",
+  "sys:int70_rtc_irq"
+ ],
+ "bda.wait_count_us": [
+  "sys:int15_83_event_wait",
+  "sys:int15_86_wait",
+  "sys:int70_rtc_irq"
+ ],
+ "bda.wait_count_us+2": [
+  "sys:int15_83_event_wait",
+  "sys:int15_86_wait",
+  "sys:int70_rtc_irq"
+ ],
+ "bda.wait_flag_ptr": [
+  "sys:int15_83_event_wait",
+  "sys:int15_86_wait",
+  "sys:int70_rtc_irq"
+ ],
+ "bda.wait_flag_ptr+2": [
+  "sys:int15_83_event_wait",
+  "sys:int15_86_wait"
+ ],
+ "ivt.int00h.off": [
+  "sys:a20_state_test",
+  "sys:size_extended_memory"
+ ],
+ "ivt.int08h.off": [
+  "sys:post_34_timer_tick_test",
+  "sys:post_35_shutdown_test"
+ ],
+ "ivt.int10h.off": [
+  "sys:post_2C_video_init"
+ ],
+ "ivt.int12h.seg": [
+  "sys:memtest_pmode_scan_blocks"
+ ],
+ "ivt.int13h.off": [
+  "sys:hd_init",
+  "sys:memtest_pmode_scan_blocks",
+  "sys:memtest_run_blocks"
+ ],
+ "ivt.int13h.seg": [
+  "sys:hd_init"
+ ],
+ "ivt.int13h.seg+1": [
+  "sys:memtest_pmode_scan_blocks",
+  "sys:memtest_run_blocks"
+ ],
+ "ivt.int16h.seg": [
+  "sys:memtest_pmode_scan_blocks"
+ ],
+ "ivt.int1Dh.off": [
+  "sys:int10_00_set_mode"
+ ],
+ "ivt.int1Eh.off": [
+  "sys:get_diskette_param_table",
+  "sys:int19_boot"
+ ],
+ "ivt.int1Eh.seg": [
+  "sys:int19_boot"
+ ],
+ "ivt.int1Fh.off": [
+  "sys:int10_08_read_char_attr",
+  "sys:stosb_step2_fill"
+ ],
+ "ivt.int40h.off": [
+  "sys:hd_init"
+ ],
+ "ivt.int40h.seg": [
+  "sys:hd_init"
+ ],
+ "ivt.int41h.off": [
+  "sys:hd_get_param_ptr",
+  "sys:hd_init"
+ ],
+ "ivt.int41h.seg": [
+  "sys:hd_init"
+ ],
+ "ivt.int46h.off": [
+  "sys:hd_init"
+ ],
+ "ivt.int46h.seg": [
+  "sys:hd_init"
+ ],
+ "ivt.int76h.off": [
+  "sys:hd_init"
+ ],
+ "ivt.int76h.seg": [
+  "sys:hd_init"
+ ],
+ "ivt.int7Fh.seg?": [
+  "sys:boot_jump_to_sector"
+ ],
+ "setup_field_rec.alt_handler": [
+  "sys:setup_field_handler_8"
+ ],
+ "setup_field_rec.cmos_index": [
+  "sys:setup_init_fields_range"
+ ],
+ "setup_field_rec.col": [
+  "sys:setup_field_pos_and_value"
+ ],
+ "setup_field_rec.common_handler": [
+  "sys:setup_field_handler_8"
+ ],
+ "setup_field_rec.default_value": [
+  "sys:setup_field_load_from_cmos"
+ ],
+ "setup_field_rec.enter_handler": [
+  "sys:setup_field_handler_E"
+ ],
+ "setup_field_rec.kind": [
+  "sys:setup_draw_field",
+  "sys:setup_field_load_from_cmos",
+  "sys:setup_field_next",
+  "sys:setup_field_prev"
+ ],
+ "setup_field_rec.label_handler": [
+  "sys:setup_draw_field"
+ ],
+ "setup_field_rec.label_handler+1": [
+  "sys:setup_draw_field",
+  "sys:setup_field_prev"
+ ],
+ "setup_field_rec.load_handler": [
+  "sys:setup_field_handler_6"
+ ],
+ "setup_field_rec.next_handler": [
+  "sys:setup_key_next_value"
+ ],
+ "setup_field_rec.prev_handler": [
+  "sys:setup_key_prev_value"
+ ],
+ "setup_field_rec.row": [
+  "sys:setup_field_pos_and_value"
+ ],
+ "setup_field_rec.secondary_handler": [
+  "sys:setup_draw_field"
+ ],
+ "setup_field_rec.store_handler": [
+  "sys:setup_field_load_from_cmos",
+  "sys:setup_key_next_value"
+ ],
+ "setup_field_rec.value_strings": [
+  "sys:setup_field_pos_and_value"
+ ],
+ "setup_field_rec.value_type": [
+  "sys:setup_draw_field",
+  "sys:setup_draw_field_hint"
+ ],
+ "setup_frame.attr_1": [
+  "sys:field_pos_attr_for_index",
+  "sys:setup_attributes_color",
+  "sys:setup_attributes_init",
+  "sys:setup_redraw_current_field"
+ ],
+ "setup_frame.attr_10": [
+  "sys:hd_type_list_screen",
+  "sys:setup_attributes_color",
+  "sys:setup_attributes_init",
+  "sys:setup_confirm_box",
+  "sys:setup_key_escape"
+ ],
+ "setup_frame.attr_11": [
+  "sys:hd_detail_print_values",
+  "sys:hd_type_detail_draw",
+  "sys:hd_type_detail_none",
+  "sys:hd_type_list_screen",
+  "sys:print_field_string_ss"
+ ],
+ "setup_frame.attr_2": [
+  "sys:setup_attributes_color",
+  "sys:setup_attributes_init",
+  "sys:setup_clear_screen",
+  "sys:setup_draw_frame_border"
+ ],
+ "setup_frame.attr_3": [
+  "sys:hd_type_list_screen",
+  "sys:setup_attributes_color",
+  "sys:setup_attributes_init"
+ ],
+ "setup_frame.attr_4": [
+  "sys:setup_attributes_color",
+  "sys:setup_attributes_init"
+ ],
+ "setup_frame.attr_5": [
+  "sys:setup_attributes_color",
+  "sys:setup_attributes_init",
+  "sys:setup_key_escape"
+ ],
+ "setup_frame.attr_6": [
+  "sys:setup_attributes_color",
+  "sys:setup_attributes_init",
+  "sys:setup_confirm_box",
+  "sys:setup_correction_screen"
+ ],
+ "setup_frame.attr_7": [
+  "sys:setup_attributes_color",
+  "sys:setup_attributes_init",
+  "sys:setup_draw_title_bar"
+ ],
+ "setup_frame.attr_8": [
+  "sys:setup_attributes_color",
+  "sys:setup_attributes_init",
+  "sys:setup_draw_field_hint",
+  "sys:setup_draw_key_legend"
+ ],
+ "setup_frame.attr_9": [
+  "sys:setup_after_cmos_write",
+  "sys:setup_attributes_color",
+  "sys:setup_attributes_init",
+  "sys:setup_correction_screen"
+ ],
+ "setup_frame.attr_normal": [
+  "sys:field_pos_attr_for_index",
+  "sys:hd_detail_print_values",
+  "sys:hd_type_detail_draw",
+  "sys:hd_type_detail_none",
+  "sys:setup_after_cmos_write",
+  "sys:setup_attributes_color",
+  "sys:setup_attributes_from_table",
+  "sys:setup_attributes_init",
+  "sys:setup_draw_field",
+  "sys:setup_draw_labels",
+  "sys:setup_draw_page",
+  "sys:setup_draw_page_number",
+  "sys:setup_draw_time_date",
+  "sys:setup_draw_title"
+ ],
+ "setup_frame.correction_flags": [
+  "sys:setup_cmos_corrections",
+  "sys:setup_correction_screen",
+  "sys:setup_load_cmos_flags"
+ ],
+ "setup_frame.crtc_port": [
+  "sys:setup_after_cmos_write",
+  "sys:setup_cursor_hide"
+ ],
+ "setup_frame.field_count": [
+  "sys:setup_draw_all_field_values",
+  "sys:setup_draw_fields",
+  "sys:setup_field_next",
+  "sys:setup_field_prev",
+  "sys:setup_redraw_current_field",
+  "sys:setup_select_page"
+ ],
+ "setup_frame.field_index": [
+  "sys:cmos4E_bit0_field_read",
+  "sys:display_field_read",
+  "sys:field_pos_attr_for_index",
+  "sys:field_value_get",
+  "sys:field_value_set",
+  "sys:floppy_A_read_cmos10",
+  "sys:hd_read_cmos12",
+  "sys:list_field_load_from_cmos",
+  "sys:setup_attributes_color",
+  "sys:setup_draw_all_field_values",
+  "sys:setup_draw_field",
+  "sys:setup_draw_fields",
+  "sys:setup_field_next",
+  "sys:setup_field_prev",
+  "sys:setup_field_record",
+  "sys:setup_floppy_type_read",
+  "sys:setup_hd_type_read",
+  "sys:setup_init_all_fields",
+  "sys:setup_init_fields_range",
+  "sys:setup_init_page1_fields",
+  "sys:setup_init_pages_draw",
+  "sys:setup_key_escape",
+  "sys:setup_key_next_value",
+  "sys:setup_key_pgdn",
+  "sys:setup_key_pgup",
+  "sys:setup_key_prev_value",
+  "sys:setup_option_string_select",
+  "sys:setup_redraw_current_field",
+  "sys:setup_redraw_following_fields",
+  "sys:user_geom_cmos_base",
+  "sys:user_geom_hd_pair_refresh",
+  "sys:versaport_read_option"
+ ],
+ "setup_frame.field_kind_ctx": [
+  "sys:setup_attributes_color",
+  "sys:setup_field_next",
+  "sys:setup_field_prev",
+  "sys:setup_select_page"
+ ],
+ "setup_frame.flags": [
+  "sys:setup_after_cmos_write",
+  "sys:setup_correction_screen",
+  "sys:setup_key_escape",
+  "sys:setup_redraw_following_fields"
+ ],
+ "setup_frame.frame_ff": [
+  "sys:rtc_seconds_changed",
+  "sys:rtc_wait_uip_snapshot_sec"
+ ],
+ "setup_frame.key_map_ascii": [
+  "sys:setup_after_cmos_write",
+  "sys:setup_load_key_maps"
+ ],
+ "setup_frame.key_map_ext": [
+  "sys:setup_after_cmos_write",
+  "sys:setup_load_key_maps",
+  "sys:setup_ptl_table_key_patch"
+ ],
+ "setup_frame.legend_ptrs": [
+  "sys:setup_after_cmos_write",
+  "sys:setup_init_legend_strings",
+  "sys:setup_key_escape"
+ ],
+ "setup_frame.legend_ptrs+10": [
+  "sys:setup_init_legend_strings"
+ ],
+ "setup_frame.legend_ptrs+12": [
+  "sys:setup_init_legend_strings",
+  "sys:setup_ptl_table_key_patch"
+ ],
+ "setup_frame.legend_ptrs+14": [
+  "sys:setup_init_legend_strings",
+  "sys:setup_ptl_table_key_patch"
+ ],
+ "setup_frame.legend_ptrs+16": [
+  "sys:setup_init_legend_strings"
+ ],
+ "setup_frame.legend_ptrs+18": [
+  "sys:setup_init_legend_strings"
+ ],
+ "setup_frame.legend_ptrs+2": [
+  "sys:setup_init_legend_strings"
+ ],
+ "setup_frame.legend_ptrs+20": [
+  "sys:setup_init_legend_strings"
+ ],
+ "setup_frame.legend_ptrs+22": [
+  "sys:setup_init_legend_strings"
+ ],
+ "setup_frame.legend_ptrs+24": [
+  "sys:setup_init_legend_strings"
+ ],
+ "setup_frame.legend_ptrs+26": [
+  "sys:setup_init_legend_strings"
+ ],
+ "setup_frame.legend_ptrs+4": [
+  "sys:setup_init_legend_strings"
+ ],
+ "setup_frame.legend_ptrs+6": [
+  "sys:setup_init_legend_strings"
+ ],
+ "setup_frame.legend_ptrs+8": [
+  "sys:setup_init_legend_strings"
+ ],
+ "setup_frame.page": [
+  "sys:setup_attributes_color",
+  "sys:setup_draw_all_field_values",
+  "sys:setup_draw_field",
+  "sys:setup_draw_fields",
+  "sys:setup_draw_labels",
+  "sys:setup_draw_page_number",
+  "sys:setup_draw_time_date",
+  "sys:setup_field_next",
+  "sys:setup_field_prev",
+  "sys:setup_init_all_fields",
+  "sys:setup_init_page1_fields",
+  "sys:setup_init_pages_draw",
+  "sys:setup_key_escape",
+  "sys:setup_key_next_value",
+  "sys:setup_key_pgdn",
+  "sys:setup_key_pgup",
+  "sys:setup_key_prev_value",
+  "sys:setup_option_string_select",
+  "sys:setup_redraw_current_field",
+  "sys:setup_select_page"
+ ],
+ "setup_frame.page_descriptor": [
+  "sys:setup_draw_labels",
+  "sys:setup_draw_title",
+  "sys:setup_select_page"
+ ],
+ "setup_frame.print_page": [
+  "sys:setup_after_cmos_write",
+  "sys:setup_cursor_hide",
+  "sys:setup_print_at"
+ ],
+ "setup_frame.record_array": [
+  "sys:field_pos_attr_for_index",
+  "sys:setup_field_record",
+  "sys:setup_select_page"
+ ],
+ "setup_frame.saved_video_page": [
+  "sys:setup_after_cmos_write"
+ ],
+ "setup_frame.text_buf": [
+  "sys:base_memory_field_read",
+  "sys:ext_memory_field_read",
+  "sys:field_pos_attr_for_index",
+  "sys:hd_type_list_screen",
+  "sys:print_2digit_field",
+  "sys:print_2digit_field_b",
+  "sys:print_4digit_or_minus1",
+  "sys:print_4digit_or_minus1_b",
+  "sys:print_cyl_field",
+  "sys:print_size_mb",
+  "sys:setup_draw_time_date",
+  "sys:total_memory_field_read",
+  "sys:user_geom_field_draw"
+ ],
+ "setup_frame.value_array": [
+  "sys:cmos4E_bit0_field_read",
+  "sys:display_field_read",
+  "sys:field_value_get",
+  "sys:field_value_set",
+  "sys:floppy_A_read_cmos10",
+  "sys:hd_read_cmos12",
+  "sys:list_field_load_from_cmos",
+  "sys:setup_floppy_type_read",
+  "sys:setup_hd_type_read",
+  "sys:setup_select_page",
+  "sys:versaport_read_option"
+ ]
+}

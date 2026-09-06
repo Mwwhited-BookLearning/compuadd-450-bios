@@ -1,0 +1,2651 @@
+{
+ "entries": [
+  "0003",
+  "0010",
+  "001C",
+  "0024",
+  "0028",
+  "002C",
+  "0030",
+  "0034",
+  "0038",
+  "0040",
+  "0048",
+  "00C2",
+  "0499",
+  "04A1",
+  "04BD",
+  "04D1",
+  "04DC",
+  "04E1",
+  "04E5",
+  "04FB",
+  "054A",
+  "0550",
+  "0688",
+  "0789",
+  "0859",
+  "08A4",
+  "08CE",
+  "08F8",
+  "0912",
+  "099B",
+  "09A8",
+  "09A9",
+  "09BD",
+  "09E1",
+  "09F0",
+  "0AEA",
+  "0AEB",
+  "0B29",
+  "0B75",
+  "0B85",
+  "0BAC",
+  "0BD6",
+  "0E03",
+  "1297",
+  "1389",
+  "1477",
+  "14A2",
+  "14D7",
+  "1570",
+  "1980",
+  "19B1",
+  "19E2",
+  "19E6",
+  "19F2",
+  "19FA",
+  "1A02",
+  "1A0A",
+  "1A12",
+  "1A9E",
+  "1B07",
+  "1B99",
+  "1E34",
+  "1E62",
+  "1E80",
+  "1EA5",
+  "1EA9",
+  "1EC2",
+  "1EE1",
+  "1EEC",
+  "1EF6",
+  "1EFE",
+  "1F06",
+  "1F0B",
+  "1F13",
+  "1F71",
+  "1FCA",
+  "2009",
+  "20AF",
+  "2478",
+  "248A",
+  "25C0",
+  "25EE",
+  "2621",
+  "2627",
+  "264E",
+  "266D",
+  "26C3",
+  "26F9",
+  "2740",
+  "2802",
+  "2860",
+  "2873",
+  "2885",
+  "28AF",
+  "28DE",
+  "290E",
+  "2920",
+  "2938",
+  "2961",
+  "2975",
+  "299C",
+  "2A1B",
+  "2AC0",
+  "2CD9",
+  "2CF5",
+  "2CF7",
+  "2CF9",
+  "2CFB",
+  "2CFD",
+  "2D32",
+  "2D52",
+  "2D98",
+  "2DE4",
+  "2E10",
+  "2E3C",
+  "2E9B",
+  "2EFA",
+  "2F0F",
+  "2F76",
+  "2FBE",
+  "2FFA",
+  "3051",
+  "30B6",
+  "30E8",
+  "3132",
+  "31AC",
+  "31EC",
+  "3215",
+  "3229",
+  "324E",
+  "3274",
+  "32BF",
+  "32DE",
+  "333E",
+  "338D",
+  "33F4",
+  "3416",
+  "3441",
+  "3471",
+  "3497",
+  "34C0",
+  "34F4",
+  "350D",
+  "3526",
+  "3537",
+  "355C",
+  "3575",
+  "358C",
+  "35F5",
+  "35FD",
+  "3644",
+  "367A",
+  "3697",
+  "36A9",
+  "36CE",
+  "36EB",
+  "36F4",
+  "3708",
+  "3712",
+  "3741",
+  "3772",
+  "3784",
+  "379F",
+  "37B0",
+  "37C7",
+  "37D8",
+  "37EF",
+  "3803",
+  "38CA",
+  "38DE",
+  "390A",
+  "3985",
+  "3A27",
+  "3A28",
+  "3A3B",
+  "3A4B",
+  "3B09",
+  "3B24",
+  "3B7E",
+  "3B95",
+  "3BAD",
+  "3BE4",
+  "3C18",
+  "3C89",
+  "3D0E",
+  "3D2B",
+  "3FC9",
+  "4020",
+  "4072",
+  "463F",
+  "465F",
+  "466E",
+  "4682",
+  "4FCF",
+  "532B",
+  "544E",
+  "553B",
+  "560F",
+  "5BA0"
+ ],
+ "labels": {
+  "0000": {
+   "name": "rom_header",
+   "comment": "55AA option ROM signature, size 30h*512 = 24 KB. Lives at E800:0000 at runtime (system BIOS far-calls E800:0010 etc)."
+  },
+  "0003": {
+   "name": "init_stub",
+   "comment": "Option ROM init entry: RETF - nothing to do at scan time"
+  },
+  "0004": {
+   "name": "miser_signature",
+   "comment": "'PhoenixMISER' identification string"
+  },
+  "0010": {
+   "name": "api_entry_10",
+   "comment": "Far-callable entry table (each is call near ; retf). Called from system BIOS at F000:98F9 and jumped to from F000:5940 (POST start)."
+  },
+  "001C": {
+   "name": "api_entry_1C",
+   "comment": "jmp near"
+  },
+  "0024": {
+   "name": "api_entry_24",
+   "comment": "RETF stub; system BIOS far-jumps here from F000:5B01"
+  },
+  "0028": {
+   "name": "api_entry_28_apm",
+   "comment": "jmp near. System BIOS INT 15h handler far-jumps here when AH=53h (APM) - F000:BC70"
+  },
+  "002C": {
+   "name": "api_entry_2C",
+   "comment": "API 2Ch: jmp pm_record_service (SETUP/system BIOS record accessors, AH = sub-function, AL = record)."
+  },
+  "0030": {
+   "name": "api_entry_30_power_meter",
+   "comment": "API 30h: show the POWER METER overlay (system BIOS hot key Ctrl+Alt+F8 / Fn code 6Ah). Target show_power_meter."
+  },
+  "0034": {
+   "name": "api_entry_34",
+   "comment": "Called via far pointer at F000:7B57 (SS:SP reset to 0000:FFFE first)"
+  },
+  "0038": {
+   "name": "api_entry_38_presence",
+   "comment": "API 38h: returns AX=DF00h (MISER signature/RAM segment); used by the system BIOS hot-key handlers as a presence check."
+  },
+  "0040": {
+   "name": "api_entry_40",
+   "comment": "API 40h: jmp query_state_34 (ZF = module initialised)."
+  },
+  "0048": {
+   "name": "api_entry_48",
+   "comment": "Called from system BIOS F000:6CF0"
+  },
+  "0050": {
+   "name": "credits_string",
+   "comment": "Developer credits: team leader, motherboard, power, sound, BIOS engineers."
+  },
+  "00DA": {
+   "name": "apm_function_table",
+   "comment": "12 near pointers for INT 15h AH=53h AL=00h..0Bh (APM 1.0/1.1 functions). Called from the APM handler at 0139."
+  },
+  "18CD": {
+   "name": "pm_subfn_dispatch_table",
+   "comment": "5 near pointers indexed by AH & 0Fh (0..4) - power-management record accessors (called from 190F with DS=DC00)."
+  },
+  "18F3": {
+   "name": "pm_subfn_dispatch",
+   "comment": "DS := DC00h (MISER private RAM segment), SI := AH*2, DI := 8Eh + AL*8 (per-device record), then call table at 18CD."
+  },
+  "177B": {
+   "name": "run_triple_table",
+   "comment": "For each (BX,DX,AX) triple at CS:SI until AX=FFFFh: call DI. Generic port/register programming walker."
+  },
+  "2041": {
+   "name": "wait_refresh_toggles",
+   "comment": "Wait for 7 refresh-bit (port 61h bit 4) transitions - short delay."
+  },
+  "2055": {
+   "name": "call_list_sum",
+   "comment": "Call each near pointer in NUL-terminated list at CS:SI, accumulating carry flags; returns AX = -(count of CF set)."
+  },
+  "373B": {
+   "name": "chain_prev_vector_058E",
+   "comment": "pushf + far call through saved far pointer at DS:058E (chains to the previous interrupt handler)."
+  },
+  "47FB": {
+   "name": "chain_prev_vector_ss10",
+   "comment": "pushf + far call through far pointer at SS:0010."
+  },
+  "5425": {
+   "name": "restart_post_resume_a",
+   "comment": "AX=0 -> port 8Dh (clear resume magic) then far jump to system BIOS POST entry F000:E05B."
+  },
+  "5502": {
+   "name": "restart_post_resume_b",
+   "comment": "POST code 33h, AX=5678h -> port 8Dh (resume magic checked by post_start), far jump F000:E05B."
+  },
+  "5476": {
+   "name": "call_vga_rom_init_c000",
+   "comment": "If 55AA at C000:0000, far call C000:0003 (re-init video ROM on resume)."
+  },
+  "548A": {
+   "name": "call_vga_rom_init_e000",
+   "comment": "If 55AA at E000:0000, far call E000:0003 (video ROM located at E000 in this image)."
+  },
+  "061D": {
+   "name": "call_system_setup",
+   "comment": "Far call F000:0100 = system BIOS SETUP entry."
+  },
+  "1624": {
+   "name": "miser_post_hook",
+   "comment": "API 10h. POST code 90h; reads resume magic from port 8Dh (1234h / 5678h) to decide cold POST vs resume-from-suspend continuation."
+  },
+  "1951": {
+   "name": "get_api_far_ptr",
+   "comment": "API 1Ch. Returns DX:AX = CS:002Ch (far pointer to the PM services entry)."
+  },
+  "1957": {
+   "name": "pm_services_body",
+   "comment": "Saves caller SS:SP in DC00:1425, switches to private stack DF80:07FF, runs sub_5172."
+  },
+  "00CE": {
+   "name": "apm_int15_53_handler",
+   "comment": "API 28h. DS=DC00; sub_00F2 implements INT 15h AH=53h (APM 1.x) functions; RETF 2 discards caller flags like an interrupt return."
+  },
+  "18D7": {
+   "name": "pm_record_service",
+   "comment": "API 2Ch. AH & 0Fh selects one of 5 record accessors (table 18CD); AH>=5 returns AH=81h/86h error."
+  },
+  "0EAA": {
+   "name": "show_power_meter",
+   "comment": "API 30h body: open the private RAM window (chipset regs 200h/207h |= 0Fh), save the top 800 bytes of text page 0 (B800:0000) to C800:0000, draw the POWER METER box with INT 10h 13h (strings at 10EB/113B/118B/11DB, attribute 71h), read the battery gauge from port 1FFh (bits 1-5 -> 0..31, bar style 20h/30h/40h/50h by range), status line from chipset reg 12h bit0 ('Battery not installed') and reg 1 bit3 ('Running on AC power' / 'Running on battery power'), bar of 18h cells at row 1 col 37h, hold ~1000 x 65535 refresh toggles, restore the screen."
+  },
+  "057A": {
+   "name": "os_environment_check",
+   "comment": "API 34h, the system BIOS hot-key path: INT 2Fh AX=1600h (Windows enhanced mode running -> refuse), INT 15h AX=1022h veto hook, INT 2Fh AX=5400h/5401h (a resident switcher protocol: told BX=0100h before and 0103h after SETUP when it answers BL=3); then chipset_200_207_bit2_set, pm_smi_inhibit_set, setup_popup_run, chipset_200_207_bit2_clear, pm_smi_inhibit_clear."
+  },
+  "0A69": {
+   "name": "miser_presence_signature",
+   "comment": "AX := DF00h. Doubles as the private RAM segment value."
+  },
+  "1792": {
+   "name": "query_state_34",
+   "comment": "API 40h. DS=DC00; ZF = (byte [8Dh] == 34h)."
+  },
+  "17A4": {
+   "name": "miser_ram_init",
+   "comment": "API 48h (called from system POST F000:6CF0). Writes signature AA55h,20h at DC00:0000 then sub_135E."
+  },
+  "134A": {
+   "name": "open_private_ram",
+   "comment": "Best guess: enables access to the hidden DC00h/DF00h RAM window via chipset registers (always called before touching DC00:xxxx)."
+  },
+  "135E": {
+   "name": "close_private_ram",
+   "comment": "Best guess: counterpart of open_private_ram."
+  },
+  "00F2": {
+   "name": "apm_dispatch",
+   "comment": "INT 15h AH=53h body: AL>0Bh -> CF=1 (unsupported); else chipset reg 0Eh:=3E18h, open private RAM, call apm_function_table[AL], close RAM, chipset reg 0Eh:=3E10h."
+  },
+  "1338": {
+   "name": "chipset_reg_set_bits",
+   "comment": "AX=chipset register index (ports 24h/26h), DX=bit mask to set."
+  },
+  "1341": {
+   "name": "chipset_reg_clear_bits",
+   "comment": "AX=chipset register index, DX=bit mask to clear."
+  },
+  "12EA": {
+   "name": "chipset_reg_write",
+   "comment": "AX=chipset register index, BX=value."
+  },
+  "12E3": {
+   "name": "chipset_reg_read",
+   "comment": "AX=chipset register index -> BX=value (best guess from call sites)."
+  },
+  "12F1": {
+   "name": "chipset_reg_test",
+   "comment": "Test bits in a chipset register (loop in miser_post_hook waits for reg 1 bit 0)."
+  },
+  "5510": {
+   "name": "resume_b_body",
+   "comment": "Magic 5678h path: POST 55h, re-run miser_post_hook, POST 13h, then restart_post_resume_a."
+  },
+  "538D": {
+   "name": "resume_a_body",
+   "comment": "Magic 1234h path: chipset reg 1 |= 7, POST EEh, read CMOS 0Fh, restore DMA page registers from table 5520 (6 pairs), continue resume from suspend."
+  },
+  "5520": {
+   "name": "dma_page_restore_table",
+   "comment": "6 (port, value) byte pairs for DMA page registers 81h.. restored on resume."
+  },
+  "1FF7": {
+   "name": "cmos_read_field",
+   "comment": "AL = CMOS index, BL = bit mask: reads the byte and returns AH = (value & mask) shifted right to bit 0; ZF set when the field is zero. Used everywhere the module reads a SETUP option (PM level 42h, timeouts 44h/45h/4Ah/4Bh, display 5Eh, VersaPort 59h...)."
+  },
+  "3B40": {
+   "name": "pcmcia_card_detect",
+   "comment": "Intel 82365SL-compatible PCMCIA controller at 3E0h/3E1h: reads Interface Status of socket A (index 01h) and socket B (index 41h) and tests bits 2-3 (card detect CD1/CD2). Used before suspend/resume decisions."
+  },
+  "1A6F": {
+   "name": "pm_chipset_regs_from_config",
+   "comment": "Chipset reg 0Dh holds four 3-bit timeout fields: bits 10-12 := DC00:010B, bits 7-9 := 010C (System Sleep), bits 4-6 := 010D (Suspend), bits 1-3 := 010E (LCD Dim) - via chipset_reg_set_field."
+  },
+  "0F70": {
+   "name": "battery_gauge_read",
+   "comment": "Read port 1FFh twice until stable; level = (value >> 1) & 1Fh (0..31)."
+  },
+  "1265": {
+   "name": "str_running_on_battery",
+   "comment": "'Running on battery power'."
+  },
+  "127D": {
+   "name": "str_running_on_ac",
+   "comment": "'Running on AC power     '."
+  },
+  "124D": {
+   "name": "str_battery_not_installed",
+   "comment": "'Battery not installed   ' (24 chars) - POWER METER status line."
+  },
+  "122B": {
+   "name": "battery_bar_glyphs",
+   "comment": "Cell pattern for the battery gauge bar (Empty .. Full)."
+  },
+  "02AB": {
+   "name": "apm_07_set_power_state",
+   "comment": "BX must be 1 (all devices), CX = state <= 4. Requires DC00:000C bit 8 (connected) and bit 7 (PM enabled). Only CX=2 (suspend) is implemented: POST 71h/72h notifications (pm_event_notify), enter_suspend (sub_213D), flag bit 2 set, POST 70h. Other states -> error 04A9."
+  },
+  "0389": {
+   "name": "apm_0A_get_power_status",
+   "comment": "BX must be 1. Returns BH = AC line (chipset reg 1 bit 3 -> 1 online / 0 offline), BL = battery status (FFh unknown when chipset reg 12h bit 0 says no battery; 2 = low when reg 0 bits 12-13 set; 1 = low when percentage <= 25; else 0 = high), CL = battery life % = ((port 1FFh & 3Fh) x 80) / 51."
+  },
+  "040E": {
+   "name": "apm_0B_get_pm_event",
+   "comment": "Event word at DC00:000C (bit 7 = PM enabled gate). Battery-low detection: chipset reg 0 bits 12-13 and reg 9 bit 8, debounced 3 times via counter at DC00:000E -> sets event bit 4. Returns BX = 1 standby request, 2 suspend request, 3 normal resume, 4 critical resume, 5 battery low (lowest pending bit, then cleared); POST B1h; no event -> error 04B1."
+  },
+  "04D0": {
+   "name": "pm_event_notify",
+   "comment": "Notifies the state machine of the code in AL (POST codes 70h-72h, B1h are written to port 80h by the callers): best guess updates the DC00 event/state words and drives chipset registers."
+  },
+  "213D": {
+   "name": "enter_suspend",
+   "comment": "Suspend state machine (APM set-power-state CX=2 and internal time-outs). Chipset reg 6 |= 4000h, reg 200h |= 1F00h; abort paths on reg 0 bit 13, reg 9 bit 7 / reg 12h bit 9 (lid/AC conditions); video off through INT 10h 5F50h/5F51h (chained), PICs masked (save_pic_masks_and_mask_all); pcmcia_card_detect - a card present aborts to 0E03; deep path at 2340: save chipset reg 6, PIC masks, CMOS index, program regs 1/6/9/0Ch/11h, set 0000:0472 = far pointer E800:2478 (resume vector used by post_cold_entry), save SS:SP at DC00:118/11A, copy 3000:FE00 (512 bytes) and 3000:8000 (8 bytes) into DC00:28C/48C, device power-down (sub_1520/sub_521E/sub_497F), finally chipset reg 1 := (reg1 & 1FFFh) | A000h and HLT."
+  },
+  "04A5": {
+   "name": "apm_err_invalid_device",
+   "comment": "AH = 09h (unrecognised device ID)."
+  },
+  "04A9": {
+   "name": "apm_err_param",
+   "comment": "AH = 60h (parameter out of range) / not implemented."
+  },
+  "04B1": {
+   "name": "apm_err_no_event",
+   "comment": "AH = 80h (no PM events pending)."
+  },
+  "0489": {
+   "name": "apm_err_not_connected",
+   "comment": "AH = 03h (interface not connected)."
+  },
+  "0491": {
+   "name": "apm_err_disabled",
+   "comment": "AH = 0Ah / 0Bh (power management disabled)."
+  },
+  "2478": {
+   "name": "resume_entry",
+   "comment": "Reached from the system BIOS post_cold_entry via ljmp [0040:0072] when chipset reg 1 bit 8 reports a resume: DS=DC00, restore SS:SP from DC00:118/11A, jmp resume_continue (153A)."
+  },
+  "153A": {
+   "name": "resume_continue",
+   "comment": "Resume continuation after resume_entry (restores devices, video, PIC masks, returns to the interrupted code)."
+  },
+  "25A0": {
+   "name": "save_pic_masks_and_mask_all",
+   "comment": "DC00:123/124 := PIC1/PIC2 masks; mask all IRQs."
+  },
+  "25B3": {
+   "name": "restore_pic_masks",
+   "comment": "Restore PIC1/PIC2 masks from DC00:123/124."
+  },
+  "24F9": {
+   "name": "suspend_abort_restore",
+   "comment": "Suspend could not complete (sub_274B failed): restore PIC masks, chipset regs 0Eh/1, CMOS index, reg 6, sub_29EF, flag DC00:111 := 1."
+  },
+  "22D9": {
+   "name": "suspend_abort",
+   "comment": "Common abort: DC00:494 := 0, chipset reg 11h := 200h, reg 1 |= F7h, sub_1A43, sub_199F."
+  },
+  "22F7": {
+   "name": "standby_enter",
+   "comment": "Light sleep: DC00:494 := 1, chipset reg 0Dh via sub_1309 (1C00h, BL=4), reg 3 |= 1, reg 1 &= ~1C00h."
+  },
+  "1FEC": {
+   "name": "cmos_read",
+   "comment": "Read CMOS byte AL (port 70h index, 71h data) -> AH; AL preserved. (Earlier guess 'C&T extension register read' was wrong: the ports are 70h/71h.)"
+  },
+  "1FFE": {
+   "name": "cmos_write",
+   "comment": "Write AH to CMOS byte AL (ports 70h/71h)."
+  },
+  "07A6": {
+   "name": "install_activity_hooks",
+   "comment": "If PM initialised (query_state_34): IVT 09h/10h/15h/16h/21h/33h := MISER handlers stored at DC00:28/2C/30/34/38/3C (keyboard, video, system services, keyboard services, DOS, mouse) - the activity monitors that reset the LCD/HDD/system timers. Also forces 40:1A = 40:1C (flush keyboard buffer)."
+  },
+  "0761": {
+   "name": "restore_original_vectors",
+   "comment": "Restore INT 21h and INT 33h from the copies saved at DC00:20/24 and INT 10h from 40:1A - undo of install_activity_hooks."
+  },
+  "5684": {
+   "name": "std_find_partition",
+   "comment": "Save-to-disk: reset controller (sub_5738), INT 13h read MBR of drive 80h into SS:8Dh, check AA55h, scan the 4 partition entries for type A0h (PhoenixMISER); store start LBA (+8) at SS:50 and size (+0Ch) at SS:58, geometry heads/spt from the INT 41h table at SS:54/56; read the first two sectors of the partition through lba_to_chs and validate the good-space map (sub_5AFC). AX = 1..5 error code -> std_report_error."
+  },
+  "5AC9": {
+   "name": "lba_to_chs_int13",
+   "comment": "ESI = LBA within the MISER partition -> CH/CL/DH for INT 13h using heads (SS:54) and sectors/track (SS:56) from the drive parameter table; ES:BX buffer."
+  },
+  "5AFC": {
+   "name": "std_check_space_map",
+   "comment": "Validate the good-space-map sector at SS:8D: dword signature 54 69 6D 4F (TimO), byte 91 == 0, dword 95 == 0, and the 16-bit sum of the following FCh words must equal ~word 93. AX = 6 (map missing) or 7 (map corrupted) on failure."
+  },
+  "5738": {
+   "name": "std_reset_disk",
+   "comment": "Unmask IRQ14/IRQ2, pulse 3F6h bit 2 (controller reset), INT 13h AH=09h init params and AH=11h recalibrate on drive 80h; POST codes AAh/BBh on failure."
+  },
+  "57A1": {
+   "name": "std_report_error",
+   "comment": "Print the save-to-disk error box for code AX (1 reset, 2 read, 3 write, 4 partition table, 5 no MISER partition, 6-9 space map/internal/out of space) with the 'Please power-off' advice."
+  },
+  "2808": {
+   "name": "pm_state_dispatch",
+   "comment": "16 near pointers indexed by the event code in chipset reg 1 bits 4-7 (pm_state_run): 0 pm_state_default, 1 pm_evt_enter_suspend_alias, 2 pm_evt_ack_only, 3 pm_enter_suspend_state, 4 pm_evt_standby_or_suspend_timeout, 5 pm_evt_activity_wakeup, 6 pm_evt_lcd_dim, 7 pm_evt_fn_hotkey, 8 pm_evt_system_sleep, 9/0Ah default, 0Bh pm_enter_suspend_state, 0Ch pm_evt_reinit_timeouts, 0Dh default, 0Eh pm_evt_resume_irqs, 0Fh default."
+  },
+  "2009": {
+   "name": "cmos_write_field",
+   "comment": "AL = CMOS index, BL = mask, AH = new field value (right-aligned): shifts AH into the mask position and read-modify-writes the CMOS byte."
+  },
+  "202E": {
+   "name": "extract_masked_field",
+   "comment": "AH &= BL, then shift AH right by the number of trailing zero bits of the mask; ZF = field is zero."
+  },
+  "5581": {
+   "name": "cmos_test_field",
+   "comment": "DL = CMOS index, DH = mask: AL = masked field shifted to bit 0, ZF set when zero (same as cmos_read_field with the arguments in DX)."
+  },
+  "552C": {
+   "name": "reduced_resume_flag",
+   "comment": "ZF = (DF80:0030 == 0). Non-zero selects the short device-restore list (keyboard, floppy, serial only)."
+  },
+  "04FE": {
+   "name": "dev_init_list",
+   "comment": "NUL-terminated list of near pointers run by call_list_sum from miser_post_hook (16AD) at PM init: pm_clear_494, ram_window_remap_test, pm_flags_reset, activity_counters_clear, cmos_diag_probe, hd_pm_init, floppy_pm_init, save_com_lpt_ports, kbdpm_module_name_copy, save_int6d_vector, config_records_init, hd_init_stub, ret, save_hooked_vectors."
+  },
+  "051C": {
+   "name": "dev_suspend_list",
+   "comment": "Near pointers run (call_list_sum) when entering suspend (23FD): kbc_suspend_save, hd_suspend_standby, floppy_suspend, uart_lpt_suspend_save, pcmcia_suspend, lcd_suspend_off. The short list dev_suspend_list_short is used instead when CMOS 4Ch bit 4 is set."
+  },
+  "052A": {
+   "name": "dev_resume_list",
+   "comment": "Near pointers run on resume (24D4): kbc_resume_restore, ret_09A8, pcmcia_resume_versaport, hd_resume, floppy_resume, uart_lpt_resume_restore, resume_platform_byte_reg3. dev_resume_list_short is used when reduced_resume_flag is non-zero."
+  },
+  "053A": {
+   "name": "dev_suspend_list_short",
+   "comment": "kbc_suspend_save, floppy_suspend, uart_lpt_suspend_save."
+  },
+  "0542": {
+   "name": "dev_resume_list_short",
+   "comment": "kbc_resume_restore, floppy_resume, uart_lpt_resume_restore."
+  },
+  "054A": {
+   "name": "hd_init_stub",
+   "comment": "pusha; call hd_init_idle_timer; popa; ret (member of dev_init_list)."
+  },
+  "00C2": {
+   "name": "pm_flags_reset",
+   "comment": "DC00:000C := 0100h (APM flags: connected bit only), DC00:000E := 0 (battery-low counter)."
+  },
+  "0688": {
+   "name": "save_hooked_vectors",
+   "comment": "Copies the original IVT entries of INT 09h, 16h, 10h, 15h, 21h, 33h to DC00:0010/1C/14/18/20/24 before the activity hooks are installed."
+  },
+  "36F4": {
+   "name": "save_int6d_vector",
+   "comment": "IVT entry 6Dh (the VGA BIOS's own INT 10h entry) -> DC00:058E; chain_prev_vector_058E calls the video BIOS directly through it."
+  },
+  "38DE": {
+   "name": "save_com_lpt_ports",
+   "comment": "Copies the four COM base addresses 40:00-07 to DC00:05C2 and the three LPT bases 40:08-0D to DC00:05EA."
+  },
+  "390A": {
+   "name": "uart_lpt_suspend_save",
+   "comment": "For each COM port: save LCR (base+3) at DC00:05CA+4n, clear DLAB, save IER (base+1) at 05CB+4n and zero it, set DLAB and save divisor low/high at 05CC/05CD+4n, save MCR (base+4) at 05CE+4n. For each LPT: save control register (base+2) & 1Fh at 05F0+2n."
+  },
+  "3985": {
+   "name": "uart_lpt_resume_restore",
+   "comment": "Reverse of uart_lpt_suspend_save: reprogram divisor, LCR, IER and MCR of each UART and the control register of each LPT from the saved copies."
+  },
+  "2873": {
+   "name": "floppy_pm_init",
+   "comment": "DC00:0497 := equipment byte 40:10 bit 0 (floppy controller present)."
+  },
+  "2885": {
+   "name": "floppy_suspend",
+   "comment": "If a floppy is present: save chipset regs 81h/82h (the PicoPower shadow copies of the last DOR 3F2h and CCR 3F7h writes) at DC00:04A8/04AA, then DOR := 04h (controller enabled, motors off, DMA/IRQ gate off)."
+  },
+  "28AF": {
+   "name": "floppy_resume",
+   "comment": "Re-programs DMA channel 2 (dma_ch2_reinit) then restores DOR 3F2h and CCR 3F7h from the high bytes of the saved shadow registers."
+  },
+  "2975": {
+   "name": "dma_ch2_reinit",
+   "comment": "Writes 40h..43h to DMA1 mode register 0Bh (channels 0-3: single mode, verify) ... then DMA2 mode C0h (cascade) and unmask channel 4 via D4h. Restores the DMA controllers after a suspend."
+  },
+  "299C": {
+   "name": "hd_pm_init",
+   "comment": "DC00:04AC := number of hard disks 40:75. If any: BL = idle timer count from hd_idle_count_from_cmos -> 04AD; from the INT 41h FDPT (0:104) save sectors/track (+0Eh) at 04AE and heads (+2) at 04AF; issue ATA E3h IDLE with the timer count (ide_cmd_with_count)."
+  },
+  "29D7": {
+   "name": "hd_suspend_standby",
+   "comment": "If a hard disk is present: ATA E2h STANDBY with the timer count (spins the drive down before suspend)."
+  },
+  "29EF": {
+   "name": "hd_resume",
+   "comment": "If a hard disk is present: ide_soft_reset, ATA 91h INITIALIZE DEVICE PARAMETERS (BH = sectors/track, BL = heads-1 from the saved FDPT fields), ATA E3h IDLE with the timer count; then hd_set_idle_timer."
+  },
+  "2A1B": {
+   "name": "hd_standby_now",
+   "comment": "pusha; if a hard disk is present issue ATA E2h STANDBY with the CMOS-derived count; popa. Not referenced by the decoded code (spare entry)."
+  },
+  "2A31": {
+   "name": "ide_cmd_with_count",
+   "comment": "AH = ATA command, BH = sector count (1F2h), BL = drive/head (1F6h). Waits for ready via the alternate status 3F6h before each write, issues the command, waits up to 5 polls for IRQ14 in the PIC2 IRR (OCW3 0Ah on A0h, bit 6), then reads status 1F7h to clear it."
+  },
+  "2A93": {
+   "name": "ide_soft_reset",
+   "comment": "3F6h := 04h (SRST), one refresh-tick delay, 3F6h := 00h."
+  },
+  "2AAC": {
+   "name": "ide_wait_ready",
+   "comment": "Up to 5 reads of 3F6h until (status & C0h) == 40h (DRDY, not BSY)."
+  },
+  "2AC0": {
+   "name": "hd_init_idle_timer",
+   "comment": "dev_init_list member via hd_init_stub: if 40:75 says a disk is present, BL = hd_idle_count_from_cmos; if DC00:010F (PM level) is non-zero store it at 04AD; issue ATA E3h IDLE with that count and call hd_set_idle_timer."
+  },
+  "2AED": {
+   "name": "hd_idle_count_from_cmos",
+   "comment": "BL = ATA standby-timer count (units of 5 s) for the SETUP 'Hard Disk Sleep' value in CMOS 4Bh: 1->0Ch (1 min), 2->18h (2 min), 3->3Ch (5 min), 4->78h (10 min), 5->B4h (15 min), else 0. Returns 0 when CMOS 42h bits 0-1 (Power Management) = 0, or when it is 2 ('On For Battery') and chipset reg 1 bit 3 (AC adapter present) is clear."
+  },
+  "2B59": {
+   "name": "hd_set_idle_timer",
+   "comment": "Same CMOS 4Bh lookup as hd_idle_count_from_cmos, then writes the count to 1F2h and issues ATA E3h IDLE (drive spins down after the timer expires)."
+  },
+  "2BFE": {
+   "name": "hd_set_standby_timer",
+   "comment": "Same lookup, writes the count to 1F2h and issues ATA E2h STANDBY."
+  },
+  "2802": {
+   "name": "pm_clear_494",
+   "comment": "DC00:0494 := 0."
+  },
+  "2828": {
+   "name": "pm_state_run",
+   "comment": "Saves the PIC masks (DC00:0495/0496), reads the event code from chipset reg 1 bits 4-7 (mask F0h), maps index BL (5 -> 0Bh when DC00:0494 is set) into pm_state_dispatch and calls the entry; restores the masks."
+  },
+  "2860": {
+   "name": "pm_state_default",
+   "comment": "Chipset reg 6 |= 4000h, reg 1 |= F7h (default/no-op state entry)."
+  },
+  "1980": {
+   "name": "activity_counters_clear",
+   "comment": "DC00:0106-010A := 0 (five activity/timeout counters), then pm_timer_reload."
+  },
+  "199F": {
+   "name": "pm_timer_reload",
+   "comment": "Chipset reg 0 := 0788h (restarts the power-management timer, best guess)."
+  },
+  "19B1": {
+   "name": "pm_timer_check",
+   "comment": "Battery-level check: reads chipset reg 0; when bit 13 (battery low) is set the level is DC00:0109, when bit 12 (critical) is also set the larger of 0109/010A; a level of 7 forces enter_suspend (the battery-low action configured through config records 4/5, CMOS 46h)."
+  },
+  "19E2": {
+   "name": "activity_reset_irqs",
+   "comment": "Alias of pm_irq_reenable (sub_1F1D)."
+  },
+  "19E6": {
+   "name": "set_counter_106",
+   "comment": "DC00:0106 := BL; pm_timer_reload."
+  },
+  "19F2": {
+   "name": "set_counter_107",
+   "comment": "DC00:0107 := BL; pm_timer_reload. Config record 2 handler (CMOS 43h bits 3-5)."
+  },
+  "19FA": {
+   "name": "set_counter_108",
+   "comment": "DC00:0108 := BL; pm_timer_reload. Config record 3 handler (CMOS 44h bits 3-5)."
+  },
+  "1A02": {
+   "name": "set_counter_109",
+   "comment": "DC00:0109 := BL; pm_timer_reload. Config record 4 handler (CMOS 46h bits 0-2)."
+  },
+  "1A0A": {
+   "name": "set_counter_10A",
+   "comment": "DC00:010A := BL; pm_timer_reload. Config record 5 handler (CMOS 46h bits 3-5)."
+  },
+  "1A12": {
+   "name": "cmos_diag_probe",
+   "comment": "DC00:010B-010D := 0, 010F := 1; if CMOS 0Eh bit 7 (RTC lost power) or CMOS 34h bit 7 is set, 010F := 0 (power management off after a CMOS loss); then pm_timeouts_apply."
+  },
+  "1A43": {
+   "name": "pm_timeouts_apply",
+   "comment": "Clears chipset reg 0Dh bits 1FFEh; if pm_level_active: DC00:0110 := 0, and when CMOS 44h bits 0-2 (System Sleep) are non-zero 0110 := 3 and 010C := 010D; then pm_chipset_regs_from_config."
+  },
+  "1EC3": {
+   "name": "pm_level_active",
+   "comment": "CF=1 when DC00:010F (PM level from CMOS 42h) is 1 (On Always), or is 2 (On For Battery) and chipset reg 1 bit 3 (AC present) is clear (running on battery); CF=0 otherwise."
+  },
+  "1309": {
+   "name": "chipset_reg_set_field",
+   "comment": "AX = register, DX = field mask, BL = value: read-modify-write of one chipset register field (value shifted into the mask)."
+  },
+  "1EE1": {
+   "name": "cfg_set_pm_level",
+   "comment": "Config record 0 (CMOS 42h bits 0-1): DC00:010F := BL, pm_timeouts_apply, pm_timer_reload."
+  },
+  "1EEC": {
+   "name": "cfg_set_counter_10B",
+   "comment": "Config record 6 (CMOS 43h bits 0-2): DC00:010B := 7 (value forced), pm_timeouts_apply."
+  },
+  "1EF6": {
+   "name": "cfg_set_system_sleep",
+   "comment": "Config record 7 (CMOS 44h bits 0-2, System Sleep): DC00:010C := BL, pm_timeouts_apply."
+  },
+  "1EFE": {
+   "name": "cfg_set_suspend_timeout",
+   "comment": "Config record 8 (CMOS 45h bits 0-2, System Suspend): DC00:010D := BL, pm_timeouts_apply."
+  },
+  "1F06": {
+   "name": "cfg_set_0C24",
+   "comment": "Config record 0Dh (CMOS 4Ch bit 4): DC00:0C24 := BL."
+  },
+  "1F0B": {
+   "name": "cfg_set_lcd_dim",
+   "comment": "Config record 0Eh (CMOS 4Ah bits 0-2, LCD Dim): DC00:010E := BL, pm_timeouts_apply."
+  },
+  "1F13": {
+   "name": "chipset_reg1_set_F7",
+   "comment": "Chipset reg 1 |= F7h."
+  },
+  "1F1D": {
+   "name": "pm_irq_reenable",
+   "comment": "PIC masks := B8h / 1Ch (IRQ0,1,2,6 and IRQ 8,9,13 enabled), then checks the PIC1 IRR; POST 61h on port 80h."
+  },
+  "1874": {
+   "name": "config_records_init",
+   "comment": "Builds the 15 x 8-byte device/configuration records at DC00:008E from the ROM table config_records (17BD). Each ROM entry: record index, CMOS index, bit mask, handler pointer, N, N encoded values (list A), N raw values (list B). Record layout: +0 current CMOS field (cmos_read_field), +1 N, +2 handler, +4 -> list A, +6 -> list B. Afterwards pm_record_service AH=1 and AH=3 are run for records 0..0Eh, which calls every handler with the current setting."
+  },
+  "17BD": {
+   "name": "config_records",
+   "comment": "SETUP option -> PM binding table (see config_records_init). Records: 0 CMOS 42h bits0-1 Power Management -> cfg_set_pm_level; 1 4Eh bit0 -> set_counter_106; 2 43h bits3-5 -> set_counter_107; 3 44h bits3-5 -> set_counter_108; 4 46h bits0-2 -> set_counter_109; 5 46h bits3-5 -> set_counter_10A; 6 43h bits0-2 -> cfg_set_counter_10B; 7 44h bits0-2 System Sleep -> cfg_set_system_sleep (A: 0,6,0Ah,12h,1Ah,22h,32h,42h = 4*minutes+2 for Off/1/2/4/6/8/12/16 min; B: 0-7); 8 45h bits0-2 System Suspend -> cfg_set_suspend_timeout (A: 0,16h,2Ah,3Eh,52h,7Ah,A2h,F2h = Off/5/10/15/20/30/40/60 min); 0Ah 4Bh byte Hard Disk Sleep -> hd_init_idle_timer (A: 0,6,0Ah,16h,2Ah,3Eh; B: 0,0Ch,18h,3Ch,78h,B4h ATA timer counts); 0Ch 42h bit6 -> (ret); 0Dh 4Ch bit4 -> cfg_set_0C24; 0Eh 4Ah bits0-2 LCD Dim -> cfg_set_lcd_dim. FFh ends the table."
+  },
+  "3708": {
+   "name": "lcd_suspend_off",
+   "comment": "dev_suspend_list member: lcd_panel_off."
+  },
+  "3712": {
+   "name": "resume_platform_byte_reg3",
+   "comment": "dev_resume_list member: restore_port1FF_from_cmos3F, then chipset reg 3 := 2EC0h (the value the system BIOS programs at POST, best guess)."
+  },
+  "385B": {
+   "name": "lcd_panel_off",
+   "comment": "Called from enter_suspend (21DF) and lcd_suspend_off: C&T extension register XR52 (3D6h/3D7h) bit 3 cleared (panel power, best guess: 0 = off), then CMOS 3Fh -> port 1FFh (platform byte, backlight/contrast bits)."
+  },
+  "3884": {
+   "name": "lcd_panel_on",
+   "comment": "If XR52 bit 3 is clear: clear chipset reg 200h bits 9/10, set XR52 bit 3 (panel power on), set reg 200h bits 9/10 again."
+  },
+  "38CA": {
+   "name": "restore_port1FF_from_cmos3F",
+   "comment": "CMOS 3Fh (platform configuration byte) -> port 1FFh, as post_53_platform_init does."
+  },
+  "3825": {
+   "name": "display_device_apply",
+   "comment": "CMOS 5Eh bits 6-7 (SETUP 'Display Device' CRT/LCD/both) -> INT 10h AX=5F51h (BL = 0/1/2, BH = 1; 3 -> BX=0101h) through the saved video BIOS vector, then a 10000-tick delay."
+  },
+  "3741": {
+   "name": "video_ext_12_9A_89",
+   "comment": "Calls the video BIOS with INT 10h AH=12h BL=9Ah, combines bits with the 3CCh (misc output) sync polarity, and writes back via AH=12h BL=89h. Both sub-functions are unimplemented in this C&T ROM (no-ops) - left over from another video BIOS."
+  },
+  "3799": {
+   "name": "video_int10_12",
+   "comment": "INT 10h AH=12h with BL from caller, via chain_prev_vector_058E (the saved INT 6Dh)."
+  },
+  "3803": {
+   "name": "video_ext_12_89_from_cmos4C",
+   "comment": "CMOS 4Ch bits 6-7 -> table 3821 -> INT 10h AH=12h BL=89h (no-op in this video BIOS)."
+  },
+  "379F": {
+   "name": "crtc_unlock_both",
+   "comment": "crtc_unlock_reg11 on 3D4h and 3B4h."
+  },
+  "37C7": {
+   "name": "crtc_lock_both",
+   "comment": "crtc_lock_reg11 on 3D4h and 3B4h."
+  },
+  "37EF": {
+   "name": "seq_clock_mode_12",
+   "comment": "Sequencer register 06h := 12h with the index restored (C&T extension unlock/clocking, best guess)."
+  },
+  "0AC1": {
+   "name": "kbc_cmd_A7_disable_aux",
+   "comment": "KBC command A7h (disable auxiliary device) via kbc_send_command_nowait."
+  },
+  "0AC7": {
+   "name": "kbc_cmd_A8_enable_aux",
+   "comment": "KBC command A8h (enable auxiliary device), then sub_0815."
+  },
+  "0AD0": {
+   "name": "kbc_send_command_nowait",
+   "comment": "Spin (CX=0..FFFF) until 64h bit 1 (input buffer full) clears, then write AL to 64h."
+  },
+  "09A9": {
+   "name": "kbd_led_state_from_bda",
+   "comment": "AL = 40:17 bits 4-6 >> 4 (LED state) -> sub_09BC (empty stub)."
+  },
+  "09BD": {
+   "name": "kbd_set_leds_retry",
+   "comment": "Up to 1000h attempts: EDh to 60h, wait for FAh ACK, then send the LED byte."
+  },
+  "09E1": {
+   "name": "bda_B9_bit7_set",
+   "comment": "40:B9 |= 80h (keyboard flag byte; INT 16h in progress marker, best guess)."
+  },
+  "09F0": {
+   "name": "popup_int16_service",
+   "comment": "Keyboard service used inside the pop-up (the BIOS INT 16h is not usable from the SMI context): AH=0 -> popup_wait_key_ascii, AH=1 -> ZF = key available (64h bit 0); RETF 2 (interrupt-style return, best guess installed as INT 16h while the pop-up runs)."
+  },
+  "0AEB": {
+   "name": "sb_dsp_speaker_off",
+   "comment": "Sound Blaster-compatible DSP at 220h: wait for write-ready (22Ch bit 7 clear, 4 tries) then DSP command D3h (speaker off) via sb_dsp_reset_wait_AA; finally writes FDh to 22Ch (vendor power-down command, best guess)."
+  },
+  "0B29": {
+   "name": "sb_dsp_reset",
+   "comment": "DSP command EFh (vendor), reset via 226h (1 then 0) with POST codes F1h-F4h on port 80h, waits for AAh on 22Ah (data-available = 22Ch bit 6 here)."
+  },
+  "0B75": {
+   "name": "delay_1M_loops",
+   "comment": "16 x 65520 empty loop iterations."
+  },
+  "0B85": {
+   "name": "sb_dsp_reset_wait_AA",
+   "comment": "Writes EFh to 22Ch, delays, waits for 22Ch bit 6, reads 22Ah and repeats until AAh is returned."
+  },
+  "0BAC": {
+   "name": "sb_dsp_busy_check",
+   "comment": "BL = FFh when the DSP write buffer stays busy (22Ch bit 7) or bit 2 is set, else 0."
+  },
+  "3B09": {
+   "name": "superio_read",
+   "comment": "Super I/O configuration read: index AL -> 26Eh, value from 26Fh -> AH."
+  },
+  "3B24": {
+   "name": "superio_write",
+   "comment": "Super I/O configuration write: index AL -> 26Eh, value AH -> 26Fh (written twice)."
+  },
+  "3B7E": {
+   "name": "chipset_reg0E_bit8",
+   "comment": "BL = 0: set chipset reg 0Eh bit 8; else clear it."
+  },
+  "3B95": {
+   "name": "rtc_alarm_int70_install",
+   "comment": "DC00:05F7 := 0 (not armed); IVT 70h := E800:int70_rtc_alarm_handler."
+  },
+  "3BAD": {
+   "name": "int70_rtc_alarm_handler",
+   "comment": "IRQ8 handler used while suspended: if DC00:05F7 is armed, INT 1Ah AH=01h sets the tick count from DC00:05F9/05FB, adds DC00:05F8 to the midnight counter 40:70, and clears the flag (private RAM opened/closed around the write)."
+  },
+  "3BE4": {
+   "name": "rtc_snapshot_date",
+   "comment": "Arms DC00:05F7 and stores the current date in binary: day -> 05FD, month -> 05FF, year + 100*century -> 0601 (rtc_read_date, BCD converted with AAM/AAD)."
+  },
+  "3C18": {
+   "name": "rtc_compute_elapsed_on_resume",
+   "comment": "date_to_elapsed_days (-> DC00:05F8) and time_to_ticks (-> 05F9/05FB) so int70_rtc_alarm_handler can set the clock after a suspend."
+  },
+  "3D44": {
+   "name": "rtc_read_date",
+   "comment": "Waits for UIP (CMOS 0Ah bit 7) clear, reads CMOS 07h day -> DL, 08h month -> DH, 09h year -> CL, 32h century -> CH (all BCD), re-checks UIP."
+  },
+  "3D75": {
+   "name": "rtc_read_time",
+   "comment": "Waits for UIP clear, reads CMOS 00h/02h/04h seconds/minutes/hours (BCD)."
+  },
+  "3A3B": {
+   "name": "pcmcia_suspend",
+   "comment": "82365SL-compatible controller: index 1Eh (Global Control) := 04h via 3E0h/3E1h."
+  },
+  "3A4B": {
+   "name": "pcmcia_resume_versaport",
+   "comment": "82365 Global Control (1Eh) := 02h, delay; then re-programs Super I/O registers 02h/03h/04h (26Eh/26Fh) according to CMOS 59h bits 0-1 (SETUP 'VersaPort Function': parallel / external floppy / EPP) and bit 2 (mode line)."
+  },
+  "2CA1": {
+   "name": "kbc_bda_segment",
+   "comment": "Word 0040h - segment of the BIOS data area (read via CS:)."
+  },
+  "2CA3": {
+   "name": "kbc_restore_offsets_ext",
+   "comment": "Word offsets from DC00:04C8 of saved bytes written back through kbc_ext_write_BD: 40h, 11h, 0Dh, 07h, 05h, 04h, 03h, FFFF end (used when the KBC has the extended RAM and the old firmware class)."
+  },
+  "2CA7": {
+   "name": "kbc_restore_offsets",
+   "comment": "Same list without the first two entries: 0Dh, 07h, 05h, 04h, 03h, FFFF."
+  },
+  "2CB1": {
+   "name": "kbc_ram_read_cmds",
+   "comment": "KBC 'read RAM byte n' commands saved/restored: 24h,25h,26h,2Ah-2Fh,32h-3Fh (23 bytes, FFh end); +40h gives the matching write command 6xh."
+  },
+  "2CC9": {
+   "name": "str_KeyboardPMSR",
+   "comment": "'KeyboardPMSR' - module name copied to DC00:04B0 at init."
+  },
+  "2CD9": {
+   "name": "kbdpm_module_name_copy",
+   "comment": "Copies str_KeyboardPMSR to DC00:04B0 (NUL-terminated). Member of dev_init_list."
+  },
+  "2CF5": {
+   "name": "kbdpm_stub_1",
+   "comment": "clc; ret (unused module entry)."
+  },
+  "2CF7": {
+   "name": "kbdpm_stub_2",
+   "comment": "clc; ret."
+  },
+  "2CF9": {
+   "name": "kbdpm_stub_3",
+   "comment": "clc; ret."
+  },
+  "2CFB": {
+   "name": "kbdpm_stub_4",
+   "comment": "clc; ret."
+  },
+  "2CFD": {
+   "name": "kbc_suspend_save",
+   "comment": "KeyboardPMSR save phase (dev_suspend_list). Progress trace words DC00:057F/0581/0583 get one bit per step. Steps: kbc_save_command_byte, kbc_probe_and_save_config, kbc_save_ram_bytes, kbc_save_password_or_reset, mouse_save_status, kbd_mouse_disable_scanning, kbc_save_ext_ram_80_FF, kbc_save_ram_regs_list, kbc_save_output_port, kbd_leds_off_and_powerdown. Save area DC00:04C0-057E."
+  },
+  "2D32": {
+   "name": "kbc_save_command_byte",
+   "comment": "Flush 60h; command 20h (read command byte) -> DC00:04C8 after ADh (disable keyboard) and A7h (disable aux)."
+  },
+  "2D52": {
+   "name": "kbc_probe_and_save_config",
+   "comment": "LED state from 40:17 bits 4-6 -> 04C5; defaults 04D0 := LEDs | 20h (scan set 2 bit), 04D1 := 2Bh (typematic), 04C0/04C1/04C2 := 0; then the probe chain kbc_probe_phoenix_version .. kbc_classify."
+  },
+  "2D98": {
+   "name": "kbc_probe_phoenix_version",
+   "comment": "Command A1h (Phoenix MultiKey: read firmware version) -> 04C3 and 04C0 bit 7; command CAh (read KBC mode byte): bit 0 = PS/2 (aux) mode -> 04C5 bit 7."
+  },
+  "2DE4": {
+   "name": "kbc_test_aux_interface",
+   "comment": "Command A9h (test aux interface); success -> 04C5 bit 7."
+  },
+  "2E10": {
+   "name": "kbc_probe_ext_ram_read",
+   "comment": "Command BAh (extended RAM read) answered -> 04C0 bit 6."
+  },
+  "2E3C": {
+   "name": "kbc_test_ext_ram_rw",
+   "comment": "B9h read -> 04C6; B8h write of the complement; B9h read back and compare -> 04C0 bit 5 (extended RAM writable)."
+  },
+  "2E9B": {
+   "name": "kbc_read_version_config",
+   "comment": "Commands D5h/D6h (D7h/D8h when the aux port is present): version word -> 04C3 (default 2480h), config bytes -> 04C1/04C2 (defaults 73h/80h)."
+  },
+  "2F0F": {
+   "name": "kbc_classify",
+   "comment": "04C1 bits 7/3/0 -> 04C0 bits 2/1/0; when the class is 1: version <= 155h -> 04C0 bit 4, <= 148h -> bit 3 (older firmware needs the extra restore steps)."
+  },
+  "2F76": {
+   "name": "kbc_save_ram_bytes",
+   "comment": "kbc_ext_read_BC of indexes 1..0Ah (1..14h when 04C1 bit 5) -> DC00:04C9..; index 2Ah via kbc_ext_read_BA -> 04D8 when 04C0 bit 3."
+  },
+  "2FBE": {
+   "name": "kbc_save_password_or_reset",
+   "comment": "With extended RAM: 9 bytes from index 04CE via kbc_ext_read_BA -> 04DF..04E7 (password buffer), index 1 & F7h written back with kbc_ext_write_BD. Otherwise kbc_keyboard_probe_FE."
+  },
+  "2FFA": {
+   "name": "kbc_keyboard_probe_FE",
+   "comment": "Sends FEh (resend) to the keyboard; if it answers: 04C9 bit 3, self-test AAh, then command byte := saved | 10h (keyboard disabled) | 20h when an aux device exists."
+  },
+  "3051": {
+   "name": "mouse_save_status",
+   "comment": "E9h (status request) via mouse_cmd: an E9h echo means wrap mode was active (04C5 bit 3; ECh resets it and the request is repeated); on FAh the three status bytes go to 04DC/04DD/04DE and 04C5 bit 4 is set. Defaults 00/02/64h."
+  },
+  "30B6": {
+   "name": "kbd_mouse_disable_scanning",
+   "comment": "F5h to the keyboard then ADh; with an aux device F5h via D4h then A7h."
+  },
+  "30E8": {
+   "name": "kbc_save_ext_ram_80_FF",
+   "comment": "128 bytes of KBC extended RAM 80h-FFh via kbc_ext_read_BA -> DC00:04FF-057E (when 04C1 bit 5)."
+  },
+  "310E": {
+   "name": "kbc_save_ram_regs_list",
+   "comment": "KBC RAM bytes read with the commands in kbc_ram_read_cmds -> DC00:04E8-04FE."
+  },
+  "3132": {
+   "name": "kbc_save_output_port",
+   "comment": "D0h read output port: keep bit 1 (A20), OR DDh -> 04C7; then D1h := DFh."
+  },
+  "3156": {
+   "name": "kbd_leds_off_and_powerdown",
+   "comment": "EDh 00h (all LEDs off). For a Phoenix KBC with 04C1 bit 4 and class != 5 without the old-firmware flag: command CBh (KBC low-power mode, best guess)."
+  },
+  "31AC": {
+   "name": "kbc_resume_restore",
+   "comment": "KeyboardPMSR restore phase (dev_resume_list). Progress words DC00:0585/0587/0589. Steps: kbc_self_test_and_disable, kbc_restore_output_port, kbc_restore_ext_ram_80_FF, kbc_restore_ram_regs_list, kbc_restore_ram_bytes, kbc_restore_B8_value, kbd_reset_retry, kbd_reset_second, mouse_reset, kbd_restore_state, mouse_restore_state, kbc_restore_password, kbc_restore_command_byte."
+  },
+  "31EC": {
+   "name": "kbc_self_test_and_disable",
+   "comment": "AAh self test, ADh, and A7h when an aux device exists."
+  },
+  "3215": {
+   "name": "kbc_restore_output_port",
+   "comment": "D1h := saved 04C7."
+  },
+  "3229": {
+   "name": "kbc_restore_ext_ram_80_FF",
+   "comment": "kbc_ext_write_BB of the 128 saved bytes."
+  },
+  "324E": {
+   "name": "kbc_restore_ram_regs_list",
+   "comment": "Writes the saved RAM bytes back with command | 40h (6xh = write RAM byte n)."
+  },
+  "3274": {
+   "name": "kbc_restore_ram_bytes",
+   "comment": "kbc_ext_write_BD of the bytes listed in kbc_restore_offsets_ext / kbc_restore_offsets (offsets from 04C8)."
+  },
+  "32BF": {
+   "name": "kbc_restore_B8_value",
+   "comment": "B8h := saved 04C6."
+  },
+  "32DE": {
+   "name": "kbd_reset_retry",
+   "comment": "Up to 3 x (5000-tick delay, FFh reset) until FAh; 04C5 bit 5 = keyboard answered; with an aux device F5h to the mouse; drains the output buffer."
+  },
+  "333E": {
+   "name": "kbd_reset_second",
+   "comment": "Second FFh: accepts FEh, AAh or FAh (+BAT byte), then F5h and ADh."
+  },
+  "338D": {
+   "name": "mouse_reset",
+   "comment": "FFh via mouse_cmd, accepts 00/AAh/FAh sequences, F5h, then A7h."
+  },
+  "33F4": {
+   "name": "kbd_restore_state",
+   "comment": "kbd_set_leds, kbd_set_scancode_set, kbd_set_typematic, kbd_enable_or_disable, then ADh."
+  },
+  "3416": {
+   "name": "kbd_set_leds",
+   "comment": "EDh + LED bits (saved 04D0 & 7 with extended RAM, else 04C5 & 7)."
+  },
+  "3441": {
+   "name": "kbd_set_scancode_set",
+   "comment": "F0h + (04D0 bits 4-5)."
+  },
+  "3471": {
+   "name": "kbd_set_typematic",
+   "comment": "F3h + 04D1."
+  },
+  "3497": {
+   "name": "kbd_enable_or_disable",
+   "comment": "F4h enable, or F5h when 04D0 bit 7 says scanning was disabled."
+  },
+  "34C0": {
+   "name": "mouse_restore_state",
+   "comment": "When the status was saved: mouse_set_stream_or_remote, mouse_set_scaling, mouse_set_resolution, mouse_set_sample_rate, mouse_enable_or_disable, mouse_set_wrap_mode; then A7h."
+  },
+  "34F4": {
+   "name": "mouse_set_stream_or_remote",
+   "comment": "F0h remote mode when status byte bit 6, else EAh stream mode."
+  },
+  "350D": {
+   "name": "mouse_set_scaling",
+   "comment": "E7h (2:1) when status bit 4, else E6h (1:1)."
+  },
+  "3526": {
+   "name": "mouse_set_resolution",
+   "comment": "E8h + saved resolution (04DD)."
+  },
+  "3537": {
+   "name": "mouse_set_sample_rate",
+   "comment": "F3h 0Ah, F3h 3Ch, then F3h + saved rate (04DE)."
+  },
+  "355C": {
+   "name": "mouse_enable_or_disable",
+   "comment": "F4h when status bit 5 (reporting enabled), else F5h."
+  },
+  "3575": {
+   "name": "mouse_set_wrap_mode",
+   "comment": "EEh when 04C5 bit 3."
+  },
+  "358C": {
+   "name": "kbc_restore_password",
+   "comment": "A5h (load password) followed by the NUL-terminated bytes from 04DF; then A6h (enable password) - or CCh when 04C1 bit 5 and 04D8 bit 1 - if 04C9 bit 3."
+  },
+  "35FD": {
+   "name": "kbc_restore_command_byte",
+   "comment": "60h := saved 04C8."
+  },
+  "3619": {
+   "name": "mouse_cmd",
+   "comment": "D4h then AH to the aux device; AL = reply byte."
+  },
+  "362B": {
+   "name": "kbc_ext_read_BA",
+   "comment": "B8h + AH (set extended RAM index), BAh -> AL."
+  },
+  "3644": {
+   "name": "kbc_ext_write_BB",
+   "comment": "B8h + AH, BBh + AL."
+  },
+  "3661": {
+   "name": "kbc_ext_read_BC",
+   "comment": "B8h + AH, BCh -> AL."
+  },
+  "367A": {
+   "name": "kbc_ext_write_BD",
+   "comment": "B8h + AH, BDh + AL."
+  },
+  "3697": {
+   "name": "kbc_flush_and_disable",
+   "comment": "kbc_flush_output, ADh, A7h."
+  },
+  "36A9": {
+   "name": "kbc_flush_output",
+   "comment": "Read 60h while 64h bit 0 is set; then wait for bit 1 clear."
+  },
+  "36BA": {
+   "name": "kbc_wait_input_empty",
+   "comment": "Spin until 64h bit 1 clears."
+  },
+  "36C3": {
+   "name": "kbc_wait_read",
+   "comment": "Spin until 64h bit 0, then AL = 60h."
+  },
+  "36CE": {
+   "name": "kbc_read_timeout",
+   "comment": "Wait up to CX refresh ticks for 64h bit 0; CF=0 AL = 60h, CF=1 AL=0 on timeout."
+  },
+  "36EB": {
+   "name": "delay_refresh_cx",
+   "comment": "CX x wait_refresh_toggles."
+  },
+  "13A4": {
+   "name": "smm_setup",
+   "comment": "dev_init_list member, POST 66h. CR0 |= CD|NW, INVD; chipset reg 2 |= 103h, reg 2 &= ~13h, reg 1 |= 103h open the SMRAM window (6000:8000 and 3000:8000 alias the same RAM; SMBASE starts at 30000h so the SMI entry is 3000:8000); writes a far jmp to smi_handler_first there; reg 1 |= F0h (SMI enable, best guess) and reg 6 bit 12 (software SMI trigger) fire two SMIs until the handler has cleared the jmp byte; POST 88h. Afterwards SMBASE = 60000h and the state-save template for std_rsm_cpu_reset lies at 6000:9000."
+  },
+  "1477": {
+   "name": "smi_handler_first",
+   "comment": "Runs in SMM after the first software SMI: 3000:8000 := 0 (acknowledge), state-save SMBASE slot (3000:FEF8) := 60000h, plants a far jmp to smi_handler_second at 6000:8000, RSM."
+  },
+  "14A2": {
+   "name": "smi_handler_second",
+   "comment": "Second SMI, now at SMBASE 60000h: acknowledge, plant far jmp to smi_handler_runtime, copy the 512-byte SMM state-save area 6000:FE00-FFFF to 6000:9000 (template reused by std_rsm_cpu_reset), patch its CS slot (91ACh = save-area FFACh) with E800, RSM."
+  },
+  "14D7": {
+   "name": "smi_handler_runtime",
+   "comment": "Runtime SMI handler (power-management events): INVD, CR0 cache off, DS=ES=DC00, SS:SP=6000:FD00; unless 40:B6 bit 7 (SMI handling inhibited) is set: open private RAM, pm_state_run (pm_state_dispatch on the event code), bda_B9_bit7_set, close; INVD; RSM."
+  },
+  "099B": {
+   "name": "bda_B6_bit7_test",
+   "comment": "ZF when 40:B6 bit 7 is clear. Bit 7 = power-management SMI handling inhibited (set by pm_smi_inhibit_set around the SETUP pop-up); smi_handler_runtime skips pm_state_run while it is set."
+  },
+  "4F5E": {
+   "name": "std_rsm_cpu_reset",
+   "comment": "CPU reset through RSM: with the SMRAM window open (chipset reg 103h bit 0 cleared) check the far jmp at 6000:8000; copy the SMM state template 6000:9000-91FF to 6000:FE00 with EIP slot (91F0h = FFF0h) := 49AFh (the instruction after the call in std_save_to_disk), chipset reg 6 := 4FFFh, reg 0 := 0, reg 1 := 20F7h, POST 99h, RSM -> execution continues at E800:49AF in a clean real-mode state. Returns AX=0 without resetting when the SMI handler is not installed."
+  },
+  "20CE": {
+   "name": "video_index_regs_snapshot",
+   "comment": "GC 0Ah := ECh (C&T extension unlock), reads GC index 92h -> DC00:0117, 80h -> 0116, and the index ports 3D4h/3CEh/3C4h -> 0113/0114/0115."
+  },
+  "206C": {
+   "name": "speaker_beep",
+   "comment": "Chipset reg 0 &= 88h (timers off), then toggles the speaker bit (61h bit 1) 500 times with 500-loop delays - the suspend/resume beep; restores reg 0."
+  },
+  "20A7": {
+   "name": "delay_500_loops",
+   "comment": "500 empty loop iterations."
+  },
+  "20AF": {
+   "name": "speaker_beep_n",
+   "comment": "AL beeps: speaker_beep, then a delay of 500*2 loops between beeps."
+  },
+  "4921": {
+   "name": "std_post_check",
+   "comment": "dev_init_list-time check run from miser_post_hook (173A) on the private stack: POST 50h; if CMOS 0Eh bit 6 (fixed-disk failure) is clear: POST 51h, DC00:0C24 := CMOS 4Ch bit 4 (a save-to-disk image is pending); when set, POST D1h and the CMOS bit is cleared again (one-shot) but 0C24 keeps it for std_resume_from_disk. POST D3h."
+  },
+  "497F": {
+   "name": "std_save_to_disk",
+   "comment": "Save-to-disk suspend, called from enter_suspend (2459) when DC00:0C24 = 1. Private stack DF80:07FF, chipset reg 200h |= 1C00h, std_rsm_cpu_reset, then: std_save_ivt_2k, video_index_regs_snapshot, std_detect_pic_vector_bases (POST 22h), save_int6d_to_ss10, vesa_save_state, std_save_dma_page_regs, std_save_chipset_regs, std_save_records, std_save_kbc_output_port, fpu_save_if_present, port61_save, speaker_off, cmos41_bit3_save, std_seek_0, std_save_video_memory, video_set_mode_3, std_draw_saving_box; stage 0 writes base RAM 0000-9FFFF (10 x 64 KB), stage 3 writes C0000-FFFFF (4 x 64 KB), stage 1 writes extended memory in 512 KB chunks copied down to 1000:0000 in unreal mode (std_memory_size, enter_unreal_mode, std_next_chunk), stage 2 writes the 64 KB SMRAM at 6000:0000; std_draw_done_box; CMOS 58h bit 7 := 1 (image valid - the system BIOS reads the same bit as Quick Boot), checksum, chipset reg 0Eh, hd_suspend_standby, speaker_beep, regs 200h/207h := 80h (private RAM stays open), port 8Dh := 1234h (resume magic), reg 7 |= 18h, reg 1 |= AF00h, HLT."
+  },
+  "4B6D": {
+   "name": "std_resume_from_disk",
+   "comment": "Called from miser_post_hook (1741): needs DC00:0C24 = 1, CMOS 0Eh bit 6 clear and CMOS 58h bit 7 set (cmos58_bit7_read); clears the bit, pic_mask_all, DF80:0030 := 1 (resumed_from_disk_flag), chipset reg 0Dh := 0, std_draw_restoring_box, then reads the image back in the reverse order (extended memory at sector 900h, SMRAM, base RAM at 200h, C0000-FFFFF at 700h skipping the 2 KB of private stack at DF80:0000, video memory at 0), std_restore_video_memory, cmos41_bit3_restore, port61_restore, fpu_restore_if_present, vesa_restore_state, std_restore_chipset_regs, std_restore_kbc_output_port, std_restore_ivt_2k, std_restore_dma_page_regs, std_restore_records, sub_210B, jmp resume_entry."
+  },
+  "4820": {
+   "name": "std_header_sectors",
+   "comment": "AX = 100h: the image starts 200h sectors (2 x 100h) after the video-memory area - i.e. base RAM begins at sector 200h."
+  },
+  "4824": {
+   "name": "kbc_enable_a20",
+   "comment": "Output port D0h/D1h with bit 1 set."
+  },
+  "4861": {
+   "name": "std_restore_kbc_output_port",
+   "comment": "D1h := DC00:0C09."
+  },
+  "4887": {
+   "name": "std_save_kbc_output_port",
+   "comment": "D0h -> DC00:0C09."
+  },
+  "48B1": {
+   "name": "std_save_records",
+   "comment": "13 record values via pm_record_service AH=1 -> DC00:0C0A.. (word each), re-opening the private RAM (reg 207h bit 7) after every call."
+  },
+  "48E9": {
+   "name": "std_restore_records",
+   "comment": "pm_record_service AH=3 for the 13 saved record values."
+  },
+  "4742": {
+   "name": "vesa_save_state",
+   "comment": "INT 10h AX=4F04h DL=1 CX=0Fh ES:BX=DC00:0609 (VESA save state); if unsupported INT 10h AX=1C01h CX=7 (VGA save state) through the video BIOS vector."
+  },
+  "476E": {
+   "name": "vesa_restore_state",
+   "comment": "INT 10h AX=4F04h DL=2 (or AX=1C02h) from DC00:0609."
+  },
+  "479A": {
+   "name": "std_save_video_memory",
+   "comment": "INT 10h mode 90h (mode 10h without clearing memory), ATC index 0 (screen off), then for planes 3..0: GC 04h (read map select) := plane and std_write_sectors of A000:0000, 64 KB each -> 256 KB at sectors 0-1FFh."
+  },
+  "47CB": {
+   "name": "std_restore_video_memory",
+   "comment": "INT 10h mode 10h, ATC off, for planes 8,4,2,1: sequencer 02h (map mask) := plane and std_read_sectors into A000:0000."
+  },
+  "4802": {
+   "name": "video_set_mode_3",
+   "comment": "INT 10h AX=0003h via the saved video BIOS vector."
+  },
+  "480B": {
+   "name": "save_int6d_to_ss10",
+   "comment": "IVT 6Dh (video BIOS INT 10h entry) -> SS:0010 for chain_prev_vector_ss10."
+  },
+  "4D73": {
+   "name": "std_save_ivt_2k",
+   "comment": "0000:0000-07FF (IVT + first 1 KB) -> DC00:0C25."
+  },
+  "4D8C": {
+   "name": "std_restore_ivt_2k",
+   "comment": "DC00:0C25 -> 0000:0000 (2 KB: IVT and first BDA half)."
+  },
+  "4FD4": {
+   "name": "enter_unreal_mode",
+   "comment": "Builds a 2-entry GDT at SS:0031 (descriptor 08h = 4 GB data, base 0), LGDT, CR0.PE on, loads DS/ES with selector 08h, CR0.PE off (limits stay 4 GB), far jump back, LIDT of the real-mode IVT (limit 3FFh). Lets rep movsd with ESI/EDI reach extended memory."
+  },
+  "5052": {
+   "name": "unreal_gdt_template",
+   "comment": "16 bytes: null descriptor + 4 GB data descriptor (FFFF 0000 00 92 8F 00)."
+  },
+  "5062": {
+   "name": "realmode_idt_pseudo_descriptor",
+   "comment": "limit 03FFh base 0."
+  },
+  "5068": {
+   "name": "std_next_chunk",
+   "comment": "Remaining byte count at SS:002A: takes min(remaining, 80000h) as the next chunk, SS:002E := chunk/64 KB, ECX := chunk/4 (dwords); ECX=0 when done."
+  },
+  "50C3": {
+   "name": "std_save_chipset_regs",
+   "comment": "Chipset registers listed at 5144 (0101,0102,0300,0301,0304-0307,0200,0207,0201,0202,0002,0003,0012) -> DC00:1429.. (word each)."
+  },
+  "50E2": {
+   "name": "std_restore_chipset_regs",
+   "comment": "Writes the 15 saved words back to the registers of std_chipset_reg_list."
+  },
+  "5144": {
+   "name": "std_chipset_reg_list",
+   "comment": "15 chipset register indexes saved across save-to-disk, FFFF end."
+  },
+  "5100": {
+   "name": "std_save_dma_page_regs",
+   "comment": "DMA page registers 80h-8Fh -> DC00:1447 (16 bytes); then rewrites 81h-8Ch from the chipset shadow registers 201h-206h (std_dma_shadow_list) so the shadows and the hardware agree."
+  },
+  "512D": {
+   "name": "std_restore_dma_page_regs",
+   "comment": "8 words from DC00:1447 -> ports 80h,82h,..8Eh."
+  },
+  "5164": {
+   "name": "std_dma_shadow_list",
+   "comment": "Chipset registers 201h-206h: shadow copies of DMA page registers."
+  },
+  "5172": {
+   "name": "std_memory_size",
+   "comment": "Scans chipset bank registers 203h-206h: for each with bit 8 set, bits 0-5 = bank size code; keeps the largest (SS:0047/0048); bits 6-7 -> table 5203 (1,2,4,16) added; result << 4 = total memory in 64 KB units; SS:002A/002C := total bytes above 1 MB; AX = number of 512 KB chunks (0 = no extended memory)."
+  },
+  "5203": {
+   "name": "std_bank_size_table",
+   "comment": "1, 2, 4, 16 (MB multipliers for chipset reg 203h-206h bits 6-7)."
+  },
+  "5207": {
+   "name": "chipset86_cmos14_snapshot",
+   "comment": "Chipset reg 86h low byte -> DC00:1457; reads CMOS 14h."
+  },
+  "521E": {
+   "name": "std_detect_pic_vector_bases",
+   "comment": "POST 22h. Saves the IVT (1 KB) to DC00:0C25 and 5000:8000 (34h bytes) to 145E, installs the stub at 532B at 5000:8000 and points all 256 vectors at it with CS = 5000h+n (so the stub learns the vector number from CS); unmasks IRQ0 only and waits for a tick (DC00:1459, vector -> 145A), then IRQ8 only with the RTC periodic interrupt (CMOS 0Ah rate 3, 0Bh PIE) and waits (1458, vector -> 145B); restores CMOS 0Ah/0Bh, the IVT and 5000:8000. Result: the interrupt vector numbers the OS uses for IRQ0 and IRQ8."
+  },
+  "532B": {
+   "name": "std_vector_probe_stub",
+   "comment": "Copied to 5000:8000: push ax; POST 77h; first call sets DC00:1459 := 1 and 145A := CS low byte, later ones 1458 := 1 and 145B := CS low byte; EOI to both PICs; iret."
+  },
+  "535F": {
+   "name": "pic_init_std",
+   "comment": "ICW1 15h, ICW2 70h/08h, ICW3 02h/04h, ICW4 01h on both PICs, then pic_mask_all - the interrupt setup used while the image is written or read."
+  },
+  "5384": {
+   "name": "pic_mask_all",
+   "comment": "OCW1 := FFh on both PICs."
+  },
+  "555E": {
+   "name": "fpu_save_if_present",
+   "comment": "If DC00:1492 bit 1: FNSAVE -> DC00:1494."
+  },
+  "556C": {
+   "name": "fpu_restore_if_present",
+   "comment": "If DC00:1492 bit 1: port F0h (clear busy), FRSTOR from DC00:1494."
+  },
+  "559D": {
+   "name": "cmos_write_field_dx",
+   "comment": "DL = CMOS index, DH = mask, AL = field value: read-modify-write of the field."
+  },
+  "55D1": {
+   "name": "cmos_ext_checksum_update",
+   "comment": "Sums CMOS 40h-7Dh and stores the word at 7Eh/7Fh (Phoenix extended-CMOS checksum)."
+  },
+  "55F6": {
+   "name": "port61_save",
+   "comment": "Port 61h -> DC00:150C."
+  },
+  "55FE": {
+   "name": "port61_restore",
+   "comment": "Port 61h := DC00:150C."
+  },
+  "5606": {
+   "name": "speaker_off",
+   "comment": "Port 61h &= FCh."
+  },
+  "5611": {
+   "name": "cmos41_bit3_save",
+   "comment": "CMOS 41h bit 3 -> DC00:150D; chipset86_cmos14_snapshot."
+  },
+  "5622": {
+   "name": "cmos41_bit3_restore",
+   "comment": "Writes the saved bit back and updates the extended checksum."
+  },
+  "5633": {
+   "name": "cmos58_bit7_read",
+   "comment": "AL = CMOS 58h bit 7: set by std_save_to_disk when an image is on disk (the system BIOS reads the same bit as 'Quick Boot' and skips the POST tests)."
+  },
+  "563C": {
+   "name": "cmos58_bit7_write",
+   "comment": "CMOS 58h bit 7 := AL, then cmos_ext_checksum_update."
+  },
+  "564A": {
+   "name": "std_disk_setup",
+   "comment": "IVT 13h := F000:E3FE (ROM INT 13h entry), IVT 15h := F000:F859, IVT 76h := std_int76_stub; pic_init_std; std_find_partition (std_fatal on error); std_space_map_reverse."
+  },
+  "5BA0": {
+   "name": "std_int76_stub",
+   "comment": "IRQ14 handler during save/restore: 40:8E := FFh (disk interrupt flag), EOI both PICs, iret."
+  },
+  "5900": {
+   "name": "std_find_save2dsk_file",
+   "comment": "Scans 16 x 32-byte FAT directory entries at DS:BX for the name 'SAVE2DSKBIN' (SAVE2DSK.BIN): on a match the start cluster (+1Ah) is converted with sectors/cluster SS:005E, root/FAT geometry SS:005F/0061/0067/0089 and added to the partition base SS:0050 - the image can live in a file on a FAT partition instead of the A0h partition."
+  },
+  "59AD": {
+   "name": "std_error_delay",
+   "comment": "POST code AL on port 80h, ~512 x 64K loop delay, CF=1."
+  },
+  "59C0": {
+   "name": "std_read_sectors_mapped",
+   "comment": "ESI = logical sector, CL = count, ES:BX = buffer: std_map_lba splits the run at space-map boundaries, INT 13h AH=02h DL=80h per piece, progress via std_progress_update unless ES = A000; error code 8 (map) / 2 (read) -> std_fatal."
+  },
+  "5A35": {
+   "name": "std_write_sectors_mapped",
+   "comment": "Same with INT 13h AH=03h; error codes 9 / 3."
+  },
+  "5AAA": {
+   "name": "std_map_lba",
+   "comment": "Space map at SS:008D (8-byte entries: dword logical end, dword physical offset): finds the entry covering ESI, EBX = sectors left in the run, ESI := physical sector."
+  },
+  "5B46": {
+   "name": "std_space_map_reverse",
+   "comment": "Reverses the order of the used entries of the space map at SS:0095 (up to 3Fh entries, FFFFFFFF = unused)."
+  },
+  "5B95": {
+   "name": "std_fatal",
+   "comment": "POST EEh, std_show_error(AL), hang."
+  },
+  "5BB4": {
+   "name": "std_seek_0",
+   "comment": "Image position SS:0290 := 0, then std_disk_setup."
+  },
+  "5BC2": {
+   "name": "std_seek",
+   "comment": "SS:0290 := ECX (sector position in the image)."
+  },
+  "5BC9": {
+   "name": "std_read_sectors",
+   "comment": "CL sectors at the current position into ES:DI; position advanced."
+  },
+  "5BE5": {
+   "name": "std_write_sectors",
+   "comment": "CL sectors from ES:DI at the current position; position advanced."
+  },
+  "3E67": {
+   "name": "std_draw_saving_box",
+   "comment": "std_draw_frame then the box record 3DC7 ('Saving to disk')."
+  },
+  "3E73": {
+   "name": "std_draw_restoring_box",
+   "comment": "std_draw_frame then box record 3DDB ('Restoring')."
+  },
+  "3E7D": {
+   "name": "std_show_error",
+   "comment": "AL = error code 0-9 (>= 10 -> 0): draws box record 3DEF and the message from std_error_msg_ids[AL]; prints it centred."
+  },
+  "3EAA": {
+   "name": "std_draw_done_box",
+   "comment": "Box record 3E03."
+  },
+  "3EB6": {
+   "name": "std_draw_frame",
+   "comment": "Cursor off, attribute fill, frame records 3D9F/3DB3, the 'stage' string list 41E3 (id 30h), zeroes the six progress counters at SS:0000-000A and draws them."
+  },
+  "3F02": {
+   "name": "std_fill_screen",
+   "comment": "Fills the whole screen with attribute 07h (mono) / 03h from record 415E."
+  },
+  "3F1B": {
+   "name": "std_set_stage",
+   "comment": "SS:0000 := AL (0 base RAM, 1 extended, 2 SMRAM, 3 upper memory)."
+  },
+  "3F20": {
+   "name": "std_stage_counter_offsets",
+   "comment": "Word offsets 1,3,5,7 of the per-stage sector counters in SS:."
+  },
+  "3F28": {
+   "name": "std_progress_update",
+   "comment": "Adds CL sectors to the counter of the current stage and to the total (SS:0009); prints both with word_to_decimal_padded at the row from record 3DB3."
+  },
+  "3F81": {
+   "name": "debug_flag_table",
+   "comment": "16 SMM state-save offsets (ACh CS, A0h.., 9Ch, 98h, 94h, 90h, 0Ah.., 32h, 30h, 8Ch) followed by DEBUG-style flag mnemonics: bit 0Bh 'NV/OV', 0Ah 'UP/DN', 09h 'DI/EI', 07h 'PL/NG', 06h 'NZ/ZR', 04h 'NA/AC', 02h 'PO/PE', 00h 'NC/CY'."
+  },
+  "3FC9": {
+   "name": "debug_register_dump",
+   "comment": "Far-callable (RETF) register dump: pushad/pushfd, draws box record 3E17, prints the saved registers from the stack frame as hex and the flags with the DEBUG mnemonics from debug_flag_table. Development aid left in the ROM."
+  },
+  "4072": {
+   "name": "draw_box_3E2B",
+   "comment": "Draws box record 3E2B."
+  },
+  "4081": {
+   "name": "fill_screen_attr",
+   "comment": "AH = attribute: fills rows x cols with AX."
+  },
+  "4096": {
+   "name": "put_char_xy",
+   "comment": "Character AL at row DH col DL."
+  },
+  "409F": {
+   "name": "put_attr_xy",
+   "comment": "Attribute AH at row DH col DL."
+  },
+  "40AB": {
+   "name": "fill_words_xy",
+   "comment": "CX copies of AX (char+attr) from row DH col DL."
+  },
+  "40B8": {
+   "name": "put_string_attr_xy",
+   "comment": "CX characters from ES:DI with attribute AH."
+  },
+  "40CC": {
+   "name": "put_string_xy",
+   "comment": "CX characters from ES:DI, attributes untouched."
+  },
+  "40DE": {
+   "name": "fill_rect",
+   "comment": "CH rows x CL columns of AX from DH/DL."
+  },
+  "40F0": {
+   "name": "crtc_cursor_off",
+   "comment": "CRTC 0Ah := 1Fh (3D4h, or 3B4h in mode 7)."
+  },
+  "4103": {
+   "name": "is_video_mode_3",
+   "comment": "ZF = (40:49 == 3)."
+  },
+  "410E": {
+   "name": "is_color_text",
+   "comment": "ZF when 40:89 bit 2 is clear and the mode is 3 (colour text); used to pick the colour attribute set of a box record."
+  },
+  "411E": {
+   "name": "get_screen_dims",
+   "comment": "CL = columns (40:4A), CH = rows (40:84 + 1)."
+  },
+  "412E": {
+   "name": "video_addr_es_di",
+   "comment": "ES:DI = B800h (B000h unless mode 3) : (row DH x cols + col DL) x 2 + 40:4E."
+  },
+  "4159": {
+   "name": "ds_si_from_es_di",
+   "comment": "DS:SI := ES:DI."
+  },
+  "45EE": {
+   "name": "alloca_es_di",
+   "comment": "Allocates AX (rounded even) bytes on the caller's stack and returns ES:DI -> buffer (pops its own return address first)."
+  },
+  "45FF": {
+   "name": "strlen_es_di",
+   "comment": "CX = length of the NUL-terminated string at ES:DI."
+  },
+  "460F": {
+   "name": "count_lines_max_len",
+   "comment": "CX = number of NUL-terminated strings up to an empty one, BX = longest."
+  },
+  "462B": {
+   "name": "strchr_es_di",
+   "comment": "CX = index of AL in the string at ES:DI."
+  },
+  "463F": {
+   "name": "hex_byte_to_ascii",
+   "comment": "AL -> two hex digits + NUL at ES:DI."
+  },
+  "465F": {
+   "name": "hex_word_to_ascii",
+   "comment": "AX -> 4 hex digits at ES:DI (hex_byte_to_ascii twice)."
+  },
+  "466E": {
+   "name": "hex_dword_to_ascii",
+   "comment": "EAX -> 8 hex digits at ES:DI."
+  },
+  "4682": {
+   "name": "byte_to_decimal",
+   "comment": "AH -> right-aligned decimal (2 pad chars AL) at ES:DI."
+  },
+  "46B6": {
+   "name": "word_to_decimal_padded",
+   "comment": "AX -> 5-character right-aligned decimal at ES:DI (pad char BL, e.g. ' ')."
+  },
+  "4705": {
+   "name": "find_string_record",
+   "comment": "ES:DI = list of (id, length, text...) records terminated by id 0: returns DI -> text of the record with id AL (CF=1 and DI past the list when missing)."
+  },
+  "46FD": {
+   "name": "find_string_hook_1",
+   "comment": "returns AX=1 (stub)."
+  },
+  "4701": {
+   "name": "find_string_hook_2",
+   "comment": "returns AX=1 (stub)."
+  },
+  "4DA3": {
+   "name": "draw_box_record",
+   "comment": "ES:DI = box record: +0 flags (0400h/0800h position from the BDA cursor, 1000h/2000h size from the text, 4000h/8000h centre), +2 row, +3 col, +4 height, +5 width, +6..+9 mono attributes, +A..+D colour attributes, +E title string id, +10 body string id, +12 frame-character record id. Computes geometry (box_geometry), draws the frame (draw_frame_chars), the title centred on the top line and the body lines."
+  },
+  "4E04": {
+   "name": "box_geometry",
+   "comment": "From the record: CX = height/width (+2 for the frame, or measured from the body text), DX = row/col (centred or from the cursor), AX/BX = attributes for the current mode."
+  },
+  "4EB7": {
+   "name": "draw_frame_chars",
+   "comment": "Draws corners (+0..+3), horizontal (+4/+5) and vertical (+6/+7) characters of the frame record, then clears the interior with spaces."
+  },
+  "4F46": {
+   "name": "centre_col",
+   "comment": "DL = (screen columns - CL) / 2."
+  },
+  "4F52": {
+   "name": "centre_row",
+   "comment": "DH = (screen rows - CH) / 2."
+  },
+  "3D9F": {
+   "name": "std_box_records",
+   "comment": "Box records used by the save-to-disk screens: 3D9F/3DB3 frame + counters, 3DC7 saving, 3DDB restoring, 3DEF error, 3E03 done, 3E17 debug dump, 3E2B, 3E3F; then std_error_msg_ids at 3E53."
+  },
+  "3E53": {
+   "name": "std_error_msg_ids",
+   "comment": "10 string-record pointers for std_show_error codes 0-9."
+  },
+  "415E": {
+   "name": "std_string_records",
+   "comment": "String records (id, len, text) for the frames and messages: 415E frame characters, 41E3 stage names..."
+  },
+  "0550": {
+   "name": "setup_popup_from_smi",
+   "comment": "Runs SETUP from the SMI-created real-mode context (setup_context_entry): INT 15h AX=1022h BX=0 is a veto hook (a resident program answering BX!=0 blocks the pop-up); then chipset_200_207_bit2_set, pic_save_and_mask_for_popup, bda_popup_mark_set, setup_popup_run, pic_restore_masks_popup, chipset_200_207_bit2_clear."
+  },
+  "05F7": {
+   "name": "setup_popup_run",
+   "comment": "The pop-up SETUP sequence: kbc_cmd_A7_disable_aux, pic_save_and_mask_for_popup, port61_save_46_speaker_off, save_hooked_vectors_2, video_index_regs_snapshot, vga_state_save_c800, popup_park_video_memory, chipset_200_207_bit2_set, kbc_cmd_AE_enable_kbd, STI, lcall F000:0100 (call_system_setup), CLI, popup_restore_video_memory, vga_state_restore_c800, setup_changes_apply, install_activity_hooks, port61_restore_46, pic_restore_masks_popup, kbc_cmd_A8_enable_aux, hd_set_idle_timer."
+  },
+  "0656": {
+   "name": "chipset_200_207_bit2_set",
+   "comment": "Chipset regs 200h and 207h |= 4 (shadow RAM write enable for the pop-up, best guess)."
+  },
+  "066F": {
+   "name": "chipset_200_207_bit2_clear",
+   "comment": "Chipset regs 200h/207h &= FBh (end of the pop-up)."
+  },
+  "06DE": {
+   "name": "save_hooked_vectors_2",
+   "comment": "When the module is initialised (query_state_34): copies IVT 09h/16h/10h/15h/21h/33h to DC00:0028-003F (the slots the activity hooks chain to)."
+  },
+  "0815": {
+   "name": "kbc_flush_60",
+   "comment": "Read 60h while 64h bit 0 is set."
+  },
+  "0820": {
+   "name": "kbc_cmd_AE_enable_kbd",
+   "comment": "KBC command AEh (enable keyboard)."
+  },
+  "0825": {
+   "name": "pic_save_and_mask_for_popup",
+   "comment": "PIC masks -> DC00:0044/0045; then 21h := F9h (only IRQ1 and IRQ2), A1h := FEh (only IRQ8)."
+  },
+  "083D": {
+   "name": "pic_restore_masks_popup",
+   "comment": "PIC masks := DC00:0044/0045 saved by pic_save_and_mask_for_popup."
+  },
+  "0849": {
+   "name": "port61_restore_46",
+   "comment": "Port 61h := DC00:0046."
+  },
+  "084F": {
+   "name": "port61_save_46_speaker_off",
+   "comment": "Port 61h -> DC00:0046, speaker bits cleared."
+  },
+  "0859": {
+   "name": "vga_select_plane2_font",
+   "comment": "Sequencer 02h := 04h (map mask plane 2), 04h := 07h; GC 04h := 02h (read plane 2), 05h := 00h, 06h := 04h - makes the font plane visible at A000 for font_save_to_c800 / font_restore_from_c800."
+  },
+  "0878": {
+   "name": "vga_state_save_c800",
+   "comment": "INT 10h AX=1C01h CX=8007h ES:BX=C800:0800 through the video BIOS vector: saves the video state into the hidden RAM at C800 (the pop-up SETUP uses C800:0000-4FFF as scratch)."
+  },
+  "088E": {
+   "name": "vga_state_restore_c800",
+   "comment": "INT 10h AX=1C02h from C800:0800."
+  },
+  "08A4": {
+   "name": "font_save_to_c800",
+   "comment": "Plane 2 (GC 04h := 2) glyph rows A000:0000-2010 (16 bytes of every 32) -> C800:1EA0."
+  },
+  "08CE": {
+   "name": "font_restore_from_c800",
+   "comment": "Sequencer 02h := 04h; C800:1EA0 -> A000 plane 2."
+  },
+  "08F8": {
+   "name": "text_screen_save_c800",
+   "comment": "B800:0000 4000 bytes (80x25 text page) -> C800:0F00."
+  },
+  "0912": {
+   "name": "text_screen_restore_c800",
+   "comment": "C800:0F00 -> B800:0000 (4000 bytes): restores the text screen after the pop-up."
+  },
+  "092C": {
+   "name": "setup_changes_apply",
+   "comment": "40:B6 bit 6 (SETUP saved new settings) -> cleared together with bit 1; if it was set: display_device_apply, POST 4Eh, config_records_init, POST 4Fh."
+  },
+  "0954": {
+   "name": "bda_popup_mark_set",
+   "comment": "40:B6 |= 2 and 40:B7-B9 := 'P','o','p' (pop-up SETUP active marker)."
+  },
+  "0970": {
+   "name": "pm_smi_inhibit_set",
+   "comment": "40:B6 |= 80h: smi_handler_runtime ignores power-management events while set (used around the SETUP pop-up)."
+  },
+  "097D": {
+   "name": "pm_smi_inhibit_clear",
+   "comment": "40:B6 &= 7Fh; chipset reg 1 |= F7h."
+  },
+  "0A6D": {
+   "name": "kbc_cmd_byte_save_set_65",
+   "comment": "Reads the KBC command byte (20h) -> DC00:0047 and writes 65h (keyboard IRQ on, aux off, translate)."
+  },
+  "0A89": {
+   "name": "kbc_cmd_byte_restore",
+   "comment": "60h := saved DC00:0047; ebda_mouse_flags_clear."
+  },
+  "0A9F": {
+   "name": "ebda_mouse_flags_clear",
+   "comment": "EBDA (40:0E) byte 26h &= F8h (pointing-device packet state)."
+  },
+  "0AB1": {
+   "name": "kbc_flush_60_slow",
+   "comment": "Drains 60h with a refresh-tick delay between reads."
+  },
+  "0BE0": {
+   "name": "popup_park_video_memory",
+   "comment": "Before the pop-up SETUP: masks the PICs, saves the run-time patched disk table F000:E6B1 (64 bytes) and F000:FFEC (16 bytes) to DC00:0048/0088, screen off, chipset reg 200h := 0C8Fh and 207h |= 13BFh (shadow RAM at C000-FFFF writable), programs the sequencer/GC for planar 64 KB access and uses C&T XR0B/XR10 (bank select) to copy the four 64 KB video-memory banks into F000, D000, E000 and C000 (the RAM behind the ROM shadow), screen on, INT 10h AH=83h via the video BIOS vector."
+  },
+  "0CB8": {
+   "name": "popup_restore_video_memory",
+   "comment": "After SETUP: screen off, chipset reg 200h := 1FFFh, 207h := 80h, copies the banks back from D000/E000/C000 into video memory (XR10 bank select), then re-shadows the ROM (reg 200h &= ~137Fh, reg 207h |= 1300h, copies E000->E000 and F000->F000 to refresh the shadow RAM from ROM), restores the patched disk table from DC00:0048/0088 into F000:E6B1/FFEC, reg 200h |= 1F80h, reg 207h &= ~1F7Fh, screen on."
+  },
+  "0DC3": {
+   "name": "vga_screen_off_atc",
+   "comment": "Read 3DAh, ATC index := 00h (palette access, display off)."
+  },
+  "0DCE": {
+   "name": "vga_screen_on_atc",
+   "comment": "ATC := 20h (display on)."
+  },
+  "0DDA": {
+   "name": "copy_a000_to_di_64k",
+   "comment": "ES := DI, DS := A000 -> copy_64k_dwords."
+  },
+  "0DE4": {
+   "name": "copy_si_to_a000_64k",
+   "comment": "DS := SI, ES := A000 -> copy_64k_dwords."
+  },
+  "0DEB": {
+   "name": "copy_64k_dwords",
+   "comment": "rep movsd 4000h dwords DS:0 -> ES:0."
+  },
+  "0DF7": {
+   "name": "copy_32k_dwords",
+   "comment": "rep movsd 2000h dwords DS:0 -> ES:0."
+  },
+  "0104": {
+   "name": "apm_dispatch_body",
+   "comment": "Body of apm_dispatch (also reached from the far entries apm_dispatch_retf32 / apm_dispatch_retf): sets CF in the caller's flags for AL > 0Bh, else chipset reg 0Eh := 3E18h, open private RAM, call apm_function_table[AL], close, reg 0Eh := 3E10h."
+  },
+  "04D1": {
+   "name": "delay_A000_ticks",
+   "comment": "40960 refresh-tick delays."
+  },
+  "04DC": {
+   "name": "apm_dispatch_retf32",
+   "comment": "apm_dispatch_body then 32-bit RETF (protected-mode APM connection)."
+  },
+  "04E1": {
+   "name": "apm_dispatch_retf",
+   "comment": "apm_dispatch_body then RETF (16-bit connection)."
+  },
+  "04E5": {
+   "name": "apm_pm16_entry_thunk",
+   "comment": "Pushes a far return to 04FB (pop si/pop ds/retf) and to apm_dispatch_retf, sets DS = CS+8 (selector arithmetic for the 16-bit protected-mode APM entry), RETF."
+  },
+  "1295": {
+   "name": "stub_clc",
+   "comment": "clc; ret."
+  },
+  "1297": {
+   "name": "sb_dsp_vendor_check",
+   "comment": "Sound Blaster DSP: wait write-ready, command E7h, read 22Ah; CF=0 when the reply is 48h (vendor identification of the on-board codec, best guess)."
+  },
+  "1321": {
+   "name": "chipset_reg_merge_field",
+   "comment": "Helper of chipset_reg_set_field: (reg & ~mask) | (value & mask)."
+  },
+  "136C": {
+   "name": "smram_hide",
+   "comment": "Chipset reg 103h bit 0 := 1 (SMRAM at 6000:xxxx hidden, normal RAM visible)."
+  },
+  "137A": {
+   "name": "smram_expose",
+   "comment": "Chipset reg 103h bit 0 := 0 (SMRAM visible at 6000:xxxx for the handler set-up)."
+  },
+  "1389": {
+   "name": "chipset_reg10_wait_stable",
+   "comment": "pusha; reads chipset reg 10h until two consecutive reads agree twice; popa."
+  },
+  "1520": {
+   "name": "smm_state_backup_9400",
+   "comment": "Before suspend: SMM state-save area 6000:FE00 -> 6000:9400."
+  },
+  "1570": {
+   "name": "resume_smi_reentry",
+   "comment": "Planted SMI handler used by resume_continue: SS:SP := 6000:8000, clears the SMI trigger, re-plants smi_handler_runtime, restores the pre-suspend SMM state (9400 -> FE00), jmp resume_finish_rsm."
+  },
+  "248A": {
+   "name": "resume_finish_rsm",
+   "comment": "DS=DC00, SS:SP from DC00:0118/011A, POST code from 011C; DC00:028C (256 words) -> 3000:FE00 and DC00:048C (8 bytes) -> 3000:8000 (the OS-side SMM image saved at suspend), 40:72 := DC00:011F, chipset reg 1 |= ..., then RSM back into the interrupted OS context."
+  },
+  "25C0": {
+   "name": "pic_init_from_detected_bases",
+   "comment": "ICW1 11h, ICW2 from DC00:145A/145B (the vector bases found by std_detect_pic_vector_bases), ICW3 04h/02h, ICW4 01h, then masks all."
+  },
+  "25EE": {
+   "name": "chipset_reg2_field_clear_wait",
+   "comment": "POST 55h; clears reg 2 bits 0-9 and re-reads up to 300h times until they read 0."
+  },
+  "2621": {
+   "name": "stub_popf",
+   "comment": "pushf; popf; pops and returns (no-op tail of chipset_reg2_field_clear_wait)."
+  },
+  "2627": {
+   "name": "dma_controllers_reinit",
+   "comment": "DMA1 mode 0Bh := 40h..43h (single mode, verify, channels 0-3), DMA2 mode D6h := C0h (cascade ch4), D4h := 0 (unmask). Same code as dma_ch2_reinit."
+  },
+  "264E": {
+   "name": "smi_run_setup",
+   "comment": "SMI-time SETUP: save_pic_masks_and_mask_all, remembers the POST-code port value (DC00:011C), POST 55h, smi_rsm_to_setup_context (returns here only after SETUP has finished and the SMI has been re-entered), restore masks, pm_timer_reload, POST 56h."
+  },
+  "266D": {
+   "name": "smi_rsm_to_setup_context",
+   "comment": "Inside SMM: saves the current SMM state 6000:FE00 -> 9200, builds a template with EIP := setup_context_entry, remembers chipset reg 86h (9600), 40:B6-B9 (9601), SS:SP (9605/9607), plants smi_stub_rsm at 6000:8000, INVD, RSM -> the CPU wakes in real mode at setup_context_entry."
+  },
+  "26C3": {
+   "name": "setup_context_entry",
+   "comment": "Clean real-mode context created by RSM: DS=SS=DC00, SP=4000h, smram_expose, setup_popup_from_smi (runs SETUP), smram_hide, plants smi_return_from_setup_context at 6000:8000, smram_expose, enables SMI (reg 1 F0h) and fires a software SMI (reg 6 bit 12); hangs until it arrives."
+  },
+  "26F9": {
+   "name": "smi_return_from_setup_context",
+   "comment": "SMI handler that ends the pop-up: SS:SP from 9605/9607 (the stack smi_rsm_to_setup_context was called on), CMOS index restored, re-plants smi_handler_runtime, restores the original SMM state 9200 -> FE00 and 40:B6-B9, clears the SMI trigger, RET - which returns into smi_run_setup after its call."
+  },
+  "2740": {
+   "name": "smi_stub_rsm",
+   "comment": "invd; rsm."
+  },
+  "2745": {
+   "name": "idt_realmode_pseudo_2745",
+   "comment": "limit 03FFh base 0."
+  },
+  "274B": {
+   "name": "cpu_state_save_to_si",
+   "comment": "FNSAVE to [SI+E9h], EAX..EBP/ESP, CS/DS/ES/FS/GS/SS and CR0 into the record at DS:SI; zeroes DS/SS/ES/FS/GS and jumps to BX (the return address popped from the stack)."
+  },
+  "27A8": {
+   "name": "cpu_state_restore_from_si",
+   "comment": "Reverse of cpu_state_save_to_si: CR0 (if protected mode was on), segment registers, ESP, general registers, FRSTOR, then RET to the popped address."
+  },
+  "28DE": {
+   "name": "floppy_reset_and_sense",
+   "comment": "DOR := (40:3F motor bits rotated) | 08h (reset asserted), then | 0Ch (reset released, DMA on), 10 ticks, four FDC sense-interrupt commands (fdc_sense_interrupt) to clear the reset status."
+  },
+  "290E": {
+   "name": "fdc_sense_interrupt",
+   "comment": "Command 08h via fdc_write_cmd_byte, then 2 result bytes via fdc_read_results."
+  },
+  "2920": {
+   "name": "fdc_write_cmd_byte",
+   "comment": "Waits for RQM (3F4h bit 7); if DIO (bit 6) says the FDC has result bytes pending, drains 16 of them and returns CF=1; else writes AL to 3F5h."
+  },
+  "2938": {
+   "name": "fdc_drain_results",
+   "comment": "Reads 16 pending FDC result bytes (fdc_read_results CX=10h) and returns CF=1."
+  },
+  "2943": {
+   "name": "fdc_read_results",
+   "comment": "Up to CX result bytes from 3F5h (while RQM and DIO are set) -> DC00:0498."
+  },
+  "2961": {
+   "name": "fdc_wait_rqm",
+   "comment": "Waits (up to 65536 polls) for 3F4h bit 7."
+  },
+  "3A28": {
+   "name": "uart_clear_status",
+   "comment": "Reads LSR (+5), MSR (+6) and RBR (+0) of the UART at DX to clear pending status."
+  },
+  "3C21": {
+   "name": "ticks_constants",
+   "comment": "60 (minutes), 34DCh/0012h = 18.2065 ticks per second as a 16.16 fraction."
+  },
+  "3C27": {
+   "name": "time_to_ticks",
+   "comment": "BCD h:m:s from rtc_read_time -> seconds since midnight -> 18.2 Hz tick count in DC00:05F9 (low) / 05FB (high)."
+  },
+  "3C89": {
+   "name": "date_to_elapsed_days",
+   "comment": "Reads the date, stores day/month/year at DC00:0603/0605/0607 and computes the number of days elapsed since the snapshot in 05FD/05FF/0601 (month table days_per_month, leap years) -> 05F8."
+  },
+  "3CEF": {
+   "name": "days_per_month",
+   "comment": "0FFh pad then 31,28,31,30,31,30,31,31,30,31,30,31."
+  },
+  "3CFC": {
+   "name": "days_left_in_month",
+   "comment": "days_per_month[BX] - CX (+1 in a leap-year February)."
+  },
+  "3D0E": {
+   "name": "days_in_rest_of_year",
+   "comment": "Sum of days_per_month for months BX+1..12 (+1 leap day when BX <= 2)."
+  },
+  "3D2B": {
+   "name": "days_between_years",
+   "comment": "365 per year from DX to BX plus leap days."
+  },
+  "3D3D": {
+   "name": "leap_year_add",
+   "comment": "AX += 1 when DL & 3 == 0."
+  },
+  "37B0": {
+   "name": "crtc_unlock_reg11",
+   "comment": "CRTC 11h bit 7 := 0 (write-enable CRTC 0-7) at the base in DX, index restored."
+  },
+  "37D8": {
+   "name": "crtc_lock_reg11",
+   "comment": "CRTC 11h bit 7 := 1."
+  },
+  "210B": {
+   "name": "video_index_regs_restore",
+   "comment": "Restores 3D4h/3CEh/3C4h index registers and GC 80h/92h from DC00:0113-0117 (GC 0Ah := ECh unlock)."
+  },
+  "1F71": {
+   "name": "pm_irq_reenable_tail",
+   "comment": "Tail of pm_irq_reenable (falls in from the nop sled): chipset reg 12h |= 20h, POST 62h."
+  },
+  "1FB6": {
+   "name": "nop_sled_20",
+   "comment": "20 NOPs (settling delay)."
+  },
+  "1FCA": {
+   "name": "chipset_reg12_bit5_clear",
+   "comment": "Chipset reg 12h &= ~20h, 20 NOPs."
+  },
+  "1A9E": {
+   "name": "pm_evt_system_sleep",
+   "comment": "Event 8 (System Sleep timeout): refused (loc_0E03) when a PCMCIA card is present and DC00:0110 bit 3; else chipset reg 6 |= 80h, reg 2 &= ~13FFh, reg 1 := 20F7h (CPU clock slowed), reg 6 |= 4000h, reg 11h := 200h; unless state 0110 = 3: reg 0Dh field 380h := 010C (re-arm) and 0110 := 0; lcd_panel_off."
+  },
+  "1B07": {
+   "name": "pm_evt_activity_wakeup",
+   "comment": "Event 5 (activity after sleep): reg 6 |= 4000h, reg 2 &= ~13FFh, reg 6 &= ~80h, reg 1 := 9FF7h or 7FF7h (full speed) depending on bits 11/12, state 0110 reset unless 3; if 0111 bit 0 (disk was spun down) re-arm the drive (reg 3 bit 1, hd_set_idle_timer); reg 10h := 1, reg 6 &= ~4000h."
+  },
+  "1B99": {
+   "name": "pm_evt_standby_or_suspend_timeout",
+   "comment": "Event 4: with a PCMCIA card present -> refused (loc_0E03). State 0110 = 3 or 2 -> pm_enter_suspend_state. Otherwise first stage = standby: reg 0Dh field 380h := 010D (suspend timeout), 0110 := 2, hd_set_standby_timer (reg 3 bit 1 pulsed), reg 2 &= ~13FFh, reg 6 &= ~80h, reg 1 := 77F7h, reg 11h := 100h, reg 6 &= ~4000h, reg 10h := 0, lcd_panel_on."
+  },
+  "1C2F": {
+   "name": "pm_evt_fn_hotkey",
+   "comment": "Event 7 (Fn hot key reported in chipset reg 7 bits 8-10): 1 brightness up (+8 in CMOS 3Fh bits 3-7, max F0h), 5 brightness down (min 08h), 6 contrast up (bits 0-2 +1), 2 contrast down; the new byte goes to port 1FFh and CMOS 3Fh. Code 3 on battery with reg 0 bits 12-13 toggles reg 9-0Ch bit 8; codes 7/3 otherwise = volume up/down on the Sound Blaster DSP (command DEh reads the level 0-0Fh, DFh + level sets it). Acknowledges with reg 1 field F0h := 0Fh."
+  },
+  "1E34": {
+   "name": "pm_enter_suspend_state",
+   "comment": "Reg 6 |= 4000h, enter_suspend (via sub_04CD), reg 1 := 20F7h, speaker_beep."
+  },
+  "1E4D": {
+   "name": "pm_evt_lcd_dim",
+   "comment": "Event 6 (LCD Dim timeout): CMOS 3Fh with the contrast bits 0-2 cleared -> port 1FFh (panel dimmed), reg 1 |= F7h."
+  },
+  "1E62": {
+   "name": "pm_evt_reinit_timeouts",
+   "comment": "Event 0Ch: pm_timeouts_apply, pm_timer_reload, reg 1 |= F7h, battery-low counter DC00:000E := 0, chipset_regs9_C_bit8_set."
+  },
+  "1E80": {
+   "name": "chipset_regs9_C_bit8_set",
+   "comment": "Chipset regs 9, 0Ah, 0Bh, 0Ch |= 100h."
+  },
+  "1EA5": {
+   "name": "pm_evt_ack_only",
+   "comment": "Event 2: reg 1 |= F7h."
+  },
+  "1EA9": {
+   "name": "pm_evt_resume_irqs",
+   "comment": "Event 0Eh: pm_irq_reenable, reg 1 := FFF7h, reg 10h := 1."
+  },
+  "1EBF": {
+   "name": "pm_evt_enter_suspend_alias",
+   "comment": "Event 1: jmp pm_enter_suspend_state."
+  },
+  "15A6": {
+   "name": "chipset_init_triples",
+   "comment": "(value, mask, register) triples for run_triple_table until register FFFFh; 1612 is the sub-list used by miser_post_hook, the rest by resume/init paths."
+  },
+  "0A05": {
+   "name": "popup_wait_key_ascii",
+   "comment": "Waits for a make code on 60h, looks it up in popup_scancode_list (17 entries) and returns the matching ASCII from popup_ascii_list in AL (0 when unknown), AH = scancode."
+  },
+  "0A33": {
+   "name": "popup_scancode_list",
+   "comment": "17 scancodes: 02h-0Bh (1..0), 0Eh Backspace, 4Eh keypad +, 4Ah keypad -, 01h Esc, 39h Space, 0Dh =, 0Ch -."
+  },
+  "0A44": {
+   "name": "popup_ascii_list",
+   "comment": "'1234567890', 08h, '+', '-', 1Bh, ' ', '=', '-' (parallel to popup_scancode_list); followed by a second scancode/character pair list (48h/4Bh/4Dh/50h cursor keys, 3Eh-40h F4-F6, 45h, 52h Ins, 53h Del ...) for another key map."
+  },
+  "0E03": {
+   "name": "pm_card_present_toggle",
+   "comment": "Reached instead of sleeping/suspending while a PCMCIA card is inserted (from pm_evt_system_sleep, pm_evt_standby_or_suspend_timeout and enter_suspend): toggles DC00:0110 bit 3. Entering: reg 3 |= 3, hd_set_standby_timer, lcd_panel_on, reg 2 &= ~13FFh, reg 11h := 100h, reg 10h := 0, reg 6 := 303h, reg 0Dh := 800h (timeouts off), reg 1 |= F7h. Leaving: reg 11h := 200h, reg 2 &= ~13FFh, reg 6 := 4383h, reg 3 := 2EC0h (+bit 0 when stub_clc says so), reg 1 |= F7h, lcd_panel_off, pm_timeouts_apply."
+  },
+  "04CD": {
+   "name": "jmp_enter_suspend",
+   "comment": "jmp enter_suspend (near thunk used by pm_enter_suspend_state)."
+  },
+  "09A8": {
+   "name": "ret_09A8",
+   "comment": "ret (dev_resume_list placeholder)."
+  },
+  "09BC": {
+   "name": "led_hook_stub",
+   "comment": "ret."
+  },
+  "0AEA": {
+   "name": "ret_0AEA",
+   "comment": "ret (dev_init_list placeholder)."
+  },
+  "2EFA": {
+   "name": "kbc_read_version_config_tail",
+   "comment": "Second half of kbc_read_version_config (D6h/D8h: two config bytes -> 04C1/04C2)."
+  },
+  "35F5": {
+   "name": "kbc_restore_password_send",
+   "comment": "Tail of kbc_restore_password: sends the A6h/CCh command."
+  },
+  "3797": {
+   "name": "video_int10_12_bl9A",
+   "comment": "BL := 9Ah then video_int10_12."
+  },
+  "04BD": {
+   "name": "pm_request_event_bit0",
+   "comment": "If DC00:000C bit 7 (PM enabled): set event bit 0 (standby request) in DC00:000C."
+  },
+  "0789": {
+   "name": "install_popup_int16",
+   "comment": "When 40:B6 bit 1 (pop-up SETUP active): IVT 16h := E800:popup_int16_service - SETUP's keyboard service inside the SMI context."
+  },
+  "3772": {
+   "name": "video_ext_12_92_from_9A",
+   "comment": "INT 10h 12h/9Ah result bits 8-9 -> table 3780 -> INT 10h 12h BL=92h (video BIOS extension, no-op in this C&T ROM)."
+  },
+  "3784": {
+   "name": "video_ext_12_9A_bits_8_9",
+   "comment": "video_int10_12_bl9A, then BX := (AX bit 8) | (BX bit 9 >> 8)."
+  },
+  "376E": {
+   "name": "video_ext_tables_376E",
+   "comment": "02 03 00 01 / 02 00 01 02 - lookup tables for video_ext_12_9A_89 and video_ext_12_92_from_9A."
+  },
+  "4020": {
+   "name": "debug_register_dump_loop",
+   "comment": "Continuation of debug_register_dump: prints the flag mnemonics and register rows."
+  },
+  "553B": {
+   "name": "fpu_area_clear_and_equipment",
+   "comment": "Zeroes the FPU save area DC00:1494 (3Ch words) and copies the equipment word 40:10 to DC00:1492 (bit 1 = FPU present, tested by fpu_save_if_present)."
+  },
+  "5C02": {
+   "name": "apm_pm32_entry_thunk",
+   "comment": "32-bit (USE32) code that capstone's 16-bit decoder cannot show: pushes the return 5C26h (pop si / pop ds / retf) and apm_dispatch_retf32 (04DCh), DS := CS+10h (data selector), RETF - the APM 32-bit protected-mode entry."
+  },
+  "360F": {
+   "name": "kbdpm_stubs_360F",
+   "comment": "Five clc/ret stubs."
+  },
+  "1E27": {
+   "name": "pm_evt_ack_reg1",
+   "comment": "Acknowledge the SMI event: chipset reg 1 bits 4-7 := 0Fh (chipset_reg_set_field mask F0h)."
+  },
+  "0499": {
+   "name": "apm_err_06_alias",
+   "comment": "mov ah,06h; jmp - alternate error return (interface not connected) used by the APM handlers."
+  },
+  "04A1": {
+   "name": "apm_err_08_alias",
+   "comment": "mov ah,08h; jmp - alternate error return (interface not engaged)."
+  },
+  "04FB": {
+   "name": "apm_pm16_return_stub",
+   "comment": "pop si; pop ds; retf - return path pushed by apm_pm16_entry_thunk."
+  },
+  "0BD6": {
+   "name": "sb_dsp_busy_check_loop_tail",
+   "comment": "dec cx; jmp back into the poll loop (unreached alternate loop tail)."
+  },
+  "3737": {
+   "name": "video_ext_table_3737",
+   "comment": "02 02 00 01 - lookup for video_ext_12_9A_89."
+  },
+  "3821": {
+   "name": "video_ext_table_3821",
+   "comment": "01 00 03 02 - lookup for video_ext_12_89_from_cmos4C."
+  },
+  "544E": {
+   "name": "iret_stub",
+   "comment": "Single IRET used by resume_a_body to fill all 256 interrupt vectors while the resume code runs."
+  },
+  "560F": {
+   "name": "clc_ret_stub_560F",
+   "comment": "clc; ret."
+  },
+  "1EC2": {
+   "name": "ret_pad_1EC2",
+   "comment": "ret after the jmp of pm_evt_enter_suspend_alias (unreached)."
+  },
+  "3A27": {
+   "name": "ret_pad_3A27",
+   "comment": "ret pad."
+  },
+  "4FCF": {
+   "name": "hlt_after_rsm",
+   "comment": "HLT safety stop after the RSM loop of std_rsm_cpu_reset."
+  },
+  "5C29": {
+   "name": "zero_fill_tail",
+   "comment": "00h fill to the end of the 24 KB module (5C29-5FFF)."
+  }
+ },
+ "data": [
+  [
+   "0000",
+   "0003",
+   "option ROM header"
+  ],
+  [
+   "0004",
+   "0010",
+   "signature"
+  ],
+  [
+   "5520",
+   "552C",
+   "DMA page restore table"
+  ],
+  [
+   "2CA1",
+   "2CA3",
+   "kbc_bda_segment 0040h"
+  ],
+  [
+   "2CA3",
+   "2CB1",
+   "kbc_restore_offsets_ext / kbc_restore_offsets (words, FFFF end)"
+  ],
+  [
+   "2CB1",
+   "2CC9",
+   "kbc_ram_read_cmds (bytes, FFh end)"
+  ],
+  [
+   "2CD6",
+   "2CD9",
+   "NUL + pad after str_KeyboardPMSR"
+  ],
+  [
+   "17BD",
+   "1874",
+   "config_records table (see label)"
+  ],
+  [
+   "051A",
+   "051C",
+   "list terminator 0000"
+  ],
+  [
+   "0528",
+   "052A",
+   "list terminator 0000"
+  ],
+  [
+   "0538",
+   "053A",
+   "list terminator 0000"
+  ],
+  [
+   "0540",
+   "0542",
+   "list terminator 0000"
+  ],
+  [
+   "0548",
+   "054A",
+   "list terminator 0000"
+  ],
+  [
+   "3F81",
+   "3FC9",
+   "debug_flag_table"
+  ],
+  [
+   "3D9F",
+   "3E67",
+   "std_box_records + std_error_msg_ids"
+  ],
+  [
+   "5052",
+   "5068",
+   "unreal_gdt_template + realmode_idt_pseudo_descriptor"
+  ],
+  [
+   "5144",
+   "5172",
+   "std_chipset_reg_list + std_dma_shadow_list"
+  ],
+  [
+   "5203",
+   "5207",
+   "std_bank_size_table"
+  ],
+  [
+   "3F20",
+   "3F28",
+   "std_stage_counter_offsets"
+  ],
+  [
+   "2745",
+   "274B",
+   "idt_realmode_pseudo_2745"
+  ],
+  [
+   "3C21",
+   "3C27",
+   "ticks_constants"
+  ],
+  [
+   "3CEF",
+   "3CFC",
+   "days_per_month"
+  ],
+  [
+   "15A6",
+   "1624",
+   "chipset_init_triples"
+  ],
+  [
+   "0A33",
+   "0A69",
+   "popup_scancode_list / popup_ascii_list"
+  ],
+  [
+   "360F",
+   "3619",
+   "kbdpm_stubs_360F (clc; ret x5)"
+  ],
+  [
+   "376E",
+   "3772",
+   "video_ext_tables_376E"
+  ],
+  [
+   "3780",
+   "3784",
+   "video_ext_tables_376E (second table)"
+  ],
+  [
+   "415E",
+   "45EE",
+   "std_string_records"
+  ],
+  [
+   "5C01",
+   "5C29",
+   "apm_pm32_entry_thunk (32-bit code) + pad"
+  ],
+  [
+   "3737",
+   "373B",
+   "video_ext_table_3737"
+  ],
+  [
+   "3821",
+   "3825",
+   "video_ext_table_3821"
+  ],
+  [
+   "5C29",
+   "6000",
+   "zero_fill_tail"
+  ],
+  [
+   "0588",
+   "0589",
+   "nop alignment pad"
+  ],
+  [
+   "0598",
+   "0599",
+   "nop alignment pad"
+  ],
+  [
+   "05F4",
+   "05F5",
+   "nop alignment pad"
+  ],
+  [
+   "0B0F",
+   "0B10",
+   "nop alignment pad"
+  ],
+  [
+   "0BC8",
+   "0BC9",
+   "nop alignment pad"
+  ],
+  [
+   "0BD5",
+   "0BD6",
+   "nop alignment pad"
+  ],
+  [
+   "0DE3",
+   "0DE4",
+   "nop alignment pad"
+  ],
+  [
+   "0FBF",
+   "0FC0",
+   "nop alignment pad"
+  ],
+  [
+   "0FC6",
+   "0FC7",
+   "nop alignment pad"
+  ],
+  [
+   "0FCD",
+   "0FCE",
+   "nop alignment pad"
+  ],
+  [
+   "100D",
+   "100E",
+   "nop alignment pad"
+  ],
+  [
+   "1014",
+   "1015",
+   "nop alignment pad"
+  ],
+  [
+   "1708",
+   "1709",
+   "nop alignment pad"
+  ],
+  [
+   "1C79",
+   "1C7A",
+   "nop alignment pad"
+  ],
+  [
+   "1C7E",
+   "1C7F",
+   "nop alignment pad"
+  ],
+  [
+   "1C90",
+   "1C91",
+   "nop alignment pad"
+  ],
+  [
+   "1C95",
+   "1C96",
+   "nop alignment pad"
+  ],
+  [
+   "1CA1",
+   "1CA2",
+   "nop alignment pad"
+  ],
+  [
+   "1DC0",
+   "1DC1",
+   "nop alignment pad"
+  ],
+  [
+   "1E7F",
+   "1E80",
+   "nop alignment pad"
+  ],
+  [
+   "21E7",
+   "21E8",
+   "nop alignment pad"
+  ],
+  [
+   "22A5",
+   "22A6",
+   "nop alignment pad"
+  ],
+  [
+   "27BA",
+   "27BB",
+   "nop alignment pad"
+  ],
+  [
+   "2B21",
+   "2B22",
+   "nop alignment pad"
+  ],
+  [
+   "2B2D",
+   "2B2E",
+   "nop alignment pad"
+  ],
+  [
+   "2B39",
+   "2B3A",
+   "nop alignment pad"
+  ],
+  [
+   "2B45",
+   "2B46",
+   "nop alignment pad"
+  ],
+  [
+   "2B51",
+   "2B52",
+   "nop alignment pad"
+  ],
+  [
+   "2B9A",
+   "2B9B",
+   "nop alignment pad"
+  ],
+  [
+   "2BA6",
+   "2BA7",
+   "nop alignment pad"
+  ],
+  [
+   "2BB2",
+   "2BB3",
+   "nop alignment pad"
+  ],
+  [
+   "2BBE",
+   "2BBF",
+   "nop alignment pad"
+  ],
+  [
+   "2BCA",
+   "2BCB",
+   "nop alignment pad"
+  ],
+  [
+   "2BD6",
+   "2BD7",
+   "nop alignment pad"
+  ],
+  [
+   "2C3D",
+   "2C3E",
+   "nop alignment pad"
+  ],
+  [
+   "2C49",
+   "2C4A",
+   "nop alignment pad"
+  ],
+  [
+   "2C55",
+   "2C56",
+   "nop alignment pad"
+  ],
+  [
+   "2C61",
+   "2C62",
+   "nop alignment pad"
+  ],
+  [
+   "2C6D",
+   "2C6E",
+   "nop alignment pad"
+  ],
+  [
+   "2C79",
+   "2C7A",
+   "nop alignment pad"
+  ],
+  [
+   "2FF9",
+   "2FFA",
+   "nop alignment pad"
+  ],
+  [
+   "36E5",
+   "36E6",
+   "nop alignment pad"
+  ],
+  [
+   "3845",
+   "3846",
+   "nop alignment pad"
+  ],
+  [
+   "3AB8",
+   "3AB9",
+   "nop alignment pad"
+  ],
+  [
+   "3AD1",
+   "3AD2",
+   "nop alignment pad"
+  ],
+  [
+   "4A59",
+   "4A5A",
+   "nop alignment pad"
+  ],
+  [
+   "4BF8",
+   "4BF9",
+   "nop alignment pad"
+  ],
+  [
+   "4D0A",
+   "4D0B",
+   "nop alignment pad"
+  ],
+  [
+   "4F88",
+   "4F89",
+   "nop alignment pad"
+  ],
+  [
+   "56C1",
+   "56C2",
+   "nop alignment pad"
+  ],
+  [
+   "577F",
+   "5780",
+   "nop alignment pad"
+  ],
+  [
+   "5919",
+   "591A",
+   "nop alignment pad"
+  ],
+  [
+   "592C",
+   "592D",
+   "nop alignment pad"
+  ],
+  [
+   "593F",
+   "5940",
+   "nop alignment pad"
+  ],
+  [
+   "5952",
+   "5953",
+   "nop alignment pad"
+  ],
+  [
+   "5969",
+   "596A",
+   "nop alignment pad"
+  ]
+ ],
+ "strings": [
+  [
+   "0004",
+   "0010"
+  ],
+  [
+   "0050",
+   "00C2"
+  ],
+  [
+   "2CC9",
+   "2CD6"
+  ],
+  [
+   "10EB",
+   "1295"
+  ]
+ ],
+ "tables": [
+  {
+   "at": "00DA",
+   "count": 12,
+   "kind": "near_ptr",
+   "name": "apm_function_table",
+   "items": [
+    "apm_00_installation_check",
+    "apm_01_connect_real_mode",
+    "apm_02_connect_16bit_pm",
+    "apm_03_connect_32bit_pm",
+    "apm_04_disconnect",
+    "apm_05_cpu_idle",
+    "apm_06_cpu_busy",
+    "apm_07_set_power_state",
+    "apm_08_enable_disable_pm",
+    "apm_09_restore_defaults",
+    "apm_0A_get_power_status",
+    "apm_0B_get_pm_event"
+   ]
+  },
+  {
+   "at": "18CD",
+   "count": 5,
+   "kind": "near_ptr",
+   "name": "pm_subfn_dispatch_table",
+   "items": [
+    "pm_subfn_00",
+    "pm_subfn_01",
+    "pm_subfn_02",
+    "pm_subfn_03",
+    "pm_subfn_04"
+   ]
+  },
+  {
+   "at": "2808",
+   "count": 16,
+   "kind": "near_ptr",
+   "name": "pm_state_dispatch",
+   "func": true
+  },
+  {
+   "at": "04FE",
+   "count": 14,
+   "kind": "near_ptr",
+   "name": "dev_init_list",
+   "func": true
+  },
+  {
+   "at": "051C",
+   "count": 6,
+   "kind": "near_ptr",
+   "name": "dev_suspend_list",
+   "func": true
+  },
+  {
+   "at": "052A",
+   "count": 7,
+   "kind": "near_ptr",
+   "name": "dev_resume_list",
+   "func": true
+  },
+  {
+   "at": "053A",
+   "count": 3,
+   "kind": "near_ptr",
+   "name": "dev_suspend_list_short",
+   "func": true
+  },
+  {
+   "at": "0542",
+   "count": 3,
+   "kind": "near_ptr",
+   "name": "dev_resume_list_short",
+   "func": true
+  }
+ ],
+ "linear": []
+}
