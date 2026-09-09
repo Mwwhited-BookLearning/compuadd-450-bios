@@ -1,15 +1,4 @@
-# Proprietary ROM and everything generated from it (reproduces the firmware bytes)
-*.BIN
-*.bin
-disasm/*.asm
-src/*.asm
-patched/variants/
-
-# Build outputs, NASM, temp scripts
 build/
-
-# Downloaded third-party reference material (datasheets, disk images, XTIDE release zips)
 drv/
-
 __pycache__/
 *.pyc
