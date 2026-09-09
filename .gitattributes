@@ -1,0 +1,32 @@
+# Line endings: repository stores LF; working tree follows these rules on every platform.
+* text=auto
+
+# Scripts and generators run in WSL/Linux: never CRLF.
+*.sh   text eol=lf
+*.py   text eol=lf
+*.pl   text eol=lf
+makefile text eol=lf
+
+# XTIDE Universal BIOS source (patched/xtide/src): upstream Subversion keeps CRLF, so the
+# working copy stays byte-identical to the r638 checkout and diffs against upstream are clean.
+patched/xtide/src/**          text eol=crlf
+patched/xtide/src/**/makefile text eol=crlf
+patched/xtide/src/**/*.odt    binary
+patched/xtide/src/**/*.txt    text eol=crlf
+
+# Binaries.
+*.bin  binary
+*.BIN  binary
+*.exe  binary
+*.zip  binary
+*.pdf  binary
+*.odt  binary
+*.img  binary
+*.doc  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.torrent binary
+
+*.asm text eol=lf
+*.inc text eol=lf
