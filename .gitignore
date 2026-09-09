@@ -1,2 +1,4 @@
+build/
+drv/
 __pycache__/
-
+*.pyc

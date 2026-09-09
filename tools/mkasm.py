@@ -35,7 +35,7 @@ PREFIXES = ("rep ", "repe ", "repne ", "repz ", "repnz ", "lock ")
 
 
 def nasm_name(n):
-    n = re.sub(r"[^A-Za-z0-9_]", "_", n)
+    n = re.sub(r"[^A-Za-z0-9_.]", "_", n)
     if n[0].isdigit():
         n = "_" + n
     if n.lower() in RESERVED:
