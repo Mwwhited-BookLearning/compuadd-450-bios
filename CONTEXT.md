@@ -17,7 +17,8 @@ Owner's goals, in the order they were stated:
 1. Fully disassemble, name and document the ROM with maximum detail. **Done** (every routine and
    variable named, 0 % unclassified in all three modules).
 2. Add LBA support so the whole 4 GB CompactFlash card can be used (the Phoenix driver stops at 1 GB).
-   **Done as patched variants** using the XTIDE Universal BIOS (see section 4), not yet flashed.
+   **Done as patched variants** using the XTIDE Universal BIOS (see section 4); `xtide-setup` booted
+   successfully on the machine 2026-09-09 (no CF card attached yet, see section 4 and `docs/11`).
 3. A "new BIOS with relocatable call points, optimized", keeping all support, with the XTIDE LBA import,
    a SETUP page for XTIDE if the existing SETUP can be extended (done), a ROM BASIC if room (does not
    fit), and later a Wozmon-style ROM monitor (proposed, accepted in principle). **Relocatable build not
@@ -109,6 +110,16 @@ date and 36 reg,reg direction bits. Verified under Unicorn only: `test_xtide_app
 `emu_setup.py` shows the page, wrap-around, value cycling, exit menu, F4 writes `60h/61h` + checksum.
 SETUP guidance for the patched images: Hard Disk Type = Not Installed on page 1. Details: `docs/11`.
 
+**First hardware test (2026-09-09).** `xtide-setup` (built 2026-09-06) flashed to the spare chip, booted
+with no CF card attached: VGA/system BIOS banners normal, XTIDE banner and its `MODULE_HOTKEYS` boot bar
+(row 0, scrolls prior output down one row — expected, not a bug) appear at the right point in POST,
+`Master/Slave at 1F0h: not found` reported correctly, boot order fell through HDD -> floppy -> the
+standard F1/F2 prompt. With Hard Disk Type = Not Installed the autodetect boot delay is gone and SETUP
+reaches Page 3 of 3 correctly (an earlier test that looked like a missing page 3 / PgDn-resets-to-page-1
+bug turned out to be the `xtide` variant flashed instead of `xtide-setup`, which has no third page by
+design). Still untested: a CF card actually attached, F4 save applying on a real boot, save-to-disk.
+Log: `docs/11` "First hardware test".
+
 **Measured but not built.** A relocatable/optimized rebuild would save about 1.3 KB from encodings and
 0.5 KB from duplicated fragments; the value is consolidating the gaps into two blocks of ~6 KB and ~7 KB.
 Removing the Phoenix hard-disk driver (`7B5E-8598`, 2618 bytes contiguous, plus 424 bytes of autodetect
@@ -131,8 +142,9 @@ Microsoft ROM BASIC is 32 KB and cannot fit; a 2-4 KB Tiny BASIC or the monitor 
 
 ## 6. Open work, in the intended order
 
-1. **Flash test** of `xtide-setup` (owner, spare chip). Watch: XTIDE detects the CF card and boots,
-   Ctrl+Alt+S shows page 3, F4 saves and the next boot applies the values, save-to-disk still works.
+1. **Flash test** of `xtide-setup` (owner, spare chip). **Boot without a CF card and SETUP page 3
+   confirmed 2026-09-09** (`docs/11`). Still to watch: XTIDE detects the CF card and boots, F4 saves
+   and the next boot applies the values, save-to-disk still works.
 2. **Relocatable/optimized build** (`tools/mkreloc.py`, design surveyed in detail): label-ize address
    immediates and pointer tables; anchor the fixed addresses of section 2 with elastic `times`; optimize
    only the system-BIOS core `5800-FFFF` (SETUP segment, MISER and VGA stay at original encodings because

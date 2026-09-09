@@ -50,6 +50,16 @@ analysis, not the firmware:
    variants* below. `bash tools/build.sh` must print `IDENTICAL`, which proves the labels, sources and
    tools agree with your dump before anything else is trusted.
 
+   On Windows, "WSL" means an actual Linux distro registered under it (`wsl --install -d Ubuntu`), not
+   whatever happens to already be there — Docker Desktop registers its own `docker-desktop` WSL VM, which
+   has no `bash`/`python3`/`nasm` and cannot run these tools. `wsl -l -v` lists what's registered and marks
+   the default with `*`; `wsl --set-default Ubuntu` makes plain `bash`/`wsl` commands from `cmd.exe` or
+   PowerShell reach the right one. If a distro package manager also has a `nasm` (e.g. `apt install nasm`
+   pulls in whatever the distro currently ships, not 2.16.03), it's found via `PATH` *before* `build/nasm/`,
+   so a newer/older NASM there silently overrides the pinned build and can change the `db`-fallback ratio
+   `mkasm.py` picks (still byte-exact, just not matching the percentages recorded in the docs) — either
+   `apt remove nasm` or set `NASM=build/nasm/nasm-2.16.03/nasm.exe` explicitly to force the pinned one.
+
 ### Hardware documentation
 
 The teardown produced hardware notes that stand on their own, independent of the BIOS work:
@@ -199,8 +209,9 @@ Three images can be built from this folder, all from assembly, all reproducible:
 
 Options: `IDE_CONTROLLER_COUNT=2` (build XTIDE with both channels), `SKIP_GEN=1` (assemble the
 `.asm` in `patched/variants/` without regenerating them), `NASM=`, `PY=`. Details, risks and the
-SETUP page are in [docs/11-patched-rom.md](docs/11-patched-rom.md). None of the patched images has
-run on the machine yet; flash a spare chip.
+SETUP page are in [docs/11-patched-rom.md](docs/11-patched-rom.md). `xtide-setup` has booted on the
+machine (spare chip, no CF card attached yet); CF-card access and save-to-disk are still unverified —
+see "First hardware test" in [docs/11](docs/11-patched-rom.md#first-hardware-test-2026-09-09).
 
 ```plantuml
 @startuml
@@ -286,6 +297,29 @@ The exit menu (Esc) is unchanged; F4 saves and reboots, and the new values take 
 }
 @endsalt
 ```
+
+## Testing the patched images
+
+Nothing patched has run on real hardware; the only verification is under the Unicorn CPU emulator
+(`unicorn`, installed by `tools/setup-wsl.sh` alongside `capstone`). Both checks should pass before
+trusting a patched build enough to flash it to a spare chip:
+
+```
+~/.venv-bios/bin/python tools/test_xtide_apply.py      # must print ALL OK
+~/.venv-bios/bin/python tools/emu_setup.py build/patched/xtide-setup/rom.bin space pgdn pgdn down right esc f4
+```
+
+`test_xtide_apply.py` is a Unicorn unit test of `xtide_apply_cmos_config` (the routine that copies CMOS
+60h/61h into the ROMVARS shadow copy before the option-ROM scan): it checks the applied bytes, the
+recomputed checksum, the chipset shadow-RAM write-enable sequence, and that registers are preserved.
+
+`emu_setup.py ROM [keys...]` boots a built image under Unicorn with emulated INT 10h screen output, scripted
+INT 16h keypresses, and CMOS/chipset ports, printing the screen after each key — the same way the
+`xtide-setup` third SETUP page (shown above) was verified. Key names are the scripted keystrokes to send
+(`space`, `pgdn`, `down`, `right`, `esc`, `f4`, ...); it works against any built `rom.bin`, patched or not.
+
+Details, risks and the SETUP guidance for a patched image (Hard Disk Type = Not Installed on page 1) are in
+[docs/11-patched-rom.md](docs/11-patched-rom.md).
 
 ## Regenerating
 

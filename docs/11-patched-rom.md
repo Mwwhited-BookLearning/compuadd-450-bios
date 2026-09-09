@@ -7,8 +7,9 @@ image already has at offset `0E000h` (segment `EE00h`), make POST initialise it,
 variant, give it a page in the Phoenix SETUP so its settings can be changed without a rebuild.
 Everything is built from assembly: the re-assemblable Phoenix sources plus the XTIDE source tree.
 
-Status: **built and exercised under a CPU emulator, not yet run on the machine**. Flash to a spare
-ROM chip, keep the original.
+Status: **built and exercised under a CPU emulator; `xtide-setup` has now booted on the machine**
+(spare chip, 2026-09-09; see "First hardware test" below). CF-card drive access and the
+save-to-disk/PHDISK path are still unverified on hardware.
 
 ## The variants and how to build them
 
@@ -215,6 +216,34 @@ in the venv, done by `tools/setup-wsl.sh`):
 
 What the emulator does not cover: the chipset (register writes are recorded, not modelled), the
 pop-up path inside SMM, real drives. Those need the machine.
+
+### First hardware test (2026-09-09)
+
+`xtide-setup`, built from a `src/` regenerated on 2026-09-06 (`r638 (2026-09-06)` banner), was flashed to
+the spare chip and booted with no CF card attached (deliberately, to avoid any risk to the card's existing
+Ontrack Disk Manager MBR before the BIOS was confirmed stable). Observed, matching the emulator predictions:
+
+- VGA banner, system BIOS banner (`NBE BIOS For STN Panel.[94070501]`, CPU speed) unpatched and normal.
+- The XTIDE banner (`-=XTIDE Universal BIOS (386)=- @ EE00h`) prints after the "Press Ctrl+Alt+S" line, i.e.
+  the extended option-ROM scan hook fires at the right point in POST.
+- `MODULE_HOTKEYS` (enabled in `tools/build_xtide.sh`'s define list) draws a persistent boot-device bar
+  (`A»FDD [A]  C»HDD [C]  F6 ComDtct  F8 RomBoot`) on screen row 0 and scrolls everything printed before it
+  down by one row. This is expected XUB behaviour, not a screen-writing bug — easy to mistake for one since
+  the stock BIOS never reserves a row like this.
+- `Master at 1F0h: not found` / `Slave at 1F0h: not found` (correct, no drive attached), then the INT 19h
+  boot order fell through `Booting C»C` -> `Error 1h!` -> `Booting A»A` -> the standard Phoenix
+  `press F1 to retry boot, F2 for setup utility` prompt. The full scan-hook -> XUB init -> IDE detect ->
+  boot-order cascade -> graceful-failure chain works end to end.
+- SETUP: with **Hard Disk Type = Not Installed** (page 1) the boot-time IDE autodetect delay disappears
+  (the delay with `Auto` set and no drive present is `hd_autodetect` waiting out an IDENTIFY timeout, not a
+  bug). Page cycling on the `xtide-setup` build reaches **Page 3 of 3** ("XTIDE Hard Disk Setup")
+  correctly. An earlier test that appeared to have "no page 3" and PgDn "returning to page 1" turned out to
+  be the **`xtide` variant** flashed instead of `xtide-setup` — `xtide` has no third page, so PgDn wrapping
+  page 2 -> page 1 (`mod 2`) was correct behaviour for that build, not a defect.
+
+Still untested on hardware: a CF card actually attached (IDE detection succeeding, LBA/CHS reads, the
+third-page settings actually changing what XUB does), F4 save-and-reboot applying CMOS 60h/61h on a real
+boot, and the save-to-disk/PHDISK path.
 
 ## Phoenix SETUP settings to use with either variant
 
