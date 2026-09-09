@@ -1,4 +1,5 @@
-build/
+# build/
+build/nasm/
 drv/
 __pycache__/
-*.pyc
+# *.pyc
