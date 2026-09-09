@@ -5072,7 +5072,7 @@
     73 0000002B 0072                    	at	ROMVARS.szVersion,		db	"r"
     74 0000002D <bin 4h>                								db	ROM_VERSION_STRING
     75 00000031 28323032362D30392D-     								db	BUILD_DATE_STRING,NULL
-    75 0000003A 30362900           
+    75 0000003A 30392900           
     76                                  %ifdef MODULE_BOOT_MENU
     77                                  	at	ROMVARS.pColorTheme,	dw	ColorTheme				; Offset to the ATTRIBUTE_CHARS struc that holds the color theme
     78                                  %endif
